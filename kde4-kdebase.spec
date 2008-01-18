@@ -151,7 +151,7 @@ Summary(pl.UTF-8):   Pliki nagłówkowe potrzebne do tworzenia aplikacji KDE
 Summary(pt_BR.UTF-8):   Arquivos de inclusão para compilar aplicativos que usem bibliotecas do kdebase
 Group:		X11/Development/Libraries
 Requires:	%{name}-desktop-libs = %{epoch}:%{version}-%{release}
-Requires:	%{name}-libksgrd = %{epoch}:%{version}-%{release}
+#Requires:	%{name}-libksgrd = %{epoch}:%{version}-%{release}
 Requires:	kdelibs4-devel >= %{_minlibsevr}
 #Obsoletes:	kdebase-ksysguard-libs
 
@@ -515,6 +515,7 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d \
 	$RPM_BUILD_ROOT/etc/{X11,pam.d} \
+	$RPM_BUILD_ROOT/%{_datadir}/apps/kcontrol \
 	$RPM_BUILD_ROOT%{_libdir}/kde4/plugins/konqueror
 
 # Install miscleanous PLD files
@@ -548,7 +549,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n dolphin
 %defattr(644,root,root,755)
-%doc %{_kdedocdir}/en/dolphin/*
+%doc %{_kdedocdir}/en/dolphin
 %attr(755,root,root) %{_bindir}/dolphin
 %attr(755,root,root) %{_libdir}/libdolphinprivate.so.*
 %attr(755,root,root) %{_libdir}/kde4/dolphinpart.so
@@ -558,24 +559,28 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/dolphin_generalsettings.kcfg
 %{_datadir}/config.kcfg/dolphin_iconsmodesettings.kcfg
 %{_datadir}/config.kcfg/keditbookmarks.kcfg
+%dir %{_datadir}/apps/dolphin
 %{_datadir}/apps/dolphin/dolphinui.rc
-%{_datadir}/apps/dolphin/icons/hicolor/128x128/actions/preview.png
-%{_datadir}/apps/dolphin/icons/hicolor/16x16/actions/preview.png
-%{_datadir}/apps/dolphin/icons/hicolor/22x22/actions/preview.png
-%{_datadir}/apps/dolphin/icons/hicolor/32x32/actions/preview.png
-%{_datadir}/apps/dolphin/icons/hicolor/48x48/actions/preview.png
-%{_datadir}/apps/dolphin/icons/hicolor/64x64/actions/preview.png
-%{_datadir}/apps/dolphin/icons/oxygen/16x16/actions/view-file-columns.png
-%{_datadir}/apps/dolphin/icons/oxygen/22x22/actions/view-file-columns.png
-%{_datadir}/apps/dolphin/icons/oxygen/32x32/actions/view-file-columns.png
-%{_datadir}/apps/dolphin/icons/oxygen/48x48/actions/view-file-columns.png
-%{_datadir}/apps/dolphin/icons/oxygen/scalable/actions/view-file-columns.svgz
+%{_datadir}/apps/dolphin/icons
+#%{_datadir}/apps/dolphin/icons/hicolor/128x128/actions/preview.png
+#%{_datadir}/apps/dolphin/icons/hicolor/16x16/actions/preview.png
+#%{_datadir}/apps/dolphin/icons/hicolor/22x22/actions/preview.png
+#%{_datadir}/apps/dolphin/icons/hicolor/32x32/actions/preview.png
+#%{_datadir}/apps/dolphin/icons/hicolor/48x48/actions/preview.png
+#%{_datadir}/apps/dolphin/icons/hicolor/64x64/actions/preview.png
+#%{_datadir}/apps/dolphin/icons/oxygen/16x16/actions/view-file-columns.png
+#%{_datadir}/apps/dolphin/icons/oxygen/22x22/actions/view-file-columns.png
+#%{_datadir}/apps/dolphin/icons/oxygen/32x32/actions/view-file-columns.png
+#%{_datadir}/apps/dolphin/icons/oxygen/48x48/actions/view-file-columns.png
+#%{_datadir}/apps/dolphin/icons/oxygen/scalable/actions/view-file-columns.svgz
+%dir %{_datadir}/apps/dolphinpart
 %{_datadir}/apps/dolphinpart/dolphinpart.rc
 %{_desktopdir}/kde4/dolphin.desktop
 %{_datadir}/kde4/services/dolphinpart.desktop
 
 %files common-filemanagement
 %defattr(644,root,root,755)
+%dir %{_desktopdir}/kde4
 
 %files common-konsole
 %defattr(644,root,root,755)
@@ -598,6 +603,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/libkhtmlkttsdplugin.so
 %attr(755,root,root) %{_libdir}/kde4/libnsplugin.so
 
+%dir %{_datadir}/apps/konqueror
+%dir %{_datadir}/apps/kcontrol
+%dir %{_datadir}/apps/kcontrol/pics
 %{_datadir}/apps/kcontrol/pics/onlyone.png
 %{_datadir}/apps/kcontrol/pics/overlapping.png
 
@@ -693,7 +701,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n konqueror4
 %defattr(644,root,root,755)
-%doc %{_kdedocdir}/en/konqueror/*
+%doc %{_kdedocdir}/en/konqueror
 %attr(755,root,root) %{_bindir}/keditbookmarks
 %attr(755,root,root) %{_bindir}/keditfiletype
 %attr(755,root,root) %{_bindir}/kfmclient
@@ -732,6 +740,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/servicetypes/konqpopupmenuplugin.desktop
 %{_datadir}/kde4/servicetypes/terminalemulator.desktop
 %{_datadir}/kde4/servicetypes/uasprovider.desktop
+%dir %{_datadir}/kde4/services/useragentstrings
 %{_datadir}/kde4/services/useragentstrings/firefox15oncurrent.desktop
 %{_datadir}/kde4/services/useragentstrings/firefox20oncurrent.desktop
 %{_datadir}/kde4/services/useragentstrings/googlebot.desktop
@@ -803,40 +812,41 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/dbus-1/interfaces/org.kde.nsplugins.class.xml
 %{_datadir}/dbus-1/interfaces/org.kde.nsplugins.instance.xml
 %{_datadir}/dbus-1/interfaces/org.kde.nsplugins.viewer.xml
-%{_datadir}/apps/konqsidebartng/add/virtualfolderadd.desktop
-%{_datadir}/apps/konqsidebartng/add/webmodule_add.desktop
-%{_datadir}/apps/konqsidebartng/dirtree/bookmarks_module.desktop
-%{_datadir}/apps/konqsidebartng/dirtree/dirtree_module.desktop
-%{_datadir}/apps/konqsidebartng/dirtree/history_module.desktop
-%{_datadir}/apps/konqsidebartng/entries/.version
-%{_datadir}/apps/konqsidebartng/entries/bookmarks.desktop
-%{_datadir}/apps/konqsidebartng/entries/history.desktop
-%{_datadir}/apps/konqsidebartng/entries/home.desktop
-%{_datadir}/apps/konqsidebartng/entries/remote.desktop
-%{_datadir}/apps/konqsidebartng/entries/root.desktop
-%{_datadir}/apps/konqsidebartng/entries/services.desktop
-%{_datadir}/apps/konqsidebartng/kicker_entries/bookmarks.desktop
-%{_datadir}/apps/konqsidebartng/kicker_entries/history.desktop
-%{_datadir}/apps/konqsidebartng/kicker_entries/home.desktop
-%{_datadir}/apps/konqsidebartng/kicker_entries/remote.desktop
-%{_datadir}/apps/konqsidebartng/kicker_entries/root.desktop
-%{_datadir}/apps/konqsidebartng/kicker_entries/services.desktop
-%{_datadir}/apps/konqsidebartng/virtual_folders/remote/.directory
-%{_datadir}/apps/konqsidebartng/virtual_folders/remote/ftp/.directory
-%{_datadir}/apps/konqsidebartng/virtual_folders/remote/ftp/kde_ftp.desktop
-%{_datadir}/apps/konqsidebartng/virtual_folders/remote/ftp/pld_ftp.desktop
-%{_datadir}/apps/konqsidebartng/virtual_folders/remote/ftp/pld_nest_ftp.desktop
-%{_datadir}/apps/konqsidebartng/virtual_folders/remote/web/.directory
-%{_datadir}/apps/konqsidebartng/virtual_folders/remote/web/apps_web.desktop
-%{_datadir}/apps/konqsidebartng/virtual_folders/remote/web/dot_web.desktop
-%{_datadir}/apps/konqsidebartng/virtual_folders/remote/web/kde_web.desktop
-%{_datadir}/apps/konqsidebartng/virtual_folders/remote/web/look_web.desktop
-%{_datadir}/apps/konqsidebartng/virtual_folders/remote/web/pld_web.desktop
-%{_datadir}/apps/konqsidebartng/virtual_folders/services/.directory
-%{_datadir}/apps/konqsidebartng/virtual_folders/services/applications.desktop
-%{_datadir}/apps/konqsidebartng/virtual_folders/services/audiocd.desktop
-%{_datadir}/apps/konqsidebartng/virtual_folders/services/settings.desktop
-%{_datadir}/apps/konqsidebartng/websidebar/websidebar.html
+%{_datadir}/apps/konqsidebartng
+#%{_datadir}/apps/konqsidebartng/add/virtualfolderadd.desktop
+#%{_datadir}/apps/konqsidebartng/add/webmodule_add.desktop
+#%{_datadir}/apps/konqsidebartng/dirtree/bookmarks_module.desktop
+#%{_datadir}/apps/konqsidebartng/dirtree/dirtree_module.desktop
+#%{_datadir}/apps/konqsidebartng/dirtree/history_module.desktop
+#%{_datadir}/apps/konqsidebartng/entries/.version
+#%{_datadir}/apps/konqsidebartng/entries/bookmarks.desktop
+#%{_datadir}/apps/konqsidebartng/entries/history.desktop
+#%{_datadir}/apps/konqsidebartng/entries/home.desktop
+#%{_datadir}/apps/konqsidebartng/entries/remote.desktop
+#%{_datadir}/apps/konqsidebartng/entries/root.desktop
+#%{_datadir}/apps/konqsidebartng/entries/services.desktop
+#%{_datadir}/apps/konqsidebartng/kicker_entries/bookmarks.desktop
+#%{_datadir}/apps/konqsidebartng/kicker_entries/history.desktop
+#%{_datadir}/apps/konqsidebartng/kicker_entries/home.desktop
+#%{_datadir}/apps/konqsidebartng/kicker_entries/remote.desktop
+#%{_datadir}/apps/konqsidebartng/kicker_entries/root.desktop
+#%{_datadir}/apps/konqsidebartng/kicker_entries/services.desktop
+#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/.directory
+#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/ftp/.directory
+#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/ftp/kde_ftp.desktop
+#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/ftp/pld_ftp.desktop
+#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/ftp/pld_nest_ftp.desktop
+#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/web/.directory
+#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/web/apps_web.desktop
+#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/web/dot_web.desktop
+#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/web/kde_web.desktop
+#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/web/look_web.desktop
+#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/web/pld_web.desktop
+#%{_datadir}/apps/konqsidebartng/virtual_folders/services/.directory
+#%{_datadir}/apps/konqsidebartng/virtual_folders/services/applications.desktop
+#%{_datadir}/apps/konqsidebartng/virtual_folders/services/audiocd.desktop
+#%{_datadir}/apps/konqsidebartng/virtual_folders/services/settings.desktop
+#%{_datadir}/apps/konqsidebartng/websidebar/websidebar.html
 
 %files -n konqueror4-libs
 %defattr(644,root,root,755)
