@@ -152,7 +152,7 @@ Summary(pt_BR.UTF-8):   Arquivos de inclusão para compilar aplicativos que usem
 Group:		X11/Development/Libraries
 Requires:	%{name}-desktop-libs = %{epoch}:%{version}-%{release}
 Requires:	%{name}-libksgrd = %{epoch}:%{version}-%{release}
-Requires:	kdelibs-devel >= %{_minlibsevr}
+Requires:	kdelibs4-devel >= %{_minlibsevr}
 #Obsoletes:	kdebase-ksysguard-libs
 
 %description devel
@@ -185,7 +185,7 @@ Summary:	Common files for konsole and konsolepart
 Summary(pl.UTF-8):   Pliki wspólne dla konsole i konsolepart
 Group:		X11/Applications
 Requires(post,postun):	fontpostinst
-Requires:	kdelibs >= %{_minlibsevr}
+Requires:	kdelibs4 >= %{_minlibsevr}
 Obsoletes:	kdebase < 3.5.5
 Obsoletes:	kdebase-fonts
 
@@ -199,7 +199,7 @@ Schematy kolorów, ikony, czcionki oraz profile sesji dla konsole.
 Summary:	KDE Core Apps
 Summary(pl.UTF-8):   Podstawowe aplikacje KDE
 Group:		X11/Applications
-Requires:	kdelibs >= %{_minlibsevr}
+Requires:	kdelibs4 >= %{_minlibsevr}
 Requires:	sudo
 Requires:	xdg-menus
 Obsoletes:	kdebase < 8:3.5.5
@@ -303,7 +303,7 @@ Centrum informacji o systemie dla KDE.
 Summary:	Menu Updating Tool
 Summary(pl.UTF-8):   Narzędzie do aktualizacji menu
 Group:		X11/Applications
-Requires:	kdelibs >= %{_minlibsevr}
+Requires:	kdelibs4 >= %{_minlibsevr}
 Obsoletes:	kdebase =< 8:3.5.5
 
 %description kappfinder
@@ -318,7 +318,7 @@ menu.
 Summary:	A KDE version of dialog
 Summary(pl.UTF-8):   Wersja KDE dialogu
 Group:		X11/Applications
-Requires:	kdelibs >= %{_minlibsevr}
+Requires:	kdelibs4 >= %{_minlibsevr}
 Obsoletes:	kdebase < 8:3.5.5
 
 %description kdialog
@@ -412,17 +412,17 @@ Group:		X11/Applications
 %description -n dolphin
 Dolphin - KDE4 file manager.
 
-%package -n konqueror
+%package -n konqueror4
 Summary:	Konqueror - web browser and file manager
 Summary(pl.UTF-8):   Konqueror - przeglądarka WWW i zarządca plików
 Group:		X11/Applications
 Requires:	%{name}-common-filemanagement = %{epoch}:%{version}-%{release}
-Requires:	konqueror-libs = %{epoch}:%{version}-%{release}
+Requires:	konqueror4-libs = %{epoch}:%{version}-%{release}
 Provides:	wwwbrowser
 Obsoletes:	kdebase-konqueror
 Obsoletes:	kdebase-libkmultitabbar
 
-%description -n konqueror
+%description -n konqueror4
 Konqueror is the file manager for the K Desktop Environment. It
 supports basic file management on local UNIX filesystems, from simple
 cut/copy and paste operations to advanced remote and local network
@@ -441,7 +441,7 @@ Konqueror is a universal viewing application, capable of embedding
 read-only viewing components in itself to view documents without ever
 launching another application.
 
-%description -n konqueror -l pl.UTF-8
+%description -n konqueror4 -l pl.UTF-8
 Konqueror to zarządca plików dla środowiska KDE. Obsługuje podstawowe
 zarządzanie plikami w lokalnych uniksowych systemach plików, od
 prostych operacji wycinania/kopiowania i wklejania do zaawansowanego
@@ -461,22 +461,22 @@ Konqueror jest uniwersalną aplikacją do przeglądania, umożliwiającą
 osadzenie w niej komponentów do przeglądania aby oglądać dokumenty bez
 uruchamiania innej aplikacji.
 
-%package -n konqueror-libs
+%package -n konqueror4-libs
 Summary:	konqueror shared libraries
 Summary(pl.UTF-8):   Biblioteki współdzielone konquerora
 Group:		X11/Libraries
 Requires(post,postun):	/sbin/ldconfig
-Requires:	kdelibs >= %{_minlibsevr}
+Requires:	kdelibs4 >= %{_minlibsevr}
 Obsoletes:	kdebase-konqueror-libs
 Obsoletes:	kdebase-libkickermain
 Obsoletes:	kdebase-libkonq
 Obsoletes:	kdebase-libkonqsidebarplugin
 Obsoletes:	konqueror < 9:3.5.5
 
-%description -n konqueror-libs
+%description -n konqueror4-libs
 Konqueror shared libraries.
 
-%description -n konqueror-libs -l pl.UTF-8
+%description -n konqueror4-libs -l pl.UTF-8
 Biblioteki współdzielone konquerora.
 
 %prep
@@ -536,8 +536,8 @@ rm -rf $RPM_BUILD_ROOT
 %post	desktop-libs	-p /sbin/ldconfig
 %postun	desktop-libs	-p /sbin/ldconfig
 
-%post	-n konqueror-libs	-p /sbin/ldconfig
-%postun	-n konqueror-libs	-p /sbin/ldconfig
+%post	-n konqueror4-libs	-p /sbin/ldconfig
+%postun	-n konqueror4-libs	-p /sbin/ldconfig
 
 %files devel
 %defattr(644,root,root,755)
@@ -691,7 +691,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/kcm_useraccount.kcfg
 %{_datadir}/kde4/services/kcm_useraccount.desktop
 
-%files -n konqueror
+%files -n konqueror4
 %defattr(644,root,root,755)
 %doc %{_kdedocdir}/en/konqueror/*
 %attr(755,root,root) %{_bindir}/keditbookmarks
@@ -838,7 +838,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/konqsidebartng/virtual_folders/services/settings.desktop
 %{_datadir}/apps/konqsidebartng/websidebar/websidebar.html
 
-%files -n konqueror-libs
+%files -n konqueror4-libs
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libkonq.so.*.*.*
 %attr(755,root,root) %{_libdir}/libkonqsidebarplugin.so.*.*.*
