@@ -236,7 +236,7 @@ Requires:	kde-kgreet
 Requires:	kde-kside
 Requires:	kde-logoutpic
 Requires:	kde-splash-Default
-Requires:	konqueror = %{epoch}:%{version}-%{release}
+Requires:	konqueror4 = %{epoch}:%{version}-%{release}
 Requires:	pam >= 0.79.0
 Provides:	kdebase-kicker
 Obsoletes:	kde-decoration-plastik
@@ -275,7 +275,7 @@ Summary:	KDesktop libraries
 Summary(pl.UTF-8):   Biblioteki KDesktop
 Group:		X11/Libraries
 Requires(post,postun):	/sbin/ldconfig
-Requires:	konqueror-libs = %{epoch}:%{version}-%{release}
+Requires:	konqueror4-libs = %{epoch}:%{version}-%{release}
 Obsoletes:	kdebase-desktop < 9:3.5.5
 Obsoletes:	kdebase-kicker-libs
 
