@@ -142,7 +142,7 @@ Summary:	Include files to develop KDE applications
 Summary(pl.UTF-8):   Pliki nagłówkowe potrzebne do tworzenia aplikacji KDE
 Summary(pt_BR.UTF-8):   Arquivos de inclusão para compilar aplicativos que usem bibliotecas do kdebase
 Group:		X11/Development/Libraries
-Requires:	%{name}-desktop-libs = %{epoch}:%{version}-%{release}
+#Requires:	%{name}-desktop-libs = %{epoch}:%{version}-%{release}
 #Requires:	%{name}-libksgrd = %{epoch}:%{version}-%{release}
 Requires:	kdelibs4-devel >= %{_minlibsevr}
 #Obsoletes:	kdebase-ksysguard-libs
@@ -173,7 +173,7 @@ Wspólne katalogi KDE4.
 Summary:	Common files for konsole and konsolepart
 Summary(pl.UTF-8):   Pliki wspólne dla konsole i konsolepart
 Group:		X11/Applications
-Requires(post,postun):	fontpostinst
+#Requires(post,postun):	fontpostinst
 #Requires:	kdelibs4 >= %{_minlibsevr}
 
 %description common-konsole
@@ -255,8 +255,7 @@ skryptów powłoki.
 Summary:	KDE Find Tool
 Summary(pl.UTF-8):   Narzędzie do wyszukiwania plików dla KDE
 Group:		X11/Applications
-#Requires:	%{name}-core = %{epoch}:%{version}-%{release}
-#Obsoletes:	kfind
+Requires:	konqueror-libs = %{epoch}:%{version}-%{release}
 
 %description kfind
 A tool for find files for KDE.
@@ -329,20 +328,21 @@ funkcjonalność programu kdepasswd.
 %package -n dolphin
 Summary:	Dolphin - KDE4 file manager
 Summary(pl.UTF-8):   Dolphin - menadżer plików KDE4
+Requires:	konqueror-libs = %{epoch}:%{version}-%{release} 
 Group:		X11/Applications
 
 %description -n dolphin
 Dolphin - KDE4 file manager.
 
-%package -n konqueror4
+%package -n konqueror
 Summary:	Konqueror - web browser and file manager
 Summary(pl.UTF-8):   Konqueror - przeglądarka WWW i zarządca plików
 Group:		X11/Applications
-Requires:	%{name}-common = %{epoch}:%{version}-%{release}
-#Requires:	konqueror4-libs = %{epoch}:%{version}-%{release}
+#Requires:	%{name}-common = %{epoch}:%{version}-%{release}
+#Requires:	konqueror-libs = %{epoch}:%{version}-%{release}
 Provides:	wwwbrowser
 
-%description -n konqueror4
+%description -n konqueror
 Konqueror is the file manager for the K Desktop Environment. It
 supports basic file management on local UNIX filesystems, from simple
 cut/copy and paste operations to advanced remote and local network
@@ -361,7 +361,7 @@ Konqueror is a universal viewing application, capable of embedding
 read-only viewing components in itself to view documents without ever
 launching another application.
 
-%description -n konqueror4 -l pl.UTF-8
+%description -n konqueror -l pl.UTF-8
 Konqueror to zarządca plików dla środowiska KDE. Obsługuje podstawowe
 zarządzanie plikami w lokalnych uniksowych systemach plików, od
 prostych operacji wycinania/kopiowania i wklejania do zaawansowanego
@@ -381,17 +381,17 @@ Konqueror jest uniwersalną aplikacją do przeglądania, umożliwiającą
 osadzenie w niej komponentów do przeglądania aby oglądać dokumenty bez
 uruchamiania innej aplikacji.
 
-%package -n konqueror4-libs
+%package -n konqueror-libs
 Summary:	konqueror shared libraries
 Summary(pl.UTF-8):   Biblioteki współdzielone konquerora
 Group:		X11/Libraries
 Requires(post,postun):	/sbin/ldconfig
 #Requires:	kdelibs4 >= %{_minlibsevr}
 
-%description -n konqueror4-libs
+%description -n konqueror-libs
 Konqueror shared libraries.
 
-%description -n konqueror4-libs -l pl.UTF-8
+%description -n konqueror-libs -l pl.UTF-8
 Biblioteki współdzielone konquerora.
 
 %prep
@@ -429,7 +429,7 @@ rm -rf $RPM_BUILD_ROOT
 	kde_htmldir=%{_kdedocdir}
 
 install -d \
-	$RPM_BUILD_ROOT/%{_datadir}/apps/kcontrol \
+	$RPM_BUILD_ROOT%{_datadir}/apps/kcontrol \
 	$RPM_BUILD_ROOT%{_libdir}/kde4/plugins/konqueror \
 	$RPM_BUILD_ROOT%{_kdedocdir}/en/kinfocenter
 
@@ -445,14 +445,15 @@ rm -rf $RPM_BUILD_ROOT
 %post core -p /sbin/ldconfig
 %postun core -p /sbin/ldconfig
 
-%post	-n konqueror4-libs	-p /sbin/ldconfig
-%postun	-n konqueror4-libs	-p /sbin/ldconfig
+%post	-n konqueror-libs	-p /sbin/ldconfig
+%postun	-n konqueror-libs	-p /sbin/ldconfig
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libdolphinprivate.so
 %attr(755,root,root) %{_libdir}/libkonq.so
 %attr(755,root,root) %{_libdir}/libkonqsidebarplugin.so
+%attr(755,root,root) %{_libdir}/libkonquerorprivate.so
 %{_includedir}/*.h
 
 %files -n dolphin
@@ -478,6 +479,7 @@ rm -rf $RPM_BUILD_ROOT
 %files common
 %defattr(644,root,root,755)
 %dir %{_desktopdir}/kde4
+%dir %{_datadir}/kde4/services/ServiceMenus
 
 %files common-konsole
 %defattr(644,root,root,755)
@@ -487,27 +489,15 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/kde4/kded_konqy_preloader.so
 %attr(755,root,root) %{_libdir}/kde4/konq_aboutpage.so
-%attr(755,root,root) %{_libdir}/kde4/konq_remoteencoding.so
-%attr(755,root,root) %{_libdir}/kde4/konq_shellcmdplugin.so
-%attr(755,root,root) %{_libdir}/kde4/konq_sidebar.so
-%attr(755,root,root) %{_libdir}/kde4/konq_sidebartree_bookmarks.so
-%attr(755,root,root) %{_libdir}/kde4/konq_sidebartree_dirtree.so
-%attr(755,root,root) %{_libdir}/kde4/konq_sidebartree_history.so
-%attr(755,root,root) %{_libdir}/kde4/konq_sound.so
-%attr(755,root,root) %{_libdir}/kde4/konqsidebar_tree.so
-%attr(755,root,root) %{_libdir}/kde4/konqsidebar_web.so
 %attr(755,root,root) %{_libdir}/kde4/libkcminit_nsplugins.so
 %attr(755,root,root) %{_libdir}/kde4/libkhtmlkttsdplugin.so
 %attr(755,root,root) %{_libdir}/kde4/libnsplugin.so
 
-%dir %{_datadir}/apps/konqueror
 %dir %{_datadir}/apps/kcontrol
 %dir %{_datadir}/apps/kcontrol/pics
 %{_datadir}/apps/kcontrol/pics/onlyone.png
 %{_datadir}/apps/kcontrol/pics/overlapping.png
 
-%attr(755,root,root) %{_libdir}/libkdeinit4_keditbookmarks.so
-%attr(755,root,root) %{_libdir}/libkdeinit4_kfmclient.so
 %{_datadir}/apps/khtml/kpartplugins/khtmlkttsd.desktop
 %{_datadir}/apps/khtml/kpartplugins/khtmlkttsd.rc
 
@@ -526,7 +516,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/templates
 %{_iconsdir}/*/*/apps/*.png
 %{_iconsdir}/*/*/apps/*.svgz
-%dir %{_iconsdir}/icons/oxygen/scalable/apps
+%dir %{_iconsdir}/oxygen/scalable/apps
 
 %files infocenter
 %defattr(644,root,root,755)
@@ -550,7 +540,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files kfind
 %defattr(644,root,root,755)
-%{_kdedocdir}/en/kfind/*
+%{_kdedocdir}/en/kfind
 %attr(755,root,root) %{_bindir}/kfind
 %attr(755,root,root) %{_libdir}/kde4/libkfindpart.so
 %{_desktopdir}//kde4/kfind.desktop
@@ -558,7 +548,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files konsole
 %defattr(644,root,root,755)
-%{_kdedocdir}/en/konsole/*
+%{_kdedocdir}/en/konsole
 %attr(755,root,root) %{_bindir}/konsole
 %attr(755,root,root) %{_bindir}/konsoleprofile
 %attr(755,root,root) %{_libdir}/libkdeinit4_konsole.so
@@ -573,7 +563,7 @@ rm -rf $RPM_BUILD_ROOT
 %files kwrite
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kwrite
-%{_kdedocdir}/en/kwrite/*
+%{_kdedocdir}/en/kwrite
 %attr(755,root,root) %{_libdir}/libkdeinit4_kwrite.so
 %{_datadir}/apps/kwrite
 %{_desktopdir}/kde4/kwrite.desktop
@@ -587,20 +577,20 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kdepasswd
 %attr(755,root,root) %{_libdir}/kde4/kcm_useraccount.so
-%{_datadir}/apps/kdm/pics/users/*
+%dir %{_datadir}/apps/kdm
+%dir %{_datadir}/apps/kdm/pics
+%{_datadir}/apps/kdm/pics/users
 %{_datadir}/config.kcfg/kcm_useraccount.kcfg
 %{_datadir}/kde4/services/kcm_useraccount.desktop
 
-%files -n konqueror4
+%files -n konqueror
 %defattr(644,root,root,755)
-%{_kdedocdir}/en/konqueror
 %attr(755,root,root) %{_bindir}/keditbookmarks
 %attr(755,root,root) %{_bindir}/keditfiletype
 %attr(755,root,root) %{_bindir}/kfmclient
 %attr(755,root,root) %{_bindir}/konqueror
 %attr(755,root,root) %{_bindir}/nspluginscan
 %attr(755,root,root) %{_bindir}/nspluginviewer
-%attr(755,root,root) %{_libdir}/libkonquerorprivate.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_css.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_filetypes.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_history.so
@@ -610,12 +600,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/kcm_kurifilt.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_performance.so
 %attr(755,root,root) %{_libdir}/kde4/kded_favicons.so
-%attr(755,root,root) %{_libdir}/libkonquerorprivate.so.*
+%attr(755,root,root) %{_libdir}/libkdeinit4_konqueror.so
 %{_desktopdir}/kde4/konqbrowser.desktop
 %{_desktopdir}/kde4/konquerorsu.desktop
 %{_datadir}/apps/kconf_update/konqsidebartng.upd
 %{_datadir}/apps/kconf_update/move_konqsidebartng_entries.sh
-%attr(755,root,root) %{_libdir}/libkdeinit4_konqueror.so
 %{_datadir}/apps/kbookmark
 %{_datadir}/apps/kcmcss
 %{_datadir}/apps/keditbookmarks
@@ -625,12 +614,17 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/konqueror/icons
 %{_datadir}/apps/konqueror/pics
 %{_datadir}/apps/konqueror/profiles
+%dir %{_datadir}/apps/konqueror
+%{_datadir}/apps/konqueror/konqueror.rc
+%dir %{_datadir}/apps/plugin
+%{_datadir}/apps/plugin/nspluginpart.rc
+%{_datadir}/apps/konqueror/konq-filemanagement.rc
+%{_datadir}/apps/konqueror/konq-webbrowsing.rc
 %{_datadir}/kde4/servicetypes/findpart.desktop
 %{_datadir}/kde4/servicetypes/konqaboutpage.desktop
 %{_datadir}/kde4/servicetypes/konqpopupmenuplugin.desktop
 %{_datadir}/kde4/servicetypes/terminalemulator.desktop
 %{_datadir}/kde4/servicetypes/uasprovider.desktop
-%dir %{_datadir}/kde4/services/useragentstrings
 %{_datadir}/kde4/services/useragentstrings
 %{_datadir}/kde4/services/cache.desktop
 %{_datadir}/kde4/services/cookies.desktop
@@ -661,13 +655,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/proxy.desktop
 %{_datadir}/kde4/services/smb.desktop
 %{_datadir}/kde4/services/useragent.desktop
-%{_datadir}/apps/konqueror/konqueror.rc
-%dir %{_datadir}/apps/plugin
-%{_datadir}/apps/plugin/nspluginpart.rc
 %{_datadir}/autostart/konqy_preload.desktop
 %{_datadir}/config/konqsidebartng.rc
-%{_datadir}/apps/konqueror/konq-filemanagement.rc
-%{_datadir}/apps/konqueror/konq-webbrowsing.rc
 %{_datadir}/config.kcfg/konqueror.kcfg
 %{_iconsdir}/*/*/apps/konqueror.*
 %{_datadir}/dbus-1/interfaces/org.kde.FavIcon.xml
@@ -680,8 +669,23 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/dbus-1/interfaces/org.kde.nsplugins.instance.xml
 %{_datadir}/dbus-1/interfaces/org.kde.nsplugins.viewer.xml
 %{_datadir}/apps/konqsidebartng
+%{_kdedocdir}/en/konqueror
+# testing
+%attr(755,root,root) %{_libdir}/kde4/konq_sidebar.so
+%attr(755,root,root) %{_libdir}/kde4/konq_sidebartree_bookmarks.so
+%attr(755,root,root) %{_libdir}/kde4/konq_sidebartree_dirtree.so
+%attr(755,root,root) %{_libdir}/kde4/konq_sidebartree_history.so
+%attr(755,root,root) %{_libdir}/kde4/konq_sound.so
+%attr(755,root,root) %{_libdir}/kde4/konqsidebar_tree.so
+%attr(755,root,root) %{_libdir}/kde4/konqsidebar_web.so
+%attr(755,root,root) %{_libdir}/kde4/konq_remoteencoding.so
+%attr(755,root,root) %{_libdir}/kde4/konq_shellcmdplugin.so
 
-%files -n konqueror4-libs
+
+%files -n konqueror-libs
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libkonq.so.*
 %attr(755,root,root) %{_libdir}/libkonqsidebarplugin.so.*
+%attr(755,root,root) %{_libdir}/libkonquerorprivate.so.*
+%attr(755,root,root) %{_libdir}/libkdeinit4_keditbookmarks.so
+%attr(755,root,root) %{_libdir}/libkdeinit4_kfmclient.so
