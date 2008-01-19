@@ -174,9 +174,7 @@ Summary:	Common files for konsole and konsolepart
 Summary(pl.UTF-8):   Pliki wspólne dla konsole i konsolepart
 Group:		X11/Applications
 Requires(post,postun):	fontpostinst
-Requires:	kdelibs4 >= %{_minlibsevr}
-Obsoletes:	kdebase < 3.5.5
-Obsoletes:	kdebase-fonts
+#Requires:	kdelibs4 >= %{_minlibsevr}
 
 %description common-konsole
 Color schemes, icons, fonts and shell profiles for konsole.
@@ -188,14 +186,10 @@ Schematy kolorów, ikony, czcionki oraz profile sesji dla konsole.
 Summary:	KDE Core Apps
 Summary(pl.UTF-8):   Podstawowe aplikacje KDE
 Group:		X11/Applications
-Requires:	kdelibs4 >= %{_minlibsevr}
-Requires:	sudo
-Requires:	xdg-menus
-Obsoletes:	kdebase < 8:3.5.5
-Obsoletes:	kdebase-helpcenter
-Obsoletes:	kdebase-kcontrol
-Obsoletes:	kdebase-khelpcenter
-Conflicts:	kttsd <= 040609
+#Requires:	kdelibs4 >= %{_minlibsevr}
+#Requires:	sudo
+#Requires:	xdg-menus
+#Conflicts:	kttsd <= 040609
 
 %description core
 KDE Core apps. This package contains:
@@ -217,8 +211,8 @@ Podstawowe aplikacje środowiska KDE. Pakiet ten zawiera:
 Summary:	KDE Info Center
 Summary(pl.UTF-8):	Centrum informacji o systemie dla KDE
 Group:		X11/Applications
-Requires:	%{name}-core = %{epoch}:%{version}-%{release}
-Requires:	pciutils
+#Requires:	%{name}-core = %{epoch}:%{version}-%{release}
+#Requires:	pciutils
 
 %description infocenter
 Application for displaying information about your system.
@@ -231,8 +225,8 @@ Centrum informacji o systemie dla KDE.
 Summary:	Menu Updating Tool
 Summary(pl.UTF-8):   Narzędzie do aktualizacji menu
 Group:		X11/Applications
-Requires:	kdelibs4 >= %{_minlibsevr}
-Obsoletes:	kdebase =< 8:3.5.5
+#Requires:	kdelibs4 >= %{_minlibsevr}
+#Obsoletes:	kdebase =< 8:3.5.5
 
 %description kappfinder
 The tool for finding installed application and adding them to your
@@ -246,8 +240,8 @@ menu.
 Summary:	A KDE version of dialog
 Summary(pl.UTF-8):   Wersja KDE dialogu
 Group:		X11/Applications
-Requires:	kdelibs4 >= %{_minlibsevr}
-Obsoletes:	kdebase < 8:3.5.5
+#Requires:	kdelibs4 >= %{_minlibsevr}
+#Obsoletes:	kdebase < 8:3.5.5
 
 %description kdialog
 Kdialog allows to display window dialogs with KDE widgets from shell
@@ -261,8 +255,8 @@ skryptów powłoki.
 Summary:	KDE Find Tool
 Summary(pl.UTF-8):   Narzędzie do wyszukiwania plików dla KDE
 Group:		X11/Applications
-Requires:	%{name}-core = %{epoch}:%{version}-%{release}
-Obsoletes:	kfind
+#Requires:	%{name}-core = %{epoch}:%{version}-%{release}
+#Obsoletes:	kfind
 
 %description kfind
 A tool for find files for KDE.
@@ -274,9 +268,9 @@ Narzędzie do wyszukiwania plików dla KDE.
 Summary:	KDE Terminal Emulator
 Summary(pl.UTF-8):   Emulator terminala dla KDE
 Group:		X11/Applications
-Requires:	%{name}-common-konsole = %{epoch}:%{version}-%{release}
-Requires:	%{name}-core = %{epoch}:%{version}-%{release}
-Obsoletes:	konsole
+#Requires:	%{name}-common-konsole = %{epoch}:%{version}-%{release}
+#Requires:	%{name}-core = %{epoch}:%{version}-%{release}
+#Obsoletes:	konsole
 
 %description konsole
 KDE Terminal Emulator.
@@ -288,8 +282,8 @@ Emulator terminala dla KDE.
 Summary:	KDE Text Editor
 Summary(pl.UTF-8):   Edytor tekstu dla KDE
 Group:		X11/Applications/Editors
-Requires:	%{name}-core = %{epoch}:%{version}-%{release}
-Obsoletes:	kwrite
+#Requires:	%{name}-core = %{epoch}:%{version}-%{release}
+#Obsoletes:	kwrite
 
 %description kwrite
 KWrite is a simple texteditor, with syntaxhighlighting, codefolding,
@@ -306,8 +300,8 @@ Summary:	KDE write messaging daemon
 Summary(pl.UTF-8):   Demon do KDE obsługujący wymianę wiadomości za pomocą write
 Group:		X11/Applications
 # With functional reasons
-Requires:	kdebase-core = %{epoch}:%{version}-%{release}
-Obsoletes:	kdebase < 8:3.5.5
+#Requires:	kdebase-core = %{epoch}:%{version}-%{release}
+#Obsoletes:	kdebase < 8:3.5.5
 
 %description kwrited
 A kde daeomn that watches for messages from local users sent with
@@ -321,8 +315,8 @@ wysyłają za pomocą komend write lub wall.
 Summary:	User Account
 Summary(pl.UTF-8):   Konto użytkownika
 Group:		X11/Applications
-Obsoletes:	kdeutils-kdepasswd
-Obsoletes:	kdeutils-userinfo
+#Obsoletes:	kdeutils-kdepasswd
+#Obsoletes:	kdeutils-userinfo
 
 %description useraccount
 useraccount changes user account information. This module contains
@@ -344,11 +338,9 @@ Dolphin - KDE4 file manager.
 Summary:	Konqueror - web browser and file manager
 Summary(pl.UTF-8):   Konqueror - przeglądarka WWW i zarządca plików
 Group:		X11/Applications
-Requires:	%{name}-common-filemanagement = %{epoch}:%{version}-%{release}
-Requires:	konqueror4-libs = %{epoch}:%{version}-%{release}
+Requires:	%{name}-common = %{epoch}:%{version}-%{release}
+#Requires:	konqueror4-libs = %{epoch}:%{version}-%{release}
 Provides:	wwwbrowser
-Obsoletes:	kdebase-konqueror
-Obsoletes:	kdebase-libkmultitabbar
 
 %description -n konqueror4
 Konqueror is the file manager for the K Desktop Environment. It
@@ -394,12 +386,7 @@ Summary:	konqueror shared libraries
 Summary(pl.UTF-8):   Biblioteki współdzielone konquerora
 Group:		X11/Libraries
 Requires(post,postun):	/sbin/ldconfig
-Requires:	kdelibs4 >= %{_minlibsevr}
-Obsoletes:	kdebase-konqueror-libs
-Obsoletes:	kdebase-libkickermain
-Obsoletes:	kdebase-libkonq
-Obsoletes:	kdebase-libkonqsidebarplugin
-Obsoletes:	konqueror < 9:3.5.5
+#Requires:	kdelibs4 >= %{_minlibsevr}
 
 %description -n konqueror4-libs
 Konqueror shared libraries.
@@ -442,7 +429,6 @@ rm -rf $RPM_BUILD_ROOT
 	kde_htmldir=%{_kdedocdir}
 
 install -d \
-	$RPM_BUILD_ROOT/etc/{X11,pam.d} \
 	$RPM_BUILD_ROOT/%{_datadir}/apps/kcontrol \
 	$RPM_BUILD_ROOT%{_libdir}/kde4/plugins/konqueror \
 	$RPM_BUILD_ROOT%{_kdedocdir}/en/kinfocenter
@@ -540,6 +526,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/templates
 %{_iconsdir}/*/*/apps/*.png
 %{_iconsdir}/*/*/apps/*.svgz
+%dir %{_iconsdir}/icons/oxygen/scalable/apps
 
 %files infocenter
 %defattr(644,root,root,755)
@@ -623,8 +610,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/kcm_kurifilt.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_performance.so
 %attr(755,root,root) %{_libdir}/kde4/kded_favicons.so
-%attr(755,root,root) %{_libdir}/libkonq.so.*
-%attr(755,root,root) %{_libdir}/libkonqsidebarplugin.so.*
 %attr(755,root,root) %{_libdir}/libkonquerorprivate.so.*
 %{_desktopdir}/kde4/konqbrowser.desktop
 %{_desktopdir}/kde4/konquerorsu.desktop
@@ -698,5 +683,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n konqueror4-libs
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libkonq.so.*.*.*
-%attr(755,root,root) %{_libdir}/libkonqsidebarplugin.so.*.*.*
+%attr(755,root,root) %{_libdir}/libkonq.so.*
+%attr(755,root,root) %{_libdir}/libkonqsidebarplugin.so.*
