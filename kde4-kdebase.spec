@@ -27,14 +27,6 @@ License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/kdebase-%{version}.tar.bz2
 # Source0-md5:	01d8f2f16cbd4e225efc996b0dd39769
-Source1:	kdebase-kdesktop.pam
-Source8:	kdebase-searchproviders.tar.bz2
-# Source8-md5:	582b29204e85c01a91799ed72f845312
-Source10:	kdebase-servicemenus.tar.bz2
-# Source10-md5:	f48ac7af286f4c87961de4bb24d07772
-Source13:	ftp://ftp.pld-linux.org/software/kde/kdebase-konqsidebartng-PLD-entries-0.1.tar.bz2
-# Source13-md5:	c8b947bc3e8a2ac050d9e9548cf585fc
-# Temporary taken from kde svn
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
 %{?with_hidden_visibility:BuildRequires:	QtCore-devel >= 4.2.0}
@@ -166,19 +158,16 @@ KDE.
 Este pacote contém os arquivos de inclusão que são necessários para
 compilar aplicativos que usem bibliotecas do kdebase.
 
-%package common-filemanagement
-Summary:	Common Files for kate and konqueror
-Summary(pl.UTF-8):   Pliki wspólne dla kate i konquerora
+%package common
+Summary:	KDE4 common directories
+Summary(pl.UTF-8):   Wspólne pliki KDE4.
 Group:		X11/Libraries
-Requires:	%{name}-common-konsole = %{epoch}:%{version}-%{release}
-Requires:	%{name}-core = %{epoch}:%{version}-%{release}
 
-%description common-filemanagement
-Thumbnail and file sharing libraries for kate and konqueror.
+%description common
+KDE4 common directories.
 
-%description common-filemanagement -l pl.UTF-8
-Biblioteki służące do tworzenia podglądu i wymiany plików dla kate i
-konquerora.
+%description common -l pl.UTF-8
+Wspólne katalogi KDE4.
 
 %package common-konsole
 Summary:	Common files for konsole and konsolepart
@@ -224,71 +213,9 @@ Podstawowe aplikacje środowiska KDE. Pakiet ten zawiera:
 - Programy obsługi błędów;
 - Frontend dla programu "su".
 
-%package desktop
-Summary:	KDesktop - handling of desktop icons, popup menus etc.
-Summary(pl.UTF-8):   KDesktop - obsługa ikon na pulpicie, menu itp.
-Group:		X11/Applications
-Requires:	%{name}-desktop-libs = %{epoch}:%{version}-%{release}
-Requires:	%{name}-kdialog = %{epoch}:%{version}-%{release}
-Requires:	%{name}-kfind = %{epoch}:%{version}-%{release}
-Requires:	eject
-Requires:	kde-kgreet
-Requires:	kde-kside
-Requires:	kde-logoutpic
-Requires:	kde-splash-Default
-Requires:	konqueror4 = %{epoch}:%{version}-%{release}
-Requires:	pam >= 0.79.0
-Provides:	kdebase-kicker
-Obsoletes:	kde-decoration-plastik
-Obsoletes:	kde-theme-keramik
-Obsoletes:	kdebase
-Obsoletes:	kdebase-fonts
-Obsoletes:	kdebase-kcheckpass
-Obsoletes:	kdebase-kdesktop
-Obsoletes:	kdebase-kdesktop_lock
-Obsoletes:	kdebase-khelpcenter
-Obsoletes:	kdebase-kicker
-Obsoletes:	kdebase-kioslave
-Obsoletes:	kdebase-kmenuedit
-Obsoletes:	kdebase-konqueror
-Obsoletes:	kdebase-ksystraycmd
-Obsoletes:	kdebase-kwin
-Obsoletes:	kdebase-kwin_plugin
-Obsoletes:	kdebase-kwmtheme
-Obsoletes:	kdebase-kxmlrpc
-Obsoletes:	kdebase-screensaver
-Obsoletes:	kdebase-static
-Obsoletes:	kdebase-wallpapers
-Obsoletes:	khotkeys
-Conflicts:	kdeedu-libkdeeduui < 8:3.5.5
-
-%description desktop
-KDesktop is the program that handles the desktop icons, the popup
-menus for the desktop, the mac menubar, and the screensaver system.
-
-%description desktop -l pl.UTF-8
-KDesktop to program obsługujący ikony na pulpicie, menu dla pulpitu,
-pasek menu oraz system wygaszacza ekranu.
-
-%package desktop-libs
-Summary:	KDesktop libraries
-Summary(pl.UTF-8):   Biblioteki KDesktop
-Group:		X11/Libraries
-Requires(post,postun):	/sbin/ldconfig
-Requires:	konqueror4-libs = %{epoch}:%{version}-%{release}
-Obsoletes:	kdebase-desktop < 9:3.5.5
-Obsoletes:	kdebase-kicker-libs
-
-%description desktop-libs
-KDesktop libraries (taskbar, splash themes and window decorations).
-
-%description desktop-libs -l pl.UTF-8
-Biblioteki KDesktop (pasek zadań, obsługa motywów obrazków startowych
-i dekoracji okna).
-
 %package infocenter
 Summary:	KDE Info Center
-Summary(pl.UTF-8):   Centrum informacji o systemie dla KDE
+Summary(pl.UTF-8):	Centrum informacji o systemie dla KDE
 Group:		X11/Applications
 Requires:	%{name}-core = %{epoch}:%{version}-%{release}
 Requires:	pciutils
@@ -298,6 +225,7 @@ Application for displaying information about your system.
 
 %description infocenter -l pl.UTF-8
 Centrum informacji o systemie dla KDE.
+
 
 %package kappfinder
 Summary:	Menu Updating Tool
@@ -516,11 +444,8 @@ rm -rf $RPM_BUILD_ROOT
 install -d \
 	$RPM_BUILD_ROOT/etc/{X11,pam.d} \
 	$RPM_BUILD_ROOT/%{_datadir}/apps/kcontrol \
-	$RPM_BUILD_ROOT%{_libdir}/kde4/plugins/konqueror
-
-# Install miscleanous PLD files
-install %{SOURCE1}	$RPM_BUILD_ROOT/etc/pam.d/kdesktop
-%{__tar} xfj %{SOURCE13} -C $RPM_BUILD_ROOT%{_datadir}/apps/konqsidebartng/virtual_folders/
+	$RPM_BUILD_ROOT%{_libdir}/kde4/plugins/konqueror \
+	$RPM_BUILD_ROOT%{_kdedocdir}/en/kinfocenter
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -533,9 +458,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %post core -p /sbin/ldconfig
 %postun core -p /sbin/ldconfig
-
-%post	desktop-libs	-p /sbin/ldconfig
-%postun	desktop-libs	-p /sbin/ldconfig
 
 %post	-n konqueror4-libs	-p /sbin/ldconfig
 %postun	-n konqueror4-libs	-p /sbin/ldconfig
@@ -562,23 +484,12 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/apps/dolphin
 %{_datadir}/apps/dolphin/dolphinui.rc
 %{_datadir}/apps/dolphin/icons
-#%{_datadir}/apps/dolphin/icons/hicolor/128x128/actions/preview.png
-#%{_datadir}/apps/dolphin/icons/hicolor/16x16/actions/preview.png
-#%{_datadir}/apps/dolphin/icons/hicolor/22x22/actions/preview.png
-#%{_datadir}/apps/dolphin/icons/hicolor/32x32/actions/preview.png
-#%{_datadir}/apps/dolphin/icons/hicolor/48x48/actions/preview.png
-#%{_datadir}/apps/dolphin/icons/hicolor/64x64/actions/preview.png
-#%{_datadir}/apps/dolphin/icons/oxygen/16x16/actions/view-file-columns.png
-#%{_datadir}/apps/dolphin/icons/oxygen/22x22/actions/view-file-columns.png
-#%{_datadir}/apps/dolphin/icons/oxygen/32x32/actions/view-file-columns.png
-#%{_datadir}/apps/dolphin/icons/oxygen/48x48/actions/view-file-columns.png
-#%{_datadir}/apps/dolphin/icons/oxygen/scalable/actions/view-file-columns.svgz
 %dir %{_datadir}/apps/dolphinpart
 %{_datadir}/apps/dolphinpart/dolphinpart.rc
 %{_desktopdir}/kde4/dolphin.desktop
 %{_datadir}/kde4/services/dolphinpart.desktop
 
-%files common-filemanagement
+%files common
 %defattr(644,root,root,755)
 %dir %{_desktopdir}/kde4
 
@@ -614,9 +525,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/khtml/kpartplugins/khtmlkttsd.desktop
 %{_datadir}/apps/khtml/kpartplugins/khtmlkttsd.rc
 
-%files desktop
-%defattr(644,root,root,755)
-%config(noreplace) %verify(not md5 mtime size) /etc/pam.d/kdesktop
 %{_desktopdir}/kde4/Home.desktop
 %{_desktopdir}/kde4/kdepasswd.desktop
 %{_desktopdir}/kde4/kfmclient.desktop
@@ -633,16 +541,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/apps/*.png
 %{_iconsdir}/*/*/apps/*.svgz
 
-
-%files desktop-libs
-%defattr(644,root,root,755)
-
 %files infocenter
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kinfocenter
-%{_desktopdir}/kde4/kinfocenter.desktop
 %attr(755,root,root) %{_libdir}/libkdeinit4_kinfocenter.so
+%dir %{_kdedocdir}/en/kinfocenter
 %{_datadir}/apps/kinfocenter
+%{_desktopdir}/kde4/kinfocenter.desktop
 
 %files kappfinder
 %defattr(644,root,root,755)
@@ -741,30 +646,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/servicetypes/terminalemulator.desktop
 %{_datadir}/kde4/servicetypes/uasprovider.desktop
 %dir %{_datadir}/kde4/services/useragentstrings
-%{_datadir}/kde4/services/useragentstrings/firefox15oncurrent.desktop
-%{_datadir}/kde4/services/useragentstrings/firefox20oncurrent.desktop
-%{_datadir}/kde4/services/useragentstrings/googlebot.desktop
-%{_datadir}/kde4/services/useragentstrings/ie401onwinnt4.desktop
-%{_datadir}/kde4/services/useragentstrings/ie50onppc.desktop
-%{_datadir}/kde4/services/useragentstrings/ie55onwinnt5.desktop
-%{_datadir}/kde4/services/useragentstrings/ie60oncurrent.desktop
-%{_datadir}/kde4/services/useragentstrings/ie60onwinnt51.desktop
-%{_datadir}/kde4/services/useragentstrings/lynxoncurrent.desktop
-%{_datadir}/kde4/services/useragentstrings/mozoncurrent.desktop
-%{_datadir}/kde4/services/useragentstrings/mozoncurrent12.desktop
-%{_datadir}/kde4/services/useragentstrings/mozonwinxp.desktop
-%{_datadir}/kde4/services/useragentstrings/nn301oncurrent.desktop
-%{_datadir}/kde4/services/useragentstrings/nn475oncurrent.desktop
-%{_datadir}/kde4/services/useragentstrings/nn475onwin95.desktop
-%{_datadir}/kde4/services/useragentstrings/ns71oncurrent.desktop
-%{_datadir}/kde4/services/useragentstrings/ns71onwinnt51.desktop
-%{_datadir}/kde4/services/useragentstrings/op403onwinnt4.desktop
-%{_datadir}/kde4/services/useragentstrings/op85oncurrent.desktop
-%{_datadir}/kde4/services/useragentstrings/op90oncurrent.desktop
-%{_datadir}/kde4/services/useragentstrings/safari12.desktop
-%{_datadir}/kde4/services/useragentstrings/safari20.desktop
-%{_datadir}/kde4/services/useragentstrings/w3moncurrent.desktop
-%{_datadir}/kde4/services/useragentstrings/wgetoncurrent.desktop
+%{_datadir}/kde4/services/useragentstrings
 %{_datadir}/kde4/services/cache.desktop
 %{_datadir}/kde4/services/cookies.desktop
 %{_datadir}/kde4/services/desktoppath.desktop
@@ -813,40 +695,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/dbus-1/interfaces/org.kde.nsplugins.instance.xml
 %{_datadir}/dbus-1/interfaces/org.kde.nsplugins.viewer.xml
 %{_datadir}/apps/konqsidebartng
-#%{_datadir}/apps/konqsidebartng/add/virtualfolderadd.desktop
-#%{_datadir}/apps/konqsidebartng/add/webmodule_add.desktop
-#%{_datadir}/apps/konqsidebartng/dirtree/bookmarks_module.desktop
-#%{_datadir}/apps/konqsidebartng/dirtree/dirtree_module.desktop
-#%{_datadir}/apps/konqsidebartng/dirtree/history_module.desktop
-#%{_datadir}/apps/konqsidebartng/entries/.version
-#%{_datadir}/apps/konqsidebartng/entries/bookmarks.desktop
-#%{_datadir}/apps/konqsidebartng/entries/history.desktop
-#%{_datadir}/apps/konqsidebartng/entries/home.desktop
-#%{_datadir}/apps/konqsidebartng/entries/remote.desktop
-#%{_datadir}/apps/konqsidebartng/entries/root.desktop
-#%{_datadir}/apps/konqsidebartng/entries/services.desktop
-#%{_datadir}/apps/konqsidebartng/kicker_entries/bookmarks.desktop
-#%{_datadir}/apps/konqsidebartng/kicker_entries/history.desktop
-#%{_datadir}/apps/konqsidebartng/kicker_entries/home.desktop
-#%{_datadir}/apps/konqsidebartng/kicker_entries/remote.desktop
-#%{_datadir}/apps/konqsidebartng/kicker_entries/root.desktop
-#%{_datadir}/apps/konqsidebartng/kicker_entries/services.desktop
-#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/.directory
-#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/ftp/.directory
-#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/ftp/kde_ftp.desktop
-#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/ftp/pld_ftp.desktop
-#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/ftp/pld_nest_ftp.desktop
-#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/web/.directory
-#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/web/apps_web.desktop
-#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/web/dot_web.desktop
-#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/web/kde_web.desktop
-#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/web/look_web.desktop
-#%{_datadir}/apps/konqsidebartng/virtual_folders/remote/web/pld_web.desktop
-#%{_datadir}/apps/konqsidebartng/virtual_folders/services/.directory
-#%{_datadir}/apps/konqsidebartng/virtual_folders/services/applications.desktop
-#%{_datadir}/apps/konqsidebartng/virtual_folders/services/audiocd.desktop
-#%{_datadir}/apps/konqsidebartng/virtual_folders/services/settings.desktop
-#%{_datadir}/apps/konqsidebartng/websidebar/websidebar.html
 
 %files -n konqueror4-libs
 %defattr(644,root,root,755)
