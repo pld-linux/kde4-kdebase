@@ -549,7 +549,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n dolphin
 %defattr(644,root,root,755)
-%doc %{_kdedocdir}/en/dolphin
+%{_kdedocdir}/en/dolphin
 %attr(755,root,root) %{_bindir}/dolphin
 %attr(755,root,root) %{_libdir}/libdolphinprivate.so.*
 %attr(755,root,root) %{_libdir}/kde4/dolphinpart.so
@@ -658,7 +658,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files kfind
 %defattr(644,root,root,755)
-%doc %{_kdedocdir}/en/kfind/*
+%{_kdedocdir}/en/kfind/*
 %attr(755,root,root) %{_bindir}/kfind
 %attr(755,root,root) %{_libdir}/kde4/libkfindpart.so
 %{_desktopdir}//kde4/kfind.desktop
@@ -666,7 +666,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files konsole
 %defattr(644,root,root,755)
-%doc %{_kdedocdir}/en/konsole/*
+%{_kdedocdir}/en/konsole/*
 %attr(755,root,root) %{_bindir}/konsole
 %attr(755,root,root) %{_bindir}/konsoleprofile
 %attr(755,root,root) %{_libdir}/libkdeinit4_konsole.so
@@ -681,7 +681,7 @@ rm -rf $RPM_BUILD_ROOT
 %files kwrite
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kwrite
-%doc %{_kdedocdir}/en/kwrite/*
+%{_kdedocdir}/en/kwrite/*
 %attr(755,root,root) %{_libdir}/libkdeinit4_kwrite.so
 %{_datadir}/apps/kwrite
 %{_desktopdir}/kde4/kwrite.desktop
@@ -701,7 +701,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n konqueror4
 %defattr(644,root,root,755)
-%doc %{_kdedocdir}/en/konqueror
+%{_kdedocdir}/en/konqueror
 %attr(755,root,root) %{_bindir}/keditbookmarks
 %attr(755,root,root) %{_bindir}/keditfiletype
 %attr(755,root,root) %{_bindir}/kfmclient
