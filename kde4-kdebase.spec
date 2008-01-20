@@ -487,11 +487,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files core
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/kde4/kded_konqy_preloader.so
-%attr(755,root,root) %{_libdir}/kde4/konq_aboutpage.so
 %attr(755,root,root) %{_libdir}/kde4/libkcminit_nsplugins.so
 %attr(755,root,root) %{_libdir}/kde4/libkhtmlkttsdplugin.so
-%attr(755,root,root) %{_libdir}/kde4/libnsplugin.so
 
 %dir %{_datadir}/apps/kcontrol
 %dir %{_datadir}/apps/kcontrol/pics
@@ -600,6 +597,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/kcm_kurifilt.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_performance.so
 %attr(755,root,root) %{_libdir}/kde4/kded_favicons.so
+%attr(755,root,root) %{_libdir}/kde4/kded_konqy_preloader.so
+%attr(755,root,root) %{_libdir}/kde4/konq_aboutpage.so
+%attr(755,root,root) %{_libdir}/kde4/libnsplugin.so
 %attr(755,root,root) %{_libdir}/libkdeinit4_konqueror.so
 %{_desktopdir}/kde4/konqbrowser.desktop
 %{_desktopdir}/kde4/konquerorsu.desktop
