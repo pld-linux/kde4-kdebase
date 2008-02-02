@@ -19,13 +19,14 @@ Summary(pt_BR.UTF-8):   K Desktop Environment - arquivos básicos
 Summary(ru.UTF-8):   K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):   K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):   KDE核心
-Name:		kdebase4
+%define	orgname	kdebase
+Name:		kde4-kdebase
 Version:	4.0.0
 Release:	0.1
 Epoch:		9
 License:	GPL
 Group:		X11/Applications
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/kdebase-%{version}.tar.bz2
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
 # Source0-md5:	01d8f2f16cbd4e225efc996b0dd39769
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
@@ -84,6 +85,8 @@ BuildRequires:	xorg-lib-libxkbfile-devel
 BuildRequires:	xorg-proto-scrnsaverproto-devel
 BuildRequires:	xorg-util-imake
 BuildConflicts:	kdebase-konqueror-libs
+Obsoletes:	kdebase4
+Conflicts:	kdebase4
 Conflicts:	kdelibs < 9:3.1.94.040110-1
 # TODO: sensors
 #BuildRequires:	sensors-devel
@@ -395,7 +398,7 @@ Konqueror shared libraries.
 Biblioteki współdzielone konquerora.
 
 %prep
-%setup -q -n kdebase-%{version}
+%setup -q -n %{orgname}-%{version}
 
 %{__sed} -i -e 's/Categories=.*/Categories=Audio;Mixer;/' \
 	apps/kappfinder/apps/Multimedia/alsamixergui.desktop
