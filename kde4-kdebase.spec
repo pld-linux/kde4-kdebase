@@ -46,8 +46,8 @@ BuildRequires:	ed
 BuildRequires:	gettext-devel
 BuildRequires:	hal-devel
 BuildRequires:	jasper-devel
-BuildRequires:	kdelibs4-devel >= %{_minlibsevr}
-BuildRequires:	kdepimlibs4-devel >= %{version}
+BuildRequires:	kde4-kdelibs-devel >= %{_minlibsevr}
+BuildRequires:	kde4-kdepimlibs-devel >= %{version}
 BuildRequires:	lame-libs-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel >= 1.0.8
