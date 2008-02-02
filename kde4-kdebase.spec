@@ -147,8 +147,7 @@ Summary(pt_BR.UTF-8):   Arquivos de inclusão para compilar aplicativos que usem
 Group:		X11/Development/Libraries
 #Requires:	%{name}-desktop-libs = %{epoch}:%{version}-%{release}
 #Requires:	%{name}-libksgrd = %{epoch}:%{version}-%{release}
-Requires:	kdelibs4-devel >= %{_minlibsevr}
-#Obsoletes:	kdebase-ksysguard-libs
+Requires:	kde4-kdelibs-devel >= %{_minlibsevr}
 
 %description devel
 This package contains header files needed to develop KDE applications.
@@ -177,7 +176,7 @@ Summary:	Common files for konsole and konsolepart
 Summary(pl.UTF-8):   Pliki wspólne dla konsole i konsolepart
 Group:		X11/Applications
 #Requires(post,postun):	fontpostinst
-#Requires:	kdelibs4 >= %{_minlibsevr}
+#Requires:	kde4-kdelibs >= %{_minlibsevr}
 
 %description common-konsole
 Color schemes, icons, fonts and shell profiles for konsole.
@@ -189,7 +188,7 @@ Schematy kolorów, ikony, czcionki oraz profile sesji dla konsole.
 Summary:	KDE Core Apps
 Summary(pl.UTF-8):   Podstawowe aplikacje KDE
 Group:		X11/Applications
-#Requires:	kdelibs4 >= %{_minlibsevr}
+#Requires:	kde4-kdelibs >= %{_minlibsevr}
 #Requires:	sudo
 #Requires:	xdg-menus
 #Conflicts:	kttsd <= 040609
@@ -228,7 +227,7 @@ Centrum informacji o systemie dla KDE.
 Summary:	Menu Updating Tool
 Summary(pl.UTF-8):   Narzędzie do aktualizacji menu
 Group:		X11/Applications
-#Requires:	kdelibs4 >= %{_minlibsevr}
+#Requires:	kde4-kdelibs >= %{_minlibsevr}
 #Obsoletes:	kdebase =< 8:3.5.5
 
 %description kappfinder
@@ -243,7 +242,7 @@ menu.
 Summary:	A KDE version of dialog
 Summary(pl.UTF-8):   Wersja KDE dialogu
 Group:		X11/Applications
-#Requires:	kdelibs4 >= %{_minlibsevr}
+#Requires:	kde4-kdelibs >= %{_minlibsevr}
 #Obsoletes:	kdebase < 8:3.5.5
 
 %description kdialog
@@ -389,7 +388,7 @@ Summary:	konqueror shared libraries
 Summary(pl.UTF-8):   Biblioteki współdzielone konquerora
 Group:		X11/Libraries
 Requires(post,postun):	/sbin/ldconfig
-#Requires:	kdelibs4 >= %{_minlibsevr}
+#Requires:	kde4-kdelibs >= %{_minlibsevr}
 
 %description -n konqueror-libs
 Konqueror shared libraries.
