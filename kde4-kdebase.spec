@@ -8,7 +8,6 @@
 %bcond_without	hidden_visibility	# pass '--fvisibility=hidden' & '--fvisibility-inlines-hidden' to g++
 #
 %define		_state		stable
-%define		_minlibsevr	9:4.0.0
 
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):   K Desktop Environment - archivos básicos
@@ -46,7 +45,7 @@ BuildRequires:	ed
 BuildRequires:	gettext-devel
 BuildRequires:	hal-devel
 BuildRequires:	jasper-devel
-BuildRequires:	kde4-kdelibs-devel >= %{_minlibsevr}
+BuildRequires:	kde4-kdelibs-devel
 BuildRequires:	kde4-kdepimlibs-devel >= %{version}
 BuildRequires:	lame-libs-devel
 BuildRequires:	libjpeg-devel
@@ -147,7 +146,7 @@ Summary(pt_BR.UTF-8):   Arquivos de inclusão para compilar aplicativos que usem
 Group:		X11/Development/Libraries
 #Requires:	%{name}-desktop-libs = %{epoch}:%{version}-%{release}
 #Requires:	%{name}-libksgrd = %{epoch}:%{version}-%{release}
-Requires:	kde4-kdelibs-devel >= %{_minlibsevr}
+Requires:	kde4-kdelibs-devel
 
 %description devel
 This package contains header files needed to develop KDE applications.
@@ -176,7 +175,7 @@ Summary:	Common files for konsole and konsolepart
 Summary(pl.UTF-8):   Pliki wspólne dla konsole i konsolepart
 Group:		X11/Applications
 #Requires(post,postun):	fontpostinst
-#Requires:	kde4-kdelibs >= %{_minlibsevr}
+#Requires:	kde4-kdelibs
 
 %description common-konsole
 Color schemes, icons, fonts and shell profiles for konsole.
@@ -188,7 +187,7 @@ Schematy kolorów, ikony, czcionki oraz profile sesji dla konsole.
 Summary:	KDE Core Apps
 Summary(pl.UTF-8):   Podstawowe aplikacje KDE
 Group:		X11/Applications
-#Requires:	kde4-kdelibs >= %{_minlibsevr}
+#Requires:	kde4-kdelibs
 #Requires:	sudo
 #Requires:	xdg-menus
 #Conflicts:	kttsd <= 040609
@@ -227,8 +226,7 @@ Centrum informacji o systemie dla KDE.
 Summary:	Menu Updating Tool
 Summary(pl.UTF-8):   Narzędzie do aktualizacji menu
 Group:		X11/Applications
-#Requires:	kde4-kdelibs >= %{_minlibsevr}
-#Obsoletes:	kdebase =< 8:3.5.5
+Requires:	kde4-kdelibs
 
 %description kappfinder
 The tool for finding installed application and adding them to your
@@ -242,8 +240,7 @@ menu.
 Summary:	A KDE version of dialog
 Summary(pl.UTF-8):   Wersja KDE dialogu
 Group:		X11/Applications
-#Requires:	kde4-kdelibs >= %{_minlibsevr}
-#Obsoletes:	kdebase < 8:3.5.5
+Requires:	kde4-kdelibs
 
 %description kdialog
 Kdialog allows to display window dialogs with KDE widgets from shell
@@ -388,7 +385,7 @@ Summary:	konqueror shared libraries
 Summary(pl.UTF-8):   Biblioteki współdzielone konquerora
 Group:		X11/Libraries
 Requires(post,postun):	/sbin/ldconfig
-#Requires:	kde4-kdelibs >= %{_minlibsevr}
+Requires:	kde4-kdelibs
 
 %description -n konqueror-libs
 Konqueror shared libraries.
