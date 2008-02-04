@@ -144,9 +144,7 @@ Summary:	Include files to develop KDE applications
 Summary(pl.UTF-8):   Pliki nagłówkowe potrzebne do tworzenia aplikacji KDE
 Summary(pt_BR.UTF-8):   Arquivos de inclusão para compilar aplicativos que usem bibliotecas do kdebase
 Group:		X11/Development/Libraries
-#Requires:	%{name}-desktop-libs = %{version}-%{release}
-#Requires:	%{name}-libksgrd = %{version}-%{release}
-Requires:	kde4-kdelibs-devel
+Requires:	kde4-kdelibs-devel >= %{version}
 
 %description devel
 This package contains header files needed to develop KDE applications.
@@ -175,7 +173,7 @@ Summary:	Common files for konsole and konsolepart
 Summary(pl.UTF-8):   Pliki wspólne dla konsole i konsolepart
 Group:		X11/Applications
 #Requires(post,postun):	fontpostinst
-#Requires:	kde4-kdelibs
+Requires:	kde4-kdelibs >= %{version}
 
 %description common-konsole
 Color schemes, icons, fonts and shell profiles for konsole.
@@ -187,7 +185,7 @@ Schematy kolorów, ikony, czcionki oraz profile sesji dla konsole.
 Summary:	KDE Core Apps
 Summary(pl.UTF-8):   Podstawowe aplikacje KDE
 Group:		X11/Applications
-#Requires:	kde4-kdelibs
+Requires:	kde4-kdelibs >= %{version}
 #Requires:	sudo
 #Requires:	xdg-menus
 #Conflicts:	kttsd <= 040609
@@ -212,7 +210,7 @@ Podstawowe aplikacje środowiska KDE. Pakiet ten zawiera:
 Summary:	KDE Info Center
 Summary(pl.UTF-8):	Centrum informacji o systemie dla KDE
 Group:		X11/Applications
-#Requires:	%{name}-core = %{version}-%{release}
+Requires:	%{name}-core = %{version}-%{release}
 #Requires:	pciutils
 
 %description infocenter
@@ -226,7 +224,7 @@ Centrum informacji o systemie dla KDE.
 Summary:	Menu Updating Tool
 Summary(pl.UTF-8):   Narzędzie do aktualizacji menu
 Group:		X11/Applications
-Requires:	kde4-kdelibs
+Requires:	kde4-kdelibs >= %{version}
 
 %description kappfinder
 The tool for finding installed application and adding them to your
@@ -240,7 +238,7 @@ menu.
 Summary:	A KDE version of dialog
 Summary(pl.UTF-8):   Wersja KDE dialogu
 Group:		X11/Applications
-Requires:	kde4-kdelibs
+Requires:	kde4-kdelibs >= %{version}
 
 %description kdialog
 Kdialog allows to display window dialogs with KDE widgets from shell
@@ -267,7 +265,7 @@ Summary:	KDE Terminal Emulator
 Summary(pl.UTF-8):   Emulator terminala dla KDE
 Group:		X11/Applications
 Requires:	%{name}-common-konsole = %{version}-%{release}
-#Requires:	%{name}-core = %{version}-%{release}
+Requires:	%{name}-core = %{version}-%{release}
 #Obsoletes:	konsole
 
 %description konsole
@@ -280,7 +278,7 @@ Emulator terminala dla KDE.
 Summary:	KDE Text Editor
 Summary(pl.UTF-8):   Edytor tekstu dla KDE
 Group:		X11/Applications/Editors
-#Requires:	%{name}-core = %{version}-%{release}
+Requires:	%{name}-core = %{version}-%{release}
 #Obsoletes:	kwrite
 
 %description kwrite
@@ -298,7 +296,7 @@ Summary:	KDE write messaging daemon
 Summary(pl.UTF-8):   Demon do KDE obsługujący wymianę wiadomości za pomocą write
 Group:		X11/Applications
 # With functional reasons
-#Requires:	kdebase-core = %{version}-%{release}
+Requires:	%{name}-core = %{version}-%{release}
 #Obsoletes:	kdebase < 8:3.5.5
 
 %description kwrited
@@ -337,7 +335,7 @@ Dolphin - KDE4 file manager.
 Summary:	Konqueror - web browser and file manager
 Summary(pl.UTF-8):   Konqueror - przeglądarka WWW i zarządca plików
 Group:		X11/Applications
-#Requires:	%{name}-common = %{version}-%{release}
+Requires:	%{name}-common = %{version}-%{release}
 #Requires:	konqueror-libs = %{version}-%{release}
 Provides:	wwwbrowser
 
@@ -385,7 +383,7 @@ Summary:	konqueror shared libraries
 Summary(pl.UTF-8):   Biblioteki współdzielone konquerora
 Group:		X11/Libraries
 Requires(post,postun):	/sbin/ldconfig
-Requires:	kde4-kdelibs
+Requires:	kde4-kdelibs >= %{version}
 
 %description -n konqueror-libs
 Konqueror shared libraries.
