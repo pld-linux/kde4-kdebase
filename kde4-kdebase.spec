@@ -78,6 +78,7 @@ BuildRequires:	xorg-lib-libXdamage-devel
 BuildRequires:	xorg-lib-libXft-devel
 BuildRequires:	xorg-lib-libXinerama-devel
 BuildRequires:	xorg-lib-libXmu-devel
+BuildRequires:	xorg-lib-libXScrnSaver-devel
 BuildRequires:	xorg-lib-libXtst-devel
 BuildRequires:	xorg-lib-libfontenc-devel
 BuildRequires:	xorg-lib-libxkbfile-devel
