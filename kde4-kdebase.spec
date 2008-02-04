@@ -46,6 +46,7 @@ BuildRequires:	hal-devel
 BuildRequires:	jasper-devel
 BuildRequires:	kde4-kdelibs-devel >= %{version}
 BuildRequires:	kde4-kdepimlibs-devel >= %{version}
+BuildRequires:	kdelibs-shared >= %{version}
 BuildRequires:	lame-libs-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel >= 1.0.8
@@ -414,7 +415,7 @@ export QTDIR=%{_prefix}
 install -d build
 cd build
 %cmake \
--DCMAKE_INSTALL_PREFIX=%{_prefix} \
+	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
 	../
 
 %{__make}
