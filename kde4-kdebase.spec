@@ -550,9 +550,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkdeinit4_konsole.so
 %attr(755,root,root) %{_libdir}/kde4/libkonsolepart.so
 %{_desktopdir}/kde4/konsole.desktop
-%{_iconsdir}/*/*/apps/konsole.png
-%{_iconsdir}/*/*/apps/konsole.svgz
-%{_datadir}/kde4/services/konsole-script.desktop
+#%{_iconsdir}/*/*/apps/konsole.png
+#%{_iconsdir}/*/*/apps/konsole.svgz
+#%{_datadir}/kde4/services/konsole-script.desktop
 %{_datadir}/kde4/services/ServiceMenus/konsolehere.desktop
 %{_datadir}/kde4/services/konsolepart.desktop
 
