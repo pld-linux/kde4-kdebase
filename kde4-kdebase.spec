@@ -7,7 +7,7 @@
 # Conditional build:
 %bcond_without	hidden_visibility	# pass '--fvisibility=hidden' & '--fvisibility-inlines-hidden' to g++
 #
-%define		_state		stable
+%define		_state		unstable
 
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):   K Desktop Environment - archivos básicos
@@ -20,13 +20,13 @@ Summary(uk.UTF-8):   K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):   KDE核心
 %define	orgname	kdebase
 Name:		kde4-kdebase
-Version:	4.0.0
+Version:	4.0.60
 Release:	0.1
 Epoch:		9
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	01d8f2f16cbd4e225efc996b0dd39769
+# Source0-md5:	a291f9a05f6634ea5ebf9fbe61aca8a3
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
 %{?with_hidden_visibility:BuildRequires:	QtCore-devel >= 4.2.0}
@@ -45,7 +45,7 @@ BuildRequires:	ed
 BuildRequires:	gettext-devel
 BuildRequires:	hal-devel
 BuildRequires:	jasper-devel
-BuildRequires:	kde4-kdelibs-devel
+BuildRequires:	kde4-kdelibs-devel >= %{version}
 BuildRequires:	kde4-kdepimlibs-devel >= %{version}
 BuildRequires:	lame-libs-devel
 BuildRequires:	libjpeg-devel
