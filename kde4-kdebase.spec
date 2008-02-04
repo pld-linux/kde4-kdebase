@@ -22,7 +22,6 @@ Summary(zh_CN.UTF-8):   KDE核心
 Name:		kde4-kdebase
 Version:	4.0.60
 Release:	0.1
-Epoch:		9
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
@@ -144,8 +143,8 @@ Summary:	Include files to develop KDE applications
 Summary(pl.UTF-8):   Pliki nagłówkowe potrzebne do tworzenia aplikacji KDE
 Summary(pt_BR.UTF-8):   Arquivos de inclusão para compilar aplicativos que usem bibliotecas do kdebase
 Group:		X11/Development/Libraries
-#Requires:	%{name}-desktop-libs = %{epoch}:%{version}-%{release}
-#Requires:	%{name}-libksgrd = %{epoch}:%{version}-%{release}
+#Requires:	%{name}-desktop-libs = %{version}-%{release}
+#Requires:	%{name}-libksgrd = %{version}-%{release}
 Requires:	kde4-kdelibs-devel
 
 %description devel
@@ -212,7 +211,7 @@ Podstawowe aplikacje środowiska KDE. Pakiet ten zawiera:
 Summary:	KDE Info Center
 Summary(pl.UTF-8):	Centrum informacji o systemie dla KDE
 Group:		X11/Applications
-#Requires:	%{name}-core = %{epoch}:%{version}-%{release}
+#Requires:	%{name}-core = %{version}-%{release}
 #Requires:	pciutils
 
 %description infocenter
@@ -254,7 +253,7 @@ skryptów powłoki.
 Summary:	KDE Find Tool
 Summary(pl.UTF-8):   Narzędzie do wyszukiwania plików dla KDE
 Group:		X11/Applications
-Requires:	konqueror-libs = %{epoch}:%{version}-%{release}
+Requires:	konqueror-libs = %{version}-%{release}
 
 %description kfind
 A tool for find files for KDE.
@@ -266,8 +265,8 @@ Narzędzie do wyszukiwania plików dla KDE.
 Summary:	KDE Terminal Emulator
 Summary(pl.UTF-8):   Emulator terminala dla KDE
 Group:		X11/Applications
-Requires:	%{name}-common-konsole = %{epoch}:%{version}-%{release}
-#Requires:	%{name}-core = %{epoch}:%{version}-%{release}
+Requires:	%{name}-common-konsole = %{version}-%{release}
+#Requires:	%{name}-core = %{version}-%{release}
 #Obsoletes:	konsole
 
 %description konsole
@@ -280,7 +279,7 @@ Emulator terminala dla KDE.
 Summary:	KDE Text Editor
 Summary(pl.UTF-8):   Edytor tekstu dla KDE
 Group:		X11/Applications/Editors
-#Requires:	%{name}-core = %{epoch}:%{version}-%{release}
+#Requires:	%{name}-core = %{version}-%{release}
 #Obsoletes:	kwrite
 
 %description kwrite
@@ -298,7 +297,7 @@ Summary:	KDE write messaging daemon
 Summary(pl.UTF-8):   Demon do KDE obsługujący wymianę wiadomości za pomocą write
 Group:		X11/Applications
 # With functional reasons
-#Requires:	kdebase-core = %{epoch}:%{version}-%{release}
+#Requires:	kdebase-core = %{version}-%{release}
 #Obsoletes:	kdebase < 8:3.5.5
 
 %description kwrited
@@ -327,7 +326,7 @@ funkcjonalność programu kdepasswd.
 %package -n dolphin
 Summary:	Dolphin - KDE4 file manager
 Summary(pl.UTF-8):   Dolphin - menadżer plików KDE4
-Requires:	konqueror-libs = %{epoch}:%{version}-%{release}
+Requires:	konqueror-libs = %{version}-%{release}
 Group:		X11/Applications
 
 %description -n dolphin
@@ -337,8 +336,8 @@ Dolphin - KDE4 file manager.
 Summary:	Konqueror - web browser and file manager
 Summary(pl.UTF-8):   Konqueror - przeglądarka WWW i zarządca plików
 Group:		X11/Applications
-#Requires:	%{name}-common = %{epoch}:%{version}-%{release}
-#Requires:	konqueror-libs = %{epoch}:%{version}-%{release}
+#Requires:	%{name}-common = %{version}-%{release}
+#Requires:	konqueror-libs = %{version}-%{release}
 Provides:	wwwbrowser
 
 %description -n konqueror
