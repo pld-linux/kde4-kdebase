@@ -327,6 +327,7 @@ Summary:	Dolphin - KDE 4 file manager
 Summary(pl.UTF-8):	Dolphin - zarządca plików KDE 4
 Group:		X11/Applications
 Requires:	kde4-konqueror-libs = %{version}-%{release}
+Obsoletes:	dolphin
 
 %description -n kde4-dolphin
 Dolphin - KDE 4 file manager.
