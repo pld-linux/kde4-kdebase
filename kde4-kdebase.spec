@@ -347,6 +347,7 @@ Group:		X11/Applications
 Requires:	%{name}-common = %{version}-%{release}
 Requires:	konqueror4-libs = %{version}-%{release}
 Provides:	wwwbrowser
+Obsoletes:	konqueror >= 4.0.0
 
 %description -n konqueror4
 Konqueror is the file manager for the K Desktop Environment. It
@@ -394,6 +395,7 @@ Summary(pl.UTF-8):	Biblioteki współdzielone konquerora
 Group:		X11/Libraries
 Requires(post,postun):	/sbin/ldconfig
 Requires:	kde4-kdelibs >= %{version}
+Obsoletes:	konqueror-libs >= 4.0.0
 
 %description -n konqueror4-libs
 Konqueror shared libraries.
