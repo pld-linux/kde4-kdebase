@@ -9,16 +9,16 @@
 #
 %define		_state		unstable
 
-Summary:	K Desktop Environment - core files
-Summary(es.UTF-8):   K Desktop Environment - archivos básicos
-Summary(ja.UTF-8):   KDEデスクトップ環境 - 基本ファイル
-Summary(ko.UTF-8):   KDE - 기본 파일
-Summary(pl.UTF-8):   K Desktop Environment - pliki środowiska
-Summary(pt_BR.UTF-8):   K Desktop Environment - arquivos básicos
-Summary(ru.UTF-8):   K Desktop Environment - базовые файлы
-Summary(uk.UTF-8):   K Desktop Environment - базові файли
-Summary(zh_CN.UTF-8):   KDE核心
 %define	orgname	kdebase
+Summary:	K Desktop Environment - core files
+Summary(es.UTF-8):	K Desktop Environment - archivos básicos
+Summary(ja.UTF-8):	KDEデスクトップ環境 - 基本ファイル
+Summary(ko.UTF-8):	KDE - 기본 파일
+Summary(pl.UTF-8):	K Desktop Environment - pliki środowiska
+Summary(pt_BR.UTF-8):	K Desktop Environment - arquivos básicos
+Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
+Summary(uk.UTF-8):	K Desktop Environment - базові файли
+Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
 Version:	4.0.60
 Release:	0.1
@@ -72,13 +72,13 @@ BuildRequires:	sed >= 4.0
 #BuildRequires:	unsermake >= 040511
 BuildRequires:	xorg-app-bdftopcf
 BuildRequires:	xorg-cf-files
+BuildRequires:	xorg-lib-libXScrnSaver-devel
 BuildRequires:	xorg-lib-libXcomposite-devel
 BuildRequires:	xorg-lib-libXcursor-devel
 BuildRequires:	xorg-lib-libXdamage-devel
 BuildRequires:	xorg-lib-libXft-devel
 BuildRequires:	xorg-lib-libXinerama-devel
 BuildRequires:	xorg-lib-libXmu-devel
-BuildRequires:	xorg-lib-libXScrnSaver-devel
 BuildRequires:	xorg-lib-libXtst-devel
 BuildRequires:	xorg-lib-libfontenc-devel
 BuildRequires:	xorg-lib-libxkbfile-devel
@@ -117,33 +117,41 @@ Ten pakiet zawiera podstawowe aplikacje KDE:
 - KDesktop (pulpit) i Kicker (panel)
 - menedżer okien Kwin i dekoracje
 - ekrany startowe KDE
-- obsługę podglądu plików, protokołów poczty i news oraz emulacji
-  terminala
+- obsługę podglądu plików, protokołów poczty i news oraz
+  emulacji terminala
 
 %description -l ru.UTF-8
-Базовые программы для K Desktop Environment. Включены:
-kwin (оконный менеджер), konqueror (файловый менеджер,
-web-браузер, ftp-клиент, ...), konsole (замена xterm), kicker
-(запускалка программ и пейджер рабочего стола), kaudio (аудиосервер),
-kdehelp (программа для просмотра справочных файлов kde, файлов info и
-man), kthememgr (система для управления альтернативными пакетами тем)
-и другие компоненты KDE (kcheckpass, kikbd, kscreensaver, kcontrol,
-kfind, kfontmanager, kmenuedit, kappfinder).
+Базовые программы для K Desktop Environment.
+Включены: kwin (оконный менеджер), konqueror
+(файловый менеджер, web-браузер,
+ftp-клиент, ...), konsole (замена xterm), kicker
+(запускалка программ и пейджер
+рабочего стола), kaudio (аудиосервер), kdehelp
+(программа для просмотра справочных
+файлов kde, файлов info и man), kthememgr (система
+для управления альтернативными
+пакетами тем) и другие компоненты KDE
+(kcheckpass, kikbd, kscreensaver, kcontrol, kfind, kfontmanager,
+kmenuedit, kappfinder).
 
 %description -l uk.UTF-8
-Базові програми для K Desktop Environment. Включені:
-kwin (віконный менеджер), konqueror (файловий менеджер, web-браузер,
-ftp-кліент, ...), konsole (заміна xterm), kicker (запускалка програм
-та пейджер робочого столу), kaudio (аудіосервер), kdehelp (програма
-для перегляду файлів довідки kde, файлів info та man), kthememgr
-(система для керування альтернативними пакетами тем) та інші
-компоненти KDE (kcheckpass, kikbd, kscreensaver, kcontrol, kfind,
-kfontmanager, kmenuedit, kappfinder).
+Базові програми для K Desktop Environment.
+Включені: kwin (віконный менеджер), konqueror
+(файловий менеджер, web-браузер,
+ftp-кліент, ...), konsole (заміна xterm), kicker
+(запускалка програм та пейджер
+робочого столу), kaudio (аудіосервер), kdehelp
+(програма для перегляду файлів
+довідки kde, файлів info та man), kthememgr
+(система для керування
+альтернативними пакетами тем) та інші
+компоненти KDE (kcheckpass, kikbd, kscreensaver, kcontrol,
+kfind, kfontmanager, kmenuedit, kappfinder).
 
 %package devel
 Summary:	Include files to develop KDE applications
-Summary(pl.UTF-8):   Pliki nagłówkowe potrzebne do tworzenia aplikacji KDE
-Summary(pt_BR.UTF-8):   Arquivos de inclusão para compilar aplicativos que usem bibliotecas do kdebase
+Summary(pl.UTF-8):	Pliki nagłówkowe potrzebne do tworzenia aplikacji KDE
+Summary(pt_BR.UTF-8):	Arquivos de inclusão para compilar aplicativos que usem bibliotecas do kdebase
 Group:		X11/Development/Libraries
 Requires:	kde4-kdelibs-devel >= %{version}
 
@@ -151,16 +159,16 @@ Requires:	kde4-kdelibs-devel >= %{version}
 This package contains header files needed to develop KDE applications.
 
 %description devel -l pl.UTF-8
-Pakiet zawiera pliki nagłówkowe niezbędne do programowania aplikacji
-KDE.
+Pakiet zawiera pliki nagłówkowe niezbędne do programowania
+aplikacji KDE.
 
 %description devel -l pt_BR.UTF-8
-Este pacote contém os arquivos de inclusão que são necessários para
-compilar aplicativos que usem bibliotecas do kdebase.
+Este pacote contém os arquivos de inclusão que são necessários
+para compilar aplicativos que usem bibliotecas do kdebase.
 
 %package common
 Summary:	KDE4 common directories
-Summary(pl.UTF-8):   Wspólne pliki KDE4.
+Summary(pl.UTF-8):	Wspólne pliki KDE4.
 Group:		X11/Libraries
 
 %description common
@@ -171,7 +179,7 @@ Wspólne katalogi KDE4.
 
 %package common-konsole
 Summary:	Common files for konsole and konsolepart
-Summary(pl.UTF-8):   Pliki wspólne dla konsole i konsolepart
+Summary(pl.UTF-8):	Pliki wspólne dla konsole i konsolepart
 Group:		X11/Applications
 #Requires(post,postun):	fontpostinst
 Requires:	kde4-kdelibs >= %{version}
@@ -184,7 +192,7 @@ Schematy kolorów, ikony, czcionki oraz profile sesji dla konsole.
 
 %package core
 Summary:	KDE Core Apps
-Summary(pl.UTF-8):   Podstawowe aplikacje KDE
+Summary(pl.UTF-8):	Podstawowe aplikacje KDE
 Group:		X11/Applications
 Requires:	kde4-kdelibs >= %{version}
 #Requires:	sudo
@@ -223,7 +231,7 @@ Centrum informacji o systemie dla KDE.
 
 %package kappfinder
 Summary:	Menu Updating Tool
-Summary(pl.UTF-8):   Narzędzie do aktualizacji menu
+Summary(pl.UTF-8):	Narzędzie do aktualizacji menu
 Group:		X11/Applications
 Requires:	kde4-kdelibs >= %{version}
 
@@ -232,12 +240,12 @@ The tool for finding installed application and adding them to your
 menu.
 
 %description kappfinder -l pl.UTF-8
-Narzędzie do wyszukiwania zainstalowanych aplikacji i dodawania ich do
-menu.
+Narzędzie do wyszukiwania zainstalowanych aplikacji i dodawania ich
+do menu.
 
 %package kdialog
 Summary:	A KDE version of dialog
-Summary(pl.UTF-8):   Wersja KDE dialogu
+Summary(pl.UTF-8):	Wersja KDE dialogu
 Group:		X11/Applications
 Requires:	kde4-kdelibs >= %{version}
 
@@ -246,12 +254,12 @@ Kdialog allows to display window dialogs with KDE widgets from shell
 scripts.
 
 %description kdialog -l pl.UTF-8
-Kdialog umożliwia wyświetlanie komunikatów w okienkach KDE z poziomu
-skryptów powłoki.
+Kdialog umożliwia wyświetlanie komunikatów w okienkach KDE z
+poziomu skryptów powłoki.
 
 %package kfind
 Summary:	KDE Find Tool
-Summary(pl.UTF-8):   Narzędzie do wyszukiwania plików dla KDE
+Summary(pl.UTF-8):	Narzędzie do wyszukiwania plików dla KDE
 Group:		X11/Applications
 Requires:	konqueror-libs = %{version}-%{release}
 
@@ -263,7 +271,7 @@ Narzędzie do wyszukiwania plików dla KDE.
 
 %package konsole
 Summary:	KDE Terminal Emulator
-Summary(pl.UTF-8):   Emulator terminala dla KDE
+Summary(pl.UTF-8):	Emulator terminala dla KDE
 Group:		X11/Applications
 Requires:	%{name}-common-konsole = %{version}-%{release}
 Requires:	%{name}-core = %{version}-%{release}
@@ -277,7 +285,7 @@ Emulator terminala dla KDE.
 
 %package kwrite
 Summary:	KDE Text Editor
-Summary(pl.UTF-8):   Edytor tekstu dla KDE
+Summary(pl.UTF-8):	Edytor tekstu dla KDE
 Group:		X11/Applications/Editors
 Requires:	%{name}-core = %{version}-%{release}
 #Obsoletes:	kwrite
@@ -294,7 +302,7 @@ szybszą dla mniejszych zadań.
 
 %package kwrited
 Summary:	KDE write messaging daemon
-Summary(pl.UTF-8):   Demon do KDE obsługujący wymianę wiadomości za pomocą write
+Summary(pl.UTF-8):	Demon do KDE obsługujący wymianę wiadomości za pomocą write
 Group:		X11/Applications
 # With functional reasons
 Requires:	%{name}-core = %{version}-%{release}
@@ -310,7 +318,7 @@ wysyłają za pomocą komend write lub wall.
 
 %package useraccount
 Summary:	User Account
-Summary(pl.UTF-8):   Konto użytkownika
+Summary(pl.UTF-8):	Konto użytkownika
 Group:		X11/Applications
 #Obsoletes:	kdeutils-kdepasswd
 #Obsoletes:	kdeutils-userinfo
@@ -320,21 +328,21 @@ useraccount changes user account information. This module contains
 kdepasswd program functionality.
 
 %description useraccount -l pl.UTF-8
-useraccount zmienia informacje o koncie użytkownika. Ten moduł zawiera
-funkcjonalność programu kdepasswd.
+useraccount zmienia informacje o koncie użytkownika. Ten moduł
+zawiera funkcjonalność programu kdepasswd.
 
 %package -n dolphin
 Summary:	Dolphin - KDE4 file manager
-Summary(pl.UTF-8):   Dolphin - menadżer plików KDE4
-Requires:	konqueror-libs = %{version}-%{release}
+Summary(pl.UTF-8):	Dolphin - menadżer plików KDE4
 Group:		X11/Applications
+Requires:	konqueror-libs = %{version}-%{release}
 
 %description -n dolphin
 Dolphin - KDE4 file manager.
 
 %package -n konqueror
 Summary:	Konqueror - web browser and file manager
-Summary(pl.UTF-8):   Konqueror - przeglądarka WWW i zarządca plików
+Summary(pl.UTF-8):	Konqueror - przeglądarka WWW i zarządca plików
 Group:		X11/Applications
 Requires:	%{name}-common = %{version}-%{release}
 #Requires:	konqueror-libs = %{version}-%{release}
@@ -360,10 +368,10 @@ read-only viewing components in itself to view documents without ever
 launching another application.
 
 %description -n konqueror -l pl.UTF-8
-Konqueror to zarządca plików dla środowiska KDE. Obsługuje podstawowe
-zarządzanie plikami w lokalnych uniksowych systemach plików, od
-prostych operacji wycinania/kopiowania i wklejania do zaawansowanego
-przeglądania plików z sieci zdalnych i lokalnych.
+Konqueror to zarządca plików dla środowiska KDE. Obsługuje
+podstawowe zarządzanie plikami w lokalnych uniksowych systemach
+plików, od prostych operacji wycinania/kopiowania i wklejania do
+zaawansowanego przeglądania plików z sieci zdalnych i lokalnych.
 
 Konqueror to podstawa dla wszystkich nowych technologii KDE, od usług
 KIO (dostarczających mechanizmy dostępu do plików) po osadzanie
@@ -371,17 +379,18 @@ komponentów poprzez interfejs obiektowy KParts i jest jedną z
 najbardziej poddających się dostosowaniu do własnych potrzeb
 dostępnych aplikacji.
 
-Konqueror jest także przeglądarką WWW o otwartych źródłach, zgodną z
-HTML 4.0, obsługującą aplety Javy, JavaScript, CSS1 i (częściowo)
-CSS2, a także wtyczki Netscape'a (na przykład Flash i RealAudio).
+Konqueror jest także przeglądarką WWW o otwartych źródłach,
+zgodną z HTML 4.0, obsługującą aplety Javy, JavaScript, CSS1 i
+(częściowo) CSS2, a także wtyczki Netscape'a (na przykład Flash i
+RealAudio).
 
-Konqueror jest uniwersalną aplikacją do przeglądania, umożliwiającą
-osadzenie w niej komponentów do przeglądania aby oglądać dokumenty bez
-uruchamiania innej aplikacji.
+Konqueror jest uniwersalną aplikacją do przeglądania,
+umożliwiającą osadzenie w niej komponentów do przeglądania aby
+oglądać dokumenty bez uruchamiania innej aplikacji.
 
 %package -n konqueror-libs
 Summary:	konqueror shared libraries
-Summary(pl.UTF-8):   Biblioteki współdzielone konquerora
+Summary(pl.UTF-8):	Biblioteki współdzielone konquerora
 Group:		X11/Libraries
 Requires(post,postun):	/sbin/ldconfig
 Requires:	kde4-kdelibs >= %{version}
