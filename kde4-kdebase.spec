@@ -108,8 +108,7 @@ This package contains KDE base system which includes:
 - many more.
 
 %description -l ja.UTF-8
-KDEデスクトップ環境用の基本アプリケーション。
-以下のようなパッケージが入っています。
+KDEデスクトップ環境用の基本アプリケーション。 以下のようなパッケージが入っています。
 
 %description -l pl.UTF-8
 Ten pakiet zawiera podstawowe aplikacje KDE:
@@ -117,36 +116,28 @@ Ten pakiet zawiera podstawowe aplikacje KDE:
 - KDesktop (pulpit) i Kicker (panel)
 - menedżer okien Kwin i dekoracje
 - ekrany startowe KDE
-- obsługę podglądu plików, protokołów poczty i news oraz
-  emulacji terminala
+- obsługę podglądu plików, protokołów poczty i news oraz emulacji
+  terminala
 
 %description -l ru.UTF-8
-Базовые программы для K Desktop Environment.
-Включены: kwin (оконный менеджер), konqueror
-(файловый менеджер, web-браузер,
-ftp-клиент, ...), konsole (замена xterm), kicker
-(запускалка программ и пейджер
-рабочего стола), kaudio (аудиосервер), kdehelp
-(программа для просмотра справочных
-файлов kde, файлов info и man), kthememgr (система
-для управления альтернативными
-пакетами тем) и другие компоненты KDE
-(kcheckpass, kikbd, kscreensaver, kcontrol, kfind, kfontmanager,
-kmenuedit, kappfinder).
+Базовые программы для K Desktop Environment. Включены: kwin (оконный
+менеджер), konqueror (файловый менеджер, web-браузер, ftp-клиент,
+...), konsole (замена xterm), kicker (запускалка программ и пейджер
+рабочего стола), kaudio (аудиосервер), kdehelp (программа для
+просмотра справочных файлов kde, файлов info и man), kthememgr
+(система для управления альтернативными пакетами тем) и другие
+компоненты KDE (kcheckpass, kikbd, kscreensaver, kcontrol, kfind,
+kfontmanager, kmenuedit, kappfinder).
 
 %description -l uk.UTF-8
-Базові програми для K Desktop Environment.
-Включені: kwin (віконный менеджер), konqueror
-(файловий менеджер, web-браузер,
-ftp-кліент, ...), konsole (заміна xterm), kicker
-(запускалка програм та пейджер
-робочого столу), kaudio (аудіосервер), kdehelp
-(програма для перегляду файлів
-довідки kde, файлів info та man), kthememgr
-(система для керування
-альтернативними пакетами тем) та інші
-компоненти KDE (kcheckpass, kikbd, kscreensaver, kcontrol,
-kfind, kfontmanager, kmenuedit, kappfinder).
+Базові програми для K Desktop Environment. Включені: kwin (віконный
+менеджер), konqueror (файловий менеджер, web-браузер, ftp-кліент,
+...), konsole (заміна xterm), kicker (запускалка програм та пейджер
+робочого столу), kaudio (аудіосервер), kdehelp (програма для перегляду
+файлів довідки kde, файлів info та man), kthememgr (система для
+керування альтернативними пакетами тем) та інші компоненти KDE
+(kcheckpass, kikbd, kscreensaver, kcontrol, kfind, kfontmanager,
+kmenuedit, kappfinder).
 
 %package devel
 Summary:	Include files to develop KDE applications
@@ -159,12 +150,12 @@ Requires:	kde4-kdelibs-devel >= %{version}
 This package contains header files needed to develop KDE applications.
 
 %description devel -l pl.UTF-8
-Pakiet zawiera pliki nagłówkowe niezbędne do programowania
-aplikacji KDE.
+Pakiet zawiera pliki nagłówkowe niezbędne do programowania aplikacji
+KDE.
 
 %description devel -l pt_BR.UTF-8
-Este pacote contém os arquivos de inclusão que são necessários
-para compilar aplicativos que usem bibliotecas do kdebase.
+Este pacote contém os arquivos de inclusão que são necessários para
+compilar aplicativos que usem bibliotecas do kdebase.
 
 %package common
 Summary:	KDE4 common directories
@@ -240,8 +231,8 @@ The tool for finding installed application and adding them to your
 menu.
 
 %description kappfinder -l pl.UTF-8
-Narzędzie do wyszukiwania zainstalowanych aplikacji i dodawania ich
-do menu.
+Narzędzie do wyszukiwania zainstalowanych aplikacji i dodawania ich do
+menu.
 
 %package kdialog
 Summary:	A KDE version of dialog
@@ -254,8 +245,8 @@ Kdialog allows to display window dialogs with KDE widgets from shell
 scripts.
 
 %description kdialog -l pl.UTF-8
-Kdialog umożliwia wyświetlanie komunikatów w okienkach KDE z
-poziomu skryptów powłoki.
+Kdialog umożliwia wyświetlanie komunikatów w okienkach KDE z poziomu
+skryptów powłoki.
 
 %package kfind
 Summary:	KDE Find Tool
@@ -328,8 +319,8 @@ useraccount changes user account information. This module contains
 kdepasswd program functionality.
 
 %description useraccount -l pl.UTF-8
-useraccount zmienia informacje o koncie użytkownika. Ten moduł
-zawiera funkcjonalność programu kdepasswd.
+useraccount zmienia informacje o koncie użytkownika. Ten moduł zawiera
+funkcjonalność programu kdepasswd.
 
 %package -n dolphin
 Summary:	Dolphin - KDE4 file manager
@@ -369,10 +360,10 @@ read-only viewing components in itself to view documents without ever
 launching another application.
 
 %description -n konqueror4 -l pl.UTF-8
-Konqueror to zarządca plików dla środowiska KDE. Obsługuje
-podstawowe zarządzanie plikami w lokalnych uniksowych systemach
-plików, od prostych operacji wycinania/kopiowania i wklejania do
-zaawansowanego przeglądania plików z sieci zdalnych i lokalnych.
+Konqueror to zarządca plików dla środowiska KDE. Obsługuje podstawowe
+zarządzanie plikami w lokalnych uniksowych systemach plików, od
+prostych operacji wycinania/kopiowania i wklejania do zaawansowanego
+przeglądania plików z sieci zdalnych i lokalnych.
 
 Konqueror to podstawa dla wszystkich nowych technologii KDE, od usług
 KIO (dostarczających mechanizmy dostępu do plików) po osadzanie
@@ -380,14 +371,13 @@ komponentów poprzez interfejs obiektowy KParts i jest jedną z
 najbardziej poddających się dostosowaniu do własnych potrzeb
 dostępnych aplikacji.
 
-Konqueror jest także przeglądarką WWW o otwartych źródłach,
-zgodną z HTML 4.0, obsługującą aplety Javy, JavaScript, CSS1 i
-(częściowo) CSS2, a także wtyczki Netscape'a (na przykład Flash i
-RealAudio).
+Konqueror jest także przeglądarką WWW o otwartych źródłach, zgodną z
+HTML 4.0, obsługującą aplety Javy, JavaScript, CSS1 i (częściowo)
+CSS2, a także wtyczki Netscape'a (na przykład Flash i RealAudio).
 
-Konqueror jest uniwersalną aplikacją do przeglądania,
-umożliwiającą osadzenie w niej komponentów do przeglądania aby
-oglądać dokumenty bez uruchamiania innej aplikacji.
+Konqueror jest uniwersalną aplikacją do przeglądania, umożliwiającą
+osadzenie w niej komponentów do przeglądania aby oglądać dokumenty bez
+uruchamiania innej aplikacji.
 
 %package -n konqueror4-libs
 Summary:	konqueror shared libraries
