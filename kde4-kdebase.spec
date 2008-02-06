@@ -21,7 +21,7 @@ Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
 Version:	4.0.60
-Release:	0.1
+Release:	0.2
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
@@ -261,7 +261,7 @@ poziomu skryptów powłoki.
 Summary:	KDE Find Tool
 Summary(pl.UTF-8):	Narzędzie do wyszukiwania plików dla KDE
 Group:		X11/Applications
-Requires:	konqueror-libs = %{version}-%{release}
+Requires:	konqueror4-libs = %{version}-%{release}
 
 %description kfind
 A tool for find files for KDE.
@@ -335,20 +335,20 @@ zawiera funkcjonalność programu kdepasswd.
 Summary:	Dolphin - KDE4 file manager
 Summary(pl.UTF-8):	Dolphin - menadżer plików KDE4
 Group:		X11/Applications
-Requires:	konqueror-libs = %{version}-%{release}
+Requires:	konqueror4-libs = %{version}-%{release}
 
 %description -n dolphin
 Dolphin - KDE4 file manager.
 
-%package -n konqueror
+%package -n konqueror4
 Summary:	Konqueror - web browser and file manager
 Summary(pl.UTF-8):	Konqueror - przeglądarka WWW i zarządca plików
 Group:		X11/Applications
 Requires:	%{name}-common = %{version}-%{release}
-#Requires:	konqueror-libs = %{version}-%{release}
+Requires:	konqueror4-libs = %{version}-%{release}
 Provides:	wwwbrowser
 
-%description -n konqueror
+%description -n konqueror4
 Konqueror is the file manager for the K Desktop Environment. It
 supports basic file management on local UNIX filesystems, from simple
 cut/copy and paste operations to advanced remote and local network
@@ -367,7 +367,7 @@ Konqueror is a universal viewing application, capable of embedding
 read-only viewing components in itself to view documents without ever
 launching another application.
 
-%description -n konqueror -l pl.UTF-8
+%description -n konqueror4 -l pl.UTF-8
 Konqueror to zarządca plików dla środowiska KDE. Obsługuje
 podstawowe zarządzanie plikami w lokalnych uniksowych systemach
 plików, od prostych operacji wycinania/kopiowania i wklejania do
@@ -388,17 +388,17 @@ Konqueror jest uniwersalną aplikacją do przeglądania,
 umożliwiającą osadzenie w niej komponentów do przeglądania aby
 oglądać dokumenty bez uruchamiania innej aplikacji.
 
-%package -n konqueror-libs
+%package -n konqueror4-libs
 Summary:	konqueror shared libraries
 Summary(pl.UTF-8):	Biblioteki współdzielone konquerora
 Group:		X11/Libraries
 Requires(post,postun):	/sbin/ldconfig
 Requires:	kde4-kdelibs >= %{version}
 
-%description -n konqueror-libs
+%description -n konqueror4-libs
 Konqueror shared libraries.
 
-%description -n konqueror-libs -l pl.UTF-8
+%description -n konqueror4-libs -l pl.UTF-8
 Biblioteki współdzielone konquerora.
 
 %prep
@@ -452,8 +452,8 @@ rm -rf $RPM_BUILD_ROOT
 %post core -p /sbin/ldconfig
 %postun core -p /sbin/ldconfig
 
-%post	-n konqueror-libs	-p /sbin/ldconfig
-%postun	-n konqueror-libs	-p /sbin/ldconfig
+%post	-n konqueror4-libs	-p /sbin/ldconfig
+%postun	-n konqueror4-libs	-p /sbin/ldconfig
 
 %files devel
 %defattr(644,root,root,755)
@@ -587,7 +587,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/kcm_useraccount.kcfg
 %{_datadir}/kde4/services/kcm_useraccount.desktop
 
-%files -n konqueror
+%files -n konqueror4
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/keditbookmarks
 %attr(755,root,root) %{_bindir}/keditfiletype
@@ -689,7 +689,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/konq_shellcmdplugin.so
 
 
-%files -n konqueror-libs
+%files -n konqueror4-libs
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libkonq.so.*
 %attr(755,root,root) %{_libdir}/libkonqsidebarplugin.so.*
