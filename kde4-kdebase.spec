@@ -20,12 +20,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.0.60
-Release:	0.2
+Version:	4.0.61
+Release:	0.1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	a291f9a05f6634ea5ebf9fbe61aca8a3
+# Source0-md5:	3fc371ffb89e7b6d74e8b2d45836d257
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
 %{?with_hidden_visibility:BuildRequires:	QtCore-devel >= 4.2.0}
@@ -438,6 +438,8 @@ install -d \
 	$RPM_BUILD_ROOT%{_libdir}/kde4/plugins/konqueror \
 	$RPM_BUILD_ROOT%{_kdedocdir}/en/kinfocenter
 
+%find_lang kinfocenter --with-kde
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -517,13 +519,33 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/apps/*.svgz
 %dir %{_iconsdir}/oxygen/scalable/apps
 
-%files infocenter
+%files infocenter -f kinfocenter.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kinfocenter
 %attr(755,root,root) %{_libdir}/libkdeinit4_kinfocenter.so
+%attr(755,root,root) %{_libdir}/kde4/kcm_usb.so
+%attr(755,root,root) %{_libdir}/kde4/kcm_nic.so
+%attr(755,root,root) %{_libdir}/kde4/kcm_info.so
 %{_datadir}/apps/kinfocenter
+%{_datadir}/kde4/services/kcmview1394.desktop
+%{_datadir}/kde4/services/kcmusb.desktop
+%{_datadir}/kde4/services/nic.desktop
+%{_datadir}/kde4/services/opengl.desktop
+%{_datadir}/kde4/services/partitions.desktop
+%{_datadir}/kde4/services/pci.desktop
+%{_datadir}/kde4/services/processor.desktop
+%{_datadir}/kde4/services/scsi.desktop
+%{_datadir}/kde4/services/sound.desktop
+%{_datadir}/kde4/services/xserver.desktop
+%{_datadir}/kde4/services/memory.desktop
+%{_datadir}/kde4/services/devices.desktop
+%{_datadir}/kde4/services/dma.desktop
+%{_datadir}/kde4/services/interrupts.desktop
+%{_datadir}/kde4/services/ioports.desktop
 %{_desktopdir}/kde4/kinfocenter.desktop
 %dir %{_kdedocdir}/en/kinfocenter
+%{_datadir}/apps/kcmview1394/oui.db
+%{_datadir}/apps/kcmusb/usb.ids
 
 %files kappfinder
 %defattr(644,root,root,755)
@@ -598,6 +620,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/kcm_konqhtml.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_kurifilt.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_performance.so
+%attr(755,root,root) %{_libdir}/kde4/kcm_view1394.so
 %attr(755,root,root) %{_libdir}/kde4/kded_favicons.so
 %attr(755,root,root) %{_libdir}/kde4/kded_konqy_preloader.so
 %attr(755,root,root) %{_libdir}/kde4/konq_aboutpage.so
