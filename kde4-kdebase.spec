@@ -212,6 +212,7 @@ Summary(pl.UTF-8):	Centrum informacji o systemie dla KDE
 Group:		X11/Applications
 Requires:	%{name}-core = %{version}-%{release}
 #Requires:	pciutils
+Obsoletes:	kde4-kdebase-workspace-infocenter
 
 %description infocenter
 Application for displaying information about your system.
