@@ -545,6 +545,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/ioports.desktop
 %{_desktopdir}/kde4/kinfocenter.desktop
 %dir %{_kdedocdir}/en/kinfocenter
+%dir %{_datadir}/apps/kcmview1394
+%dir %{_datadir}/apps/kcmusb
 %{_datadir}/apps/kcmview1394/oui.db
 %{_datadir}/apps/kcmusb/usb.ids
 
