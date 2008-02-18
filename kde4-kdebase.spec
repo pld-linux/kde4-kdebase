@@ -1,15 +1,11 @@
 # TODO:
 # - check BR list
-# - more file moves between packages
+# - more file moves between packages; what's with dozen of messy -core/-common/-common* packages?
 # - Req, Obsolets and Conflicts for every package
-# - new dsecriptions
-
-# Conditional build:
-%bcond_without	hidden_visibility	# pass '--fvisibility=hidden' & '--fvisibility-inlines-hidden' to g++
+# - new descriptions
 #
 %define		_state		unstable
-
-%define	orgname	kdebase
+%define		orgname		kdebase
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):	K Desktop Environment - archivos básicos
 Summary(ja.UTF-8):	KDEデスクトップ環境 - 基本ファイル
@@ -28,19 +24,18 @@ Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version
 # Source0-md5:	43dcfbcb217d800a9c32226c9915464d
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
-%{?with_hidden_visibility:BuildRequires:	QtCore-devel >= 4.2.0}
+BuildRequires:	QtCore-devel >= 4.2.0
 BuildRequires:	QtNetwork-devel >= 4.2.0
 BuildRequires:	audiofile-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bzip2-devel
 BuildRequires:	cdparanoia-III-devel
+BuildRequires:	cmake
 BuildRequires:	cups-devel
 BuildRequires:	cyrus-sasl-devel
 BuildRequires:	db-devel
 #BuildRequires:	dbus-qt-devel >= 0.70
-BuildRequires:	ed
-%{?with_hidden_visibility:BuildRequires:	gcc-c++ >= 5:4.1.0-0.20051206r108118.1}
 BuildRequires:	gettext-devel
 BuildRequires:	hal-devel
 BuildRequires:	jasper-devel
@@ -69,7 +64,6 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	samba-devel
 BuildRequires:	sed >= 4.0
-#BuildRequires:	unsermake >= 040511
 BuildRequires:	xorg-app-bdftopcf
 BuildRequires:	xorg-cf-files
 BuildRequires:	xorg-lib-libXScrnSaver-devel
@@ -139,6 +133,54 @@ kfontmanager, kmenuedit, kappfinder).
 (kcheckpass, kikbd, kscreensaver, kcontrol, kfind, kfontmanager,
 kmenuedit, kappfinder).
 
+%package common
+Summary:	KDE4 common directories
+Summary(pl.UTF-8):	Wspólne pliki KDE4.
+Group:		X11/Libraries
+
+%description common
+KDE4 common directories.
+
+%description common -l pl.UTF-8
+Wspólne katalogi KDE4.
+
+%package common-konsole
+Summary:	Common files for konsole and konsolepart
+Summary(pl.UTF-8):	Pliki wspólne dla konsole i konsolepart
+Group:		X11/Applications
+Requires(post,postun):	fontpostinst
+Requires:	kde4-kdelibs >= %{version}
+
+%description common-konsole
+Color schemes, icons, fonts and shell profiles for konsole.
+
+%description common-konsole -l pl.UTF-8
+Schematy kolorów, ikony, czcionki oraz profile sesji dla konsole.
+
+%package core
+Summary:	KDE Core Apps
+Summary(pl.UTF-8):	Podstawowe aplikacje KDE
+Group:		X11/Applications
+Requires:	kde4-kdelibs >= %{version}
+#Requires:	sudo
+#Requires:	xdg-menus
+
+%description core
+KDE Core apps. This package contains:
+- Control Center;
+- Help Center;
+- Print System;
+- Crash Handlers;
+- A Frontend for "su" program.
+
+%description core -l pl.UTF-8
+Podstawowe aplikacje środowiska KDE. Pakiet ten zawiera:
+- Centrum sterowania;
+- System drukowania;
+- System pomocy;
+- Programy obsługi błędów;
+- Frontend dla programu "su".
+
 %package devel
 Summary:	Include files to develop KDE applications
 Summary(pl.UTF-8):	Pliki nagłówkowe potrzebne do tworzenia aplikacji KDE
@@ -157,55 +199,6 @@ KDE.
 Este pacote contém os arquivos de inclusão que são necessários para
 compilar aplicativos que usem bibliotecas do kdebase.
 
-%package common
-Summary:	KDE4 common directories
-Summary(pl.UTF-8):	Wspólne pliki KDE4.
-Group:		X11/Libraries
-
-%description common
-KDE4 common directories.
-
-%description common -l pl.UTF-8
-Wspólne katalogi KDE4.
-
-%package common-konsole
-Summary:	Common files for konsole and konsolepart
-Summary(pl.UTF-8):	Pliki wspólne dla konsole i konsolepart
-Group:		X11/Applications
-#Requires(post,postun):	fontpostinst
-Requires:	kde4-kdelibs >= %{version}
-
-%description common-konsole
-Color schemes, icons, fonts and shell profiles for konsole.
-
-%description common-konsole -l pl.UTF-8
-Schematy kolorów, ikony, czcionki oraz profile sesji dla konsole.
-
-%package core
-Summary:	KDE Core Apps
-Summary(pl.UTF-8):	Podstawowe aplikacje KDE
-Group:		X11/Applications
-Requires:	kde4-kdelibs >= %{version}
-#Requires:	sudo
-#Requires:	xdg-menus
-#Conflicts:	kttsd <= 040609
-
-%description core
-KDE Core apps. This package contains:
-- Control Center;
-- Help Center;
-- Print System;
-- Crash Handlers;
-- A Frontend for "su" program.
-
-%description core -l pl.UTF-8
-Podstawowe aplikacje środowiska KDE. Pakiet ten zawiera:
-- Centrum sterowania;
-- System drukowania;
-- System pomocy;
-- Programy obsługi błędów;
-- Frontend dla programu "su".
-
 %package infocenter
 Summary:	KDE Info Center
 Summary(pl.UTF-8):	Centrum informacji o systemie dla KDE
@@ -219,7 +212,6 @@ Application for displaying information about your system.
 
 %description infocenter -l pl.UTF-8
 Centrum informacji o systemie dla KDE.
-
 
 %package kappfinder
 Summary:	Menu Updating Tool
@@ -456,34 +448,6 @@ rm -rf $RPM_BUILD_ROOT
 %post	-n kde4-konqueror-libs	-p /sbin/ldconfig
 %postun	-n kde4-konqueror-libs	-p /sbin/ldconfig
 
-%files devel
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libdolphinprivate.so
-%attr(755,root,root) %{_libdir}/libkonq.so
-%attr(755,root,root) %{_libdir}/libkonqsidebarplugin.so
-%attr(755,root,root) %{_libdir}/libkonquerorprivate.so
-%{_includedir}/*.h
-
-%files -n kde4-dolphin
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/dolphin
-%attr(755,root,root) %{_libdir}/libdolphinprivate.so.*
-%attr(755,root,root) %{_libdir}/kde4/dolphinpart.so
-%dir %{_datadir}/apps/dolphin
-%{_datadir}/apps/dolphin/dolphinui.rc
-%{_datadir}/apps/dolphin/icons
-%dir %{_datadir}/apps/dolphinpart
-%{_datadir}/apps/dolphinpart/dolphinpart.rc
-%{_datadir}/config.kcfg/dolphin_columnmodesettings.kcfg
-%{_datadir}/config.kcfg/dolphin_detailsmodesettings.kcfg
-%{_datadir}/config.kcfg/dolphin_directoryviewpropertysettings.kcfg
-%{_datadir}/config.kcfg/dolphin_generalsettings.kcfg
-%{_datadir}/config.kcfg/dolphin_iconsmodesettings.kcfg
-%{_datadir}/config.kcfg/keditbookmarks.kcfg
-%{_datadir}/kde4/services/dolphinpart.desktop
-%{_desktopdir}/kde4/dolphin.desktop
-%{_kdedocdir}/en/dolphin
-
 %files common
 %defattr(644,root,root,755)
 %dir %{_desktopdir}/kde4
@@ -519,6 +483,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/apps/*.png
 %{_iconsdir}/*/*/apps/*.svgz
 %dir %{_iconsdir}/oxygen/scalable/apps
+
+%files devel
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libdolphinprivate.so
+%attr(755,root,root) %{_libdir}/libkonq.so
+%attr(755,root,root) %{_libdir}/libkonqsidebarplugin.so
+%attr(755,root,root) %{_libdir}/libkonquerorprivate.so
+%{_includedir}/*.h
 
 %files infocenter -f kinfocenter.lang
 %defattr(644,root,root,755)
@@ -607,6 +579,26 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/kcm_useraccount.kcfg
 %{_datadir}/kde4/services/kcm_useraccount.desktop
 
+%files -n kde4-dolphin
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/dolphin
+%attr(755,root,root) %{_libdir}/libdolphinprivate.so.*
+%attr(755,root,root) %{_libdir}/kde4/dolphinpart.so
+%dir %{_datadir}/apps/dolphin
+%{_datadir}/apps/dolphin/dolphinui.rc
+%{_datadir}/apps/dolphin/icons
+%dir %{_datadir}/apps/dolphinpart
+%{_datadir}/apps/dolphinpart/dolphinpart.rc
+%{_datadir}/config.kcfg/dolphin_columnmodesettings.kcfg
+%{_datadir}/config.kcfg/dolphin_detailsmodesettings.kcfg
+%{_datadir}/config.kcfg/dolphin_directoryviewpropertysettings.kcfg
+%{_datadir}/config.kcfg/dolphin_generalsettings.kcfg
+%{_datadir}/config.kcfg/dolphin_iconsmodesettings.kcfg
+%{_datadir}/config.kcfg/keditbookmarks.kcfg
+%{_datadir}/kde4/services/dolphinpart.desktop
+%{_desktopdir}/kde4/dolphin.desktop
+%{_kdedocdir}/en/dolphin
+
 %files -n kde4-konqueror
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/keditbookmarks
@@ -615,6 +607,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/konqueror
 %attr(755,root,root) %{_bindir}/nspluginscan
 %attr(755,root,root) %{_bindir}/nspluginviewer
+%attr(755,root,root) %{_libdir}/libkdeinit4_konqueror.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_css.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_filetypes.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_history.so
@@ -628,7 +621,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/kded_konqy_preloader.so
 %attr(755,root,root) %{_libdir}/kde4/konq_aboutpage.so
 %attr(755,root,root) %{_libdir}/kde4/libnsplugin.so
-%attr(755,root,root) %{_libdir}/libkdeinit4_konqueror.so
 %{_datadir}/apps/kconf_update/konqsidebartng.upd
 %{_datadir}/apps/kconf_update/move_konqsidebartng_entries.sh
 %{_datadir}/apps/kbookmark
