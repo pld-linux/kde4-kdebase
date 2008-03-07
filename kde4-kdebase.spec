@@ -16,12 +16,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.0.64
+Version:	4.0.65
 Release:	0.1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	99be33f7d7f734e3c05c941327f6ed08
+# Source0-md5:	7824a5e21c4cf010e8336b4275151001
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
 BuildRequires:	QtCore-devel >= 4.4.0
@@ -577,6 +577,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/apps/kdm/pics
 %{_datadir}/apps/kdm/pics/users
 %{_datadir}/config.kcfg/kcm_useraccount.kcfg
+%{_datadir}/config.kcfg/kcm_useraccount_pass.kcfg
 %{_datadir}/kde4/services/kcm_useraccount.desktop
 
 %files -n kde4-dolphin
