@@ -16,12 +16,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.0.65
+Version:	4.0.66
 Release:	0.1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	7824a5e21c4cf010e8336b4275151001
+# Source0-md5:	9058cc7f9495525353489d210b2f21be
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
 BuildRequires:	QtCore-devel >= 4.4.0
@@ -461,7 +461,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kbookmarkmerger
 %attr(755,root,root) %{_libdir}/kde4/libkcminit_nsplugins.so
-%attr(755,root,root) %{_libdir}/kde4/libkhtmlkttsdplugin.so
+%attr(755,root,root) %{_libdir}/kde4/khtmlkttsdplugin.so
 %dir %{_datadir}/apps/kcontrol
 %dir %{_datadir}/apps/kcontrol/pics
 %{_datadir}/apps/kcontrol/pics/onlyone.png
@@ -516,7 +516,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/interrupts.desktop
 %{_datadir}/kde4/services/ioports.desktop
 %{_desktopdir}/kde4/kinfocenter.desktop
-%dir %{_kdedocdir}/en/kinfocenter
 %dir %{_datadir}/apps/kcmview1394
 %dir %{_datadir}/apps/kcmusb
 %{_datadir}/apps/kcmview1394/oui.db
