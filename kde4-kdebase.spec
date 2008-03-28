@@ -16,12 +16,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.0.66
+Version:	4.0.67
 Release:	0.1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	9058cc7f9495525353489d210b2f21be
+# Source0-md5:	17cb2ebed00a4db06494550ab2018baf
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
 BuildRequires:	QtCore-devel >= 4.4.0
@@ -499,6 +499,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/kcm_usb.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_nic.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_info.so
+%attr(755,root,root) %{_libdir}/kde4/kcm_opengl.so
+%attr(755,root,root) %{_libdir}/kde4/kcm_solidproc.so
 %{_datadir}/apps/kinfocenter
 %{_datadir}/kde4/services/kcmview1394.desktop
 %{_datadir}/kde4/services/kcmusb.desktop
@@ -506,7 +508,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/opengl.desktop
 %{_datadir}/kde4/services/partitions.desktop
 %{_datadir}/kde4/services/pci.desktop
-%{_datadir}/kde4/services/processor.desktop
 %{_datadir}/kde4/services/scsi.desktop
 %{_datadir}/kde4/services/sound.desktop
 %{_datadir}/kde4/services/xserver.desktop
@@ -515,6 +516,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/dma.desktop
 %{_datadir}/kde4/services/interrupts.desktop
 %{_datadir}/kde4/services/ioports.desktop
+%{_datadir}/kde4/services/kcmsolidproc.desktop
 %{_desktopdir}/kde4/kinfocenter.desktop
 %dir %{_datadir}/apps/kcmview1394
 %dir %{_datadir}/apps/kcmusb
@@ -584,6 +586,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/dolphin
 %attr(755,root,root) %{_libdir}/libdolphinprivate.so.*
 %attr(755,root,root) %{_libdir}/kde4/dolphinpart.so
+%attr(755,root,root) %{_libdir}/kde4/kcm_dolphin.so
 %dir %{_datadir}/apps/dolphin
 %{_datadir}/apps/dolphin/dolphinui.rc
 %{_datadir}/apps/dolphin/icons
@@ -597,6 +600,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/keditbookmarks.kcfg
 %{_datadir}/kde4/services/dolphinpart.desktop
 %{_desktopdir}/kde4/dolphin.desktop
+%{_datadir}/kde4/services/kcmdolphin.desktop
 %{_kdedocdir}/en/dolphin
 
 %files -n kde4-konqueror
