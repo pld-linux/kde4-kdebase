@@ -16,12 +16,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.0.68
+Version:	4.0.69
 Release:	0.1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	53607531a5b21b54ffd320d2062164a6
+# Source0-md5:	645d11ee892fc5f87d27f6cf636f121b
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
 BuildRequires:	QtCore-devel >= 4.4.0
@@ -604,7 +604,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/dolphin.desktop
 %{_datadir}/kde4/services/kcmdolphin.desktop
 %{_kdedocdir}/en/dolphin
-
+%dir %{_datadir}/apps/dolphinpart/kpartplugins
+%{_datadir}/apps/dolphinpart/kpartplugins/kremoteencodingplugin.desktop
+%{_datadir}/apps/dolphinpart/kpartplugins/kremoteencodingplugin.rc
+%{_datadir}/apps/dolphinpart/kpartplugins/kshellcmdplugin.desktop
+%{_datadir}/apps/dolphinpart/kpartplugins/kshellcmdplugin.rc
+            
 %files -n kde4-konqueror
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/keditbookmarks
@@ -632,8 +637,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kbookmark
 %{_datadir}/apps/kcmcss
 %{_datadir}/apps/keditbookmarks
-%{_datadir}/apps/konqiconview
-%{_datadir}/apps/konqlistview
+#%{_datadir}/apps/konqiconview
+#%{_datadir}/apps/konqlistview
 %{_datadir}/apps/konqueror/about
 %{_datadir}/apps/konqueror/icons
 %{_datadir}/apps/konqueror/pics
@@ -676,7 +681,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/khtml_plugins.desktop
 %{_datadir}/kde4/services/konq_aboutpage.desktop
 %{_datadir}/kde4/services/konq_sidebartng.desktop
-%{_datadir}/kde4/services/konqfilemgr.desktop
+#%{_datadir}/kde4/services/konqfilemgr.desktop
 %{_datadir}/kde4/services/konqueror.desktop
 %{_datadir}/kde4/services/lanbrowser.desktop
 %{_datadir}/kde4/services/netpref.desktop
