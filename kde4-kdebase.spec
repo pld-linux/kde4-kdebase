@@ -16,12 +16,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.0.69
+Version:	4.0.70
 Release:	0.1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	645d11ee892fc5f87d27f6cf636f121b
+# Source0-md5:	443271fd8efcb8e6bd82b0890782b74c
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
 BuildRequires:	QtCore-devel >= 4.4.0
@@ -503,22 +503,28 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/kcm_info.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_opengl.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_solidproc.so
+%attr(755,root,root) %{_libdir}/kde4/kcm_ioslaveinfo.so
+%attr(755,root,root) %{_libdir}/kde4/kcm_memory.so
+%attr(755,root,root) %{_libdir}/kde4/kcm_pci.so
+%attr(755,root,root) %{_libdir}/kde4/kcm_samba.so
 %{_datadir}/apps/kinfocenter
 %{_datadir}/kde4/services/kcmview1394.desktop
 %{_datadir}/kde4/services/kcmusb.desktop
 %{_datadir}/kde4/services/nic.desktop
 %{_datadir}/kde4/services/opengl.desktop
 %{_datadir}/kde4/services/partitions.desktop
-%{_datadir}/kde4/services/pci.desktop
 %{_datadir}/kde4/services/scsi.desktop
 %{_datadir}/kde4/services/sound.desktop
 %{_datadir}/kde4/services/xserver.desktop
-%{_datadir}/kde4/services/memory.desktop
 %{_datadir}/kde4/services/devices.desktop
 %{_datadir}/kde4/services/dma.desktop
 %{_datadir}/kde4/services/interrupts.desktop
 %{_datadir}/kde4/services/ioports.desktop
 %{_datadir}/kde4/services/kcmsolidproc.desktop
+%{_datadir}/kde4/services/ioslaveinfo.desktop
+%{_datadir}/kde4/services/kcm_memory.desktop
+%{_datadir}/kde4/services/kcm_pci.desktop
+%{_datadir}/kde4/services/smbstatus.desktop
 %{_desktopdir}/kde4/kinfocenter.desktop
 %dir %{_datadir}/apps/kcmview1394
 %dir %{_datadir}/apps/kcmusb
