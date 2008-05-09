@@ -41,7 +41,6 @@ BuildRequires:	hal-devel
 BuildRequires:	jasper-devel
 BuildRequires:	kde4-kdelibs-devel >= %{version}
 BuildRequires:	kde4-kdelibs-shared >= %{version}
-BuildRequires:	kde4-kdepimlibs-devel >= %{version}
 BuildRequires:	lame-libs-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel >= 1.0.8
@@ -688,7 +687,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/khtml_plugins.desktop
 %{_datadir}/kde4/services/konq_aboutpage.desktop
 %{_datadir}/kde4/services/konq_sidebartng.desktop
-#%{_datadir}/kde4/services/konqfilemgr.desktop
 %{_datadir}/kde4/services/konqueror.desktop
 %{_datadir}/kde4/services/lanbrowser.desktop
 %{_datadir}/kde4/services/netpref.desktop
@@ -699,7 +697,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/dbus-1/interfaces/org.kde.Konqueror.Main.xml
 %{_datadir}/dbus-1/interfaces/org.kde.Konqueror.MainWindow.xml
 %{_datadir}/dbus-1/interfaces/org.kde.konqueror.Preloader.xml
-%{_datadir}/dbus-1/interfaces/org.kde.libkonq.FileUndoManager.xml
 %{_datadir}/dbus-1/interfaces/org.kde.nsplugins.CallBack.xml
 %{_datadir}/dbus-1/interfaces/org.kde.nsplugins.class.xml
 %{_datadir}/dbus-1/interfaces/org.kde.nsplugins.instance.xml
