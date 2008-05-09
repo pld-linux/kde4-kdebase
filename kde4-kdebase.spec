@@ -41,6 +41,7 @@ BuildRequires:	hal-devel
 BuildRequires:	jasper-devel
 BuildRequires:	kde4-kdelibs-devel >= %{version}
 BuildRequires:	kde4-kdelibs-shared >= %{version}
+BuildRequires:	kde4-kdepimlibs-devel >= %{version}
 BuildRequires:	lame-libs-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel >= 1.0.8
