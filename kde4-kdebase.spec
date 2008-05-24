@@ -58,6 +58,7 @@ BuildRequires:	lm_sensors-devel
 BuildRequires:	motif-devel
 BuildRequires:	openssl-devel >= 0.9.7c
 BuildRequires:	pam-devel
+BuildRequires:	pciutils-devel
 BuildRequires:	pkgconfig
 BuildRequires:	qimageblitz-devel
 BuildRequires:	rpm-pythonprov
@@ -337,8 +338,8 @@ Group:		X11/Applications
 Requires:	%{name}-common = %{version}-%{release}
 Requires:	kde4-konqueror-libs = %{version}-%{release}
 Provides:	wwwbrowser
-Obsoletes:	konqueror >= 4.0.0
 Obsoletes:	konqueror < 9:3.0.0
+Obsoletes:	konqueror >= 4.0.0
 
 %description -n kde4-konqueror
 Konqueror is the file manager for the K Desktop Environment. It
@@ -385,8 +386,8 @@ Summary(pl.UTF-8):	Biblioteki współdzielone konquerora
 Group:		X11/Libraries
 Requires(post,postun):	/sbin/ldconfig
 Requires:	kde4-kdelibs >= %{version}
-Obsoletes:	konqueror-libs >= 4.0.0
 Obsoletes:	konqueror-libs < 9:3.0.0
+Obsoletes:	konqueror-libs >= 4.0.0
 
 %description -n kde4-konqueror-libs
 Konqueror shared libraries.
@@ -512,7 +513,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/kcmview1394.desktop
 %{_datadir}/kde4/services/kcmusb.desktop
 %{_datadir}/kde4/services/nic.desktop
-%{_datadir}/kde4/services/opengl.desktop  
+%{_datadir}/kde4/services/opengl.desktop
 %{_datadir}/kde4/services/kcm_partition.desktop
 %{_datadir}/kde4/services/scsi.desktop
 %{_datadir}/kde4/services/sound.desktop
@@ -616,7 +617,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/dolphinpart/kpartplugins/kremoteencodingplugin.rc
 %{_datadir}/apps/dolphinpart/kpartplugins/kshellcmdplugin.desktop
 %{_datadir}/apps/dolphinpart/kpartplugins/kshellcmdplugin.rc
-            
+
 %files -n kde4-konqueror
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/keditbookmarks
