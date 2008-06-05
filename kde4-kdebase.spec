@@ -304,8 +304,6 @@ wysyłają za pomocą komend write lub wall.
 Summary:	User Account management
 Summary(pl.UTF-8):	Zarządzanie kontem użytkownika
 Group:		X11/Applications
-#Obsoletes:	kdeutils-kdepasswd
-#Obsoletes:	kdeutils-userinfo
 
 %description useraccount
 useraccount changes user account information. This module contains
@@ -475,7 +473,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kconf_update/socks.upd
 %{_datadir}/templates
 %{_desktopdir}/kde4/Home.desktop
-%{_desktopdir}/kde4/kdepasswd.desktop
 %{_desktopdir}/kde4/kfmclient.desktop
 %{_desktopdir}/kde4/kfmclient_dir.desktop
 %{_desktopdir}/kde4/kfmclient_html.desktop
@@ -556,12 +553,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/konsoleprofile
 %attr(755,root,root) %{_libdir}/libkdeinit4_konsole.so
 %attr(755,root,root) %{_libdir}/kde4/libkonsolepart.so
-#%{_datadir}/kde4/services/konsole-script.desktop
 %{_datadir}/kde4/services/ServiceMenus/konsolehere.desktop
 %{_datadir}/kde4/services/konsolepart.desktop
 %{_desktopdir}/kde4/konsole.desktop
-#%{_iconsdir}/*/*/apps/konsole.png
-#%{_iconsdir}/*/*/apps/konsole.svgz
 %{_kdedocdir}/en/konsole
 
 %files kwrite
@@ -587,6 +581,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/kcm_useraccount.kcfg
 %{_datadir}/config.kcfg/kcm_useraccount_pass.kcfg
 %{_datadir}/kde4/services/kcm_useraccount.desktop
+%{_desktopdir}/kde4/kdepasswd.desktop
+%{_kdedocdir}/en/kdepasswd
 
 %files -n kde4-dolphin
 %defattr(644,root,root,755)
