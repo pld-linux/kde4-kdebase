@@ -16,12 +16,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.0.81
+Version:	4.0.82
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	fa890cf83a66bcb8361eb2510902e468
+# Source0-md5:	9c8f9237db0074007dcced2deb82f932
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
 BuildRequires:	QtCore-devel >= 4.4.0
@@ -478,7 +478,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/kfmclient_html.desktop
 %{_desktopdir}/kde4/kfmclient_war.desktop
 %{_iconsdir}/*/*/apps/*.png
+%{_iconsdir}/*/*/actions/*.png
 %{_iconsdir}/*/*/apps/*.svgz
+%{_iconsdir}/*/*/actions/*.svgz
 %dir %{_iconsdir}/oxygen/scalable/apps
 
 %files devel
@@ -503,6 +505,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/kcm_pci.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_samba.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_partition.so
+%attr(755,root,root) %{_libdir}/kde4/plasma_applet_folderview.so
 %{_datadir}/apps/kinfocenter
 %{_datadir}/kde4/services/kcmview1394.desktop
 %{_datadir}/kde4/services/kcmusb.desktop
@@ -521,6 +524,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/kcm_memory.desktop
 %{_datadir}/kde4/services/kcm_pci.desktop
 %{_datadir}/kde4/services/smbstatus.desktop
+%{_datadir}/kde4/services/plasma-applet-folderview.desktop
 %{_desktopdir}/kde4/kinfocenter.desktop
 %dir %{_datadir}/apps/kcmview1394
 %dir %{_datadir}/apps/kcmusb
@@ -592,7 +596,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/kcm_dolphin.so
 %dir %{_datadir}/apps/dolphin
 %{_datadir}/apps/dolphin/dolphinui.rc
-%{_datadir}/apps/dolphin/icons
 %dir %{_datadir}/apps/dolphinpart
 %{_datadir}/apps/dolphinpart/dolphinpart.rc
 %{_datadir}/config.kcfg/dolphin_columnmodesettings.kcfg
