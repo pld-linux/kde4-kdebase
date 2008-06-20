@@ -37,6 +37,7 @@ BuildRequires:	db-devel
 BuildRequires:	gettext-devel
 BuildRequires:	hal-devel
 BuildRequires:	jasper-devel
+BuildRequires:	kde4-kdebase-workspace-devel >= %{version}
 BuildRequires:	kde4-kdelibs-devel >= %{version}
 BuildRequires:	kde4-kdelibs-shared >= %{version}
 BuildRequires:	kde4-kdepimlibs-devel >= %{version}
