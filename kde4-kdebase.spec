@@ -131,30 +131,6 @@ kfontmanager, kmenuedit, kappfinder).
 (kcheckpass, kikbd, kscreensaver, kcontrol, kfind, kfontmanager,
 kmenuedit, kappfinder).
 
-%package common
-Summary:	KDE4 common directories
-Summary(pl.UTF-8):	Wspólne pliki KDE4.
-Group:		X11/Libraries
-
-%description common
-KDE4 common directories.
-
-%description common -l pl.UTF-8
-Wspólne katalogi KDE4.
-
-%package common-konsole
-Summary:	Common files for konsole and konsolepart
-Summary(pl.UTF-8):	Pliki wspólne dla konsole i konsolepart
-Group:		X11/Applications
-Requires(post,postun):	fontpostinst
-Requires:	kde4-kdelibs >= %{version}
-
-%description common-konsole
-Color schemes, icons, fonts and shell profiles for konsole.
-
-%description common-konsole -l pl.UTF-8
-Schematy kolorów, ikony, czcionki oraz profile sesji dla konsole.
-
 %package core
 Summary:	KDE Core Apps
 Summary(pl.UTF-8):	Podstawowe aplikacje KDE
@@ -257,9 +233,9 @@ Narzędzie do wyszukiwania plików dla KDE.
 Summary:	KDE Terminal Emulator
 Summary(pl.UTF-8):	Emulator terminala dla KDE
 Group:		X11/Applications
-Requires:	%{name}-common-konsole = %{version}-%{release}
 Requires:	%{name}-core = %{version}-%{release}
-#Obsoletes:	konsole
+Provides:	%{name}-common-konsole
+Obsoletes:	%{name}-common-konsole
 
 %description konsole
 KDE Terminal Emulator.
@@ -272,7 +248,6 @@ Summary:	KDE Text Editor
 Summary(pl.UTF-8):	Edytor tekstu dla KDE
 Group:		X11/Applications/Editors
 Requires:	%{name}-core = %{version}-%{release}
-#Obsoletes:	kwrite
 
 %description kwrite
 KWrite is a simple texteditor, with syntaxhighlighting, codefolding,
@@ -330,7 +305,6 @@ Dolphin - zarządca plików KDE 4.
 Summary:	Konqueror - web browser and file manager
 Summary(pl.UTF-8):	Konqueror - przeglądarka WWW i zarządca plików
 Group:		X11/Applications
-Requires:	%{name}-common = %{version}-%{release}
 Requires:	kde4-konqueror-libs = %{version}-%{release}
 Provides:	wwwbrowser
 Obsoletes:	konqueror < 9:3.0.0
@@ -437,10 +411,10 @@ install -d \
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post common-konsole
+%post konsole
 %{_bindir}/fontpostinst misc
 
-%postun common-konsole
+%postun konsole
 %{_bindir}/fontpostinst misc
 
 %post	core -p /sbin/ldconfig
@@ -448,15 +422,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %post	-n kde4-konqueror-libs	-p /sbin/ldconfig
 %postun	-n kde4-konqueror-libs	-p /sbin/ldconfig
-
-%files common
-%defattr(644,root,root,755)
-%dir %{_desktopdir}/kde4
-%dir %{_datadir}/kde4/services/ServiceMenus
-
-%files common-konsole
-%defattr(644,root,root,755)
-%{_datadir}/apps/konsole
 
 %files core
 %defattr(644,root,root,755)
@@ -562,6 +527,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/libkonsolepart.so
 %{_datadir}/kde4/services/ServiceMenus/konsolehere.desktop
 %{_datadir}/kde4/services/konsolepart.desktop
+%{_datadir}/apps/konsole
 %{_desktopdir}/kde4/konsole.desktop
 %{_kdedocdir}/en/konsole
 
