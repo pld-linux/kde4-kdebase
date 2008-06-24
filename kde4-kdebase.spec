@@ -78,6 +78,8 @@ BuildRequires:	xorg-lib-libxkbfile-devel
 BuildRequires:	xorg-proto-scrnsaverproto-devel
 BuildRequires:	xorg-util-imake
 BuildConflicts:	kdebase-konqueror-libs
+Provides:	kde4-kdebase-common
+Obsoletes:	kde4-kdebase-common
 Obsoletes:	kdebase4
 Conflicts:	kdebase4
 Conflicts:	kdelibs < 9:3.1.94.040110-1
