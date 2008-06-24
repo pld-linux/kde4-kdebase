@@ -27,6 +27,7 @@ BuildRequires:	OpenGL-devel
 BuildRequires:	QtCore-devel >= 4.4.0
 BuildRequires:	QtNetwork-devel >= 4.4.0
 BuildRequires:	audiofile-devel
+BuildRequires:	automoc4
 BuildRequires:	bzip2-devel
 BuildRequires:	cdparanoia-III-devel
 BuildRequires:	cmake
