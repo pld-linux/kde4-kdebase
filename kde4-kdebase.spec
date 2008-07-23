@@ -381,7 +381,6 @@ for f in `find . -name \*.desktop`; do
 done
 
 %build
-export QTDIR=%{_prefix}
 install -d build
 cd build
 %cmake \
