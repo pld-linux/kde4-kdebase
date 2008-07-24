@@ -4,7 +4,7 @@
 # - Req, Obsolets and Conflicts for every package
 # - new descriptions
 #
-%define		_state		unstable
+%define		_state		stable
 %define		orgname		kdebase
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):	K Desktop Environment - archivos básicos
@@ -16,12 +16,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.0.98
+Version:	4.1.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	43a025d53f4d8a280db9c8b7da238bf6
+# Source0-md5:	6b58b056d27e3103f087f12abe899a49
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
 BuildRequires:	QtCore-devel >= 4.4.0
