@@ -4,8 +4,10 @@
 # - Req, Obsolets and Conflicts for every package
 # - new descriptions
 #
-%define		_state		stable
+%define		_state		unstable
 %define		orgname		kdebase
+%define		qtver		4.4.1
+
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):	K Desktop Environment - archivos básicos
 Summary(ja.UTF-8):	KDEデスクトップ環境 - 基本ファイル
@@ -16,22 +18,22 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.1.0
+Version:	4.1.61
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	6b58b056d27e3103f087f12abe899a49
+# Source0-md5:	8740ce3b9d4b1543f8f78e03816ecce0
 URL:		http://www.kde.org/
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
-BuildRequires:	QtCore-devel >= 4.4.0
-BuildRequires:	QtNetwork-devel >= 4.4.0
+BuildRequires:	QtCore-devel >= %{qtver}
+BuildRequires:	QtNetwork-devel >= %{qtver}
 BuildRequires:	audiofile-devel
 BuildRequires:	automoc4 >= 0.9.84
 BuildRequires:	bzip2-devel
 BuildRequires:	cdparanoia-III-devel
-BuildRequires:	cmake
+BuildRequires:	cmake >= 2.6.0
 BuildRequires:	cups-devel
 BuildRequires:	cyrus-sasl-devel
 BuildRequires:	db-devel
@@ -386,6 +388,7 @@ install -d build
 cd build
 %cmake \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+	-DCMAKE_AR=/usr/bin/ar \
 %if "%{_lib}" == "lib64"
 	-DLIB_SUFFIX=64 \
 %endif
