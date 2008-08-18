@@ -421,6 +421,14 @@ rm -rf $RPM_BUILD_ROOT
 %post	core -p /sbin/ldconfig
 %postun	core -p /sbin/ldconfig
 
+%post -n kde4-konqueror
+%update_browser_plugins
+
+%postun -n kde4-konqueror
+if [ "$1" = 0 ]; then
+	%update_browser_plugins
+fi
+
 %post	-n kde4-konqueror-libs	-p /sbin/ldconfig
 %postun	-n kde4-konqueror-libs	-p /sbin/ldconfig
 
