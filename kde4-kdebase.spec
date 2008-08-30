@@ -161,7 +161,7 @@ Podstawowe aplikacje środowiska KDE. Pakiet ten zawiera:
 Summary:	Include files to develop KDE applications
 Summary(pl.UTF-8):	Pliki nagłówkowe potrzebne do tworzenia aplikacji KDE
 Summary(pt_BR.UTF-8):	Arquivos de inclusão para compilar aplicativos que usem bibliotecas do kdebase
-Group:		X11/Development/Libraries
+Group:		X11/Development/Librariesn
 Requires:	kde4-konqueror-libs
 Requires:	kde4-dolphin
 Requires:	kde4-kdelibs-devel >= %{version}
@@ -311,6 +311,7 @@ Requires:	kde4-konqueror-libs = %{version}-%{release}
 Provides:	wwwbrowser
 Obsoletes:	konqueror < 9:3.0.0
 Obsoletes:	konqueror >= 4.0.0
+Requires:	browser-plugins
 
 %description -n kde4-konqueror
 Konqueror is the file manager for the K Desktop Environment. It
