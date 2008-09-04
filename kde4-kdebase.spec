@@ -162,9 +162,9 @@ Summary:	Include files to develop KDE applications
 Summary(pl.UTF-8):	Pliki nagłówkowe potrzebne do tworzenia aplikacji KDE
 Summary(pt_BR.UTF-8):	Arquivos de inclusão para compilar aplicativos que usem bibliotecas do kdebase
 Group:		X11/Development/Librariesn
-Requires:	kde4-konqueror-libs
 Requires:	kde4-dolphin
 Requires:	kde4-kdelibs-devel >= %{version}
+Requires:	kde4-konqueror-libs
 
 %description devel
 This package contains header files needed to develop KDE applications.
@@ -237,7 +237,7 @@ Summary(pl.UTF-8):	Emulator terminala dla KDE
 Group:		X11/Applications
 Requires:	%{name}-core = %{version}-%{release}
 Provides:	%{name}-common-konsole
-Obsoletes:	%{name}-common-konsole
+Obsoletes:	kde4-kdebase-common-konsole
 
 %description konsole
 KDE Terminal Emulator.
@@ -307,11 +307,11 @@ Dolphin - zarządca plików KDE 4.
 Summary:	Konqueror - web browser and file manager
 Summary(pl.UTF-8):	Konqueror - przeglądarka WWW i zarządca plików
 Group:		X11/Applications
+Requires:	browser-plugins
 Requires:	kde4-konqueror-libs = %{version}-%{release}
 Provides:	wwwbrowser
 Obsoletes:	konqueror < 9:3.0.0
 Obsoletes:	konqueror >= 4.0.0
-Requires:	browser-plugins
 
 %description -n kde4-konqueror
 Konqueror is the file manager for the K Desktop Environment. It
@@ -620,16 +620,12 @@ fi
 %{_datadir}/apps/kbookmark
 %{_datadir}/apps/kcmcss
 %{_datadir}/apps/keditbookmarks
-#%{_datadir}/apps/konqiconview
-#%{_datadir}/apps/konqlistview
 %{_datadir}/apps/konqueror/about
 %{_datadir}/apps/konqueror/icons
 %{_datadir}/apps/konqueror/pics
 %{_datadir}/apps/konqueror/profiles
 %dir %{_datadir}/apps/konqueror
 %{_datadir}/apps/konqueror/konqueror.rc
-%{_datadir}/apps/konqueror/konq-filemanagement.rc
-%{_datadir}/apps/konqueror/konq-webbrowsing.rc
 %{_datadir}/apps/konqsidebartng
 %dir %{_datadir}/apps/plugin
 %{_datadir}/apps/plugin/nspluginpart.rc
