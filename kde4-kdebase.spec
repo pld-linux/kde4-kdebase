@@ -48,6 +48,7 @@ BuildRequires:	kde4-kdepimlibs-devel >= %{version}
 BuildRequires:	lame-libs-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel >= 1.0.8
+BuildRequires:	libraw1394-devel
 BuildRequires:	libraw1394-devel >= 1.2.0
 BuildRequires:	libsmbclient-devel >= 3.0.0
 BuildRequires:	libstdc++-devel
