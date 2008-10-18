@@ -632,6 +632,7 @@ fi
 %{_datadir}/autostart/konqy_preload.desktop
 %{_datadir}/config/konqsidebartng.rc
 %{_datadir}/config.kcfg/konqueror.kcfg
+%dir %{_datadir}/kde4/servicetypes
 %{_datadir}/kde4/servicetypes/findpart.desktop
 %{_datadir}/kde4/servicetypes/konqaboutpage.desktop
 %{_datadir}/kde4/servicetypes/konqpopupmenuplugin.desktop
