@@ -442,11 +442,8 @@ fi
 %dir %{_datadir}/apps/kcontrol/pics
 %{_datadir}/apps/kcontrol/pics/onlyone.png
 %{_datadir}/apps/kcontrol/pics/overlapping.png
-%dir %{_datadir}/apps/khtml
-%dir %{_datadir}/apps/khtml/kpartplugins
 %{_datadir}/apps/khtml/kpartplugins/khtmlkttsd.desktop
 %{_datadir}/apps/khtml/kpartplugins/khtmlkttsd.rc
-%dir %{_datadir}/apps/kconf_update
 %{_datadir}/apps/kconf_update/favicons.upd
 %{_datadir}/apps/kconf_update/kfmclient_3_2.upd
 %{_datadir}/apps/kconf_update/kfmclient_3_2_update.sh
@@ -555,7 +552,6 @@ fi
 %files kwrited
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/kde4/kded_kwrited.so
-%dir %{_datadir}/kde4/services/kded
 %{_datadir}/kde4/services/kded/kwrited.desktop
 
 %files useraccount
@@ -636,7 +632,6 @@ fi
 %{_datadir}/autostart/konqy_preload.desktop
 %{_datadir}/config/konqsidebartng.rc
 %{_datadir}/config.kcfg/konqueror.kcfg
-%dir %{_datadir}/kde4/servicetypes
 %{_datadir}/kde4/servicetypes/findpart.desktop
 %{_datadir}/kde4/servicetypes/konqaboutpage.desktop
 %{_datadir}/kde4/servicetypes/konqpopupmenuplugin.desktop
