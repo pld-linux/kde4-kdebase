@@ -19,7 +19,7 @@ Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
 Version:	4.1.70
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
@@ -43,7 +43,6 @@ BuildRequires:	hal-devel
 BuildRequires:	jasper-devel
 BuildRequires:	kde4-kdebase-workspace-devel >= %{version}
 BuildRequires:	kde4-kdelibs-devel >= %{version}
-BuildRequires:	kde4-kdelibs-shared >= %{version}
 BuildRequires:	kde4-kdepimlibs-devel >= %{version}
 BuildRequires:	lame-libs-devel
 BuildRequires:	libjpeg-devel
@@ -83,7 +82,9 @@ BuildRequires:	xorg-proto-scrnsaverproto-devel
 BuildRequires:	xorg-util-imake
 BuildConflicts:	kdebase-konqueror-libs
 Provides:	kde4-kdebase-common
+Provides:	kde4-kdebase-core
 Obsoletes:	kde4-kdebase-common
+Obsoletes:	kde4-kdebase-core
 Obsoletes:	kdebase4
 Conflicts:	kdebase4
 Conflicts:	kdelibs < 9:3.1.94.040110-1
@@ -133,30 +134,6 @@ kfontmanager, kmenuedit, kappfinder).
 (kcheckpass, kikbd, kscreensaver, kcontrol, kfind, kfontmanager,
 kmenuedit, kappfinder).
 
-%package core
-Summary:	KDE Core Apps
-Summary(pl.UTF-8):	Podstawowe aplikacje KDE
-Group:		X11/Applications
-Requires:	kde4-kdelibs >= %{version}
-#Requires:	sudo
-#Requires:	xdg-menus
-
-%description core
-KDE Core apps. This package contains:
-- Control Center;
-- Help Center;
-- Print System;
-- Crash Handlers;
-- A Frontend for "su" program.
-
-%description core -l pl.UTF-8
-Podstawowe aplikacje środowiska KDE. Pakiet ten zawiera:
-- Centrum sterowania;
-- System drukowania;
-- System pomocy;
-- Programy obsługi błędów;
-- Frontend dla programu "su".
-
 %package devel
 Summary:	Include files to develop KDE applications
 Summary(pl.UTF-8):	Pliki nagłówkowe potrzebne do tworzenia aplikacji KDE
@@ -181,7 +158,7 @@ compilar aplicativos que usem bibliotecas do kdebase.
 Summary:	KDE Info Center
 Summary(pl.UTF-8):	Centrum informacji o systemie dla KDE
 Group:		X11/Applications
-Requires:	%{name}-core = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 #Requires:	pciutils
 Obsoletes:	kde4-kdebase-workspace-infocenter
 
@@ -235,7 +212,7 @@ Narzędzie do wyszukiwania plików dla KDE.
 Summary:	KDE Terminal Emulator
 Summary(pl.UTF-8):	Emulator terminala dla KDE
 Group:		X11/Applications
-Requires:	%{name}-core = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Provides:	%{name}-common-konsole
 Obsoletes:	kde4-kdebase-common-konsole
 
@@ -249,7 +226,7 @@ Emulator terminala dla KDE.
 Summary:	KDE Text Editor
 Summary(pl.UTF-8):	Edytor tekstu dla KDE
 Group:		X11/Applications/Editors
-Requires:	%{name}-core = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description kwrite
 KWrite is a simple texteditor, with syntaxhighlighting, codefolding,
@@ -266,7 +243,7 @@ Summary:	KDE write messaging daemon
 Summary(pl.UTF-8):	Demon do KDE obsługujący wymianę wiadomości za pomocą write
 Group:		X11/Applications
 # With functional reasons
-Requires:	%{name}-core = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 #Obsoletes:	kdebase < 8:3.5.5
 
 %description kwrited
@@ -419,8 +396,8 @@ rm -rf $RPM_BUILD_ROOT
 %postun konsole
 %{_bindir}/fontpostinst misc
 
-%post	core -p /sbin/ldconfig
-%postun	core -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %post -n kde4-konqueror
 %update_browser_plugins
@@ -433,7 +410,7 @@ fi
 %post	-n kde4-konqueror-libs	-p /sbin/ldconfig
 %postun	-n kde4-konqueror-libs	-p /sbin/ldconfig
 
-%files core
+%files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kbookmarkmerger
 %attr(755,root,root) %{_libdir}/kde4/libkcminit_nsplugins.so
