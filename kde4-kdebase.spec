@@ -19,7 +19,7 @@ Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
 Version:	4.1.70
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
@@ -415,6 +415,8 @@ fi
 %attr(755,root,root) %{_bindir}/kbookmarkmerger
 %attr(755,root,root) %{_libdir}/kde4/libkcminit_nsplugins.so
 %attr(755,root,root) %{_libdir}/kde4/khtmlkttsdplugin.so
+%attr(755,root,root) %{_libdir}/kde4/plasma_applet_folderview.so
+%{_datadir}/kde4/services/plasma-applet-folderview.desktop
 %dir %{_datadir}/apps/kcontrol
 %dir %{_datadir}/apps/kcontrol/pics
 %{_datadir}/apps/kcontrol/pics/onlyone.png
@@ -460,7 +462,6 @@ fi
 %attr(755,root,root) %{_libdir}/kde4/kcm_pci.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_samba.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_partition.so
-%attr(755,root,root) %{_libdir}/kde4/plasma_applet_folderview.so
 %{_datadir}/apps/kinfocenter
 %{_datadir}/kde4/services/kcmview1394.desktop
 %{_datadir}/kde4/services/kcmusb.desktop
@@ -479,7 +480,6 @@ fi
 %{_datadir}/kde4/services/kcm_memory.desktop
 %{_datadir}/kde4/services/kcm_pci.desktop
 %{_datadir}/kde4/services/smbstatus.desktop
-%{_datadir}/kde4/services/plasma-applet-folderview.desktop
 %{_desktopdir}/kde4/kinfocenter.desktop
 %dir %{_datadir}/apps/kcmview1394
 %dir %{_datadir}/apps/kcmusb
