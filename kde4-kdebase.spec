@@ -18,12 +18,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.1.70
-Release:	3
+Version:	4.1.71
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	fb97c30c24807b498cd5f2aa2e68f060
+# Source0-md5:	d9f11e420a3f25aa2bf5ba4f41789e4b
 URL:		http://www.kde.org/
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
@@ -237,22 +237,6 @@ providing more speed for minor tasks.
 KWrite to prosty edytor tekstu z podświetlaniem składni, zwijaniem
 kodu, dynamicznym zawijaniem wierszy itp. Jest lżejszą wersją Kate,
 szybszą dla mniejszych zadań.
-
-%package kwrited
-Summary:	KDE write messaging daemon
-Summary(pl.UTF-8):	Demon do KDE obsługujący wymianę wiadomości za pomocą write
-Group:		X11/Applications
-# With functional reasons
-Requires:	%{name} = %{version}-%{release}
-#Obsoletes:	kdebase < 8:3.5.5
-
-%description kwrited
-A kde daeomn that watches for messages from local users sent with
-write or wall.
-
-%description kwrited -l pl.UTF-8
-Demon KDE, który monitoruje wiadomości jakie lokalni użytkownicy
-wysyłają za pomocą komend write lub wall.
 
 %package useraccount
 Summary:	User Account management
@@ -525,11 +509,6 @@ fi
 %{_datadir}/apps/kwrite
 %{_desktopdir}/kde4/kwrite.desktop
 %{_kdedocdir}/en/kwrite
-
-%files kwrited
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/kde4/kded_kwrited.so
-%{_datadir}/kde4/services/kded/kwrited.desktop
 
 %files useraccount
 %defattr(644,root,root,755)
