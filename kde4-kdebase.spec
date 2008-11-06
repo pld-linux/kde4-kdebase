@@ -6,7 +6,7 @@
 #
 %define		_state		unstable
 %define		orgname		kdebase
-%define		qtver		4.4.1
+%define		qtver		4.4.3
 
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):	K Desktop Environment - archivos básicos
@@ -18,12 +18,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.1.71
+Version:	4.1.72
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	d9f11e420a3f25aa2bf5ba4f41789e4b
+# Source0-md5:	42e51e0eb4d5f4762f4e3baec7e1191a
 URL:		http://www.kde.org/
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
@@ -411,7 +411,6 @@ fi
 %{_datadir}/apps/kconf_update/kfmclient_3_2.upd
 %{_datadir}/apps/kconf_update/kfmclient_3_2_update.sh
 %{_datadir}/apps/kconf_update/move_favicons.sh
-%{_datadir}/apps/kconf_update/socks.upd
 %{_datadir}/templates
 %{_desktopdir}/kde4/Home.desktop
 %{_desktopdir}/kde4/kfmclient.desktop
