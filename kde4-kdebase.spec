@@ -18,12 +18,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.1.72
+Version:	4.1.73
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	42e51e0eb4d5f4762f4e3baec7e1191a
+# Source0-md5:	e2cb863cbd709e56063879aebcca7e00
 URL:		http://www.kde.org/
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
@@ -33,7 +33,7 @@ BuildRequires:	audiofile-devel
 BuildRequires:	automoc4 >= 0.9.84
 BuildRequires:	bzip2-devel
 BuildRequires:	cdparanoia-III-devel
-BuildRequires:	cmake >= 2.6.1-2
+BuildRequires:	cmake >= 2.6.2
 BuildRequires:	cups-devel
 BuildRequires:	cyrus-sasl-devel
 BuildRequires:	db-devel
