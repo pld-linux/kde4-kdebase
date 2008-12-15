@@ -18,12 +18,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.1.82
+Version:	4.1.85
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	11415f9ea90b4792bd21103162a574d1
+# Source0-md5:	891466362da4d839c15e824d1008f043
 URL:		http://www.kde.org/
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
@@ -557,7 +557,6 @@ fi
 %attr(755,root,root) %{_bindir}/nspluginscan
 %attr(755,root,root) %{_bindir}/nspluginviewer
 %attr(755,root,root) %{_libdir}/libkdeinit4_konqueror.so
-%attr(755,root,root) %{_libdir}/kde4/kcm_css.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_filetypes.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_history.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_kio.so
@@ -599,18 +598,15 @@ fi
 %{_datadir}/kde4/services/desktoppath.desktop
 %{_datadir}/kde4/services/ebrowsing.desktop
 %{_datadir}/kde4/services/filebehavior.desktop
-%{_datadir}/kde4/services/filebrowser.desktop
-%{_datadir}/kde4/services/filepreviews.desktop
 %{_datadir}/kde4/services/filetypes.desktop
-%{_datadir}/kde4/services/kcmcss.desktop
 %{_datadir}/kde4/services/kcmhistory.desktop
 %{_datadir}/kde4/services/kcmkonqyperformance.desktop
 %{_datadir}/kde4/services/kcmperformance.desktop
 %{_datadir}/kde4/services/kded/favicons.desktop
 %{_datadir}/kde4/services/kded/konqy_preloader.desktop
+%{_datadir}/kde4/services/khtml_appearance.desktop
 %{_datadir}/kde4/services/khtml_behavior.desktop
 %{_datadir}/kde4/services/khtml_filter.desktop
-%{_datadir}/kde4/services/khtml_fonts.desktop
 %{_datadir}/kde4/services/khtml_general.desktop
 %{_datadir}/kde4/services/khtml_java_js.desktop
 %{_datadir}/kde4/services/khtml_plugins.desktop
