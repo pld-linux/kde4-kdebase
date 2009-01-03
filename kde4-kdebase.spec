@@ -18,12 +18,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.1.85
+Version:	4.1.87
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	891466362da4d839c15e824d1008f043
+Source0:	ftp://ftp.pbone.net/mirror/ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
+# Source0-md5:	a19bb0b37cd8b127dac1e030b1c19699
 URL:		http://www.kde.org/
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
@@ -420,7 +420,7 @@ fi
 %{_iconsdir}/*/*/apps/*.png
 %{_iconsdir}/*/*/actions/*.png
 %{_iconsdir}/*/*/apps/*.svgz
-%{_iconsdir}/*/*/actions/*.svgz
+#%{_iconsdir}/*/*/actions/*.svgz
 %dir %{_iconsdir}/oxygen/scalable/apps
 
 %files devel
@@ -575,7 +575,6 @@ fi
 %{_datadir}/apps/kcmcss
 %{_datadir}/apps/keditbookmarks
 %{_datadir}/apps/konqueror/about
-#%{_datadir}/apps/konqueror/icons
 %{_datadir}/apps/konqueror/pics
 %{_datadir}/apps/konqueror/profiles
 %dir %{_datadir}/apps/konqueror
