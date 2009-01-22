@@ -18,12 +18,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.1.96
-Release:	2
+Version:	4.2.0
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	d9010a13848e17d6f1cef3003a035b13
+# Source0-md5:	da86a8ad624e86eda3a7509f39272060 
 URL:		http://www.kde.org/
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
@@ -422,6 +422,7 @@ fi
 %{_iconsdir}/*/*/actions/*.png
 %{_iconsdir}/*/*/apps/*.svgz
 #%{_iconsdir}/*/*/actions/*.svgz
+%{_mandir}/man1/kbookmarkmerger.1.*
 
 %files devel
 %defattr(644,root,root,755)
@@ -475,6 +476,7 @@ fi
 %{_datadir}/apps/kappfinder
 %{_desktopdir}/kde4/kappfinder.desktop
 %{_iconsdir}/*/*/apps/kappfinder.png
+%{_mandir}/man1/kappfinder.1.*
 
 %files kdialog
 %defattr(644,root,root,755)
@@ -488,6 +490,7 @@ fi
 %{_desktopdir}/kde4/kfind.desktop
 %{_datadir}/kde4/services/kfindpart.desktop
 %{_kdedocdir}/en/kfind
+%{_mandir}/man1/kfind.1.*
 
 %files konsole
 %defattr(644,root,root,755)
