@@ -19,7 +19,7 @@ Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
 Version:	4.2.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
@@ -30,7 +30,7 @@ BuildRequires:	OpenGL-devel
 BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtNetwork-devel >= %{qtver}
 BuildRequires:	audiofile-devel
-BuildRequires:	automoc4 >= 0.9.84
+BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	bzip2-devel
 BuildRequires:	cdparanoia-III-devel
 BuildRequires:	cmake >= 2.6.2
