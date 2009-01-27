@@ -6,6 +6,8 @@
 #
 %define		_state		stable
 %define		orgname		kdebase
+%define		qtver		4.4.3
+
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):	K Desktop Environment - archivos básicos
 Summary(ja.UTF-8):	KDEデスクトップ環境 - 基本ファイル
@@ -16,22 +18,22 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.1.1
+Version:	4.2.0
 Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	33ab20f61aa33ed473fec710ad250ac7
+# Source0-md5:	da86a8ad624e86eda3a7509f39272060 
 URL:		http://www.kde.org/
 BuildRequires:	OpenEXR-devel >= 1.2.2
-BuildRequires:	OpenGL-GLU-devel
-BuildRequires:	QtCore-devel >= 4.4.0
-BuildRequires:	QtNetwork-devel >= 4.4.0
+BuildRequires:	OpenGL-devel
+BuildRequires:	QtCore-devel >= %{qtver}
+BuildRequires:	QtNetwork-devel >= %{qtver}
 BuildRequires:	audiofile-devel
-BuildRequires:	automoc4 >= 0.9.84
+BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	bzip2-devel
 BuildRequires:	cdparanoia-III-devel
-BuildRequires:	cmake
+BuildRequires:	cmake >= 2.6.2
 BuildRequires:	cups-devel
 BuildRequires:	cyrus-sasl-devel
 BuildRequires:	db-devel
@@ -41,7 +43,6 @@ BuildRequires:	hal-devel
 BuildRequires:	jasper-devel
 BuildRequires:	kde4-kdebase-workspace-devel >= %{version}
 BuildRequires:	kde4-kdelibs-devel >= %{version}
-BuildRequires:	kde4-kdelibs-shared >= %{version}
 BuildRequires:	kde4-kdepimlibs-devel >= %{version}
 BuildRequires:	lame-libs-devel
 BuildRequires:	libjpeg-devel
@@ -81,7 +82,9 @@ BuildRequires:	xorg-proto-scrnsaverproto-devel
 BuildRequires:	xorg-util-imake
 BuildConflicts:	kdebase-konqueror-libs
 Provides:	kde4-kdebase-common
+Provides:	kde4-kdebase-core
 Obsoletes:	kde4-kdebase-common
+Obsoletes:	kde4-kdebase-core
 Obsoletes:	kdebase4
 Conflicts:	kdebase4
 Conflicts:	kdelibs < 9:3.1.94.040110-1
@@ -131,38 +134,14 @@ kfontmanager, kmenuedit, kappfinder).
 (kcheckpass, kikbd, kscreensaver, kcontrol, kfind, kfontmanager,
 kmenuedit, kappfinder).
 
-%package core
-Summary:	KDE Core Apps
-Summary(pl.UTF-8):	Podstawowe aplikacje KDE
-Group:		X11/Applications
-Requires:	kde4-kdelibs >= %{version}
-#Requires:	sudo
-#Requires:	xdg-menus
-
-%description core
-KDE Core apps. This package contains:
-- Control Center;
-- Help Center;
-- Print System;
-- Crash Handlers;
-- A Frontend for "su" program.
-
-%description core -l pl.UTF-8
-Podstawowe aplikacje środowiska KDE. Pakiet ten zawiera:
-- Centrum sterowania;
-- System drukowania;
-- System pomocy;
-- Programy obsługi błędów;
-- Frontend dla programu "su".
-
 %package devel
 Summary:	Include files to develop KDE applications
 Summary(pl.UTF-8):	Pliki nagłówkowe potrzebne do tworzenia aplikacji KDE
 Summary(pt_BR.UTF-8):	Arquivos de inclusão para compilar aplicativos que usem bibliotecas do kdebase
-Group:		X11/Development/Libraries
-Requires:	kde4-konqueror-libs
+Group:		X11/Development/Librariesn
 Requires:	kde4-dolphin
 Requires:	kde4-kdelibs-devel >= %{version}
+Requires:	kde4-konqueror-libs
 
 %description devel
 This package contains header files needed to develop KDE applications.
@@ -179,7 +158,7 @@ compilar aplicativos que usem bibliotecas do kdebase.
 Summary:	KDE Info Center
 Summary(pl.UTF-8):	Centrum informacji o systemie dla KDE
 Group:		X11/Applications
-Requires:	%{name}-core = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 #Requires:	pciutils
 Obsoletes:	kde4-kdebase-workspace-infocenter
 
@@ -233,9 +212,9 @@ Narzędzie do wyszukiwania plików dla KDE.
 Summary:	KDE Terminal Emulator
 Summary(pl.UTF-8):	Emulator terminala dla KDE
 Group:		X11/Applications
-Requires:	%{name}-core = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Provides:	%{name}-common-konsole
-Obsoletes:	%{name}-common-konsole
+Obsoletes:	kde4-kdebase-common-konsole
 
 %description konsole
 KDE Terminal Emulator.
@@ -247,7 +226,7 @@ Emulator terminala dla KDE.
 Summary:	KDE Text Editor
 Summary(pl.UTF-8):	Edytor tekstu dla KDE
 Group:		X11/Applications/Editors
-Requires:	%{name}-core = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description kwrite
 KWrite is a simple texteditor, with syntaxhighlighting, codefolding,
@@ -258,22 +237,6 @@ providing more speed for minor tasks.
 KWrite to prosty edytor tekstu z podświetlaniem składni, zwijaniem
 kodu, dynamicznym zawijaniem wierszy itp. Jest lżejszą wersją Kate,
 szybszą dla mniejszych zadań.
-
-%package kwrited
-Summary:	KDE write messaging daemon
-Summary(pl.UTF-8):	Demon do KDE obsługujący wymianę wiadomości za pomocą write
-Group:		X11/Applications
-# With functional reasons
-Requires:	%{name}-core = %{version}-%{release}
-#Obsoletes:	kdebase < 8:3.5.5
-
-%description kwrited
-A kde daeomn that watches for messages from local users sent with
-write or wall.
-
-%description kwrited -l pl.UTF-8
-Demon KDE, który monitoruje wiadomości jakie lokalni użytkownicy
-wysyłają za pomocą komend write lub wall.
 
 %package useraccount
 Summary:	User Account management
@@ -305,6 +268,7 @@ Dolphin - zarządca plików KDE 4.
 Summary:	Konqueror - web browser and file manager
 Summary(pl.UTF-8):	Konqueror - przeglądarka WWW i zarządca plików
 Group:		X11/Applications
+Requires:	browser-plugins
 Requires:	kde4-konqueror-libs = %{version}-%{release}
 Provides:	wwwbrowser
 Obsoletes:	konqueror < 9:3.0.0
@@ -416,17 +380,27 @@ rm -rf $RPM_BUILD_ROOT
 %postun konsole
 %{_bindir}/fontpostinst misc
 
-%post	core -p /sbin/ldconfig
-%postun	core -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
+
+%post -n kde4-konqueror
+%update_browser_plugins
+
+%postun -n kde4-konqueror
+if [ "$1" = 0 ]; then
+	%update_browser_plugins
+fi
 
 %post	-n kde4-konqueror-libs	-p /sbin/ldconfig
 %postun	-n kde4-konqueror-libs	-p /sbin/ldconfig
 
-%files core
+%files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kbookmarkmerger
 %attr(755,root,root) %{_libdir}/kde4/libkcminit_nsplugins.so
 %attr(755,root,root) %{_libdir}/kde4/khtmlkttsdplugin.so
+%attr(755,root,root) %{_libdir}/kde4/plasma_applet_folderview.so
+%{_datadir}/kde4/services/plasma-applet-folderview.desktop
 %dir %{_datadir}/apps/kcontrol
 %dir %{_datadir}/apps/kcontrol/pics
 %{_datadir}/apps/kcontrol/pics/onlyone.png
@@ -437,18 +411,18 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kconf_update/kfmclient_3_2.upd
 %{_datadir}/apps/kconf_update/kfmclient_3_2_update.sh
 %{_datadir}/apps/kconf_update/move_favicons.sh
-%{_datadir}/apps/kconf_update/socks.upd
 %{_datadir}/templates
 %{_desktopdir}/kde4/Home.desktop
 %{_desktopdir}/kde4/kfmclient.desktop
 %{_desktopdir}/kde4/kfmclient_dir.desktop
 %{_desktopdir}/kde4/kfmclient_html.desktop
 %{_desktopdir}/kde4/kfmclient_war.desktop
+%exclude %{_iconsdir}/*/scalable
 %{_iconsdir}/*/*/apps/*.png
 %{_iconsdir}/*/*/actions/*.png
 %{_iconsdir}/*/*/apps/*.svgz
-%{_iconsdir}/*/*/actions/*.svgz
-%dir %{_iconsdir}/oxygen/scalable/apps
+#%{_iconsdir}/*/*/actions/*.svgz
+%{_mandir}/man1/kbookmarkmerger.1.*
 
 %files devel
 %defattr(644,root,root,755)
@@ -472,7 +446,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/kcm_pci.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_samba.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_partition.so
-%attr(755,root,root) %{_libdir}/kde4/plasma_applet_folderview.so
 %{_datadir}/apps/kinfocenter
 %{_datadir}/kde4/services/kcmview1394.desktop
 %{_datadir}/kde4/services/kcmusb.desktop
@@ -491,7 +464,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/kcm_memory.desktop
 %{_datadir}/kde4/services/kcm_pci.desktop
 %{_datadir}/kde4/services/smbstatus.desktop
-%{_datadir}/kde4/services/plasma-applet-folderview.desktop
 %{_desktopdir}/kde4/kinfocenter.desktop
 %dir %{_datadir}/apps/kcmview1394
 %dir %{_datadir}/apps/kcmusb
@@ -504,6 +476,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kappfinder
 %{_desktopdir}/kde4/kappfinder.desktop
 %{_iconsdir}/*/*/apps/kappfinder.png
+%{_mandir}/man1/kappfinder.1.*
 
 %files kdialog
 %defattr(644,root,root,755)
@@ -517,6 +490,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/kfind.desktop
 %{_datadir}/kde4/services/kfindpart.desktop
 %{_kdedocdir}/en/kfind
+%{_mandir}/man1/kfind.1.*
 
 %files konsole
 %defattr(644,root,root,755)
@@ -537,11 +511,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kwrite
 %{_desktopdir}/kde4/kwrite.desktop
 %{_kdedocdir}/en/kwrite
-
-%files kwrited
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/kde4/kded_kwrited.so
-%{_datadir}/kde4/services/kded/kwrited.desktop
 
 %files useraccount
 %defattr(644,root,root,755)
@@ -591,7 +560,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/nspluginscan
 %attr(755,root,root) %{_bindir}/nspluginviewer
 %attr(755,root,root) %{_libdir}/libkdeinit4_konqueror.so
-%attr(755,root,root) %{_libdir}/kde4/kcm_css.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_filetypes.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_history.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_kio.so
@@ -609,16 +577,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kbookmark
 %{_datadir}/apps/kcmcss
 %{_datadir}/apps/keditbookmarks
-#%{_datadir}/apps/konqiconview
-#%{_datadir}/apps/konqlistview
 %{_datadir}/apps/konqueror/about
-%{_datadir}/apps/konqueror/icons
 %{_datadir}/apps/konqueror/pics
 %{_datadir}/apps/konqueror/profiles
 %dir %{_datadir}/apps/konqueror
 %{_datadir}/apps/konqueror/konqueror.rc
-%{_datadir}/apps/konqueror/konq-filemanagement.rc
-%{_datadir}/apps/konqueror/konq-webbrowsing.rc
 %{_datadir}/apps/konqsidebartng
 %dir %{_datadir}/apps/plugin
 %{_datadir}/apps/plugin/nspluginpart.rc
@@ -631,23 +594,21 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/servicetypes/terminalemulator.desktop
 %{_datadir}/kde4/servicetypes/uasprovider.desktop
 %{_datadir}/kde4/services/useragentstrings
+%{_datadir}/kde4/services/bookmarks.desktop
 %{_datadir}/kde4/services/cache.desktop
 %{_datadir}/kde4/services/cookies.desktop
 %{_datadir}/kde4/services/desktoppath.desktop
 %{_datadir}/kde4/services/ebrowsing.desktop
 %{_datadir}/kde4/services/filebehavior.desktop
-%{_datadir}/kde4/services/filebrowser.desktop
-%{_datadir}/kde4/services/filepreviews.desktop
 %{_datadir}/kde4/services/filetypes.desktop
-%{_datadir}/kde4/services/kcmcss.desktop
 %{_datadir}/kde4/services/kcmhistory.desktop
 %{_datadir}/kde4/services/kcmkonqyperformance.desktop
 %{_datadir}/kde4/services/kcmperformance.desktop
 %{_datadir}/kde4/services/kded/favicons.desktop
 %{_datadir}/kde4/services/kded/konqy_preloader.desktop
+%{_datadir}/kde4/services/khtml_appearance.desktop
 %{_datadir}/kde4/services/khtml_behavior.desktop
 %{_datadir}/kde4/services/khtml_filter.desktop
-%{_datadir}/kde4/services/khtml_fonts.desktop
 %{_datadir}/kde4/services/khtml_general.desktop
 %{_datadir}/kde4/services/khtml_java_js.desktop
 %{_datadir}/kde4/services/khtml_plugins.desktop
