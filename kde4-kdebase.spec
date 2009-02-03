@@ -19,11 +19,12 @@ Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
 Version:	4.2.0
-Release:	2
+Release:	4
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
 # Source0-md5:	da86a8ad624e86eda3a7509f39272060 
+Patch100:	%{name}-branch.diff
 URL:		http://www.kde.org/
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
@@ -330,6 +331,7 @@ Biblioteki współdzielone konquerora.
 
 %prep
 %setup -q -n %{orgname}-%{version}
+%patch100 -p0
 
 %{__sed} -i -e 's/Categories=.*/Categories=Audio;Mixer;/' \
 	apps/kappfinder/apps/Multimedia/alsamixergui.desktop
