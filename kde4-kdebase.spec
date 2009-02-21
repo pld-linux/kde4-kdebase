@@ -214,6 +214,7 @@ Summary:	KDE Terminal Emulator
 Summary(pl.UTF-8):	Emulator terminala dla KDE
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
+Requires:	fontpostinst
 Provides:	%{name}-common-konsole
 Obsoletes:	kde4-kdebase-common-konsole
 
