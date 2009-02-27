@@ -23,7 +23,7 @@ Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	fa4206dd747890c4e4283c8adb831e6c
+# Source0-md5:	a8f391db7b98feaa6ae81b8f1e99ed5a
 Patch100:	%{name}-branch.diff
 URL:		http://www.kde.org/
 BuildRequires:	OpenEXR-devel >= 1.2.2
