@@ -1,7 +1,7 @@
 Index: apps/kappfinder/apps/System/Terminal/vmstat.desktop
 ===================================================================
---- apps/kappfinder/apps/System/Terminal/vmstat.desktop	(.../tags/KDE/4.2.1/kdebase)	(wersja 935632)
-+++ apps/kappfinder/apps/System/Terminal/vmstat.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 935632)
+--- apps/kappfinder/apps/System/Terminal/vmstat.desktop	(.../tags/KDE/4.2.1/kdebase)	(wersja 935993)
++++ apps/kappfinder/apps/System/Terminal/vmstat.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 935993)
 @@ -43,7 +43,7 @@
  GenericName[gu]=વર્ચ્યુઅલ મેમરી આંકડાઓ
  GenericName[he]=סטטיסטיקה לגבי הזיכרון הווירטואלי
@@ -11,10 +11,40 @@ Index: apps/kappfinder/apps/System/Terminal/vmstat.desktop
  GenericName[hr]=Statistike o virtualnoj memoriji
  GenericName[hsb]=Statistika wo wirtuelnym pomjatku
  GenericName[hu]=Memóriastatisztika
+Index: apps/konqueror/src/konqbookmarkbar.cpp
+===================================================================
+--- apps/konqueror/src/konqbookmarkbar.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 935993)
++++ apps/konqueror/src/konqbookmarkbar.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 935993)
+@@ -301,10 +301,21 @@
+ {
+     KBookmarkActionInterface * action = dynamic_cast<KBookmarkActionInterface *>( m_toolBar->actionAt(pos) );
+     if(!action)
+-        return;
+-    KMenu * menu = new KonqBookmarkContextMenu(action->bookmark(), m_pManager, m_pOwner);
+-    menu->setAttribute(Qt::WA_DeleteOnClose);
+-    menu->popup(m_toolBar->mapToGlobal(pos));
++    {
++        //Show default (ktoolbar) menu
++        m_toolBar->setContextMenuPolicy( Qt::DefaultContextMenu );
++        //Recreate event with the same position
++        QContextMenuEvent evt( QContextMenuEvent::Other, pos );
++        QCoreApplication::sendEvent( m_toolBar, &evt );
++        //Reassign custom context menu
++        m_toolBar->setContextMenuPolicy( Qt::CustomContextMenu );
++    }
++    else
++    {
++        KMenu * menu = new KonqBookmarkContextMenu(action->bookmark(), m_pManager, m_pOwner);
++        menu->setAttribute(Qt::WA_DeleteOnClose);
++        menu->popup(m_toolBar->mapToGlobal(pos));
++    }
+ }
+ 
+ // TODO    *** drop improvements ***
 Index: apps/kinfocenter/kinfocenter.desktop
 ===================================================================
---- apps/kinfocenter/kinfocenter.desktop	(.../tags/KDE/4.2.1/kdebase)	(wersja 935632)
-+++ apps/kinfocenter/kinfocenter.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 935632)
+--- apps/kinfocenter/kinfocenter.desktop	(.../tags/KDE/4.2.1/kdebase)	(wersja 935993)
++++ apps/kinfocenter/kinfocenter.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 935993)
 @@ -103,7 +103,7 @@
  GenericName[pt]=Centro de Informações
  GenericName[pt_BR]=Centro de informações
@@ -26,8 +56,8 @@ Index: apps/kinfocenter/kinfocenter.desktop
  GenericName[sl]=Informacijsko središče
 Index: apps/konsole/src/TerminalDisplay.h
 ===================================================================
---- apps/konsole/src/TerminalDisplay.h	(.../tags/KDE/4.2.1/kdebase)	(wersja 935632)
-+++ apps/konsole/src/TerminalDisplay.h	(.../branches/KDE/4.2/kdebase)	(wersja 935632)
+--- apps/konsole/src/TerminalDisplay.h	(.../tags/KDE/4.2.1/kdebase)	(wersja 935993)
++++ apps/konsole/src/TerminalDisplay.h	(.../branches/KDE/4.2/kdebase)	(wersja 935993)
 @@ -563,9 +563,6 @@
      //     - Other characters (returns the input character)
      QChar charClass(QChar ch) const;
@@ -40,8 +70,8 @@ Index: apps/konsole/src/TerminalDisplay.h
      void mouseTripleClickEvent(QMouseEvent* ev);
 Index: apps/konsole/src/TerminalDisplay.cpp
 ===================================================================
---- apps/konsole/src/TerminalDisplay.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 935632)
-+++ apps/konsole/src/TerminalDisplay.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 935632)
+--- apps/konsole/src/TerminalDisplay.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 935993)
++++ apps/konsole/src/TerminalDisplay.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 935993)
 @@ -2155,11 +2155,12 @@
    _wordSelectionMode = true;
  
