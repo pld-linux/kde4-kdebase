@@ -1,7 +1,7 @@
 Index: apps/kappfinder/apps/System/Terminal/vmstat.desktop
 ===================================================================
---- apps/kappfinder/apps/System/Terminal/vmstat.desktop	(.../tags/KDE/4.2.1/kdebase)	(wersja 935993)
-+++ apps/kappfinder/apps/System/Terminal/vmstat.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 935993)
+--- apps/kappfinder/apps/System/Terminal/vmstat.desktop	(.../tags/KDE/4.2.1/kdebase)	(wersja 936422)
++++ apps/kappfinder/apps/System/Terminal/vmstat.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 936422)
 @@ -43,7 +43,7 @@
  GenericName[gu]=વર્ચ્યુઅલ મેમરી આંકડાઓ
  GenericName[he]=סטטיסטיקה לגבי הזיכרון הווירטואלי
@@ -13,8 +13,8 @@ Index: apps/kappfinder/apps/System/Terminal/vmstat.desktop
  GenericName[hu]=Memóriastatisztika
 Index: apps/konqueror/src/konqbookmarkbar.cpp
 ===================================================================
---- apps/konqueror/src/konqbookmarkbar.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 935993)
-+++ apps/konqueror/src/konqbookmarkbar.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 935993)
+--- apps/konqueror/src/konqbookmarkbar.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 936422)
++++ apps/konqueror/src/konqbookmarkbar.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 936422)
 @@ -301,10 +301,21 @@
  {
      KBookmarkActionInterface * action = dynamic_cast<KBookmarkActionInterface *>( m_toolBar->actionAt(pos) );
@@ -43,8 +43,8 @@ Index: apps/konqueror/src/konqbookmarkbar.cpp
  // TODO    *** drop improvements ***
 Index: apps/kinfocenter/kinfocenter.desktop
 ===================================================================
---- apps/kinfocenter/kinfocenter.desktop	(.../tags/KDE/4.2.1/kdebase)	(wersja 935993)
-+++ apps/kinfocenter/kinfocenter.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 935993)
+--- apps/kinfocenter/kinfocenter.desktop	(.../tags/KDE/4.2.1/kdebase)	(wersja 936422)
++++ apps/kinfocenter/kinfocenter.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 936422)
 @@ -103,7 +103,7 @@
  GenericName[pt]=Centro de Informações
  GenericName[pt_BR]=Centro de informações
@@ -54,10 +54,27 @@ Index: apps/kinfocenter/kinfocenter.desktop
  GenericName[se]=Diehtoguovddáš
  GenericName[sk]=Informačné centrum
  GenericName[sl]=Informacijsko središče
+Index: apps/kdialog/widgets.cpp
+===================================================================
+--- apps/kdialog/widgets.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 936422)
++++ apps/kdialog/widgets.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 936422)
+@@ -163,9 +163,9 @@
+ 
+   handleXGeometry(&dlg);
+   dlg.setCaption(title);
+-  dlg.exec();
+-  result = edit->toPlainText().toLocal8Bit();
+-  return 0;
++  int returnDialogCode = dlg.exec();
++  result = edit->toPlainText();
++  return (returnDialogCode == KDialog::Accepted ? 0 : 1);
+ }
+ 
+ bool Widgets::comboBox(QWidget *parent, const QString& title, const QString& text, const QStringList& args,
 Index: apps/konsole/src/TerminalDisplay.h
 ===================================================================
---- apps/konsole/src/TerminalDisplay.h	(.../tags/KDE/4.2.1/kdebase)	(wersja 935993)
-+++ apps/konsole/src/TerminalDisplay.h	(.../branches/KDE/4.2/kdebase)	(wersja 935993)
+--- apps/konsole/src/TerminalDisplay.h	(.../tags/KDE/4.2.1/kdebase)	(wersja 936422)
++++ apps/konsole/src/TerminalDisplay.h	(.../branches/KDE/4.2/kdebase)	(wersja 936422)
 @@ -563,9 +563,6 @@
      //     - Other characters (returns the input character)
      QChar charClass(QChar ch) const;
@@ -70,8 +87,8 @@ Index: apps/konsole/src/TerminalDisplay.h
      void mouseTripleClickEvent(QMouseEvent* ev);
 Index: apps/konsole/src/TerminalDisplay.cpp
 ===================================================================
---- apps/konsole/src/TerminalDisplay.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 935993)
-+++ apps/konsole/src/TerminalDisplay.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 935993)
+--- apps/konsole/src/TerminalDisplay.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 936422)
++++ apps/konsole/src/TerminalDisplay.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 936422)
 @@ -2155,11 +2155,12 @@
    _wordSelectionMode = true;
  
@@ -127,6 +144,8 @@ Index: runtime/l10n/ae/entry.desktop
 Index: runtime/l10n/au/entry.desktop
 ===================================================================
 Index: workspace/ConfigureChecks.cmake
+===================================================================
+Index: workspace/kcontrol/kdm/kdm-users.cpp
 ===================================================================
 Index: workspace/klipper/klipperrc.desktop
 ===================================================================
