@@ -333,7 +333,7 @@ Biblioteki współdzielone konquerora.
 
 %prep
 %setup -q -n %{orgname}-%{version}
-#%patch100 -p0
+%patch100 -p0
 %patch0 -p1
 
 %{__sed} -i -e 's/Categories=.*/Categories=Audio;Mixer;/' \
