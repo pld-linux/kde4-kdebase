@@ -1,7 +1,7 @@
 Index: apps/kappfinder/apps/System/Terminal/vmstat.desktop
 ===================================================================
---- apps/kappfinder/apps/System/Terminal/vmstat.desktop	(.../tags/KDE/4.2.1/kdebase)	(wersja 936422)
-+++ apps/kappfinder/apps/System/Terminal/vmstat.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 936422)
+--- apps/kappfinder/apps/System/Terminal/vmstat.desktop	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
++++ apps/kappfinder/apps/System/Terminal/vmstat.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
 @@ -43,7 +43,7 @@
  GenericName[gu]=વર્ચ્યુઅલ મેમરી આંકડાઓ
  GenericName[he]=סטטיסטיקה לגבי הזיכרון הווירטואלי
@@ -13,8 +13,8 @@ Index: apps/kappfinder/apps/System/Terminal/vmstat.desktop
  GenericName[hu]=Memóriastatisztika
 Index: apps/konqueror/src/konqbookmarkbar.cpp
 ===================================================================
---- apps/konqueror/src/konqbookmarkbar.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 936422)
-+++ apps/konqueror/src/konqbookmarkbar.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 936422)
+--- apps/konqueror/src/konqbookmarkbar.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
++++ apps/konqueror/src/konqbookmarkbar.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
 @@ -301,10 +301,21 @@
  {
      KBookmarkActionInterface * action = dynamic_cast<KBookmarkActionInterface *>( m_toolBar->actionAt(pos) );
@@ -41,10 +41,723 @@ Index: apps/konqueror/src/konqbookmarkbar.cpp
  }
  
  // TODO    *** drop improvements ***
+Index: apps/konqueror/settings/filetypes/filetypesview.cpp
+===================================================================
+--- apps/konqueror/settings/filetypes/filetypesview.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
++++ apps/konqueror/settings/filetypes/filetypesview.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+@@ -190,33 +190,39 @@
+   setEnabled( true );
+ }
+ 
+-// only call this method once on startup, then never again! Otherwise, newly
+-// added Filetypes will be lost.
++// To order the mimetype list
++static bool mimeTypeLessThan(const KMimeType::Ptr& m1, const KMimeType::Ptr& m2)
++{
++    return m1->name() < m2->name();
++}
++
++// Note that this method loses any newly-added (and not saved yet) mimetypes.
++// So this is really only for load().
+ void FileTypesView::readFileTypes()
+ {
+     typesLV->clear();
+     m_majorMap.clear();
+     m_itemList.clear();
+ 
+-    const KMimeType::List mimetypes = KMimeType::allMimeTypes();
++    KMimeType::List mimetypes = KMimeType::allMimeTypes();
++    qSort(mimetypes.begin(), mimetypes.end(), mimeTypeLessThan);
+     KMimeType::List::const_iterator it2(mimetypes.constBegin());
+     for (; it2 != mimetypes.constEnd(); ++it2) {
+-	QString mimetype = (*it2)->name();
+-	int index = mimetype.indexOf('/');
+-	QString maj = mimetype.left(index);
+-	QString min = mimetype.right(mimetype.length() - index+1);
++        const QString mimetype = (*it2)->name();
++        const int index = mimetype.indexOf('/');
++        const QString maj = mimetype.left(index);
++        const QString min = mimetype.right(mimetype.length() - index+1);
+ 
+         TypesListItem* groupItem = m_majorMap.value(maj);
+-	if ( !groupItem ) {
+-	    groupItem = new TypesListItem( typesLV, maj );
+-	    m_majorMap.insert( maj, groupItem );
+-	}
++        if ( !groupItem ) {
++            groupItem = new TypesListItem(typesLV, maj);
++            m_majorMap.insert(maj, groupItem);
++        }
+ 
+ 	TypesListItem *item = new TypesListItem(groupItem, (*it2));
+ 	m_itemList.append( item );
+     }
+     updateDisplay(0L);
+-
+ }
+ 
+ void FileTypesView::slotEmbedMajor(const QString &major, bool &embed)
+Index: apps/kfind/kquery.cpp
+===================================================================
+--- apps/kfind/kquery.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
++++ apps/kfind/kquery.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+@@ -336,7 +336,7 @@
+            kWarning() << "Cannot open supposed ZIP file " << file.url() ;
+          }
+        } else if( !m_search_binary && !file.mimetype().startsWith("text/") &&
+-           file.url().isLocalFile() ) {
++           file.url().isLocalFile() && !file.url().path().startsWith("/dev") ) {
+          if ( KMimeType::isBinaryData(file.url().path()) ) {
+            kDebug() << "ignoring, not a text file: " << file.url();
+            return;
+Index: apps/kfind/kfinddlg.cpp
+===================================================================
+--- apps/kfind/kfinddlg.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
++++ apps/kfind/kfinddlg.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+@@ -58,7 +58,7 @@
+   setStatusMsg(i18n("Ready."));
+   mStatusBar->setItemAlignment(0, Qt::AlignLeft | Qt::AlignVCenter);
+   mStatusBar->insertPermanentItem(QString(), 1, 1);
+-  mStatusBar->setItemAlignment(1, Qt::AlignLeft | Qt::AlignVCenter);
++  mStatusBar->setItemAlignment(1, Qt::AlignRight | Qt::AlignVCenter);
+ 
+   QVBoxLayout *vBox = new QVBoxLayout(frame);
+   vBox->addWidget(tabWidget, 0);
+Index: apps/dolphin/src/dolphinpart.cpp
+===================================================================
+--- apps/dolphin/src/dolphinpart.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
++++ apps/dolphin/src/dolphinpart.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+@@ -274,6 +274,7 @@
+     emit started(0); // get the wheel to spin
+     m_dirLister->setNameFilter(m_nameFilter);
+     m_view->setUrl(url);
++    updatePasteAction();
+     emit aboutToOpenURL();
+     if (reload)
+         m_view->reload();
+Index: apps/doc/kwrite/index.docbook
+===================================================================
+--- apps/doc/kwrite/index.docbook	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
++++ apps/doc/kwrite/index.docbook	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+@@ -40,8 +40,8 @@
+ </copyright>
+ <legalnotice>&FDLNotice;</legalnotice>
+ 
+-<date>2008-09-01</date>
+-<releaseinfo>4.1.1</releaseinfo>
++<date>2009-02-05</date>
++<releaseinfo>4.2.00</releaseinfo>
+ 
+ <abstract>
+ <para>&kwrite; is a text editor for &kde; allowing you to edit one file at the time per window.</para>
+@@ -76,7 +76,7 @@
+ &kappname; features two different modes, a simple mode with a straightforward interface 
+ and an advanced mode with more features and more extensive menu items.
+ The advanced mode is enabled by checking the option <link linkend="appearance">
+-Enable Power User Mode (&kde; 3 mode)</link> 
++Enable power user mode (&kde; 3 mode)</link> 
+ on the <guilabel>Appearance</guilabel> page in &kappname;s 
+ settings.
+ </para>
+@@ -125,10 +125,10 @@
+ </informalexample>
+ </sect2>
+ <sect2 id="editing-files-on-the-internet">
+-<title>Specify a file on the internet</title>
++<title>Specify a file on the Internet</title>
+ 
+ <para>The above-mentioned method could even be used to open files on the
+-internet (if the user has an active connection at the time.)  An example of
++Internet (if the user has an active connection at the time.)  An example of
+ this might look like the following:</para>
+ 
+ <informalexample><screen>
+@@ -222,7 +222,7 @@
+ </sect2>
+ </sect1>
+ 
+-<sect1 id="keybindings"> <!--to be checked lueck-->
++<sect1 id="keybindings"> <!--has to be checked lueck-->
+ <title>Shortcuts</title>
+ 
+ <para>Many of the shortcuts are configurable by way of the <link
+@@ -304,7 +304,7 @@
+ <row>
+ <entry><para><keycombo action="simul">&Shift;<keycap>Enter</keycap></keycombo></para></entry>
+ <entry><para>Insert newline including leading characters of the current line which are not letters or numbers.
+-It is usefull &eg; to write comments in the code: At the end of the line <quote>// some text</quote> press 
++It is useful &eg; to write comments in the code: At the end of the line <quote>// some text</quote> press 
+ this shortcut and the next line starts already with <quote>// </quote>. So you do not have to enter the comment 
+ characters at the beginning of each new line with comments.</para></entry>
+ </row>
+@@ -500,13 +500,11 @@
+ action="simul">&Ctrl;&Shift;<keycap>+</keycap></keycombo></para></entry>
+ <entry><para>Expand Toplevel</para></entry>
+ </row>
+-<!-- only in 4.2 uncomment after backport to 4.1
+ <row>
+ <entry><para><keycombo
+-action="simul">Meta&Ctrl;<keycap>V</keycap></keycombo></para></entry>
++action="simul"><keysym>Meta</keysym>&Ctrl;<keycap>V</keycap></keycombo></para></entry>
+ <entry><para>VI input mode</para></entry>
+ </row>
+--->
+ <row>
+ <entry><para><keycombo
+ action="simul">&Ctrl;<keycap>Space</keycap></keycombo></para></entry>
+@@ -553,9 +551,9 @@
+ 
+ <para>There are different menus and menu items in simple and advanced mode.
+ The advanced mode is enabled by checking the option <link linkend="appearance">
+-Enable Power User Mode (&kde; 3 mode)</link> 
++Enable power user mode (&kde; 3 mode)</link> 
+ on the <guilabel>Appearance</guilabel> page in &kappname;s settings.</para>
+-<!-- This is also valid for kates menu file, kate has additional Save All Ctrl+L, Reload All, Close Other, Close All items-->
++<!-- This is also valid for kates menu file, kate has additional Save All Ctrl+L, Reload All, Close Other, Close All-->
+ <sect1 id="file"> 
+ <title>The <guimenu>File</guimenu> Menu</title>
+ 
+@@ -731,7 +729,7 @@
+ <term id="export-as-html">
+ <menuchoice>
+ <guimenu>File</guimenu>
+-<guimenuitem>Export as HTML...</guimenuitem>
++<guimenuitem>Export as HTML</guimenuitem>
+ </menuchoice>
+ </term>
+ <listitem>
+@@ -893,6 +891,22 @@
+ <guilabel>LINE</guilabel>.</para>
+ </listitem>
+ </varlistentry>
++<varlistentry><!-- only in power user mode -->
++<term><anchor id="vi-input-mode"/><menuchoice>
++<shortcut>
++<keycombo action="simul"><keysym>Meta</keysym>&Ctrl;<keycap>V</keycap></keycombo>
++</shortcut>
++<guimenu>Edit</guimenu><guimenuitem>VI input
++Mode</guimenuitem></menuchoice></term>
++<listitem>
++<para>Switch to a vi-like, modal editing mode. This mode supports the most used commands 
++and motions from vim's normal and visual mode and has an optional vi mode statusbar.
++This status bar shows commands while they are being entered, output from commands and 
++the current mode.The behavior of this mode can be configured in the 
++<link linkend="pref-edit-vi-input-mode">Vi Input Mode</link> section of the  
++<guilabel>Editing</guilabel> page in &kappname;'s settings dialog.</para>
++</listitem>
++</varlistentry>
+ <varlistentry>
+ <term><anchor id="overwrite-mode"/><menuchoice>
+ <shortcut>
+@@ -925,7 +939,7 @@
+ and <guilabel>Not found</guilabel> is displayed at the right side of the bar.</para>
+ <para>Use the <guilabel>Next</guilabel> or <guilabel>Previous</guilabel> button 
+ to jump to the next or previous match in the document.</para> 
+-<para>You can modify the search behaviour by selecting different 
++<para>You can modify the search behavior by selecting different 
+ <guilabel>Options</guilabel>: 
+ The <guilabel>Highlight all</guilabel> option highlights all matches in the document.
+ Selecting <guilabel>Match case</guilabel> will limit finds to entries that match the
+@@ -993,20 +1007,23 @@
+ <para>This command opens the power search and replace bar.
+ On the upper left side of the bar is an icon to close the bar, followed by a small text 
+ box for entering the search pattern.</para>
+-<para>You can control the search mode by selecting <guilabel>Plain Text</guilabel>,
+-<guilabel>Whole Words</guilabel>, <guilabel>Escape Sequences</guilabel> or 
+-<guilabel>Regular Expression</guilabel>. For the last two options the 
+-<guibutton>Add</guibutton> button is enabled and allows you to add special items to the
+-search pattern from a predefined list.
++<para>You can control the search mode by selecting <guilabel>Plain text</guilabel>
++<keycombo action="simul">&Alt;<keycap>1</keycap></keycombo>,
++<guilabel>Whole words</guilabel><keycombo action="simul">&Alt;<keycap>2</keycap></keycombo>, 
++<guilabel>Escape sequences</guilabel><keycombo action="simul">&Alt;<keycap>3</keycap></keycombo>
++or <guilabel>Regular expression</guilabel><keycombo action="simul">&Alt;<keycap>4</keycap></keycombo>. 
+ </para>
++<para>If <guilabel>Escape sequences</guilabel> or <guilabel>Regular expression</guilabel> are
++selected, the <guibutton>Add...</guibutton> menuitem at the bottom of the context menu of the text boxes will be enabled
++and allows you to add escape sequences or regular expression items to the
++search or replace pattern from predefined lists.</para>
+ <para>Use the <guilabel>Next</guilabel> or <guilabel>Previous</guilabel> button to jump 
+ to the next or previous match in the document.</para>
+ <para>Enter the text to replace with in the text box labeled <guilabel>Replace</guilabel>
+ and click the <guibutton>Replace</guibutton> button to replace only the highlighted text or
+ the <guibutton>Replace All</guibutton> button to replace the search text in the whole document.
+-If the option <guilabel>Use placeholders</guilabel> is checked you can add special items 
+-to the replacement text by clicking the <guibutton>Add</guibutton> button.</para>
+-<para>You can modify the search and replace behaviour by selecting different 
++</para>
++<para>You can modify the search and replace behavior by selecting different 
+ options on the right side of the bar.
+ The <guilabel>Highlight all</guilabel> option highlights all matches in the document.
+ Selecting <guilabel>Match case</guilabel> will limit finds to entries that match the
+@@ -1073,7 +1090,7 @@
+ 
+ </sect1>
+ <sect1 id="view-menu">
+-<!-- This is also valid for kates menu edit, only New Window is replaced by Vi input mode-->
++<!-- This is also valid for kates menu view, but kate does not have the New Window item -->
+ <title>The <guimenu>View</guimenu> menu</title>
+ 
+ <para>The <guimenu>View</guimenu> menu allows you to manage settings
+@@ -1094,7 +1111,7 @@
+ document in one window are reflected in the other window and vice versa.</para>
+ </listitem>
+ </varlistentry>
+-<!--kwrite in 4.2 has VI Input mode Meta+Ctrl+V -->
++
+ <varlistentry>
+ <term>
+ <anchor id="view-command-line"/><!-- only in power user mode -->
+@@ -1273,7 +1290,6 @@
+ </listitem>
+ </varlistentry>
+ 
+-<!-- only in 4.2, uncomment when backported to 4.1
+ <varlistentry>
+ <term><menuchoice><guimenuitem>Enlarge Font</guimenuitem></menuchoice>
+ </term>
+@@ -1285,7 +1301,6 @@
+ </term>
+ <listitem><para>This decreases the display font size.</para></listitem>
+ </varlistentry>
+--->
+ </variablelist>
+ 
+ </sect1>
+@@ -1360,7 +1375,7 @@
+ </sect1>
+ 
+ <!-- This is also valid for kates menu tools, kate has additional items:
+-Pipe to Terminal, Syncronizise Terminal with Current Dokument, Focus Terminal at top-->
++Pipe to Terminal, Syncronizise Terminal with Current Document, Focus Terminal at top-->
+ <sect1 id="tools">
+ <title>The <guimenu>Tools</guimenu> Menu</title>
+ 
+@@ -1865,7 +1880,7 @@
+ <sect1 id="help">
+ <title>The <guimenu>Help</guimenu> Menu</title>
+ 
+-<!-- additional "About Editor Component" + "Tip of the Day", but no "Switch Language"-->
++<!-- additional "About Editor Component" + "Tip of the Day"-->
+ 
+ &help.menu.documentation;
+ 
+@@ -1891,7 +1906,7 @@
+ <guibutton>OK</guibutton> button, or <guibutton>Cancel</guibutton> the
+ process. The categories <guilabel>Appearance</guilabel>,
+ <guilabel>Fonts &amp; Colors</guilabel>, <guilabel>Editing</guilabel>,
+-<guilabel>Open/Save</guilabel>, <guilabel>Shortcuts</guilabel>  and 
++<guilabel>Open/Save</guilabel> and 
+ <guilabel>Extensions</guilabel> are detailed below.
+ </para>
+ 
+@@ -1904,7 +1919,7 @@
+ <listitem>
+ <variablelist>
+ <varlistentry id="appearance-settings">
+-<term><guilabel>Dynamic word wrap</guilabel></term>
++<term><guilabel>Dynamic Word Wrap</guilabel></term>
+ <listitem><para>If this option is checked, the text lines
+ will be wrapped at the view border on the screen.</para></listitem>
+ </varlistentry>
+@@ -1967,7 +1982,7 @@
+ <varlistentry>
+ <term><guilabel>Sort Bookmarks Menu
+ </guilabel></term>
+-<listitem><para>These options are only displayed, if <guilabel>Enable Power User Mode 
++<listitem><para>These options are only displayed, if <guilabel>Enable power user mode 
+ (&kde; 3 mode)</guilabel> in the next section is checked.</para>
+ <para>
+ <variablelist>
+@@ -1993,14 +2008,14 @@
+ <listitem><para>
+ <variablelist>
+ <varlistentry>
+-<term><guilabel>Enable Power User Mode (&kde; 3 mode)
++<term><guilabel>Enable power user mode (&kde; 3 mode)
+ </guilabel></term>
+ <listitem><para>Switch between simple and advanced mode. 
+ Changing this mode affects only newly opened / created documents. 
+ In &kappname; a restart is recommended.</para></listitem>
+ </varlistentry>
+ <varlistentry>
+-<term><guilabel>Show identation lines
++<term><guilabel>Show indentation lines
+ </guilabel></term>
+ <listitem><para>If this is checked, the editor will display
+ vertical lines to help identifying indent lines.</para></listitem>
+@@ -2126,7 +2141,7 @@
+ <title>Normal Text Styles</title>
+ <para>The normal text styles are inherited by the highlight text styles,
+ allowing the editor to present text in a very consistent way, for example comment
+-text is using the same style in allmost all of the text formats that &kappname; can
++text is using the same style in almost all of the text formats that &kappname; can
+ highlight.</para>
+ <para>The name in the list of styles is using the style configured for
+ the item, providing you with an immediate preview when configuring a style.
+@@ -2180,7 +2195,7 @@
+ </listitem>
+ </varlistentry>
+ <varlistentry>
+-<term><guilabel>Show tabulators</guilabel></term>
++<term><guilabel>Highlight tabulators</guilabel></term>
+ <listitem>
+ <para>When this is enabled &kappname; will display a small dot as a visual
+ representation of tabulator characters.</para>
+@@ -2474,6 +2489,45 @@
+ 
+ </sect2>
+ 
++<sect2 id="pref-edit-vi-input-mode">
++<title>Vi Input Mode</title>
++<variablelist>
++<varlistentry>
++<term><guilabel>General</guilabel></term>
++<listitem>
++<variablelist>
++<varlistentry>
++<term><guilabel>Use the VI Input mode</guilabel></term>
++<listitem>
++<para>When selected, the vi input mode will be enabled when opening a new view.
++You can still toggle the vi input mode on/off for a particular view in the
++<guilabel>Edit</guilabel> menu.</para>
++</listitem>
++</varlistentry>
++<varlistentry>
++<term><guilabel>Let VI commands override Kate shortcuts</guilabel></term>
++<listitem>
++<para>When selected, vi commands will override &kate;'s built-in commands. For 
++example: <keycombo action="simul">&Ctrl;<keycap>R</keycap></keycombo> will redo, 
++and override the standard action (showing the search and replace dialog).</para>
++</listitem>
++</varlistentry>
++<varlistentry>
++<term><guilabel>Hide the VI mode status bar</guilabel></term>
++<listitem>
++<para>By default, an extra status bar will be used when the Vi input mode is
++enabled. This status bar shows commands while they are being typed and
++messages/errors produced by Vi commands.</para>
++<para>Checking this options will hide this extra status line.</para>
++</listitem>
++</varlistentry>
++</variablelist>
++</listitem>
++</varlistentry>
++</variablelist>
++
++</sect2>
++
+ </sect1>
+ 
+ <sect1 id="pref-open-save">
+@@ -2495,6 +2549,15 @@
+ </listitem>
+ </varlistentry>
+ <varlistentry>
++<term><guilabel>Encoding autodetection</guilabel></term>
++<listitem>
++<para>Select an item from the drop down box, either to disable autodetection or
++use <guilabel>Universal</guilabel> to enable autodetection for all encodings. But as
++this may probably only detect utf-8/utf-16, selecting a region will use custom heuristics
++for better results.</para>
++</listitem>
++</varlistentry>
++<varlistentry>
+ <term><guilabel>End of line:</guilabel></term>
+ <listitem>
+ <para>Choose your preferred end of line mode for your active
+@@ -2686,16 +2749,6 @@
+ 
+ </sect1>
+ 
+-<sect1 id="pref-shortcuts">
+-<title>Shortcuts</title> <!-- this is only in 4.1 in kate and kwrite only cursor shortcuts??? -->
+-<para>You can change here the shortcut keys configuration. Select an
+-action and click on <guilabel>None</guilabel> next to the <guilabel>Custom</guilabel> radio button
+-and press the key combination, if you want a different shortcut
+-for this action.</para>
+-<para>The search line allows you to look for a specific action and see
+-its associated shortcut.</para>
+-</sect1>
+-
+ <sect1 id="pref-plugins">
+ <title>Extensions</title>
+ <para>This <guilabel>Plugins</guilabel> tab lists all available plugins and you can check those you
+@@ -2749,7 +2802,7 @@
+ </listitem>
+ 
+ <listitem>
+-<para>Jochen Wilhely <email>digisnap@cs.tu-berlin.de</email></para>
++<para>Jochen Wilhelmy <email>digisnap@cs.tu-berlin.de</email></para>
+ </listitem>
+ 
+ <listitem>
+Index: apps/doc/konsole/index.docbook
+===================================================================
+--- apps/doc/konsole/index.docbook	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
++++ apps/doc/konsole/index.docbook	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+@@ -40,14 +40,14 @@
+ <holder>&Jonathan.Singer;</holder>
+ </copyright>
+ <copyright>
+-<year>2005</year><year>2008</year>
++<year>2005</year><year>2008</year><year>2009</year>
+ <holder>&Kurt.Hindenburg;</holder>
+ </copyright>
+ 
+ <legalnotice>&FDLNotice;</legalnotice>
+ 
+-<date>2008-09-07</date>
+-<releaseinfo>2.1.0</releaseinfo>
++<date>2009-02-23</date>
++<releaseinfo>2.2.0</releaseinfo>
+ 
+ <abstract><para>&konsole; is &kde;'s terminal emulator.</para></abstract>
+ 
+@@ -303,7 +303,7 @@
+ <shortcut><keycombo action="simul">&Ctrl;&Shift;<keycap>M</keycap></keycombo></shortcut>
+ <guimenu>File</guimenu><guimenuitem>New Window</guimenuitem></menuchoice>
+ </term>
+-<listitem><para><action>Opens a new seperate &konsole; window with the default profile</action>
++<listitem><para><action>Opens a new separate &konsole; window with the default profile</action>
+ </para></listitem></varlistentry>
+ 
+ <varlistentry>
+@@ -381,12 +381,16 @@
+  action="simul">&Ctrl;&Alt;<keycap>S</keycap></keycombo></shortcut>
+ <guimenu>Edit</guimenu><guimenuitem>Rename Tab...</guimenuitem></menuchoice></term>
+ <listitem><para><action>Opens a dialog box allowing you to change
+-the name of the current tab</action></para></listitem>
++the name of the current tab</action>
++(<link linkend="rename-tab-dialog">more info</link>)
++</para></listitem>
+ </varlistentry>
+ 
+ <varlistentry>
+ <term><menuchoice><guimenu>Edit</guimenu><guimenuitem>Copy Input To...</guimenuitem></menuchoice></term>
+-<listitem><para><action>Allows input from the current session to be inputted simultaneously to other sessions</action></para>
++<listitem><para><action>Allows input from the current session to be sent simultaneously to other sessions</action>
++(<link linkend="copy-input-dialog">more info</link>)
++</para>
+ </listitem>
+ </varlistentry>
+ 
+@@ -604,6 +608,7 @@
+ <term><menuchoice><guimenu>Scrollback</guimenu><guimenuitem>Scrollback 
+ Options...</guimenuitem></menuchoice></term>
+ <listitem><para><action>Opens a dialog to configure number of lines to save</action>
++(<link linkend="scrollback-options-dialog">more info</link>)
+ </para></listitem>
+ </varlistentry>
+ 
+@@ -658,7 +663,7 @@
+ <listitem><para><action>Opens the bookmark editor</action></para>
+ 
+ <note><para>You can use the bookmark editor to manually add URLs
+-like ssh://user@host or telnet://host to open remote connections.</para></note>
++like ssh://user@host:port to open remote connections.</para></note>
+ </listitem>
+ </varlistentry>
+ 
+@@ -715,6 +720,97 @@
+ </sect2>
+ </sect1>
+ 
++<sect1 id="rename-tab-dialog">
++<title>Rename Tab Dialog</title>
++
++<para>The name of the current tab can be changed from this dialog.
++The dialog can be display via the menu, the shortcut or by 
++double-clicking on the tab in the tab bar.
++These changes can be made permanent by editing the current profile.
++</para>
++
++<para>
++&konsole; will subsitute these tokens:
++<itemizedlist mark='opencircle'>
++<listitem><para>%n : program name</para></listitem>
++<listitem><para>%d : current directory (short)</para></listitem>
++<listitem><para>%D : current directory (long)</para></listitem>
++<listitem><para>%w : window title set by shell</para></listitem>
++<listitem><para>%# : session number</para></listitem>
++
++<!--
++<listitem><para>%u : user name [Remote]</para></listitem>
++<listitem><para>%h : remote host name (short) [Remote]</para></listitem>
++<listitem><para>%H : remote host name (long) [Remote]</para></listitem>
++-->
++</itemizedlist>
++
++</para>
++<para>
++Examples:
++<itemizedlist mark='opencircle'>
++
++<listitem><para>
++<userinput>%d : %n</userinput>
++ with /usr/src as current directory and running
++<application>bash</application> will display 
++<guibutton>usr/s : bash</guibutton>
++</para></listitem>
++
++<listitem><para>
++<userinput>%D : %n</userinput>
++ with /usr/src as current directory and running 
++<application>top</application> will display
++<guibutton>/usr/src : top</guibutton>
++</para></listitem>
++
++<listitem><para>
++<userinput>%w (%#)</userinput>
++ with ~ as current directory and running 
++<application>vim</application> in the first tab will display 
++<guibutton>[No Name] (~) - VIM(1)</guibutton>
++</para></listitem>
++
++</itemizedlist>
++
++</para>
++
++</sect1>
++
++<sect1 id="copy-input-dialog">
++<title>Copy Input Dialog</title>
++
++<para>The text entered in one tab can simultaneously be sent to other tabs.
++This dialog allows you to select which tabs will get that input. 
++The current tab will be greyed out.
++<!--
++<screenshot>
++<screeninfo>A picture of the copy input dialog</screeninfo>
++<mediaobject>
++<imageobject>
++<imagedata fileref="copyinputdialog.png" format="PNG" />
++</imageobject>
++<textobject>
++<phrase>A picture of the copy input dialog</phrase>
++</textobject>
++</mediaobject>
++</screenshot>
++-->
++
++</para>
++
++</sect1>
++
++<sect1 id="scrollback-options-dialog">
++<title>Scrollback Options Dialog</title>
++
++<para>The 
++<link linkend="scrollback">scrollback</link>
++option for the history size can be changed in this dialog.
++</para>
++
++</sect1>
++
+ </chapter>
+ 
+ <chapter id="command-line-options">
+Index: apps/doc/dolphin/index.docbook
+===================================================================
+--- apps/doc/dolphin/index.docbook	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
++++ apps/doc/dolphin/index.docbook	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+@@ -1091,56 +1091,6 @@
+ </sect1>
+ </chapter>
+ 
+-
+-
+-<chapter id="faq">
+-<title>Frequently asked Questions</title>
+-
+-<!-- (OPTIONAL but recommended) This chapter should include all of the silly
+-(and not-so-silly) newbie questions that fill up your mailbox. This chapter
+-should be reserved for BRIEF questions and answers! If one question uses more
+-than a page or so then it should probably be part of the
+-"Using this Application" chapter instead. You should use links to
+-cross-reference questions to the parts of your documentation that answer them.
+-This is also a great place to provide pointers to other FAQ's if your users
+-must do some complicated configuration on other programs in order for your
+-application work. -->
+-
+-<qandaset id="faqlist">
+-<qandaentry>
+-<question>
+-<para>How do I add my own custom service menus to &dolphin;?</para>
+-</question>
+-<answer>
+-<para>
+-&dolphin; can use the majority of service menus created for &konqueror;, however &dolphin; does impose one limitation on the service menus: Service menu entries that add themselves to the top level of the context menu will automatically be placed below the Actions sub-menu. This prevents that the context menu will get crowded.
+-</para>
+-
+-<para>
+-To add a custom service menu to &dolphin; save the service menu to the &dolphin; service menu folder, this can be found in /home/house/.kde/share/apps/dolphin/servicemenus/. If the servicemenus sub-folder does not exist in the &dolphin; folder, then create the sub-folder and save the service menu to that folder.  The next time the user launch &dolphin; the service menu will be available.
+-</para>
+-</answer>
+-</qandaentry>
+-
+-<qandaentry>
+-<question>
+-<para>How do I make &dolphin; my default file manager?</para>
+-</question>
+-<answer>
+-<para>
+-To make &dolphin; the default file manager for &kde; from the &kde; control center open the File Associations section via; &kde; Components>File Associations.  If the user adds &dolphin; to the list of applications for the folder mime type and make it the first choice, then &dolphin; will become the default application to open any folder with. The folder mime type can be found by expanding the inode section of Known Types.
+-</para>
+-
+-<para>
+-To make &dolphin; the default file manager for the virtual folders created by &kde; &eg; system:/ then again in the File Associations section of the control center expand the inode section of Known Types.  Under the system_directory mime type, add &dolphin; to the list of applications, however instead of choosing &dolphin; from the kmenu, type the following in to the text box at the top;  dolphin %u. The virtual folders created by &kde; will then be opened by &dolphin; as default.
+-</para>
+-</answer>
+-</qandaentry>
+-</qandaset>
+-</chapter>
+-
+-
+-
+ <chapter id="misc">
+ <title>Miscellaneous Questions</title>
+ 
+@@ -1179,9 +1129,7 @@
+ Bug reports should only be submitted for released versions of &dolphin;, please do not submit bug reports for the Subversion release of &dolphin; as this is expected to break due to its constant development.
+ </para>
+ <para>
+-The official channel for submitting bug reports is via the &kde; bug tracking system.  Alternatively bug reports can be emailed to Peter Penz (email address is found on the main page or the credits section).
+-</para> 
+-<para>
++The official channel for submitting bug reports is via the &kde; bug tracking system.
+ The &kde; bug tracker can be found at <ulink url="http://bugs.kde.org">http://bugs.kde.org</ulink>.
+ </para>
+ </answer>
+@@ -1193,7 +1141,7 @@
+ </question>
+ <answer>
+ <para>
+-The official channel for submitting feature requests is via the &kde; bug tracking system.  Alternatively feature requests can be emailed to Peter Penz  (email address is found on the main page or the credits section).
++The official channel for submitting feature requests is via the &kde; bug tracking system.
+ </para>
+ 
+ </answer>
+Index: apps/lib/konq/konq_copytomenu.cpp
+===================================================================
+--- apps/lib/konq/konq_copytomenu.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
++++ apps/lib/konq/konq_copytomenu.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+@@ -204,7 +204,10 @@
+             subPath.append('/');
+         subPath += subDir;
+         KonqCopyToDirectoryMenu* subMenu = new KonqCopyToDirectoryMenu(this, m_mainMenu, subPath);
+-        subMenu->setTitle(subDir);
++        QString menuTitle(subDir);
++        // Replace '&' by "&&" to make sure that '&' inside the directory name is displayed
++        // correctly and not misinterpreted as an indicator for a keyboard shortcut 
++        subMenu->setTitle(menuTitle.replace('&', "&&"));
+         const QString iconName = dirMime->iconName(KUrl(subPath));
+         subMenu->setIcon(KIcon(iconName));
+         if (QFileInfo(subPath).isSymLink()) { // I hope this isn't too slow...
 Index: apps/kinfocenter/kinfocenter.desktop
 ===================================================================
---- apps/kinfocenter/kinfocenter.desktop	(.../tags/KDE/4.2.1/kdebase)	(wersja 936422)
-+++ apps/kinfocenter/kinfocenter.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 936422)
+--- apps/kinfocenter/kinfocenter.desktop	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
++++ apps/kinfocenter/kinfocenter.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
 @@ -103,7 +103,7 @@
  GenericName[pt]=Centro de Informações
  GenericName[pt_BR]=Centro de informações
@@ -56,8 +769,8 @@ Index: apps/kinfocenter/kinfocenter.desktop
  GenericName[sl]=Informacijsko središče
 Index: apps/kdialog/widgets.cpp
 ===================================================================
---- apps/kdialog/widgets.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 936422)
-+++ apps/kdialog/widgets.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 936422)
+--- apps/kdialog/widgets.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
++++ apps/kdialog/widgets.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
 @@ -163,9 +163,9 @@
  
    handleXGeometry(&dlg);
@@ -73,8 +786,8 @@ Index: apps/kdialog/widgets.cpp
  bool Widgets::comboBox(QWidget *parent, const QString& title, const QString& text, const QStringList& args,
 Index: apps/konsole/src/TerminalDisplay.h
 ===================================================================
---- apps/konsole/src/TerminalDisplay.h	(.../tags/KDE/4.2.1/kdebase)	(wersja 936422)
-+++ apps/konsole/src/TerminalDisplay.h	(.../branches/KDE/4.2/kdebase)	(wersja 936422)
+--- apps/konsole/src/TerminalDisplay.h	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
++++ apps/konsole/src/TerminalDisplay.h	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
 @@ -563,9 +563,6 @@
      //     - Other characters (returns the input character)
      QChar charClass(QChar ch) const;
@@ -87,8 +800,8 @@ Index: apps/konsole/src/TerminalDisplay.h
      void mouseTripleClickEvent(QMouseEvent* ev);
 Index: apps/konsole/src/TerminalDisplay.cpp
 ===================================================================
---- apps/konsole/src/TerminalDisplay.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 936422)
-+++ apps/konsole/src/TerminalDisplay.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 936422)
+--- apps/konsole/src/TerminalDisplay.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
++++ apps/konsole/src/TerminalDisplay.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
 @@ -2155,11 +2155,12 @@
    _wordSelectionMode = true;
  
@@ -129,6 +842,65 @@ Index: apps/konsole/src/TerminalDisplay.cpp
  QChar TerminalDisplay::charClass(QChar qch) const
  {
      if ( qch.isSpace() ) return ' ';
+Index: apps/konsole/src/ViewContainer.cpp
+===================================================================
+--- apps/konsole/src/ViewContainer.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
++++ apps/konsole/src/ViewContainer.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+@@ -784,6 +784,7 @@
+     searchBar()->setParent(_containerWidget);
+     layout->addWidget(searchBar());
+     layout->addWidget(_stackWidget);
++    layout->setMargin(0);
+ }
+ StackedViewContainer::~StackedViewContainer()
+ {
+@@ -829,6 +830,7 @@
+     searchBar()->setParent(contentArea);
+     layout->addWidget(_stackWidget);
+     layout->addWidget(searchBar());
++    layout->setMargin(0);
+ 
+     // elide left is used because the most informative part of the session name is often
+     // the rightmost part
+Index: apps/plasma/applets/folderview/folderview.cpp
+===================================================================
+--- apps/plasma/applets/folderview/folderview.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
++++ apps/plasma/applets/folderview/folderview.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+@@ -1538,7 +1538,9 @@
+ 
+     int nFolders = 0;
+     int nFiles = 0;
+-    foreach (const KFileItem &item, m_dirModel->dirLister()->items()) {
++    for (int row = 0; row < m_model->rowCount(); row++) {
++        const QModelIndex index = m_model->index(row, 0);
++        KFileItem item = m_model->itemForIndex(index);
+         if (item.isDir()) {
+             nFolders++;
+         } else {
+Index: apps/plasma/applets/folderview/iconview.cpp
+===================================================================
+--- apps/plasma/applets/folderview/iconview.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
++++ apps/plasma/applets/folderview/iconview.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+@@ -349,10 +349,15 @@
+ 
+ void IconView::layoutChanged()
+ {
+-    m_savedPositions.clear();
+-    m_layoutBroken = false;
+-    m_validRows = 0;
+-
++    if (m_validRows > 0) {
++        m_savedPositions.clear();
++        m_layoutBroken = false;
++        m_validRows = 0;
++    } else if (m_layoutBroken && m_savedPositions.isEmpty()) {
++        // Make sure that the new sorting order is applied to
++        // new files if the folder is empty.
++        m_layoutBroken = false;
++    }
+     m_delayedLayoutTimer.start(10, this);
+     emit busy(true);
+ }
 Index: runtime/cmake/modules/FindPulseAudio.cmake
 ===================================================================
 Index: runtime/knotify/kde.notifyrc
@@ -137,7 +909,37 @@ Index: runtime/desktoptheme/metadata.desktop
 ===================================================================
 Index: runtime/khelpcenter/kcmhelpcenter.desktop
 ===================================================================
+Index: runtime/doc/kcontrol/bookmarks/index.docbook
+===================================================================
+Index: runtime/doc/kcontrol/kcmlaunch/index.docbook
+===================================================================
+Index: runtime/doc/userguide/kde-for-admins.docbook
+===================================================================
+Index: runtime/doc/userguide/standard-menu-entries.docbook
+===================================================================
+Index: runtime/doc/userguide/under-the-hood.docbook
+===================================================================
+Index: runtime/doc/userguide/groupware-kontact.docbook
+===================================================================
 Index: runtime/kioslave/trash/trash.protocol
+===================================================================
+Index: runtime/kioslave/desktop/desktop.protocol
+===================================================================
+Index: runtime/kioslave/sftp/sftpfileattr.cpp
+===================================================================
+Index: runtime/kioslave/sftp/ksshprocess.cpp
+===================================================================
+Index: runtime/kioslave/sftp/sftpfileattr.h
+===================================================================
+Index: runtime/kioslave/sftp/ksshprocess.h
+===================================================================
+Index: runtime/kioslave/sftp/kio_sftp.cpp
+===================================================================
+Index: runtime/kioslave/sftp/process.cpp
+===================================================================
+Index: runtime/nepomuk/services/strigi/nepomukstrigiservice.notifyrc
+===================================================================
+Index: runtime/kstyles/oxygen/oxygen.cpp
 ===================================================================
 Index: runtime/l10n/ae/entry.desktop
 ===================================================================
@@ -145,7 +947,15 @@ Index: runtime/l10n/au/entry.desktop
 ===================================================================
 Index: workspace/ConfigureChecks.cmake
 ===================================================================
+Index: workspace/kcontrol/style/style.desktop
+===================================================================
 Index: workspace/kcontrol/kdm/kdm-users.cpp
+===================================================================
+Index: workspace/doc/kcontrol/powerdevil/index.docbook
+===================================================================
+Index: workspace/doc/kcontrol/kwincompositing/index.docbook
+===================================================================
+Index: workspace/systemsettings/categories/settings-computer-administration.desktop
 ===================================================================
 Index: workspace/klipper/klipperrc.desktop
 ===================================================================
@@ -153,13 +963,33 @@ Index: workspace/powerdevil/powerdevil.notifyrc
 ===================================================================
 Index: workspace/libs/solid/CMakeLists.txt
 ===================================================================
+Index: workspace/libs/taskmanager/strategies/desktopsortingstrategy.cpp
+===================================================================
+Index: workspace/libs/taskmanager/strategies/desktopsortingstrategy.h
+===================================================================
 Index: workspace/khotkeys/kcm_hotkeys/hotkeys_tree_view.cpp
 ===================================================================
 Index: workspace/khotkeys/data/konqueror_gestures_kde321.khotkeys
 ===================================================================
 Index: workspace/khotkeys/data/kde32b1.khotkeys
 ===================================================================
+Index: workspace/kwin/effects/flipswitch.desktop
+===================================================================
+Index: workspace/kwin/effects/boxswitch_config.desktop
+===================================================================
 Index: workspace/kwin/effects/blur.desktop
+===================================================================
+Index: workspace/kwin/effects/boxswitch.desktop
+===================================================================
+Index: workspace/kwin/effects/lookingglass_config.desktop
+===================================================================
+Index: workspace/kwin/effects/dimscreen.desktop
+===================================================================
+Index: workspace/kwin/effects/lookingglass.desktop
+===================================================================
+Index: workspace/kwin/effects/flipswitch_config.desktop
+===================================================================
+Index: workspace/kwin/composite.cpp
 ===================================================================
 Index: workspace/kwin/popupinfo.cpp
 ===================================================================
@@ -187,6 +1017,8 @@ Index: workspace/kdm/kfrontend/sessions/vtwm.desktop
 ===================================================================
 Index: workspace/kdm/kfrontend/sessions/sawfish.desktop
 ===================================================================
+Index: workspace/plasma/dataengines/places/plasma-dataengine-places.desktop
+===================================================================
 Index: workspace/plasma/dataengines/CMakeLists.txt
 ===================================================================
 Index: workspace/plasma/shells/desktop/panelview.cpp
@@ -199,9 +1031,13 @@ Index: workspace/plasma/applets/devicenotifier/test-predicate-openinwindow.deskt
 ===================================================================
 Index: workspace/plasma/applets/quicklaunch/plasma-applet-quicklaunch.desktop
 ===================================================================
+Index: workspace/plasma/applets/quicklaunch/quicklaunchApplet.cpp
+===================================================================
 Index: workspace/plasma/applets/calendar/calendar.h
 ===================================================================
 Index: workspace/plasma/applets/calendar/calendar.cpp
+===================================================================
+Index: workspace/plasma/applets/kickoff/simpleapplet/simpleapplet.cpp
 ===================================================================
 Index: workspace/plasma/applets/kickoff/ui/launcher.cpp
 ===================================================================
@@ -210,6 +1046,10 @@ Index: workspace/plasma/applets/CMakeLists.txt
 Index: workspace/plasma/scriptengines/ruby/ChangeLog
 ===================================================================
 Index: workspace/plasma/scriptengines/ruby/applet.rb
+===================================================================
+Index: workspace/plasma/scriptengines/javascript/tests/javascript-config-test/metadata.desktop
+===================================================================
+Index: workspace/plasma/scriptengines/javascript/tests/script-nowplaying/metadata.desktop
 ===================================================================
 Index: workspace/plasma/scriptengines/google_gadgets/plasma-scriptengine-googlegadgets.desktop
 ===================================================================
