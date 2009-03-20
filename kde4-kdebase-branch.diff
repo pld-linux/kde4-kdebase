@@ -1,7 +1,117 @@
+Index: apps/nsplugins/viewer/nsplugin.cpp
+===================================================================
+--- apps/nsplugins/viewer/nsplugin.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/nsplugins/viewer/nsplugin.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
+@@ -644,6 +644,7 @@
+    _destroyed = false;
+    _handle = handle;
+    _callback = new org::kde::nsplugins::CallBack( appId, callbackId, QDBusConnection::sessionBus() );
++   _numJSRequests = 0;
+ 
+    KUrl base(src);
+    base.setFileName( QString() );
+@@ -742,6 +743,10 @@
+     }
+ }
+ 
++bool NSPluginInstance::hasPendingJSRequests() const
++{
++    return _numJSRequests > 0;
++}
+ 
+ void NSPluginInstance::timer()
+ {
+@@ -762,6 +767,8 @@
+ 
+         QString url;
+ 
++        // Note: sync javascript: handling with requestURL
++
+         // make absolute url
+         if ( req.url.left(11).toLower()=="javascript:" )
+             url = req.url;
+@@ -809,9 +816,10 @@
+                 } else if (url.toLower().startsWith("javascript:")){
+                     if (_callback) {
+                         static int _jsrequestid = 0;
+-			_jsrequests.insert(_jsrequestid, new Request(req));
++                        _jsrequests.insert(_jsrequestid, new Request(req));
+                         _callback->evalJavaScript(_jsrequestid++, url.mid(11));
+                     } else {
++                        --_numJSRequests;
+                         kDebug() << "No callback for javascript: url!";
+                     }
+                 } else {
+@@ -868,8 +876,12 @@
+     if (nurl.isNull()) {
+         return;
+     }
++    
++    // We dispatch JS events in target for empty target GET only.(see timer());
++    if (target.isEmpty() && nurl.left(11).toLower()=="javascript:")
++         ++_numJSRequests;
+ 
+-    kDebug(1431) << "NSPluginInstance::requestURL url=" << nurl << " target=" << target << " notify=" << notify;
++    kDebug(1431) << "NSPluginInstance::requestURL url=" << nurl << " target=" << target << " notify=" << notify << "JS jobs now:" << _numJSRequests;
+     _waitingRequests.enqueue( new Request( nurl, mime, target, notify, forceNotify, reload ) );
+     _timer->setSingleShot( true );
+     _timer->start( 100 );
+@@ -943,6 +955,8 @@
+ void NSPluginInstance::javascriptResult(int id, const QString &result) {
+     QMap<int, Request*>::iterator i = _jsrequests.find( id );
+     if (i != _jsrequests.end()) {
++        --_numJSRequests;
++
+         Request *req = i.value();
+         _jsrequests.erase( i );
+         NSPluginStream *s = new NSPluginStream( this );
+@@ -952,7 +966,7 @@
+ 
+         int len = result.length();
+         s->create( req->url, QString("text/plain"), req->notify, req->forceNotify );
+-        kDebug(1431) << "javascriptResult has been called with: "<<result;
++        kDebug(1431) << "javascriptResult has been called with: "<<result << "num JS requests now:" << _numJSRequests;
+         if (len > 0) {
+             QByteArray data(len + 1, 0);
+             memcpy(data.data(), result.toLatin1(), len);
+@@ -1634,6 +1648,10 @@
+ 
+     inform();
+ 
++    // Suspend until JS handled..
++    if (_instance->hasPendingJSRequests())
++       return false;
++
+     if ( _queuePos<_queue.size() ) {
+         int newPos;
+ 
+Index: apps/nsplugins/viewer/nsplugin.h
+===================================================================
+--- apps/nsplugins/viewer/nsplugin.h	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/nsplugins/viewer/nsplugin.h	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
+@@ -210,8 +210,9 @@
+                 const KParts::BrowserArguments& browserArgs, bool forceNotify = false );
+ 
+   QString normalizedURL(const QString& url) const;
++  
++  bool hasPendingJSRequests() const;
+ 
+-
+ public Q_SLOTS:
+   void streamFinished( NSPluginStreamBase *strm );
+ 
+@@ -273,6 +274,7 @@
+ 
+   QQueue<Request *> _waitingRequests;
+   QMap<int, Request*> _jsrequests;
++  int _numJSRequests; // entered in earlier than _jsrequests.
+   
+   static NSPluginInstance* s_lastPluginInstance;
+ };
 Index: apps/kappfinder/apps/System/Terminal/vmstat.desktop
 ===================================================================
---- apps/kappfinder/apps/System/Terminal/vmstat.desktop	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
-+++ apps/kappfinder/apps/System/Terminal/vmstat.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+--- apps/kappfinder/apps/System/Terminal/vmstat.desktop	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/kappfinder/apps/System/Terminal/vmstat.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
 @@ -43,7 +43,7 @@
  GenericName[gu]=વર્ચ્યુઅલ મેમરી આંકડાઓ
  GenericName[he]=סטטיסטיקה לגבי הזיכרון הווירטואלי
@@ -11,10 +121,23 @@ Index: apps/kappfinder/apps/System/Terminal/vmstat.desktop
  GenericName[hr]=Statistike o virtualnoj memoriji
  GenericName[hsb]=Statistika wo wirtuelnym pomjatku
  GenericName[hu]=Memóriastatisztika
+Index: apps/kappfinder/apps/Office/pybliographic.desktop
+===================================================================
+--- apps/kappfinder/apps/Office/pybliographic.desktop	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/kappfinder/apps/Office/pybliographic.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
+@@ -13,7 +13,7 @@
+ GenericName[csb]=Bibliograficznô baza dostónków
+ GenericName[cy]=Cronfeydd Llyfryddiaethol
+ GenericName[da]=Bibliografisk database
+-GenericName[de]=Bibliographische Datenbank
++GenericName[de]=Bibliografische Datenbank
+ GenericName[el]=Βιβλιογραφική βάση δεδομένων
+ GenericName[eo]=Bibliografia datumbazo
+ GenericName[es]=Base de datos bibliográfica
 Index: apps/konqueror/src/konqbookmarkbar.cpp
 ===================================================================
---- apps/konqueror/src/konqbookmarkbar.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
-+++ apps/konqueror/src/konqbookmarkbar.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+--- apps/konqueror/src/konqbookmarkbar.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/konqueror/src/konqbookmarkbar.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
 @@ -301,10 +301,21 @@
  {
      KBookmarkActionInterface * action = dynamic_cast<KBookmarkActionInterface *>( m_toolBar->actionAt(pos) );
@@ -41,10 +164,34 @@ Index: apps/konqueror/src/konqbookmarkbar.cpp
  }
  
  // TODO    *** drop improvements ***
+Index: apps/konqueror/settings/kio/uasproviders/safari12.desktop
+===================================================================
+--- apps/konqueror/settings/kio/uasproviders/safari12.desktop	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/konqueror/settings/kio/uasproviders/safari12.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
+@@ -18,6 +18,7 @@
+ Name[eu]=UA azalpena (Safari 1.2 MacOS Xn)
+ Name[fa]=UADescription (Safari 1.2 در MacOS X)
+ Name[fi]=Käyttäjäagenttikuvaus (Safari 1.2 MacOS X:llä)
++Name[fr]=UADescription (Safari 1.2 sous MacOS X)
+ Name[fy]=GA-omskriuwing (Safari 1.2 op MacOS X)
+ Name[ga]=UADescription (Safari 1.2 ar MacOS X)
+ Name[gl]=UADescription (Safari 1.2 en MacOS X)
+Index: apps/konqueror/settings/kio/uasproviders/firefox15oncurrent.desktop
+===================================================================
+--- apps/konqueror/settings/kio/uasproviders/firefox15oncurrent.desktop	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/konqueror/settings/kio/uasproviders/firefox15oncurrent.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
+@@ -18,6 +18,7 @@
+ Name[eu]=UA azalpena (Firefox 1.5 unekoan)
+ Name[fa]=UADescription (Firefox 1.5 در حال حاضر)
+ Name[fi]=Käyttäjäagenttikuvaus (Firefox 1.5)
++Name[fr]=UADescription (Firefox 1.5 sous le système actuel)
+ Name[fy]=GA-omskriuwing (Firefox 1.5 op aktive)
+ Name[ga]=UADescription (Firefox 1.5 ar an gcóras reatha)
+ Name[gl]=UADescription (Firefox 1.5 no actual)
 Index: apps/konqueror/settings/filetypes/filetypesview.cpp
 ===================================================================
---- apps/konqueror/settings/filetypes/filetypesview.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
-+++ apps/konqueror/settings/filetypes/filetypesview.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+--- apps/konqueror/settings/filetypes/filetypesview.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/konqueror/settings/filetypes/filetypesview.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
 @@ -190,33 +190,39 @@
    setEnabled( true );
  }
@@ -99,8 +246,8 @@ Index: apps/konqueror/settings/filetypes/filetypesview.cpp
  void FileTypesView::slotEmbedMajor(const QString &major, bool &embed)
 Index: apps/kfind/kquery.cpp
 ===================================================================
---- apps/kfind/kquery.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
-+++ apps/kfind/kquery.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+--- apps/kfind/kquery.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/kfind/kquery.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
 @@ -336,7 +336,7 @@
             kWarning() << "Cannot open supposed ZIP file " << file.url() ;
           }
@@ -112,8 +259,8 @@ Index: apps/kfind/kquery.cpp
             return;
 Index: apps/kfind/kfinddlg.cpp
 ===================================================================
---- apps/kfind/kfinddlg.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
-+++ apps/kfind/kfinddlg.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+--- apps/kfind/kfinddlg.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/kfind/kfinddlg.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
 @@ -58,7 +58,7 @@
    setStatusMsg(i18n("Ready."));
    mStatusBar->setItemAlignment(0, Qt::AlignLeft | Qt::AlignVCenter);
@@ -123,10 +270,51 @@ Index: apps/kfind/kfinddlg.cpp
  
    QVBoxLayout *vBox = new QVBoxLayout(frame);
    vBox->addWidget(tabWidget, 0);
+Index: apps/kfind/CMakeLists.txt
+===================================================================
+--- apps/kfind/CMakeLists.txt	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/kfind/CMakeLists.txt	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
+@@ -10,7 +10,7 @@
+ kde4_add_plugin(kfindpart WITH_PREFIX ${kfindpart_PART_SRCS})
+ 
+ 
+-target_link_libraries(kfindpart  ${KDE4_KDE3SUPPORT_LIBS} konq ${KDE4_KPARTS_LIBS})
++target_link_libraries(kfindpart  ${KDE4_KDE3SUPPORT_LIBS} ${KDE4_KPARTS_LIBS})
+ 
+ install(TARGETS kfindpart  DESTINATION ${PLUGIN_INSTALL_DIR} )
+ 
+Index: apps/dolphin/src/kcmdolphin.desktop
+===================================================================
+--- apps/dolphin/src/kcmdolphin.desktop	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/dolphin/src/kcmdolphin.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
+@@ -36,6 +36,7 @@
+ Comment[et]=See teenus võimaldab seadistada Dolphini vaateid.
+ Comment[eu]=Zerbitzu honen bitartez Dolphin ikuspegiak konfigura ditzakezu.
+ Comment[fi]=Tämä palvelu sallii Dolphinin näkymien muokkauksen.
++Comment[fr]=Ce service permet de configurer les modes de visualisation de Dolphin
+ Comment[fy]=De tsjinst stiet it ynstellen fan de Dolfynwerjefte ta.
+ Comment[ga]=Leis an tseirbhís seo is féidir na hamhairc Dolphin a chumrú.
+ Comment[gl]=Este servizo permite configurar as vistas de Dolphin.
+@@ -114,6 +115,7 @@
+ Name[et]=Vaated
+ Name[eu]=Ikuspegiak
+ Name[fi]=Näkymät
++Name[fr]=Modes de visualisation
+ Name[fy]=Werjeften
+ Name[ga]=Amhairc
+ Name[gl]=Vistas
+@@ -186,6 +188,7 @@
+ Comment[et]=Failihalduri seadistuste seadistamine
+ Comment[eu]=Konfiguratu fitxategia arakatzailearen ezarpenak
+ Comment[fi]=Muokkaa tiedostonhallinnan asetuksia
++Comment[fr]=Configuration des paramètres du gestionnaire de fichiers
+ Comment[fy]=Hjir kinne jo de triembehear ynstellings fêststelle
+ Comment[ga]=Cumraigh socruithe bhainisteoir na gcomhad
+ Comment[gl]=Configura as opcións do xestor de ficheiros
 Index: apps/dolphin/src/dolphinpart.cpp
 ===================================================================
---- apps/dolphin/src/dolphinpart.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
-+++ apps/dolphin/src/dolphinpart.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+--- apps/dolphin/src/dolphinpart.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/dolphin/src/dolphinpart.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
 @@ -274,6 +274,7 @@
      emit started(0); // get the wheel to spin
      m_dirLister->setNameFilter(m_nameFilter);
@@ -137,8 +325,8 @@ Index: apps/dolphin/src/dolphinpart.cpp
          m_view->reload();
 Index: apps/doc/kwrite/index.docbook
 ===================================================================
---- apps/doc/kwrite/index.docbook	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
-+++ apps/doc/kwrite/index.docbook	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+--- apps/doc/kwrite/index.docbook	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/doc/kwrite/index.docbook	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
 @@ -40,8 +40,8 @@
  </copyright>
  <legalnotice>&FDLNotice;</legalnotice>
@@ -494,8 +682,8 @@ Index: apps/doc/kwrite/index.docbook
  <listitem>
 Index: apps/doc/konsole/index.docbook
 ===================================================================
---- apps/doc/konsole/index.docbook	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
-+++ apps/doc/konsole/index.docbook	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+--- apps/doc/konsole/index.docbook	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/doc/konsole/index.docbook	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
 @@ -40,14 +40,14 @@
  <holder>&Jonathan.Singer;</holder>
  </copyright>
@@ -659,8 +847,8 @@ Index: apps/doc/konsole/index.docbook
  <chapter id="command-line-options">
 Index: apps/doc/dolphin/index.docbook
 ===================================================================
---- apps/doc/dolphin/index.docbook	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
-+++ apps/doc/dolphin/index.docbook	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+--- apps/doc/dolphin/index.docbook	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/doc/dolphin/index.docbook	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
 @@ -1091,56 +1091,6 @@
  </sect1>
  </chapter>
@@ -740,8 +928,8 @@ Index: apps/doc/dolphin/index.docbook
  </answer>
 Index: apps/lib/konq/konq_copytomenu.cpp
 ===================================================================
---- apps/lib/konq/konq_copytomenu.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
-+++ apps/lib/konq/konq_copytomenu.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+--- apps/lib/konq/konq_copytomenu.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/lib/konq/konq_copytomenu.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
 @@ -204,7 +204,10 @@
              subPath.append('/');
          subPath += subDir;
@@ -756,8 +944,8 @@ Index: apps/lib/konq/konq_copytomenu.cpp
          if (QFileInfo(subPath).isSymLink()) { // I hope this isn't too slow...
 Index: apps/kinfocenter/kinfocenter.desktop
 ===================================================================
---- apps/kinfocenter/kinfocenter.desktop	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
-+++ apps/kinfocenter/kinfocenter.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+--- apps/kinfocenter/kinfocenter.desktop	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/kinfocenter/kinfocenter.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
 @@ -103,7 +103,7 @@
  GenericName[pt]=Centro de Informações
  GenericName[pt_BR]=Centro de informações
@@ -769,8 +957,8 @@ Index: apps/kinfocenter/kinfocenter.desktop
  GenericName[sl]=Informacijsko središče
 Index: apps/kdialog/widgets.cpp
 ===================================================================
---- apps/kdialog/widgets.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
-+++ apps/kdialog/widgets.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+--- apps/kdialog/widgets.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/kdialog/widgets.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
 @@ -163,9 +163,9 @@
  
    handleXGeometry(&dlg);
@@ -784,11 +972,35 @@ Index: apps/kdialog/widgets.cpp
  }
  
  bool Widgets::comboBox(QWidget *parent, const QString& title, const QString& text, const QStringList& args,
+Index: apps/konsole/src/ViewManager.cpp
+===================================================================
+--- apps/konsole/src/ViewManager.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/konsole/src/ViewManager.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
+@@ -799,6 +799,9 @@
+     bool blinkingCursor = info->property<bool>(Profile::BlinkingCursorEnabled);
+     view->setBlinkingCursor(blinkingCursor);  
+ 
++    bool blinkingText = info->property<bool>(Profile::BlinkingTextEnabled);
++    view->setBlinkingTextEnabled(blinkingText);
++
+     bool bidiEnabled = info->property<bool>(Profile::BidiRenderingEnabled);
+     view->setBidiEnabled(bidiEnabled);
+ 
 Index: apps/konsole/src/TerminalDisplay.h
 ===================================================================
---- apps/konsole/src/TerminalDisplay.h	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
-+++ apps/konsole/src/TerminalDisplay.h	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
-@@ -563,9 +563,6 @@
+--- apps/konsole/src/TerminalDisplay.h	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/konsole/src/TerminalDisplay.h	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
+@@ -156,6 +156,9 @@
+     /** Specifies whether or not the cursor blinks. */
+     void setBlinkingCursor(bool blink);
+ 
++    /** Specifies whether or not text can blink. */
++    void setBlinkingTextEnabled(bool blink);
++
+     void setCtrlDrag(bool enable) { _ctrlDrag=enable; }
+     bool ctrlDrag() { return _ctrlDrag; }
+ 
+@@ -563,9 +566,6 @@
      //     - Other characters (returns the input character)
      QChar charClass(QChar ch) const;
  
@@ -798,11 +1010,79 @@ Index: apps/konsole/src/TerminalDisplay.h
      void clearImage();
  
      void mouseTripleClickEvent(QMouseEvent* ev);
+@@ -726,6 +726,7 @@
+     bool _hasBlinker; // has characters to blink
+     bool _cursorBlinking;     // hide cursor in paintEvent
+     bool _hasBlinkingCursor;  // has blinking cursor enabled
++    bool _allowBlinkingText;  // allow text to blink
+     bool _ctrlDrag;           // require Ctrl key for drag
+     TripleClickMode _tripleClickMode;
+     bool _isFixedSize; //Columns / lines are locked.
+Index: apps/konsole/src/Screen.h
+===================================================================
+--- apps/konsole/src/Screen.h	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/konsole/src/Screen.h	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
+@@ -468,7 +468,16 @@
+     void writeSelectionToStream(TerminalCharacterDecoder* decoder , bool
+                                 preserveLineBreaks = true) const;
+ 
+-    /** TODO Document me */
++    /**
++     * Checks if the text between from and to is inside the current
++     * selection. If this is the case, the selection is cleared. The
++     * from and to are coordinates in the current viewable window.
++     * The loc(x,y) macro can be used to generate these values from a
++     * column,line pair.
++     *
++     * @param from The start of the area to check.
++     * @param to The end of the area to check
++     */
+     void checkSelection(int from, int to);
+ 
+     /** 
 Index: apps/konsole/src/TerminalDisplay.cpp
 ===================================================================
---- apps/konsole/src/TerminalDisplay.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
-+++ apps/konsole/src/TerminalDisplay.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
-@@ -2155,11 +2155,12 @@
+--- apps/konsole/src/TerminalDisplay.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/konsole/src/TerminalDisplay.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
+@@ -310,6 +310,7 @@
+ ,_hasBlinker(false)
+ ,_cursorBlinking(false)
+ ,_hasBlinkingCursor(false)
++,_allowBlinkingText(true)
+ ,_ctrlDrag(false)
+ ,_tripleClickMode(SelectWholeLine)
+ ,_isFixedSize(false)
+@@ -1157,6 +1158,20 @@
+   }
+ }
+ 
++void TerminalDisplay::setBlinkingTextEnabled(bool blink)
++{
++    _allowBlinkingText = blink;
++
++    if (blink && !_blinkTimer->isActive()) 
++        _blinkTimer->start(BLINK_DELAY);
++  
++    if (!blink && _blinkTimer->isActive()) 
++    {
++        _blinkTimer->stop();
++        _blinking = false;
++    }
++}
++
+ void TerminalDisplay::focusOutEvent(QFocusEvent*)
+ {
+     // trigger a repaint of the cursor so that it is both visible (in case
+@@ -1473,6 +1488,8 @@
+ 
+ void TerminalDisplay::blinkEvent()
+ {
++  if (!_allowBlinkingText) return;
++
+   _blinking = !_blinking;
+ 
+   //TODO:  Optimise to only repaint the areas of the widget 
+@@ -2155,11 +2172,12 @@
    _wordSelectionMode = true;
  
    // find word boundaries...
@@ -816,7 +1096,7 @@ Index: apps/konsole/src/TerminalDisplay.cpp
       {  
         i--; 
         if (x>0) 
-@@ -2178,7 +2179,7 @@
+@@ -2178,7 +2196,7 @@
       i = loc( endSel.x(), endSel.y() );
       x = endSel.x();
       while( ((x<_usedColumns-1) || (endSel.y()<_usedLines-1 && (_lineProperties[endSel.y()] & LINE_WRAPPED) )) 
@@ -825,7 +1105,7 @@ Index: apps/konsole/src/TerminalDisplay.cpp
       { 
           i++; 
           if (x<_usedColumns-1) 
-@@ -2332,16 +2333,7 @@
+@@ -2332,16 +2350,7 @@
    return QWidget::focusNextPrevChild( next );
  }
  
@@ -844,8 +1124,8 @@ Index: apps/konsole/src/TerminalDisplay.cpp
      if ( qch.isSpace() ) return ' ';
 Index: apps/konsole/src/ViewContainer.cpp
 ===================================================================
---- apps/konsole/src/ViewContainer.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
-+++ apps/konsole/src/ViewContainer.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+--- apps/konsole/src/ViewContainer.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/konsole/src/ViewContainer.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
 @@ -784,6 +784,7 @@
      searchBar()->setParent(_containerWidget);
      layout->addWidget(searchBar());
@@ -862,10 +1142,53 @@ Index: apps/konsole/src/ViewContainer.cpp
  
      // elide left is used because the most informative part of the session name is often
      // the rightmost part
+Index: apps/konsole/src/Screen.cpp
+===================================================================
+--- apps/konsole/src/Screen.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/konsole/src/Screen.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
+@@ -618,7 +618,7 @@
+         return;
+     int scr_TL = loc(0, history->getLines());
+     //Clear entire selection if it overlaps region [from, to]
+-    if ( (selBottomRight > (from+scr_TL)) && (selTopLeft < (to+scr_TL)) )
++    if ( (selBottomRight >= (from+scr_TL)) && (selTopLeft <= (to+scr_TL)) )
+         clearSelection();
+ }
+ 
+@@ -661,7 +661,7 @@
+     lastPos = loc(cuX,cuY);
+ 
+     // check if selection is still valid.
+-    checkSelection(cuX,cuY);
++    checkSelection(lastPos, lastPos);
+ 
+     Character& currentChar = screenLines[cuY][cuX];
+ 
+@@ -1237,6 +1237,7 @@
+             else
+                 break;
+         }
++
+         //retrieve line from screen image
+         for (int i=start;i < qMin(start+count,length);i++)
+         {
+Index: apps/konsole/src/main.cpp
+===================================================================
+--- apps/konsole/src/main.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/konsole/src/main.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
+@@ -37,7 +37,7 @@
+ #include <KLocale>
+ #include <KWindowSystem>
+ 
+-#define KONSOLE_VERSION "2.2.1"
++#define KONSOLE_VERSION "2.2.2"
+ 
+ using namespace Konsole;
+ 
 Index: apps/plasma/applets/folderview/folderview.cpp
 ===================================================================
---- apps/plasma/applets/folderview/folderview.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
-+++ apps/plasma/applets/folderview/folderview.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+--- apps/plasma/applets/folderview/folderview.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/plasma/applets/folderview/folderview.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
 @@ -1538,7 +1538,9 @@
  
      int nFolders = 0;
@@ -879,8 +1202,8 @@ Index: apps/plasma/applets/folderview/folderview.cpp
          } else {
 Index: apps/plasma/applets/folderview/iconview.cpp
 ===================================================================
---- apps/plasma/applets/folderview/iconview.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 938088)
-+++ apps/plasma/applets/folderview/iconview.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 938088)
+--- apps/plasma/applets/folderview/iconview.cpp	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/plasma/applets/folderview/iconview.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
 @@ -349,10 +349,15 @@
  
  void IconView::layoutChanged()
@@ -901,11 +1224,39 @@ Index: apps/plasma/applets/folderview/iconview.cpp
      m_delayedLayoutTimer.start(10, this);
      emit busy(true);
  }
+Index: apps/plasma/applets/folderview/plasma-applet-folderview.desktop
+===================================================================
+--- apps/plasma/applets/folderview/plasma-applet-folderview.desktop	(.../tags/KDE/4.2.1/kdebase)	(wersja 942069)
++++ apps/plasma/applets/folderview/plasma-applet-folderview.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 942069)
+@@ -85,6 +85,7 @@
+ Comment[et]=Kataloogide sisu näitamine (vaikimisi kataloog Töölaud)
+ Comment[eu]=Bistaratu karpeten edukia (mahaigaina lehenetsiz)
+ Comment[fi]=Näytä kansion sisältö (Oletuksena työpöytäkansio)
++Comment[fr]=Affiche le contenu des dossiers (Par défaut le burreau)
+ Comment[fy]=De ynhâld fan mappen werjaan (Buroblêd as standert)
+ Comment[gl]=Mostra o contido dos cartafoles (Por omisión, o escritorio)
+ Comment[gu]=ફોલ્ડરોની વિગતો દર્શાવો (ડેસ્કટોપ મૂળભૂત તરીકે)
 Index: runtime/cmake/modules/FindPulseAudio.cmake
 ===================================================================
 Index: runtime/knotify/kde.notifyrc
 ===================================================================
+Index: runtime/kcontrol/componentchooser/componentservices/kcm_filemanager.desktop
+===================================================================
+Index: runtime/kcontrol/componentchooser/componentservices/kcm_terminal.desktop
+===================================================================
 Index: runtime/desktoptheme/metadata.desktop
+===================================================================
+Index: runtime/renamedlgplugins/audio/renaudiodlg.desktop
+===================================================================
+Index: runtime/phonon/kcm/xine/kcm_phononxine.desktop
+===================================================================
+Index: runtime/phonon/kcm/kcm_phonon.desktop
+===================================================================
+Index: runtime/phonon/kded-module/phononserver.desktop
+===================================================================
+Index: runtime/menu/desktop/kde-utilities-accessibility.directory
+===================================================================
+Index: runtime/menu/desktop/kde-graphics.directory
 ===================================================================
 Index: runtime/khelpcenter/kcmhelpcenter.desktop
 ===================================================================
@@ -921,7 +1272,11 @@ Index: runtime/doc/userguide/under-the-hood.docbook
 ===================================================================
 Index: runtime/doc/userguide/groupware-kontact.docbook
 ===================================================================
+Index: runtime/platforms/win/kwinstartmenu/winstartmenu.desktop
+===================================================================
 Index: runtime/kioslave/trash/trash.protocol
+===================================================================
+Index: runtime/kioslave/trash/kcmtrash.desktop
 ===================================================================
 Index: runtime/kioslave/desktop/desktop.protocol
 ===================================================================
@@ -937,17 +1292,41 @@ Index: runtime/kioslave/sftp/kio_sftp.cpp
 ===================================================================
 Index: runtime/kioslave/sftp/process.cpp
 ===================================================================
+Index: runtime/nepomuk/services/strigi/nepomukstrigiservice.desktop
+===================================================================
 Index: runtime/nepomuk/services/strigi/nepomukstrigiservice.notifyrc
 ===================================================================
+Index: runtime/nepomuk/services/storage/nepomukstorage.notifyrc
+===================================================================
+Index: runtime/nepomuk/services/storage/nepomukstorage.desktop
+===================================================================
+Index: runtime/nepomuk/services/queryservice/nepomukqueryservice.desktop
+===================================================================
+Index: runtime/nepomuk/kcm/nepomukserverkcm.cpp
+===================================================================
 Index: runtime/kstyles/oxygen/oxygen.cpp
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/bugft.desktop
 ===================================================================
 Index: runtime/l10n/ae/entry.desktop
 ===================================================================
 Index: runtime/l10n/au/entry.desktop
 ===================================================================
+Index: workspace/ksmserver/kcm/kcmsmserver.desktop
+===================================================================
 Index: workspace/ConfigureChecks.cmake
 ===================================================================
+Index: workspace/kcontrol/standard_actions/standard_actions.desktop
+===================================================================
 Index: workspace/kcontrol/style/style.desktop
+===================================================================
+Index: workspace/kcontrol/access/kaccess.desktop
+===================================================================
+Index: workspace/kcontrol/access/kcmaccess.desktop
+===================================================================
+Index: workspace/kcontrol/access/kaccess.notifyrc
+===================================================================
+Index: workspace/kcontrol/keys/keys.desktop
 ===================================================================
 Index: workspace/kcontrol/kdm/kdm-users.cpp
 ===================================================================
@@ -957,39 +1336,155 @@ Index: workspace/doc/kcontrol/kwincompositing/index.docbook
 ===================================================================
 Index: workspace/systemsettings/categories/settings-computer-administration.desktop
 ===================================================================
+Index: workspace/systemsettings/categories/settings-accessibility.desktop
+===================================================================
 Index: workspace/klipper/klipperrc.desktop
 ===================================================================
+Index: workspace/solid/bluez/solid_bluez.desktop
+===================================================================
+Index: workspace/solid/hal/solid_hal_power.desktop
+===================================================================
+Index: workspace/solid/networkmanager-0.6/solid_networkmanager.desktop
+===================================================================
+Index: workspace/solid/networkmanager-0.7/solid_networkmanager07.desktop
+===================================================================
+Index: workspace/solid/kcm/kcm_solid.desktop
+===================================================================
+Index: workspace/powerdevil/daemon/PowerDevilDaemon.cpp
+===================================================================
+Index: workspace/powerdevil/daemon/powerdevil.desktop
+===================================================================
+Index: workspace/powerdevil/kcmodule/powerdevilconfig.desktop
+===================================================================
 Index: workspace/powerdevil/powerdevil.notifyrc
+===================================================================
+Index: workspace/libs/solid/control/backends/fakenet/solid_fakenet.desktop
 ===================================================================
 Index: workspace/libs/solid/CMakeLists.txt
 ===================================================================
 Index: workspace/libs/taskmanager/strategies/desktopsortingstrategy.cpp
 ===================================================================
+Index: workspace/libs/taskmanager/strategies/programgroupingstrategy.cpp
+===================================================================
 Index: workspace/libs/taskmanager/strategies/desktopsortingstrategy.h
 ===================================================================
 Index: workspace/khotkeys/kcm_hotkeys/hotkeys_tree_view.cpp
+===================================================================
+Index: workspace/khotkeys/kcm_hotkeys/actions/menuentry_action_widget.cpp
+===================================================================
+Index: workspace/khotkeys/kcm_hotkeys/actions/menuentry_action_widget.h
+===================================================================
+Index: workspace/khotkeys/libkhotkeysprivate/actions/menuentry_action.cpp
 ===================================================================
 Index: workspace/khotkeys/data/konqueror_gestures_kde321.khotkeys
 ===================================================================
 Index: workspace/khotkeys/data/kde32b1.khotkeys
 ===================================================================
+Index: workspace/khotkeys/data/printscreen.khotkeys
+===================================================================
+Index: workspace/ksplash/kcm/ksplashthememgr.desktop
+===================================================================
+Index: workspace/kwin/effects/invert.desktop
+===================================================================
 Index: workspace/kwin/effects/flipswitch.desktop
 ===================================================================
+Index: workspace/kwin/effects/showfps_config.desktop
+===================================================================
+Index: workspace/kwin/effects/taskbarthumbnail.desktop
+===================================================================
 Index: workspace/kwin/effects/boxswitch_config.desktop
+===================================================================
+Index: workspace/kwin/effects/maketransparent.desktop
+===================================================================
+Index: workspace/kwin/effects/sharpen.desktop
+===================================================================
+Index: workspace/kwin/effects/trackmouse_config.desktop
 ===================================================================
 Index: workspace/kwin/effects/blur.desktop
 ===================================================================
 Index: workspace/kwin/effects/boxswitch.desktop
 ===================================================================
+Index: workspace/kwin/effects/explosion.desktop
+===================================================================
+Index: workspace/kwin/effects/zoom.desktop
+===================================================================
+Index: workspace/kwin/effects/thumbnailaside.desktop
+===================================================================
+Index: workspace/kwin/effects/magnifier.desktop
+===================================================================
+Index: workspace/kwin/effects/thumbnailaside_config.desktop
+===================================================================
 Index: workspace/kwin/effects/lookingglass_config.desktop
+===================================================================
+Index: workspace/kwin/effects/sharpen_config.desktop
+===================================================================
+Index: workspace/kwin/effects/snow.desktop
+===================================================================
+Index: workspace/kwin/effects/mousemark_config.desktop
+===================================================================
+Index: workspace/kwin/effects/magiclamp.desktop
+===================================================================
+Index: workspace/kwin/effects/coverswitch.desktop
+===================================================================
+Index: workspace/kwin/effects/wobblywindows.desktop
 ===================================================================
 Index: workspace/kwin/effects/dimscreen.desktop
 ===================================================================
+Index: workspace/kwin/effects/diminactive_config.desktop
+===================================================================
+Index: workspace/kwin/effects/wobblywindows_config.desktop
+===================================================================
+Index: workspace/kwin/effects/mousemark.desktop
+===================================================================
+Index: workspace/kwin/effects/dialogparent.desktop
+===================================================================
+Index: workspace/kwin/effects/trackmouse.desktop
+===================================================================
+Index: workspace/kwin/effects/desktopgrid.desktop
+===================================================================
 Index: workspace/kwin/effects/lookingglass.desktop
+===================================================================
+Index: workspace/kwin/effects/fade.desktop
+===================================================================
+Index: workspace/kwin/effects/login.desktop
+===================================================================
+Index: workspace/kwin/effects/logout.desktop
+===================================================================
+Index: workspace/kwin/effects/shadow.desktop
+===================================================================
+Index: workspace/kwin/effects/diminactive.desktop
 ===================================================================
 Index: workspace/kwin/effects/flipswitch_config.desktop
 ===================================================================
+Index: workspace/kwin/effects/presentwindows.desktop
+===================================================================
+Index: workspace/kwin/effects/slide.desktop
+===================================================================
+Index: workspace/kwin/effects/test/demo_showpicture.desktop
+===================================================================
+Index: workspace/kwin/effects/test/demo_wavywindows.desktop
+===================================================================
+Index: workspace/kwin/effects/test/demo_shiftworkspaceup.desktop
+===================================================================
+Index: workspace/kwin/effects/test/drunken.desktop
+===================================================================
+Index: workspace/kwin/effects/test/test_thumbnail.desktop
+===================================================================
+Index: workspace/kwin/effects/test/test_input.desktop
+===================================================================
+Index: workspace/kwin/effects/test/videorecord.desktop
+===================================================================
+Index: workspace/kwin/effects/zoom_config.desktop
+===================================================================
+Index: workspace/kwin/effects/showpaint.desktop
+===================================================================
+Index: workspace/kwin/effects/sphere.desktop
+===================================================================
+Index: workspace/kwin/effects/showfps.desktop
+===================================================================
 Index: workspace/kwin/composite.cpp
+===================================================================
+Index: workspace/kwin/kcmkwin/kwindesktop/desktop.desktop
 ===================================================================
 Index: workspace/kwin/popupinfo.cpp
 ===================================================================
@@ -1017,15 +1512,37 @@ Index: workspace/kdm/kfrontend/sessions/vtwm.desktop
 ===================================================================
 Index: workspace/kdm/kfrontend/sessions/sawfish.desktop
 ===================================================================
+Index: workspace/ksysguard/example/ksysguard.notifyrc
+===================================================================
+Index: workspace/plasma/dataengines/applicationjobs/plasma-dataengine-applicationjobs.desktop
+===================================================================
+Index: workspace/plasma/dataengines/executable/plasma-dataengine-executable.desktop
+===================================================================
+Index: workspace/plasma/dataengines/nowplaying/playerinterface/mpris/mpris.cpp
+===================================================================
 Index: workspace/plasma/dataengines/places/plasma-dataengine-places.desktop
 ===================================================================
 Index: workspace/plasma/dataengines/CMakeLists.txt
 ===================================================================
+Index: workspace/plasma/shells/desktop/plasma.desktop
+===================================================================
 Index: workspace/plasma/shells/desktop/panelview.cpp
+===================================================================
+Index: workspace/plasma/runners/sessions/plasma-runner-sessions.desktop
+===================================================================
+Index: workspace/plasma/tools/desktopthemedetails/desktopthemedetails.desktop
+===================================================================
+Index: workspace/plasma/containments/mid-panel/plasma-containment-midpanel.desktop
+===================================================================
+Index: workspace/plasma/containments/desktop/plasma-containment-desktop.desktop
 ===================================================================
 Index: workspace/plasma/containments/desktop/desktop.cpp
 ===================================================================
 Index: workspace/plasma/applets/trash/plasma-applet-trash.desktop
+===================================================================
+Index: workspace/plasma/applets/activitybar/plasma-applet-activitybar.desktop
+===================================================================
+Index: workspace/plasma/applets/analog-clock/clock.cpp
 ===================================================================
 Index: workspace/plasma/applets/devicenotifier/test-predicate-openinwindow.desktop
 ===================================================================
@@ -1037,19 +1554,49 @@ Index: workspace/plasma/applets/calendar/calendar.h
 ===================================================================
 Index: workspace/plasma/applets/calendar/calendar.cpp
 ===================================================================
+Index: workspace/plasma/applets/battery/plasma-battery-default.desktop
+===================================================================
 Index: workspace/plasma/applets/kickoff/simpleapplet/simpleapplet.cpp
 ===================================================================
 Index: workspace/plasma/applets/kickoff/ui/launcher.cpp
 ===================================================================
+Index: workspace/plasma/applets/kickoff/ui/flipscrollview.cpp
+===================================================================
 Index: workspace/plasma/applets/CMakeLists.txt
+===================================================================
+Index: workspace/plasma/scriptengines/python/plasma-scriptengine-applet-python.desktop
+===================================================================
+Index: workspace/plasma/scriptengines/python/plasma-scriptengine-dataengine-python.desktop
+===================================================================
+Index: workspace/plasma/scriptengines/python/examples/dataengines/pytime/metadata.desktop
+===================================================================
+Index: workspace/plasma/scriptengines/ruby/plasma-scriptengine-ruby-applet.desktop
 ===================================================================
 Index: workspace/plasma/scriptengines/ruby/ChangeLog
 ===================================================================
 Index: workspace/plasma/scriptengines/ruby/applet.rb
 ===================================================================
+Index: workspace/plasma/scriptengines/ruby/plasma-scriptengine-ruby-dataengine.desktop
+===================================================================
+Index: workspace/plasma/scriptengines/ruby/examples/dataengines/dbpedia_albums/metadata.desktop
+===================================================================
+Index: workspace/plasma/scriptengines/ruby/examples/applets/webapplet/metadata.desktop
+===================================================================
+Index: workspace/plasma/scriptengines/ruby/examples/applets/tiger/metadata.desktop
+===================================================================
+Index: workspace/plasma/scriptengines/webkit/plasma-packagestructure-dashboard.desktop
+===================================================================
+Index: workspace/plasma/scriptengines/webkit/plasma-scriptengine-applet-dashboard.desktop
+===================================================================
+Index: workspace/plasma/scriptengines/webkit/plasma-scriptengine-applet-web.desktop
+===================================================================
 Index: workspace/plasma/scriptengines/javascript/tests/javascript-config-test/metadata.desktop
 ===================================================================
+Index: workspace/plasma/scriptengines/javascript/tests/script-digital-clock/metadata.desktop
+===================================================================
 Index: workspace/plasma/scriptengines/javascript/tests/script-nowplaying/metadata.desktop
+===================================================================
+Index: workspace/plasma/scriptengines/javascript/tests/tiger/metadata.desktop
 ===================================================================
 Index: workspace/plasma/scriptengines/google_gadgets/plasma-scriptengine-googlegadgets.desktop
 ===================================================================
