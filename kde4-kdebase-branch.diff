@@ -1,7 +1,7 @@
 Index: apps/konqueror/src/konqmainwindow.cpp
 ===================================================================
---- apps/konqueror/src/konqmainwindow.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 952918)
-+++ apps/konqueror/src/konqmainwindow.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 952918)
+--- apps/konqueror/src/konqmainwindow.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/konqueror/src/konqmainwindow.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
 @@ -1174,10 +1174,12 @@
          if ( windowArgs.lowerWindow() || (QApplication::keyboardModifiers() & Qt::ShiftModifier))
             newtabsinfront = !newtabsinfront;
@@ -48,8 +48,8 @@ Index: apps/konqueror/src/konqmainwindow.cpp
      //          << "frame names:" << view->frameNames();
 Index: apps/konqueror/src/konqtabs.cpp
 ===================================================================
---- apps/konqueror/src/konqtabs.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 952918)
-+++ apps/konqueror/src/konqtabs.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 952918)
+--- apps/konqueror/src/konqtabs.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/konqueror/src/konqtabs.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
 @@ -266,7 +266,9 @@
  void KonqFrameTabs::setTitle( const QString &title , QWidget* sender)
  {
@@ -61,10 +61,35 @@ Index: apps/konqueror/src/konqtabs.cpp
  }
  
  void KonqFrameTabs::setTabIcon( const KUrl &url, QWidget* sender )
+Index: apps/konqueror/settings/kio/lanbrowser.desktop
+===================================================================
+--- apps/konqueror/settings/kio/lanbrowser.desktop	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/konqueror/settings/kio/lanbrowser.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
+@@ -139,7 +139,7 @@
+ Comment[pl]=Konfiguracja przeglądania sieci lokalnej (współdzielone pliki i drukarki)
+ Comment[pt]=Configurar a navegação na rede local para as pastas e impressoras partilhadas
+ Comment[pt_BR]=Configurar a rede local navegando por pastas compartilhadas e impressoras
+-Comment[ro]=Configurează răsfoirea rețelei locale pentru dosare și imprimante pertajate
++Comment[ro]=Configurează răsfoirea rețelei locale pentru dosare și imprimante partajate
+ Comment[ru]=Настройка обзора общих папок и принтеров в локальной сети
+ Comment[sk]=Konfigurácia prehliadania zdieľaných priečinkov a tlačiarní v lokálnej sieti
+ Comment[sl]=Nastavitev brskanja po mapah in tiskalnikih, ki so v souporabi v krajevnem omrežju
+Index: apps/konqueror/settings/konqhtml/khtml_appearance.desktop
+===================================================================
+--- apps/konqueror/settings/konqhtml/khtml_appearance.desktop	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/konqueror/settings/konqhtml/khtml_appearance.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
+@@ -96,6 +96,7 @@
+ 
+ 
+ Comment=Configure how to display web pages
++Comment[bg]=Настройване как да се показват уеб страниците
+ Comment[ca]=Configura com visualitzar les pàgines web
+ Comment[cs]=Nastavit zobrazení webových stránek
+ Comment[da]=Indstil hvordan netsider skal vises
 Index: apps/kfind/kfwin.cpp
 ===================================================================
---- apps/kfind/kfwin.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 952918)
-+++ apps/kfind/kfwin.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 952918)
+--- apps/kfind/kfwin.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/kfind/kfwin.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
 @@ -80,7 +80,7 @@
    setText(5, matchingLine);
  
@@ -76,8 +101,8 @@ Index: apps/kfind/kfwin.cpp
  KfFileLVI::~KfFileLVI()
 Index: apps/kfind/kquery.cpp
 ===================================================================
---- apps/kfind/kquery.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 952918)
-+++ apps/kfind/kquery.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 952918)
+--- apps/kfind/kquery.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/kfind/kquery.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
 @@ -79,11 +79,9 @@
    if(m_useLocate) //use "locate" instead of the internal search method
    {
@@ -103,8 +128,8 @@ Index: apps/kfind/kquery.cpp
  
 Index: apps/kfind/kfinddlg.cpp
 ===================================================================
---- apps/kfind/kfinddlg.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 952918)
-+++ apps/kfind/kfinddlg.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 952918)
+--- apps/kfind/kfinddlg.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/kfind/kfinddlg.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
 @@ -74,7 +74,9 @@
  
    connect(win ,SIGNAL(resultSelected(bool)),
@@ -132,8 +157,8 @@ Index: apps/kfind/kfinddlg.cpp
  void KfindDlg::setProgressMsg(const QString &msg)
 Index: apps/kfind/kfinddlg.h
 ===================================================================
---- apps/kfind/kfinddlg.h	(.../tags/KDE/4.2.2/kdebase)	(wersja 952918)
-+++ apps/kfind/kfinddlg.h	(.../branches/KDE/4.2/kdebase)	(wersja 952918)
+--- apps/kfind/kfinddlg.h	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/kfind/kfinddlg.h	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
 @@ -34,7 +34,6 @@
    void setProgressMsg(const QString &);
  
@@ -153,8 +178,8 @@ Index: apps/kfind/kfinddlg.h
    void resultSelected(bool);
 Index: apps/dolphin/src/columnviewsettingspage.h
 ===================================================================
---- apps/dolphin/src/columnviewsettingspage.h	(.../tags/KDE/4.2.2/kdebase)	(wersja 952918)
-+++ apps/dolphin/src/columnviewsettingspage.h	(.../branches/KDE/4.2/kdebase)	(wersja 952918)
+--- apps/dolphin/src/columnviewsettingspage.h	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/dolphin/src/columnviewsettingspage.h	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
 @@ -53,6 +53,12 @@
      void loadSettings();
  
@@ -168,10 +193,87 @@ Index: apps/dolphin/src/columnviewsettingspage.h
      IconSizeGroupBox* m_iconSizeGroupBox;
      DolphinFontRequester* m_fontRequester;
      KComboBox* m_textWidthBox;
+Index: apps/dolphin/src/dolphinview.cpp
+===================================================================
+--- apps/dolphin/src/dolphinview.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/dolphin/src/dolphinview.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
+@@ -1095,18 +1095,20 @@
+ 
+ void DolphinView::restoreCurrentItem()
+ {
+-    const QModelIndex dirIndex = m_dolphinModel->indexForUrl(m_currentItemUrl);
+-    if (dirIndex.isValid()) {
+-        const QModelIndex proxyIndex = m_proxyModel->mapFromSource(dirIndex);
+-        QAbstractItemView* view = itemView();
+-        const bool clearSelection = !hasSelection();
+-        view->setCurrentIndex(proxyIndex);
+-        if (clearSelection) {
+-            view->clearSelection();
++    if (!m_currentItemUrl.isEmpty()) {
++        const QModelIndex dirIndex = m_dolphinModel->indexForUrl(m_currentItemUrl);
++        if (dirIndex.isValid()) {
++            const QModelIndex proxyIndex = m_proxyModel->mapFromSource(dirIndex);
++            QAbstractItemView* view = itemView();
++            const bool clearSelection = !hasSelection();
++            view->setCurrentIndex(proxyIndex);
++            if (clearSelection) {
++                view->clearSelection();
++            }
+         }
++        m_currentItemUrl.clear();
+     }
+ }
+-
+ void DolphinView::enterDir(const QModelIndex& index, QAbstractItemView* view)
+ {
+     // Deleting a view that is the root of a drag operation is not allowed, otherwise
+Index: apps/dolphin/src/dolphinpart.cpp
+===================================================================
+--- apps/dolphin/src/dolphinpart.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/dolphin/src/dolphinpart.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
+@@ -331,10 +331,7 @@
+ {
+     // TODO: Check issue N176832 for the missing QAIV signal; task 177399 - maybe this code
+     // should be moved into DolphinPart::slotItemTriggered()
+-    KFileItem item(S_IFDIR, (mode_t)-1, url);
+-    KParts::OpenUrlArguments args;
+-    args.setMimeType(item.mimetype());
+-    emit m_extension->createNewWindow(url, args);
++    emit m_extension->createNewWindow(url);
+ }
+ 
+ void DolphinPart::slotOpenContextMenu(const KFileItem& _item, const KUrl&)
+Index: apps/dolphin/src/dolphinpart.desktop
+===================================================================
+--- apps/dolphin/src/dolphinpart.desktop	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/dolphin/src/dolphinpart.desktop	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
+@@ -178,7 +178,7 @@
+ Name[ar]=تفاصيل
+ Name[as]=বিৱৰণ
+ Name[be@latin]=Detali
+-Name[bg]=Подробности
++Name[bg]=Подробно
+ Name[bn]=বিস্তারিত
+ Name[bn_IN]=বিবরণ
+ Name[ca]=Detalls
+Index: apps/dolphin/src/infosidebarpage.cpp
+===================================================================
+--- apps/dolphin/src/infosidebarpage.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/dolphin/src/infosidebarpage.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
+@@ -541,7 +541,8 @@
+     m_nameLabel->setFont(font);
+     m_nameLabel->setAlignment(Qt::AlignHCenter);
+     m_nameLabel->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+-
++    m_nameLabel->setMaximumWidth(KIconLoader::SizeEnormous);
++    
+     // preview
+     m_preview = new PixmapViewer(this);
+     m_preview->setMinimumWidth(KIconLoader::SizeEnormous + KIconLoader::SizeMedium);
 Index: apps/dolphin/src/columnviewsettingspage.cpp
 ===================================================================
---- apps/dolphin/src/columnviewsettingspage.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 952918)
-+++ apps/dolphin/src/columnviewsettingspage.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 952918)
+--- apps/dolphin/src/columnviewsettingspage.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/dolphin/src/columnviewsettingspage.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
 @@ -113,9 +113,8 @@
      settings->setItalicFont(font.italic());
      settings->setFontWeight(font.weight());
@@ -196,8 +298,8 @@ Index: apps/dolphin/src/columnviewsettingspage.cpp
  #include "columnviewsettingspage.moc"
 Index: apps/dolphin/src/dolphinmodel.cpp
 ===================================================================
---- apps/dolphin/src/dolphinmodel.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 952918)
-+++ apps/dolphin/src/dolphinmodel.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 952918)
+--- apps/dolphin/src/dolphinmodel.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/dolphin/src/dolphinmodel.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
 @@ -248,7 +248,8 @@
                  Q_ASSERT(false);
              }
@@ -210,8 +312,8 @@ Index: apps/dolphin/src/dolphinmodel.cpp
                  } else if (daysDistance <= 7) {
 Index: apps/dolphin/src/dolphincolumnwidget.cpp
 ===================================================================
---- apps/dolphin/src/dolphincolumnwidget.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 952918)
-+++ apps/dolphin/src/dolphincolumnwidget.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 952918)
+--- apps/dolphin/src/dolphincolumnwidget.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/dolphin/src/dolphincolumnwidget.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
 @@ -517,6 +517,8 @@
  void DolphinColumnWidget::deactivate()
  {
@@ -223,8 +325,8 @@ Index: apps/dolphin/src/dolphincolumnwidget.cpp
      // does not forward the single vs. doubleclick to it yet (KDE 4.1?). Hence it is
 Index: apps/lib/konq/konq_menuactions.cpp
 ===================================================================
---- apps/lib/konq/konq_menuactions.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 952918)
-+++ apps/lib/konq/konq_menuactions.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 952918)
+--- apps/lib/konq/konq_menuactions.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/lib/konq/konq_menuactions.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
 @@ -185,7 +185,7 @@
      const KFileItemList items = d->m_info.items();
      const KFileItem firstItem = items.first();
@@ -256,8 +358,8 @@ Index: apps/lib/konq/konq_menuactions.cpp
              const KConfigGroup cfg = desktopFile.desktopGroup();
 Index: apps/kinfocenter/pci/kcm_pci.cpp
 ===================================================================
---- apps/kinfocenter/pci/kcm_pci.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 952918)
-+++ apps/kinfocenter/pci/kcm_pci.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 952918)
+--- apps/kinfocenter/pci/kcm_pci.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/kinfocenter/pci/kcm_pci.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
 @@ -80,6 +80,11 @@
  void KCMPci::load() {
  	kDebug() << "Loading PCI information..." << endl;
@@ -272,8 +374,8 @@ Index: apps/kinfocenter/pci/kcm_pci.cpp
  QString KCMPci::quickHelp() const {
 Index: apps/kinfocenter/base/info_fbsd.cpp
 ===================================================================
---- apps/kinfocenter/base/info_fbsd.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 952918)
-+++ apps/kinfocenter/base/info_fbsd.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 952918)
+--- apps/kinfocenter/base/info_fbsd.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/kinfocenter/base/info_fbsd.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
 @@ -89,7 +89,7 @@
  		new QTreeWidgetItem(tree, list);
  
@@ -285,8 +387,8 @@ Index: apps/kinfocenter/base/info_fbsd.cpp
  	return true;
 Index: apps/plasma/applets/folderview/proxymodel.cpp
 ===================================================================
---- apps/plasma/applets/folderview/proxymodel.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 952918)
-+++ apps/plasma/applets/folderview/proxymodel.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 952918)
+--- apps/plasma/applets/folderview/proxymodel.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/plasma/applets/folderview/proxymodel.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
 @@ -25,7 +25,7 @@
  
  
@@ -298,8 +400,8 @@ Index: apps/plasma/applets/folderview/proxymodel.cpp
  }
 Index: apps/plasma/applets/folderview/dialog.h
 ===================================================================
---- apps/plasma/applets/folderview/dialog.h	(.../tags/KDE/4.2.2/kdebase)	(wersja 952918)
-+++ apps/plasma/applets/folderview/dialog.h	(.../branches/KDE/4.2/kdebase)	(wersja 952918)
+--- apps/plasma/applets/folderview/dialog.h	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/plasma/applets/folderview/dialog.h	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
 @@ -35,14 +35,14 @@
  class Dialog : public QWidget
  {
@@ -319,8 +421,8 @@ Index: apps/plasma/applets/folderview/dialog.h
  
 Index: apps/plasma/applets/folderview/dialog.cpp
 ===================================================================
---- apps/plasma/applets/folderview/dialog.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 952918)
-+++ apps/plasma/applets/folderview/dialog.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 952918)
+--- apps/plasma/applets/folderview/dialog.cpp	(.../tags/KDE/4.2.2/kdebase)	(wersja 956243)
++++ apps/plasma/applets/folderview/dialog.cpp	(.../branches/KDE/4.2/kdebase)	(wersja 956243)
 @@ -36,12 +36,12 @@
  #endif
  
@@ -362,6 +464,8 @@ Index: runtime/knotify/notifybypopup.cpp
 ===================================================================
 Index: runtime/kcontrol/locale/localetime.cpp
 ===================================================================
+Index: runtime/phonon/kcm/xine/kcm_phononxine.desktop
+===================================================================
 Index: runtime/platforms/win/kwinstartmenu/winstartmenu.desktop
 ===================================================================
 Index: runtime/kioslave/info/info.cc
@@ -376,9 +480,19 @@ Index: runtime/kstyles/oxygen/CMakeLists.txt
 ===================================================================
 Index: runtime/kurifilter-plugins/ikws/searchproviders/technoratitags.desktop
 ===================================================================
+Index: workspace/kcontrol/randr/krandrtray.desktop
+===================================================================
+Index: workspace/kcontrol/randr/randr.desktop
+===================================================================
 Index: workspace/kcontrol/keys/keys.desktop
 ===================================================================
+Index: workspace/solid/kcm/kcm_solid.desktop
+===================================================================
+Index: workspace/powerdevil/daemon/PollSystemLoader.cpp
+===================================================================
 Index: workspace/powerdevil/daemon/PowerDevilDaemon.cpp
+===================================================================
+Index: workspace/powerdevil/daemon/PollSystemLoader.h
 ===================================================================
 Index: workspace/powerdevil/daemon/PowerDevilDaemon.h
 ===================================================================
@@ -394,6 +508,8 @@ Index: workspace/krunner/interfaces/default/resultscene.cpp
 ===================================================================
 Index: workspace/libs/kephal/xrandr12/randrcrtc.cpp
 ===================================================================
+Index: workspace/libs/taskmanager/task.cpp
+===================================================================
 Index: workspace/kscreensaver/libkscreensaver/kscreensaver.h
 ===================================================================
 Index: workspace/kscreensaver/libkscreensaver/kscreensaver.cpp
@@ -406,6 +522,8 @@ Index: workspace/kwin/effects/magiclamp.cpp
 ===================================================================
 Index: workspace/kwin/effects/magiclamp.h
 ===================================================================
+Index: workspace/kwin/effects/desktopgrid.desktop
+===================================================================
 Index: workspace/kwin/main.cpp
 ===================================================================
 Index: workspace/kdm/kfrontend/sessions/icewm.desktop
@@ -416,13 +534,23 @@ Index: workspace/plasma/dataengines/powermanagement/plasma-dataengine-powermanag
 ===================================================================
 Index: workspace/plasma/shells/desktop/panelview.cpp
 ===================================================================
+Index: workspace/plasma/runners/locations/locationrunner.cpp
+===================================================================
+Index: workspace/plasma/tools/desktopthemedetails/desktopthemedetails.desktop
+===================================================================
 Index: workspace/plasma/applets/calendar/calendar.h
 ===================================================================
 Index: workspace/plasma/applets/calendar/calendar.cpp
 ===================================================================
+Index: workspace/plasma/applets/system-monitor/net.cpp
+===================================================================
 Index: workspace/plasma/applets/battery/battery.cpp
+===================================================================
+Index: workspace/plasma/applets/kickoff/ui/launcher.cpp
 ===================================================================
 Index: workspace/plasma/scriptengines/webkit/plasma-packagestructure-dashboard.desktop
 ===================================================================
 Index: workspace/plasma/scriptengines/webkit/plasma-scriptengine-applet-dashboard.desktop
+===================================================================
+Index: workspace/plasma/scriptengines/javascript/tests/script-digital-clock/metadata.desktop
 ===================================================================
