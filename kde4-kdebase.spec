@@ -35,7 +35,7 @@ BuildRequires:	audiofile-devel
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	bzip2-devel
 BuildRequires:	cdparanoia-III-devel
-BuildRequires:	cmake >= 2.6.2
+BuildRequires:	cmake >= 2.6.3
 BuildRequires:	cups-devel
 BuildRequires:	cyrus-sasl-devel
 BuildRequires:	db-devel
