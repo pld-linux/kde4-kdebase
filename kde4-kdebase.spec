@@ -4,9 +4,10 @@
 # - Req, Obsolets and Conflicts for every package
 # - new descriptions
 #
-%define		_state		stable
+%define		_state		unstable
 %define		orgname		kdebase
 %define		qtver		4.5.0
+%define		svn		969966
 
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):	K Desktop Environment - archivos básicos
@@ -18,13 +19,13 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.2.3
-Release:	2
+Version:	4.2.87
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	8779d4bd85d356300e22dc34bbeb06f9
-Patch100:	%{name}-branch.diff
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}svn%{svn}.tar.bz2
+# Source0-md5:	dc48ccc06cccce5ec9028820575d6b7e
+#Patch100:	%{name}-branch.diff
 Patch0:		%{name}-wordchars.patch
 URL:		http://www.kde.org/
 BuildRequires:	OpenEXR-devel >= 1.2.2
@@ -332,7 +333,7 @@ Konqueror shared libraries.
 Biblioteki współdzielone konquerora.
 
 %prep
-%setup -q -n %{orgname}-%{version}
+%setup -q -n %{orgname}-%{version}svn%{svn}
 #%patch100 -p0
 %patch0 -p1
 
@@ -425,9 +426,7 @@ fi
 %{_desktopdir}/kde4/kfmclient_war.desktop
 %exclude %{_iconsdir}/*/scalable
 %{_iconsdir}/*/*/apps/*.png
-%{_iconsdir}/*/*/actions/*.png
 %{_iconsdir}/*/*/apps/*.svgz
-#%{_iconsdir}/*/*/actions/*.svgz
 %{_mandir}/man1/kbookmarkmerger.1.*
 
 %files devel
@@ -504,6 +503,7 @@ fi
 %attr(755,root,root) %{_bindir}/konsoleprofile
 %attr(755,root,root) %{_libdir}/libkdeinit4_konsole.so
 %attr(755,root,root) %{_libdir}/kde4/libkonsolepart.so
+%attr(755,root,root) %{_libdir}/libkonsoleprivate.so
 %{_datadir}/kde4/services/ServiceMenus/konsolehere.desktop
 %{_datadir}/kde4/services/konsolepart.desktop
 %{_datadir}/apps/konsole
@@ -535,8 +535,11 @@ fi
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/dolphin
 %attr(755,root,root) %{_libdir}/libdolphinprivate.so.*
+%attr(755,root,root) %{_libdir}/kde4/kcm_dolphingeneral.so
+%attr(755,root,root) %{_libdir}/kde4/kcm_dolphinnavigation.so
+%attr(755,root,root) %{_libdir}/kde4/kcm_dolphinservices.so
+%attr(755,root,root) %{_libdir}/kde4/kcm_dolphinviewmodes.so
 %attr(755,root,root) %{_libdir}/kde4/dolphinpart.so
-%attr(755,root,root) %{_libdir}/kde4/kcm_dolphin.so
 %dir %{_datadir}/apps/dolphin
 %{_datadir}/apps/dolphin/dolphinui.rc
 %dir %{_datadir}/apps/dolphinpart
@@ -548,25 +551,24 @@ fi
 %{_datadir}/config.kcfg/dolphin_iconsmodesettings.kcfg
 %{_datadir}/config.kcfg/keditbookmarks.kcfg
 %{_datadir}/kde4/services/dolphinpart.desktop
+%{_datadir}/kde4/services/kcmdolphingeneral.desktop
+%{_datadir}/kde4/services/kcmdolphinnavigation.desktop
+%{_datadir}/kde4/services/kcmdolphinservices.desktop
+%{_datadir}/kde4/services/kcmdolphinviewmodes.desktop
 %{_desktopdir}/kde4/dolphin.desktop
-%{_datadir}/kde4/services/kcmdolphin.desktop
 %{_kdedocdir}/en/dolphin
 %dir %{_datadir}/apps/dolphinpart/kpartplugins
-%{_datadir}/apps/dolphinpart/kpartplugins/kremoteencodingplugin.desktop
-%{_datadir}/apps/dolphinpart/kpartplugins/kremoteencodingplugin.rc
 %{_datadir}/apps/dolphinpart/kpartplugins/kshellcmdplugin.desktop
 %{_datadir}/apps/dolphinpart/kpartplugins/kshellcmdplugin.rc
 
 %files -n kde4-konqueror
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/keditbookmarks
-%attr(755,root,root) %{_bindir}/keditfiletype
 %attr(755,root,root) %{_bindir}/kfmclient
 %attr(755,root,root) %{_bindir}/konqueror
 %attr(755,root,root) %{_bindir}/nspluginscan
 %attr(755,root,root) %{_bindir}/nspluginviewer
 %attr(755,root,root) %{_libdir}/libkdeinit4_konqueror.so
-%attr(755,root,root) %{_libdir}/kde4/kcm_filetypes.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_history.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_kio.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_konq.so
@@ -597,6 +599,7 @@ fi
 %{_datadir}/kde4/servicetypes/findpart.desktop
 %{_datadir}/kde4/servicetypes/konqaboutpage.desktop
 %{_datadir}/kde4/servicetypes/konqpopupmenuplugin.desktop
+%{_datadir}/kde4/servicetypes/konqdndpopupmenuplugin.desktop
 %{_datadir}/kde4/servicetypes/terminalemulator.desktop
 %{_datadir}/kde4/servicetypes/uasprovider.desktop
 %{_datadir}/kde4/services/useragentstrings
@@ -606,7 +609,6 @@ fi
 %{_datadir}/kde4/services/desktoppath.desktop
 %{_datadir}/kde4/services/ebrowsing.desktop
 %{_datadir}/kde4/services/filebehavior.desktop
-%{_datadir}/kde4/services/filetypes.desktop
 %{_datadir}/kde4/services/kcmhistory.desktop
 %{_datadir}/kde4/services/kcmkonqyperformance.desktop
 %{_datadir}/kde4/services/kcmperformance.desktop
@@ -646,7 +648,6 @@ fi
 %attr(755,root,root) %{_libdir}/kde4/konq_sound.so
 %attr(755,root,root) %{_libdir}/kde4/konqsidebar_tree.so
 %attr(755,root,root) %{_libdir}/kde4/konqsidebar_web.so
-%attr(755,root,root) %{_libdir}/kde4/konq_remoteencoding.so
 %attr(755,root,root) %{_libdir}/kde4/konq_shellcmdplugin.so
 
 %files -n kde4-konqueror-libs
