@@ -19,7 +19,7 @@ Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
 Version:	4.2.3
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
@@ -333,7 +333,7 @@ Biblioteki współdzielone konquerora.
 
 %prep
 %setup -q -n %{orgname}-%{version}
-#%patch100 -p0
+%patch100 -p0
 %patch0 -p1
 
 %{__sed} -i -e 's/Categories=.*/Categories=Audio;Mixer;/' \
