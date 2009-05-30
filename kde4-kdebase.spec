@@ -7,7 +7,7 @@
 %define		_state		unstable
 %define		orgname		kdebase
 %define		qtver		4.5.0
-%define		svn		969966
+%define		svn		973768
 
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):	K Desktop Environment - archivos básicos
@@ -19,12 +19,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.2.87
+Version:	4.2.88
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}svn%{svn}.tar.bz2
-# Source0-md5:	dc48ccc06cccce5ec9028820575d6b7e
+# Source0-md5:	05e5eacd191e9afe688bf96e75a7003b
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-wordchars.patch
 URL:		http://www.kde.org/
