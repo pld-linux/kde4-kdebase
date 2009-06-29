@@ -19,12 +19,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.2.91
+Version:	4.2.95
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}svn%{svn}.tar.bz2
-# Source0-md5:	c833257ee5a12ac95c50c8c7fd4fe03c
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
+# Source0-md5:	0ca8a27155b3c9b35e35881de79a8d2f
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-wordchars.patch
 URL:		http://www.kde.org/
@@ -333,7 +333,7 @@ Konqueror shared libraries.
 Biblioteki współdzielone konquerora.
 
 %prep
-%setup -q -n %{orgname}-%{version}svn%{svn}
+%setup -q -n %{orgname}-%{version}
 #%patch100 -p0
 %patch0 -p1
 
