@@ -7,7 +7,7 @@
 %define		_state		unstable
 %define		orgname		kdebase
 %define		qtver		4.5.2
-%define		snap		svn1020033
+%define		snap		svn1024329
 
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):	K Desktop Environment - archivos básicos
@@ -19,13 +19,13 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.3.67
+Version:	4.3.68
 Release:	1
 License:	GPL
 Group:		X11/Applications
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}%{snap}.tar.bz2
-# Source0-md5:	82e3d1868c019487a35dfb77e7de6810
+# Source0-md5:	8c1d1df4276bd983ef7589c6d02ce896
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-wordchars.patch
 URL:		http://www.kde.org/
@@ -108,8 +108,7 @@ This package contains KDE base system which includes:
 - many more.
 
 %description -l ja.UTF-8
-KDEデスクトップ環境用の基本アプリケーション。 以下のようなパッケージが入っています。
-
+KDEデスクトップ環境用の基本アプリケーション〄1�7以下のようなパッケージが入っています〄1�7
 %description -l pl.UTF-8
 Ten pakiet zawiera podstawowe aplikacje KDE:
 - Centrum sterowania z modułami
@@ -428,10 +427,14 @@ fi
 %{_desktopdir}/kde4/kfmclient_dir.desktop
 %{_desktopdir}/kde4/kfmclient_html.desktop
 %{_desktopdir}/kde4/kfmclient_war.desktop
-%exclude %{_iconsdir}/*/scalable
+#%exclude %{_iconsdir}/*/scalable
 %{_iconsdir}/*/*/apps/*.png
 %{_iconsdir}/*/*/apps/*.svgz
 %{_mandir}/man1/kbookmarkmerger.1.*
+
+# view svn plugin - where to put??
+%attr(755,root,root) %{_libdir}/kde4/fileviewsvnplugin.so
+%{_datadir}/kde4/services/fileviewsvnplugin.desktop
 
 %files devel
 %defattr(644,root,root,755)
