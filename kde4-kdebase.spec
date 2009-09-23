@@ -62,6 +62,7 @@ BuildRequires:	libxml2-devel
 BuildRequires:	libxml2-progs
 BuildRequires:	lm_sensors-devel
 BuildRequires:	motif-devel
+BuildRequires:	openldap-devel
 BuildRequires:	openssl-devel >= 0.9.7c
 BuildRequires:	pam-devel
 BuildRequires:	pciutils-devel
@@ -70,7 +71,6 @@ BuildRequires:	qimageblitz-devel
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	samba-devel
-#BuildRequires:	webkitkde-devel
 BuildRequires:	xorg-app-bdftopcf
 BuildRequires:	xorg-cf-files
 BuildRequires:	xorg-lib-libXScrnSaver-devel
