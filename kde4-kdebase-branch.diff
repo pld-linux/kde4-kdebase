@@ -1,2095 +1,305 @@
-Index: apps/kappfinder/apps/Multimedia/amsynth.desktop
+Index: apps/konqueror/konqueror.desktop
 ===================================================================
---- apps/kappfinder/apps/Multimedia/amsynth.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/kappfinder/apps/Multimedia/amsynth.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -29,6 +29,7 @@
- GenericName[gu]=રેટ્રો એનેલોગ - મોડેલિંગ સોફ્ટસિન્થ
- GenericName[hi]=रीट्रो एनॉलाक - मॉडलिंग सॉफ़्टसिंथ
- GenericName[hne]=रीट्रो एनालाक - माडलिंग साफ्टसिंथ
-+GenericName[hr]=Retro Analog – Modeling Softsynth
- GenericName[hu]=Analóg szoftveres szintetizátor
- GenericName[is]=Retró-Hliðrænn - Modeling Softsynth
- GenericName[it]=Sintetizzatore software analogico
-Index: apps/kappfinder/apps/Multimedia/ardour.desktop
-===================================================================
---- apps/kappfinder/apps/Multimedia/ardour.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/kappfinder/apps/Multimedia/ardour.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -42,6 +42,7 @@
- GenericName[he]=סטודיו שמע מרובה רצועות
- GenericName[hi]=मल्टीट्रैक ऑडियो स्टूडियो
- GenericName[hne]=मल्टीट्रैक आडियो स्टूडियो
-+GenericName[hr]=Višetračni audio studio
- GenericName[hu]=Többsávos hangstúdió
- GenericName[is]=Fjölrása hljóðver
- GenericName[it]=Studio audio multitraccia
-Index: apps/kappfinder/apps/Multimedia/alevt.desktop
-===================================================================
---- apps/kappfinder/apps/Multimedia/alevt.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/kappfinder/apps/Multimedia/alevt.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -25,6 +25,7 @@
- GenericName[he]=מציג Videotext
- GenericName[hi]=वीडियो-पाठ प्रदर्शक
- GenericName[hne]=वीडियो पाठ प्रदर्सक
-+GenericName[hr]=Preglednik videoteksta
- GenericName[hsb]=Přehladowar za widejotekst
- GenericName[hu]=Videószöveg-nézegető
- GenericName[is]=Videotext birtir
-Index: apps/kappfinder/apps/Multimedia/freqtweak.desktop
-===================================================================
---- apps/kappfinder/apps/Multimedia/freqtweak.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/kappfinder/apps/Multimedia/freqtweak.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -41,6 +41,7 @@
- GenericName[he]=אפקטים עבור Jack
- GenericName[hi]=जैक के लिए प्रभाव
- GenericName[hne]=जैक बर प्रभाव
-+GenericName[hr]=Efekti JACK-a
- GenericName[hu]=Effektusok a Jackhez
- GenericName[is]=Brellur fyrir Jack
- GenericName[it]=Effetti per Jack
-Index: apps/kappfinder/apps/Office/netscapeaddressbook.desktop
-===================================================================
---- apps/kappfinder/apps/Office/netscapeaddressbook.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/kappfinder/apps/Office/netscapeaddressbook.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -18,6 +18,7 @@
- Name[gl]=Caderno de enderezos de Netscape
- Name[gu]=નેટવર્ક સરનામાં પુસ્તિકા
- Name[hi]=नेटस्केप पता पुस्तिका
-+Name[hr]=Netscape adresar
- Name[hu]=Netscape címjegyzék
- Name[is]=Netscape netfangaskrá
- Name[it]=Rubrica degli indirizzi di Netscape
-Index: apps/kappfinder/apps/Games/Arcade/alephone.desktop
-===================================================================
---- apps/kappfinder/apps/Games/Arcade/alephone.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/kappfinder/apps/Games/Arcade/alephone.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -25,7 +25,7 @@
- Name[he]=Alephone - בלי OpenGL
- Name[hi]=एलिफोन - ओपनजीएल नहीं
- Name[hne]=एलिफोन - ओपनजीएल नइ
--Name[hr]=Alephone - Nema OpenGL
-+Name[hr]=Alephone – Nema OpenGL
- Name[hsb]=Alephone - bjez OpenGL
- Name[hu]=Alaphone - OpenGL nélkül
- Name[is]=Alephone - ekki OpenGL
-@@ -102,6 +102,7 @@
- Comment[he]=גרסת קוד פתוח של Marathon Infinity עבור SDL עם Open GL מבוטל
- Comment[hi]=एसडीएल के लिए मेराथन इनफिनिटी का ओपन सोर्स संस्करण जिसमें ओपनजीएल अक्षम है
- Comment[hne]=एसडीएल बर मेराथन इनफिनिटी के ओपन सोर्स संस्करन जेमां ओपनजीएल अक्छम हे
-+Comment[hr]=Verzija Marathon Infinity otvorenog koda za SDL koji ima onemogućen OpenGL
- Comment[hsb]=Swobodna warianta "Marathon Infinity" za SDL bjez OpenGL
- Comment[hu]=A Marathon Infinity for SDL játék szabad forráskódú változata (OpenGL-támogatás nélkül)
- Comment[is]=Open source útgáfa af Marathon Infinity fyrir SDL með OpenGl óvirkt
-Index: apps/kappfinder/apps/Games/xshipwars.desktop
-===================================================================
---- apps/kappfinder/apps/Games/xshipwars.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/kappfinder/apps/Games/xshipwars.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -54,7 +54,7 @@
- GenericName[he]=משחק אסטרטגיה
- GenericName[hi]=कौशल का खेल
- GenericName[hne]=कौसल वाले खेल
--GenericName[hr]=Slobodna verzija Civilizacije - Igra strategije
-+GenericName[hr]=Slobodna verzija Civilizacije – Igra strategije
- GenericName[hsb]=Strategijowe hry
- GenericName[hu]=Stratégiai
- GenericName[is]=Herkænskuleikur
-Index: apps/kappfinder/apps/Games/TacticStrategy/freecivserver.desktop
-===================================================================
---- apps/kappfinder/apps/Games/TacticStrategy/freecivserver.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/kappfinder/apps/Games/TacticStrategy/freecivserver.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -24,6 +24,7 @@
- Name[he]=שרת Freeciv
- Name[hi]=फ्रीसिव सर्वर
- Name[hne]=फ्रीसिव सर्वर
-+Name[hr]=Freeciv poslužitelj
- Name[hsb]=FreeCiv serwer
- Name[hu]=FreeCiv-kiszolgáló
- Name[is]=Freeciv þjónn
-@@ -92,6 +93,7 @@
- Comment[he]=שרת ל־Freeciv
- Comment[hi]=फ्रीसिव के लिए सर्वर
- Comment[hne]=फ्री सिव बर एक सर्वर
-+Comment[hr]=Poslužitelj za igru Freeciv
- Comment[hsb]=Serwer za Freeciv
- Comment[hu]=Kiszolgáló a Freeciv játékhoz
- Comment[is]=Þjónn fyrir Freeciv
-Index: apps/kappfinder/apps/Games/TacticStrategy/freeciv.desktop
-===================================================================
---- apps/kappfinder/apps/Games/TacticStrategy/freeciv.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/kappfinder/apps/Games/TacticStrategy/freeciv.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -52,7 +52,7 @@
- GenericName[he]=משחק אסטרטגיה
- GenericName[hi]=कौशल का खेल
- GenericName[hne]=कौसल वाले खेल
--GenericName[hr]=Slobodna verzija Civilizacije - Igra strategije
-+GenericName[hr]=Slobodna verzija Civilizacije – Igra strategije
- GenericName[hsb]=Strategijowe hry
- GenericName[hu]=Stratégiai
- GenericName[is]=Herkænskuleikur
-Index: apps/konqueror/kfmclient.desktop
-===================================================================
---- apps/konqueror/kfmclient.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/kfmclient.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -6,7 +6,7 @@
- Terminal=false
- InitialPreference=9
- NoDisplay=true
--StartupNotificaton=false
-+StartupNotification=false
- Name=Konqueror
- Name[ar]=كونكيور
- Name[bn]=কনকরার
-Index: apps/konqueror/src/konqviewmanager.cpp
-===================================================================
---- apps/konqueror/src/konqviewmanager.cpp	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/src/konqviewmanager.cpp	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -903,6 +903,16 @@
- 
-     KConfigGroup profileGroup(_cfg, "Profile");
- 
-+
-+    // Repair profiles without tabs (#203166)
-+    const QString rootItem = profileGroup.readEntry("RootItem", "empty");
-+    const QString childrenKey = rootItem + "_Children";
-+    if (profileGroup.readEntry(childrenKey, QStringList()) == (QStringList() << "View1" << "View2")) {
-+        kDebug() << "Activating special tabwidget-insertion-hack";
-+        profileGroup.writeEntry(childrenKey, QStringList() << "View1" << "Tabs1");
-+        profileGroup.writeEntry("Tabs1_Children", "View2");
-+    }
-+
-     loadViewProfileFromGroup(profileGroup, filename, forcedUrl, req, openUrl);
- 
-     setCurrentProfile(filename);
-Index: apps/konqueror/src/tests/konqviewmgrtest.h
-===================================================================
---- apps/konqueror/src/tests/konqviewmgrtest.h	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/src/tests/konqviewmgrtest.h	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -48,6 +48,7 @@
-     void testDuplicateSplittedTab();
-     void testDeletePartInTab();
-     void testLoadProfile();
-+    void testLoadOldProfile();
- 
-     void testDuplicateWindow();
-     void testDuplicateWindowWithSidebar();
-Index: apps/konqueror/src/tests/filemanagement.old.profile
-===================================================================
---- apps/konqueror/src/tests/filemanagement.old.profile	(.../tags/KDE/4.3.0/kdebase)	(wersja 0)
-+++ apps/konqueror/src/tests/filemanagement.old.profile	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -0,0 +1,104 @@
-+[Profile]
-+Container0_Children=View1,View2
-+Container0_Orientation=Horizontal
-+Container0_SplitterSizes=24,100
-+Height=578
-+Height 1200=745
-+Name=File Management
-+Name[af]=Lêer Bestuurder
-+Name[ar]=إدارة الملفات
-+Name[as]=নথিপত্ৰৰ পৰিচালনা
-+Name[be]=Кіраванне файламі
-+Name[be@latin]=Kiravańnie fajłami
-+Name[bn]=ফাইল ব্যবস্থাপনা
-+Name[bn_IN]=ফাইল পরিচালনা
-+Name[br]=Mererezh ar restroù
-+Name[ca]=Gestió de fitxers
-+Name[ca@valencia]=Gestió de fitxers
-+Name[cs]=Správa souborů
-+Name[csb]=Sprôwianié lopkama
-+Name[cy]=Trefnu Ffeiliau
-+Name[da]=Filhåndtering
-+Name[de]=Dateiverwaltung
-+Name[el]=Διαχείριση αρχείων
-+Name[eo]=Dosieradministrilo
-+Name[es]=Gestión de archivos
-+Name[et]=Failihaldur
-+Name[eu]=Fitxategi kudeaketa
-+Name[fa]=مدیریت پرونده‌
-+Name[fi]=Tiedostonhallinta
-+Name[fr]=Gestion de fichiers
-+Name[fy]=Triembehear
-+Name[ga]=Bainisteoireacht Comhad
-+Name[gl]=Xestión de ficheiros
-+Name[gu]=ફાઇલ વ્યવસ્થાપક
-+Name[he]=ניהול קבצים
-+Name[hi]=फ़ाइल प्रबंधन
-+Name[hne]=फाइल प्रबंधन
-+Name[hr]=Upravitelj datotekama
-+Name[hsb]=Datajowy manager
-+Name[hu]=Fájlkezelő
-+Name[is]=Skráastjóri
-+Name[it]=Gestione file
-+Name[ja]=ファイルマネージャ
-+Name[ka]=ფაილთა მართვა
-+Name[kk]=Файдарды басқару
-+Name[km]=ការ​គ្រប់គ្រង​ឯកសារ
-+Name[kn]=ಕಡತ ವ್ಯವಸ್ಥಾಪನೆ
-+Name[ko]=파일 관리자
-+Name[ku]=Rêveberiya Pelan
-+Name[lt]=Failų valdymas
-+Name[lv]=Failu pārvaldnieks
-+Name[mai]=फाइल प्रबंधन
-+Name[mk]=Менаџмент на датотеки
-+Name[ml]=ഫയല്‍ നടത്തിപ്പ്
-+Name[mr]=फाइल व्यवस्थापन
-+Name[ms]=Pengurusan Fail
-+Name[nb]=Filbehandling
-+Name[nds]=Dateipleeg
-+Name[ne]=फाइल व्यवस्थापन
-+Name[nl]=Bestandsbeheer
-+Name[nn]=Filhandsaming
-+Name[oc]=Gestion de fichièrs
-+Name[or]=ଫାଇଲ ପରିଚାଳନା
-+Name[pa]=ਫਾਇਲ ਮੈਨਿਜਮੈਂਟ
-+Name[pl]=Zarządzanie plikami
-+Name[pt]=Gestão de Ficheiros
-+Name[pt_BR]=Gerenciamento de arquivos
-+Name[ro]=Administrare fișiere
-+Name[ru]=Управление файлами
-+Name[se]=Fiilagieđaheapmi
-+Name[sk]=Správca súborov
-+Name[sl]=Upravljanje datotek
-+Name[sr]=Управљање фајловима
-+Name[sr@latin]=Upravljanje fajlovima
-+Name[sv]=Filhantering
-+Name[ta]=கோப்பு மேலாண்மை
-+Name[te]=దస్త్ర నిర్వహణ
-+Name[tg]=Идоракунии файлҳо
-+Name[th]=การจัดการแฟ้ม
-+Name[tr]=Dosya Yönetimi
-+Name[uk]=Керування файлами
-+Name[uz]=Fayl boshqaruvi
-+Name[uz@cyrillic]=Файл бошқаруви
-+Name[vi]=Quản lý Tập tin
-+Name[wa]=Manaedjî les fitchîs
-+Name[xh]=Uphatho Lwefayile
-+Name[x-test]=xxFile Managementxx
-+Name[zh_CN]=文件管理
-+Name[zh_TW]=檔案管理
-+RootItem=Container0
-+View1_LinkedView=true
-+View1_LockedLocation=false
-+View1_PassiveMode=true
-+View1_ServiceName=konq_sidebartng
-+View1_ServiceType=Browser/View
-+View1_ToggleView=true
-+View1_URL=
-+View2_LinkedView=true
-+View2_LockedLocation=false
-+View2_PassiveMode=false
-+View2_ServiceName=konq_iconview
-+View2_ServiceType=inode/directory
-+View2_ToggleView=false
-+View2_URL=file:///tmp
-Index: apps/konqueror/src/tests/konqviewmgrtest.cpp
-===================================================================
---- apps/konqueror/src/tests/konqviewmgrtest.cpp	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/src/tests/konqviewmgrtest.cpp	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -30,6 +30,7 @@
- #include <konqsessionmanager.h>
- #include <kstandarddirs.h>
- #include <kconfiggroup.h>
-+#include <kio/job.h>
- #include <QLayout>
- 
- #include <khtml_part.h>
-@@ -546,6 +547,24 @@
-     QVERIFY(sizes[0] < sizes[1]);
- }
- 
-+void ViewMgrTest::testLoadOldProfile()
-+{
-+    KonqMainWindow mainWindow;
-+
-+    const QString profileSrc = KDESRCDIR "/filemanagement.old.profile";
-+    const QString profile = profileSrc + ".copy";
-+    // KonqViewManager fixes up the old profile, so let's make a copy of it first.
-+    KIO::FileCopyJob* job = KIO::file_copy(profileSrc, profile, -1, KIO::Overwrite);
-+    QVERIFY(job->exec());
-+    const QString path = QDir::homePath();
-+    mainWindow.viewManager()->loadViewProfileFromFile(profile, "filemanagement", KUrl(path));
-+    QCOMPARE( DebugFrameVisitor::inspect(&mainWindow), QString("MC(FT[F]).") ); // mainWindow, splitter, frame, tab widget, one frame
-+    QCOMPARE(mainWindow.locationBarURL(), path);
-+    QCOMPARE(mainWindow.currentView()->locationBarURL(), path);
-+    QFile::remove(profile);
-+}
-+
-+
- void ViewMgrTest::testDuplicateWindow()
- {
-     KonqMainWindow mainWindow;
-Index: apps/konqueror/settings/kio/lanbrowser.desktop
-===================================================================
---- apps/konqueror/settings/kio/lanbrowser.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/settings/kio/lanbrowser.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -121,6 +121,7 @@
- Comment[he]=הגדרה של רשתות מקומיות לעיון עבור תיקיות משותפות ומדפסות
- Comment[hi]=साझा फोल्डर और मुद्रक के लिए स्थानीय संजाल विन्यस्त करें
- Comment[hne]=साझा करे वाले फोल्डर अउ प्रिंटर बर लोकल नेटवर्क ब्राउजिंग ल कान्फिगर करव
-+Comment[hr]=Podešavanje navigacije u lokalnoj mreži za dijeljene mape i pisače
- Comment[hsb]=Browsowanje po lokalnej syći za zhromadne zapiski a ćišćaki
- Comment[hu]=A helyi hálózat böngészési jellemzői osztott mappák és nyomtatók elérésekor
- Comment[is]=Stilla flakk á staðarneti með deildum möppum og prenturum
-Index: apps/konqueror/settings/kio/bookmarks.desktop
-===================================================================
---- apps/konqueror/settings/kio/bookmarks.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/settings/kio/bookmarks.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -120,6 +120,7 @@
- Comment[he]=הגדר את עמוד־הבית של הסימניות
- Comment[hi]=पसंदीदा मुख पृष्ठ विन्यस्त करें
- Comment[hne]=घर पेज निसानी कान्फिगर करव
-+Comment[hr]=Konfiguriranje zabilješki početne web-stranice
- Comment[hsb]=Domjacu stronu lubuškow konfigurować
- Comment[hu]=A könyvjelzőoldal beállítása
- Comment[is]=Stillta bókamerkjaheimasíðuna
-@@ -138,7 +139,7 @@
- Comment[mr]=ओळखचिन्हाचे मुख्य पान संयोजीत करा
- Comment[nb]=Still inn hjemmeside for bokmerker
- Comment[nds]=De Leesteken-Tohuussiet instellen
--Comment[nl]=Stel de webpagina's voor bladwijzers in
-+Comment[nl]=De webpagina's voor bladwijzers instellen
- Comment[nn]=Nettside for oppsett av bokmerke
- Comment[or]=ଚିହ୍ନିତ ସ୍ଥାନ ମୂଖ୍ୟ ପୃଷ୍ଠା ବିନ୍ୟାସ କରନ୍ତୁ
- Comment[pa]=ਬੁੱਕਮਾਰਕ ਮੁੱਖ ਪੇਜ਼ ਸੰਰਚਨਾ
-Index: apps/konqueror/settings/kio/uasproviders/safari32.desktop
-===================================================================
---- apps/konqueror/settings/kio/uasproviders/safari32.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/settings/kio/uasproviders/safari32.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -20,6 +20,7 @@
- Name[gl]=UADescription (Safari 3.2 en MacOS X)
- Name[gu]=UADescription (સફારી ૩.૨ મેકOS X પર)
- Name[hi]=यूए-डिस्क्रिप्शन (मॅक-ओएस X में सफारी 3.2)
-+Name[hr]=UADescription (Safari 3.2 na MacOS X)
- Name[hu]=Böngészőtípus (Safari 3.2, MacOS X)
- Name[is]=UADescription (Safari 3.2 á MacOS X)
- Name[it]=DescrizioneUA (Safari 3.2 su MacOS X)
-Index: apps/konqueror/settings/kio/uasproviders/op962oncurrent.desktop
-===================================================================
---- apps/konqueror/settings/kio/uasproviders/op962oncurrent.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/settings/kio/uasproviders/op962oncurrent.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -20,6 +20,7 @@
- Name[gl]=UADescription (Opera 9.62 no actual)
- Name[gu]=UADescription (ઓપેરા ૯.૬૨ હાલ પર)
- Name[hi]=यूए-डिस्क्रिप्शन (मौजूदा में ऑपेरा 9.62)
-+Name[hr]=UADescription (Opera 9.62 na trenutnom)
- Name[hu]=Böngészőtípus (Opera 9.62)
- Name[is]=UADescription (Opera 9.62 á núverandi)
- Name[it]=DescrizioneUA (Opera 9.62 su sistema attuale)
-Index: apps/konqueror/settings/kio/uasproviders/firefox30oncurrent.desktop
-===================================================================
---- apps/konqueror/settings/kio/uasproviders/firefox30oncurrent.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/settings/kio/uasproviders/firefox30oncurrent.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -20,6 +20,7 @@
- Name[gl]=UADescription (Firefox 3.0 no actual)
- Name[gu]=UADescription (ફાયરફોક્સ ૩.૦ હાલમાં)
- Name[hi]=यूए-डिस्क्रिप्शन (फ़ॉयरफ़ॉक्स 3.0 मौजूदा पर)
-+Name[hr]=UADescription (Firefox 3.0 na trenutnom)
- Name[hu]=Böngészőtípus (Firefox 3.0)
- Name[is]=UADescription (Firefox 3.0 á núverandi)
- Name[it]=DescrizioneUA (Firefox 3.0 su sistema attuale)
-Index: apps/konqueror/settings/kio/uasprovider.desktop
-===================================================================
---- apps/konqueror/settings/kio/uasprovider.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/settings/kio/uasprovider.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -30,7 +30,7 @@
- Comment[he]=מחרוזות זיהוי דפדפן
- Comment[hi]=यूज़रएजेंट स्ट्रिंग्स
- Comment[hne]=यूजरएजेंट स्ट्रिंग्स
--Comment[hr]=Identifikacijske (UA - UserAgent) poruke
-+Comment[hr]=Identifikacijske (UA – UserAgent) poruke
- Comment[hu]=Böngészőazonosítók
- Comment[is]=UserAgent strengir
- Comment[it]=Stringhe User Agent
-Index: apps/konqueror/settings/konqhtml/khtml_general.desktop
-===================================================================
---- apps/konqueror/settings/konqhtml/khtml_general.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/settings/konqhtml/khtml_general.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -26,6 +26,7 @@
- Name[gl]=Xeral
- Name[gu]=સામાન્ય
- Name[hi]=सामान्य
-+Name[hr]=Općenito
- Name[hu]=Általános
- Name[is]=Almennt
- Name[it]=Generale
-Index: apps/konqueror/settings/konqhtml/css/kcmcss.desktop
-===================================================================
---- apps/konqueror/settings/konqhtml/css/kcmcss.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/settings/konqhtml/css/kcmcss.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -40,7 +40,7 @@
- Name[he]=גיליונות סגנון
- Name[hi]=स्टाइलशीट
- Name[hne]=स्टाइलसीट
--Name[hr]=Stilska oblikovanja
-+Name[hr]=Stilski predložak
- Name[hsb]=Stilowe łopjena
- Name[hu]=Stíluslapok
- Name[is]=Stílblöð
+--- apps/konqueror/konqueror.desktop	(.../tags/KDE/4.3.2/kdebase)	(wersja 1032821)
++++ apps/konqueror/konqueror.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1032821)
 @@ -120,7 +120,7 @@
- Comment[he]=שינוי הגדרות גיליונות הסגנון המשמשים להצגת דפי אינטרנט
- Comment[hi]=वेब पृष्ठ प्रस्तुत करने के लिए उपयोग में आने वाले स्टाइलशीट विन्यस्त करें
- Comment[hne]=वेब पेज देखाय बर उपयोग मं आए वाले स्टाइलसीट कान्फिगर करव
--Comment[hr]=Konfiguriranje stilskih oblikovanja koja se upotrebljavaju za prikaz web sadržaja
-+Comment[hr]=Konfiguriranje stilskih predložaka koji se upotrebljavaju za prikaz web-stranica
- Comment[hsb]=Konfiguracija stilowych łopjenow za pokazowanje internetnych stronow
- Comment[hu]=A weboldalak megjelenítéséhez használt stíluslapok beállításai
- Comment[is]=Stilla stílblöð sem vinna með vefsíðum
-Index: apps/konqueror/settings/konqhtml/khtml_appearance.desktop
-===================================================================
---- apps/konqueror/settings/konqhtml/khtml_appearance.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/settings/konqhtml/khtml_appearance.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -118,6 +118,7 @@
- Comment[gl]=Configura como se mostran as páxinas web
- Comment[gu]=કઇ રીતે વેબ પાનાંઓ જોવા તે રૂપરેખાંકિત કરો
- Comment[hi]=विन्यस्त करें कि वेब पृष्ठ कैसे दिखाना है
-+Comment[hr]=Konfiguriranje prikaza  web-stranica
- Comment[hu]=A weboldalak megjelenítési jellemzőinek beállítása
- Comment[is]=Stillta hvernig vefsíður eru birtar
- Comment[it]=Configura la modalità di visualizzazione delle pagine web
-Index: apps/konqueror/quickprint/text-xml-print.desktop
-===================================================================
---- apps/konqueror/quickprint/text-xml-print.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/quickprint/text-xml-print.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -36,7 +36,7 @@
- Name[he]=הדפסה...
- Name[hi]=छापें...
- Name[hne]=छापव...
--Name[hr]=Ispiši...
-+Name[hr]=Ispiši …
- Name[hsb]=Ćišćeć...
- Name[hu]=Nyomtatás...
- Name[is]=Prenta...
-Index: apps/konqueror/quickprint/text-tex-print.desktop
-===================================================================
---- apps/konqueror/quickprint/text-tex-print.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/quickprint/text-tex-print.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -36,7 +36,7 @@
- Name[he]=הדפסה...
- Name[hi]=छापें...
- Name[hne]=छापव...
--Name[hr]=Ispiši...
-+Name[hr]=Ispiši …
- Name[hsb]=Ćišćeć...
- Name[hu]=Nyomtatás...
- Name[is]=Prenta...
-Index: apps/konqueror/quickprint/text-perl-print.desktop
-===================================================================
---- apps/konqueror/quickprint/text-perl-print.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/quickprint/text-perl-print.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -36,7 +36,7 @@
- Name[he]=הדפסה...
- Name[hi]=छापें...
- Name[hne]=छापव...
--Name[hr]=Ispiši...
-+Name[hr]=Ispiši …
- Name[hsb]=Ćišćeć...
- Name[hu]=Nyomtatás...
- Name[is]=Prenta...
-Index: apps/konqueror/quickprint/text-print.desktop
-===================================================================
---- apps/konqueror/quickprint/text-print.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/quickprint/text-print.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -36,7 +36,7 @@
- Name[he]=הדפסה...
- Name[hi]=छापें...
- Name[hne]=छापव...
--Name[hr]=Ispiši...
-+Name[hr]=Ispiši …
- Name[hsb]=Ćišćeć...
- Name[hu]=Nyomtatás...
- Name[is]=Prenta...
-Index: apps/konqueror/quickprint/text-html-print.desktop
-===================================================================
---- apps/konqueror/quickprint/text-html-print.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/quickprint/text-html-print.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -36,7 +36,7 @@
- Name[he]=הדפסה...
- Name[hi]=छापें...
- Name[hne]=छापव...
--Name[hr]=Ispiši...
-+Name[hr]=Ispiši …
- Name[hsb]=Ćišćeć...
- Name[hu]=Nyomtatás...
- Name[is]=Prenta...
-Index: apps/konqueror/quickprint/text-c++-print.desktop
-===================================================================
---- apps/konqueror/quickprint/text-c++-print.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/quickprint/text-c++-print.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -36,7 +36,7 @@
- Name[he]=הדפסה...
- Name[hi]=छापें...
- Name[hne]=छापव...
--Name[hr]=Ispiši...
-+Name[hr]=Ispiši …
- Name[hsb]=Ćišćeć...
- Name[hu]=Nyomtatás...
- Name[is]=Prenta...
-Index: apps/konqueror/quickprint/text-diff-print.desktop
-===================================================================
---- apps/konqueror/quickprint/text-diff-print.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/quickprint/text-diff-print.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -36,7 +36,7 @@
- Name[he]=הדפסה...
- Name[hi]=छापें...
- Name[hne]=छापव...
--Name[hr]=Ispiši...
-+Name[hr]=Ispiši …
- Name[hsb]=Ćišćeć...
- Name[hu]=Nyomtatás...
- Name[is]=Prenta...
-Index: apps/konqueror/quickprint/text-makefile-print.desktop
-===================================================================
---- apps/konqueror/quickprint/text-makefile-print.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/quickprint/text-makefile-print.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -36,7 +36,7 @@
- Name[he]=הדפסה...
- Name[hi]=छापें...
- Name[hne]=छापव...
--Name[hr]=Ispiši...
-+Name[hr]=Ispiši …
- Name[hsb]=Ćišćeć...
- Name[hu]=Nyomtatás...
- Name[is]=Prenta...
-Index: apps/konqueror/quickprint/text-c++h-print.desktop
-===================================================================
---- apps/konqueror/quickprint/text-c++h-print.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/quickprint/text-c++h-print.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -36,7 +36,7 @@
- Name[he]=הדפסה...
- Name[hi]=छापें...
- Name[hne]=छापव...
--Name[hr]=Ispiši...
-+Name[hr]=Ispiši …
- Name[hsb]=Ćišćeć...
- Name[hu]=Nyomtatás...
- Name[is]=Prenta...
-Index: apps/konqueror/quickprint/text-python-print.desktop
-===================================================================
---- apps/konqueror/quickprint/text-python-print.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/quickprint/text-python-print.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -36,7 +36,7 @@
- Name[he]=הדפסה...
- Name[hi]=छापें...
- Name[hne]=छापव...
--Name[hr]=Ispiši...
-+Name[hr]=Ispiši …
- Name[hsb]=Ćišćeć...
- Name[hu]=Nyomtatás...
- Name[is]=Prenta...
-Index: apps/konqueror/quickprint/text-java-print.desktop
-===================================================================
---- apps/konqueror/quickprint/text-java-print.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/quickprint/text-java-print.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -36,7 +36,7 @@
- Name[he]=הדפסה...
- Name[hi]=छापें...
- Name[hne]=छापव...
--Name[hr]=Ispiši...
-+Name[hr]=Ispiši …
- Name[hsb]=Ćišćeć...
- Name[hu]=Nyomtatás...
- Name[is]=Prenta...
-Index: apps/konqueror/quickprint/text-log-print.desktop
-===================================================================
---- apps/konqueror/quickprint/text-log-print.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/quickprint/text-log-print.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -36,7 +36,7 @@
- Name[he]=הדפסה...
- Name[hi]=छापें...
- Name[hne]=छापव...
--Name[hr]=Ispiši...
-+Name[hr]=Ispiši …
- Name[hsb]=Ćišćeć...
- Name[hu]=Nyomtatás...
- Name[is]=Prenta...
-Index: apps/konqueror/quickprint/text-tcl-print.desktop
-===================================================================
---- apps/konqueror/quickprint/text-tcl-print.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/quickprint/text-tcl-print.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -36,7 +36,7 @@
- Name[he]=הדפסה...
- Name[hi]=छापें...
- Name[hne]=छापव...
--Name[hr]=Ispiši...
-+Name[hr]=Ispiši …
- Name[hsb]=Ćišćeć...
- Name[hu]=Nyomtatás...
- Name[is]=Prenta...
-Index: apps/konqueror/quickprint/text-c-print.desktop
-===================================================================
---- apps/konqueror/quickprint/text-c-print.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/quickprint/text-c-print.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -36,7 +36,7 @@
- Name[he]=הדפסה...
- Name[hi]=छापें...
- Name[hne]=छापव...
--Name[hr]=Ispiši...
-+Name[hr]=Ispiši …
- Name[hsb]=Ćišćeć...
- Name[hu]=Nyomtatás...
- Name[is]=Prenta...
-Index: apps/konqueror/quickprint/text-pas-print.desktop
-===================================================================
---- apps/konqueror/quickprint/text-pas-print.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/quickprint/text-pas-print.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -36,7 +36,7 @@
- Name[he]=הדפסה...
- Name[hi]=छापें...
- Name[hne]=छापव...
--Name[hr]=Ispiši...
-+Name[hr]=Ispiši …
- Name[hsb]=Ćišćeć...
- Name[hu]=Nyomtatás...
- Name[is]=Prenta...
-Index: apps/konqueror/quickprint/text-ada-print.desktop
-===================================================================
---- apps/konqueror/quickprint/text-ada-print.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/quickprint/text-ada-print.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -36,7 +36,7 @@
- Name[he]=הדפסה...
- Name[hi]=छापें...
- Name[hne]=छापव...
--Name[hr]=Ispiši...
-+Name[hr]=Ispiši …
- Name[hsb]=Ćišćeć...
- Name[hu]=Nyomtatás...
- Name[is]=Prenta...
-Index: apps/konqueror/quickprint/text-css-print.desktop
-===================================================================
---- apps/konqueror/quickprint/text-css-print.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/quickprint/text-css-print.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -36,7 +36,7 @@
- Name[he]=הדפסה...
- Name[hi]=छापें...
- Name[hne]=छापव...
--Name[hr]=Ispiši...
-+Name[hr]=Ispiši …
- Name[hsb]=Ćišćeć...
- Name[hu]=Nyomtatás...
- Name[is]=Prenta...
-Index: apps/konqueror/quickprint/text-ch-print.desktop
-===================================================================
---- apps/konqueror/quickprint/text-ch-print.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/quickprint/text-ch-print.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -36,7 +36,7 @@
- Name[he]=הדפסה...
- Name[hi]=छापें...
- Name[hne]=छापव...
--Name[hr]=Ispiši...
-+Name[hr]=Ispiši …
- Name[hsb]=Ćišćeć...
- Name[hu]=Nyomtatás...
- Name[is]=Prenta...
-Index: apps/konqueror/quickprint/text-xslt-print.desktop
-===================================================================
---- apps/konqueror/quickprint/text-xslt-print.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/quickprint/text-xslt-print.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -36,7 +36,7 @@
- Name[he]=הדפסה...
- Name[hi]=छापें...
- Name[hne]=छापव...
--Name[hr]=Ispiši...
-+Name[hr]=Ispiši …
- Name[hsb]=Ćišćeć...
- Name[hu]=Nyomtatás...
- Name[is]=Prenta...
-Index: apps/konqueror/kttsplugin/khtmlkttsd.desktop
-===================================================================
---- apps/konqueror/kttsplugin/khtmlkttsd.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/kttsplugin/khtmlkttsd.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -113,6 +113,7 @@
- Comment[he]=הקראת הטקסט בדף הנוכחי
- Comment[hi]=वर्तमान पृष्ठ पर उपलब्ध पाठ के लिए ऑडियो आउटपुट तैयार करता है.
- Comment[hne]=अभी हाल के पेज मं मिलत पाठ बर आडियो आउटपुट तैयार करथे.
-+Comment[hr]=Proizvodi zvučni izlaz za tekst na trenutnoj stranici
- Comment[hsb]=Produkuje awdijo-output za tekst na aktualnej stronje
- Comment[hu]=Felolvassa az aktuális oldal tartalmát
- Comment[is]=Býr til tal úr textanum á núverandi síðu
+ Comment[he]=מנהל הקבצים ודפדפן האינטרנט של KDE
+ Comment[hi]=केडीई फ़ाइल प्रबंधक व वेब ब्राउज़र
+ Comment[hne]=केडीई फाइल प्रबंधक अउ वेब ब्राउजर
+-Comment[hr]=KDE upravitelj datotekama i web preglednik
++Comment[hr]=KDE-ov upravitelj datoteka i web preglednik
+ Comment[hsb]=KDE datajowy manager & web browser
+ Comment[hu]=KDE fájlkezelő és webböngésző
+ Comment[is]=KDE skráastjóri og vafri
 Index: apps/konqueror/konquerorsu.desktop
 ===================================================================
---- apps/konqueror/konquerorsu.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konqueror/konquerorsu.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -36,7 +36,7 @@
+--- apps/konqueror/konquerorsu.desktop	(.../tags/KDE/4.3.2/kdebase)	(wersja 1032821)
++++ apps/konqueror/konquerorsu.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1032821)
+@@ -38,7 +38,7 @@
  Name[he]=מנהל קבצים - מצב משתמש־על
  Name[hi]=फ़ाइल प्रबंधक- सुपर यूजर मोड
  Name[hne]=फाइल प्रबंधक- सुपर यूजर मोड
--Name[hr]=Upravitelj datotekama - za administratora
-+Name[hr]=Upravitelj datotekama – za administratora
+-Name[hr]=Upravitelj datotekama – za administratora
++Name[hr]=Upravitelj datoteka – za administratora
  Name[hsb]=Datajowy manager - modus superwužiwarja
  Name[hu]=Fájlkezelő (rendszergazdai mód)
  Name[is]=Skráastjóri (sem kerfisstjóri)
 Index: apps/dolphin/src/panels/terminal/terminalpanel.cpp
 ===================================================================
---- apps/dolphin/src/panels/terminal/terminalpanel.cpp	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/dolphin/src/panels/terminal/terminalpanel.cpp	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -90,11 +90,10 @@
-             m_terminalWidget = part->widget();
-             m_layout->addWidget(m_terminalWidget);
-             m_terminal = qobject_cast<TerminalInterfaceV2 *>(part);
--            m_terminal->showShellInDir(url().path());
--
-         }        
+--- apps/dolphin/src/panels/terminal/terminalpanel.cpp	(.../tags/KDE/4.3.2/kdebase)	(wersja 1032821)
++++ apps/dolphin/src/panels/terminal/terminalpanel.cpp	(.../branches/KDE/4.3/kdebase)	(wersja 1032821)
+@@ -23,7 +23,6 @@
+ #include <kde_terminal_interface_v2.h>
+ #include <kparts/part.h>
+ #include <kshell.h>
+-#include <kio/netaccess.h>
+ 
+ #include <QBoxLayout>
+ #include <QShowEvent>
+@@ -58,13 +57,12 @@
      }
-     if (m_terminal != 0) {
-+        m_terminal->showShellInDir(url().path());
-         m_terminal->sendInput("cd " + KShell::quoteArg(url().path()) + '\n');
-         m_terminal->sendInput("clear\n");
-         m_terminalWidget->setFocus();
-Index: apps/dolphin/src/dolphinapplication.h
-===================================================================
---- apps/dolphin/src/dolphinapplication.h	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/dolphin/src/dolphinapplication.h	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -56,6 +56,20 @@
-     /** @see KUniqueApplication::newInstance(). */
-     virtual int newInstance();
  
-+    /**
-+     * Find out if Dolphin is closed directly by the user or
-+     * by the session manager because the session is closed
-+     */
-+    bool closedBySessionManager() const;
-+
-+    /**
-+     * This virtual function is called by the session manager when
-+     * it closes Dolphin. It is reimplemented to make the information
-+     * if Dolphin is closed by the session manager or not accessible in
-+     * DolphinMainWindow (via the function closedBySessionManager()).
-+     */
-+    virtual void commitData(QSessionManager& sessionManager);
-+
- public slots:
-     int openWindow(const KUrl& url);
-     int openSplitWindow(const KUrl& leftUrl,const KUrl& rightUrl);
-@@ -67,6 +81,9 @@
- private:
-     QList<DolphinMainWindow*> m_mainWindows;
-     int m_lastId;
-+
-+    /** Is true if Dolphin is closed by the session manager **/
-+    bool m_closedBySessionManager;
- };
+     Panel::setUrl(url);
+-    KUrl mostLocalUrl = KIO::NetAccess::mostLocalUrl(url, 0);
+     const bool sendInput = (m_terminal != 0)
+                            && (m_terminal->foregroundProcessId() == -1)
+                            && isVisible()
+-                           && mostLocalUrl.isLocalFile();
++                           && url.isLocalFile();
+     if (sendInput) {
+-        m_terminal->sendInput("cd " + KShell::quoteArg(mostLocalUrl.toLocalFile()) + '\n');
++        m_terminal->sendInput("cd " + KShell::quoteArg(url.toLocalFile()) + '\n');
+     }
  
- #endif
-Index: apps/dolphin/src/dolphinmainwindow.cpp
-===================================================================
---- apps/dolphin/src/dolphinmainwindow.cpp	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/dolphin/src/dolphinmainwindow.cpp	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -426,7 +426,15 @@
-     DolphinSettings& settings = DolphinSettings::instance();
-     GeneralSettings* generalSettings = settings.generalSettings();
- 
--    if ((m_viewTab.count() > 1) && generalSettings->confirmClosingMultipleTabs()) {
-+    // Find out if Dolphin is closed directly by the user or
-+    // by the session manager because the session is closed
-+    bool closedByUser = true;
-+    DolphinApplication *application = qobject_cast<DolphinApplication*>(qApp);
-+    if (application && application->closedBySessionManager()) {
-+        closedByUser = false;
-+    }
-+
-+    if ((m_viewTab.count() > 1) && generalSettings->confirmClosingMultipleTabs() && closedByUser) {
-         // Ask the user if he really wants to quit and close all tabs.
-         // Open a confirmation dialog with 3 buttons:
-         // KDialog::Yes    -> Quit
-Index: apps/dolphin/src/dolphinpart.desktop
-===================================================================
---- apps/dolphin/src/dolphinpart.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/dolphin/src/dolphinpart.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -28,6 +28,7 @@
- Name[he]=תצוגת Dolphin
- Name[hi]=डॉल्फ़िन दृश्य
- Name[hne]=डाल्फिन दृस्य
-+Name[hr]=Dolphin Pogled
- Name[hsb]=Napohlad w Dolphinje
- Name[hu]=Dolphin-nézet
- Name[is]=Dolphin sýn
-Index: apps/dolphin/src/dolphinapplication.cpp
-===================================================================
---- apps/dolphin/src/dolphinapplication.cpp	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/dolphin/src/dolphinapplication.cpp	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -28,7 +28,7 @@
- #include <QtDBus/QDBusConnection>
- 
- DolphinApplication::DolphinApplication() :
--    m_lastId(0)
-+    m_lastId(0), m_closedBySessionManager(false)
- {
-     new ApplicationAdaptor(this);
-     QDBusConnection::sessionBus().registerObject("/dolphin/Application", this);
-@@ -100,6 +100,17 @@
-     return 0;
  }
- 
-+bool DolphinApplication::closedBySessionManager() const
-+{
-+    return m_closedBySessionManager;
-+}
-+
-+void DolphinApplication::commitData(QSessionManager& sessionManager) {
-+    m_closedBySessionManager = true;
-+    KUniqueApplication::commitData(sessionManager);
-+    m_closedBySessionManager = false;
-+}
-+
- int DolphinApplication::openWindow(const KUrl& url)
- {
-     DolphinMainWindow* win = createMainWindow();
-Index: apps/dolphin/src/kcm/kcmdolphinnavigation.desktop
+Index: apps/keditbookmarks/bookmarkmodel.cpp
 ===================================================================
---- apps/dolphin/src/kcm/kcmdolphinnavigation.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/dolphin/src/kcm/kcmdolphinnavigation.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -19,6 +19,7 @@
- Name[gl]=Configuración da navegación de Dolphin
- Name[gu]=ડોલ્ફિન શોધખોળ
- Name[hi]=डॉल्फ़िन संचरण
-+Name[hr]=Dolphin Navigacija
- Name[hu]=Dolphin - Navigáció
- Name[is]=Dolphin stýringar
- Name[it]=Navigazione Dolphin
-@@ -73,6 +74,7 @@
- Comment[ga]=Leis an tseirbhís seo is féidir nascleanúint Dolphin a chumrú.
- Comment[gl]=Este servizo permite modificar a configuración da navegación de Dolphin.
- Comment[hi]=यह सेवा आपको डॉल्फ़िन संचरण को विन्यस्त करने देता है.
-+Comment[hr]=Ovaj servis omogućuje konfiguraciju Dolphinove navigacije.
- Comment[hu]=Ez a szolgáltatás a Dolphin navigálási beállításainak módosítását teszi lehetővé.
- Comment[is]=Þessi þjónusta leyfir stillingar á leiðarstýringum Dolphin.
- Comment[it]=Questo servizio permette di configurare la navigazione con Dolphin.
-@@ -135,6 +137,7 @@
- Name[gl]=Navegación
- Name[gu]=શોધખોળ
- Name[hi]=संचरण
-+Name[hr]=Navigacija
- Name[hu]=Navigáció
- Name[is]=Leiðarstýring
- Name[it]=Navigazione
-@@ -190,6 +193,7 @@
- Comment[ga]=Cumraigh nascleanúint bhainisteoir na gcomhad
- Comment[gl]=Configura as navegación co xestor de ficheiros
- Comment[hi]=फ़ाइल प्रबंधक संचरण विन्यस्त करें
-+Comment[hr]=Konfiguriranje postavki navigacije upravitelja datotekama
- Comment[hu]=A fájlkezelő navigálási beállításai
- Comment[is]=Stilla leiðarstýringu í skráastjóra
- Comment[it]=Configura la navigazione col gestore dei file
-Index: apps/dolphin/src/kcm/kcmdolphinviewmodes.desktop
-===================================================================
---- apps/dolphin/src/kcm/kcmdolphinviewmodes.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/dolphin/src/kcm/kcmdolphinviewmodes.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -19,6 +19,7 @@
- Name[gl]=Modos de vista de Dolphin
- Name[gu]=ડોલ્ફિન દેખાવ સ્થિતિઓ
- Name[hi]=डॉल्फ़िन दृश्य मोड
-+Name[hr]=Dolphin Načini Pogleda
- Name[hu]=Dolphin nézetmódok
- Name[is]=Dolphin skoðunarhamir
- Name[it]=Viste di Dolphin
-@@ -74,6 +75,7 @@
- Comment[ga]=Leis an tseirbhís seo is féidir na hamhairc Dolphin a chumrú.
- Comment[gl]=Este servizo permite modificar a configuración das vistas de Dolphin.
- Comment[hi]=यह सेवा आपको डॉल्फ़िन दृश्य मोड को विन्यस्त करने देता है.
-+Comment[hr]=Ovaj servis omogućuje konfiguraciju Dolphinovih načina pogleda.
- Comment[hu]=Ez a szolgáltatás a Dolphin nézetmódjainak beállítását teszi lehetővé.
- Comment[is]=Þessi þjónusta leyfir stillingar á skoðunarham í Dolphin.
- Comment[it]=Questo servizio permette di configurare le viste di Dolphin.
-@@ -140,6 +142,7 @@
- Name[gl]=Modos da vista
- Name[gu]=દેખાવ સ્થિતિઓ
- Name[hi]=दृश्य मोड
-+Name[hr]=Načini prikaza
- Name[hu]=Nézetmódok
- Name[is]=Skoðunarhamir
- Name[it]=Viste
-@@ -196,6 +199,7 @@
- Comment[gl]=Configura os modos de visualización do xestor de ficheiros
- Comment[gu]=ફાઇલ વ્યવસ્થાપક દેખાવ સ્થિતિઓ રૂપરેખાંકિત કરો
- Comment[hi]=फ़ाइल प्रबंधक दृश्य विधि विन्यस्त करें
-+Comment[hr]=Konfiguriranje postavki načina prikaza upravitelja datotekama
- Comment[hu]=A fájlkezelő nézetmódjainak beállításai
- Comment[is]=Stilla skoðunarhami í skráastjóra
- Comment[it]=Configura le viste del gestore dei file
-Index: apps/dolphin/src/kcm/kcmdolphinservices.desktop
-===================================================================
---- apps/dolphin/src/kcm/kcmdolphinservices.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/dolphin/src/kcm/kcmdolphinservices.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -18,6 +18,7 @@
- Name[gl]=Servizos de Dolphin
- Name[gu]=ડોલ્ફિન સેવાઓ
- Name[hi]=डॉल्फ़िन सेवा
-+Name[hr]=Dolphin Usluge
- Name[hu]=Dolphin - Szolgáltatások
- Name[is]=Dolphin þjónustur
- Name[it]=Servizi Dolphin
-@@ -164,6 +165,7 @@
- Comment[gl]=Configura os servizos do xestor de ficheiros
- Comment[gu]=ફાઇલ વ્યવસ્થાપક સેવાઓ રૂપરેખાંકિત કરો
- Comment[hi]=फ़ाइल प्रबंधक सेवा विन्यस्त करें
-+Comment[hr]=Konfiguriranje postavki usluga upravitelja datotekama
- Comment[hu]=A fájlkezelő szolgáltatások beállításai
- Comment[is]=Stilla þjónustur skráastjóra
- Comment[it]=Configura i servizi del gestore dei file
-Index: apps/dolphin/src/kcm/kcmdolphingeneral.desktop
-===================================================================
---- apps/dolphin/src/kcm/kcmdolphingeneral.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/dolphin/src/kcm/kcmdolphingeneral.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -19,6 +19,7 @@
- Name[gl]=Configuración xeral de Dolphin
- Name[gu]=ડોલ્ફિન સામાન્ય
- Name[hi]=डॉल्फ़िन सामान्य
-+Name[hr]=Dolphin Općenito
- Name[hu]=Dolphin - Általános
- Name[is]=Almennar stillingar Dolphin
- Name[it]=Impostazioni generali Dolphin
-@@ -73,6 +74,7 @@
- Comment[ga]=Leis an tseirbhís seo is féidir na socruithe ginearálta Dolphin a chumrú.
- Comment[gl]=Este servizo permite  modificar a configuración xeral de Dolphin.
- Comment[hi]=यह सेवा आपको सामान्य डॉल्फ़िन सेटिंग को विन्यस्त करने देता है.
-+Comment[hr]=Ovaj servis omogućuje postavljanje općenitih Dolphinovih postavki.
- Comment[hu]=Ez a szolgáltatás a Dolphin általános beállításainak módosítását teszi lehetővé.
- Comment[is]=Þessi þjónusta leyfir breytingar á almennum stillingum á Dolphin.
- Comment[it]=Questo servizio permette di configurare le impostazioni generali di Dolphin.
-@@ -134,6 +136,7 @@
- Name[gl]=Xeral
- Name[gu]=સામાન્ય
- Name[hi]=सामान्य
-+Name[hr]=Općenito
- Name[hu]=Általános
- Name[is]=Almennt
- Name[it]=Generale
-@@ -188,6 +191,7 @@
- Comment[gl]=Configura as opcións xerais do xestor de ficheiros
- Comment[gu]=સામાન્ય ફાઇલ વ્યવસ્થાપક ગોઠવણીઓ રૂપરેખાંકિત કરો
- Comment[hi]=फ़ाइल प्रबंधक सेटिंग विन्यस्त करें
-+Comment[hr]=Konfiguriranje općih postavki upravitelja datotekama
- Comment[hu]=A fájlkezelő általános beállításainak módosítását teszi lehetővé
- Comment[is]=Almennar stillingar skráastjóra
- Comment[it]=Configura le impostazioni generali del gestore dei file
-Index: apps/dolphin/src/dolphinmodel.cpp
-===================================================================
---- apps/dolphin/src/dolphinmodel.cpp	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/dolphin/src/dolphinmodel.cpp	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -176,11 +176,7 @@
-                     }
-                 }
- 
--                if (!validCategory) {
--                    retString = validCategory ? *currA : i18nc("@title:group Name", m_others);
--                } else {
--                    retString = *currA;
--                }
-+                retString = validCategory ? *currA : i18nc("@title:group Name", m_others);
+--- apps/keditbookmarks/bookmarkmodel.cpp	(.../tags/KDE/4.3.2/kdebase)	(wersja 1032821)
++++ apps/keditbookmarks/bookmarkmodel.cpp	(.../branches/KDE/4.3/kdebase)	(wersja 1032821)
+@@ -78,7 +78,7 @@
+     //Text
+     if(index.isValid() && (role == Qt::DisplayRole || role == Qt::EditRole))
+     {
+-        KBookmark bk = bookmarkForIndex(index);
++        const KBookmark bk = bookmarkForIndex(index);
+         if(bk.address().isEmpty())
+         {
+             if(index.column() == 0)
+@@ -100,12 +100,12 @@
+                     : subnode.firstChild().toText().data();
              }
+             case 3: { //Status column
+-                QString text1 = ""; //FIXME favicon state
+-                QString text2 = ""; //FIXME link state
+-                if(text1.isNull() || text2.isNull())
+-                    return QVariant( text1 + text2);
++                QString text1; //FIXME favicon state
++                QString text2; //FIXME link state
++                if(text1.isEmpty() || text2.isEmpty())
++                    return QVariant( text1 + text2 );
+                 else
+-                    return QVariant( text1 + "  --  " + text2);
++                    return QVariant( text1 + "  --  " + text2 );
+             }
+             default:
+                 return QVariant( QString() ); //can't happen
+@@ -141,12 +141,14 @@
+                 return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable | Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled;
          }
-         break;
-@@ -364,7 +360,7 @@
-         retVariant = data(index, KCategorizedSortFilterProxyModel::CategoryDisplayRole);
-         if (retVariant == i18nc("@title:group Name", m_others)) {
-             // assure that the "Others" group is always the last categorization
--            retVariant = QString(QChar(QChar::ReplacementCharacter));
-+            retVariant = QString('Z').append(QChar::ReplacementCharacter);
-         }
-         break;
+         else
++        {
+             if(index.column() < 3)
+-                return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable | Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled;
++                return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable | Qt::ItemIsDragEnabled;
++        }
      }
-Index: apps/dolphin/src/dolphin.desktop
-===================================================================
---- apps/dolphin/src/dolphin.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/dolphin/src/dolphin.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -10,7 +10,6 @@
- Name[mai]=डाल्फिन
- Name[mk]=Делфин
- Name[ml]=ഡോള്‍ഫിന്‍
--Name[nb]='Dolphin
- Name[ne]=डल्फिन
- Name[or]=ଡଲଫିନ
- Name[pa]=ਡਾਲਫਿਨ
-Index: apps/dolphin/src/dolphinstatusbar.cpp
-===================================================================
---- apps/dolphin/src/dolphinstatusbar.cpp	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/dolphin/src/dolphinstatusbar.cpp	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -210,6 +210,13 @@
  
- void DolphinStatusBar::resizeEvent(QResizeEvent* event)
- {
-+    // It is important to hide the widgets before invoking
-+    // QWidget::resizeEvent(), otherwise it is possible that
-+    // the dock widgets are shrinked when having a small
-+    // statusbar width (bug #202147).
-+    m_zoomWidget->hide();
-+    m_spaceInfo->hide();
-+
-     QWidget::resizeEvent(event);
-     QMetaObject::invokeMethod(this, "assureVisibleText", Qt::QueuedConnection);
+     // root
+-    return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
++    return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsDropEnabled;
  }
-Index: apps/lib/konq/Templates/linkHD.desktop
-===================================================================
---- apps/lib/konq/Templates/linkHD.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/lib/konq/Templates/linkHD.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -30,7 +30,7 @@
- Name[he]=התקן כונן־קשיח...
- Name[hi]=हार्ड डिस्क उपकरण...
- Name[hne]=हार्ड डिस्क उपकरन...
--Name[hr]=Tvrdi disk...
-+Name[hr]=Tvrdi disk …
- Name[hsb]=Kruty disk
- Name[hu]=Merevlemez-partíció...
- Name[is]=Harður diskur...
-Index: apps/lib/konq/Templates/linkDVDROM.desktop
-===================================================================
---- apps/lib/konq/Templates/linkDVDROM.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/lib/konq/Templates/linkDVDROM.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -30,7 +30,7 @@
- Name[he]=התקן DVD-ROM...
- Name[hi]=डीवीडी-रोम उपकरण...
- Name[hne]=डीवीडी-रोम उपकरन...
--Name[hr]=CD/DVD-ROM uređaj...
-+Name[hr]=CD/DVD-ROM uređaj …
- Name[hsb]=DVDnik
- Name[hu]=DVD-meghajtó...
- Name[is]=DVD-ROM-drif...
-Index: apps/lib/konq/Templates/linkZIP.desktop
-===================================================================
---- apps/lib/konq/Templates/linkZIP.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/lib/konq/Templates/linkZIP.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -30,7 +30,7 @@
- Name[he]=התקן ZIP...
- Name[hi]=जिप उपकरण...
- Name[hne]=जिप उपकरन...
--Name[hr]=ZIP uređaj...
-+Name[hr]=ZIP uređaj …
- Name[hsb]=ZIPnik
- Name[hu]=ZIP-meghajtó...
- Name[is]=ZIP-drif...
-Index: apps/lib/konq/Templates/linkURL.desktop
-===================================================================
---- apps/lib/konq/Templates/linkURL.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/lib/konq/Templates/linkURL.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -30,7 +30,7 @@
- Name[he]=קישור למיקום (URL)...
- Name[hi]=स्थान (यूआरएल) को लिंक...
- Name[hne]=जगह (यूआरएल) बर संकली...
--Name[hr]=Veza s lokacijom (URL)...
-+Name[hr]=Veza s lokacijom (URL) …
- Name[hsb]=Wotkaz na městno (URL)...
- Name[hu]=Internet-cím (URL)...
- Name[is]=Staðsetningartengill...
-Index: apps/lib/konq/Templates/linkCDROM.desktop
-===================================================================
---- apps/lib/konq/Templates/linkCDROM.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/lib/konq/Templates/linkCDROM.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -30,7 +30,7 @@
- Name[he]=התקן CD-ROM...
- Name[hi]=सीडी-रोम उपकरण...
- Name[hne]=सीडी-रोम उपकरन...
--Name[hr]=CD/DVD-ROM uređaj...
-+Name[hr]=CD/DVD-ROM uređaj …
- Name[hsb]=CDnik ...
- Name[hu]=CD-meghajtó...
- Name[is]=Geisladrif...
-Index: apps/lib/konq/Templates/TextFile.desktop
-===================================================================
---- apps/lib/konq/Templates/TextFile.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/lib/konq/Templates/TextFile.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -30,7 +30,7 @@
- Name[he]=קובץ טקסט...
- Name[hi]=पाठ फ़ाइल...
- Name[hne]=पाठ फाइल...
--Name[hr]=Tekstualna datoteka...
-+Name[hr]=Tekstualna datoteka …
- Name[hsb]=Tekstowa dataja ...
- Name[hu]=Szöveges fájl...
- Name[is]=Textaskrá...
-Index: apps/lib/konq/Templates/linkProgram.desktop
-===================================================================
---- apps/lib/konq/Templates/linkProgram.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/lib/konq/Templates/linkProgram.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -28,7 +28,7 @@
- Name[he]=קישור ליישום...
- Name[hi]=अनुप्रयोग को लिंक...
- Name[hne]=अनुपरयोग बर संकली...
--Name[hr]=Veza premaaplikaciji...
-+Name[hr]=Veza premaaplikaciji …
- Name[hsb]=Wotkaz na aplikaciju ...
- Name[hu]=Alkalmazásra mutató link...
- Name[is]=Tengi við forrit...
-Index: apps/lib/konq/Templates/linkFloppy.desktop
-===================================================================
---- apps/lib/konq/Templates/linkFloppy.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/lib/konq/Templates/linkFloppy.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -30,7 +30,7 @@
- Name[he]=התקן דיסקט...
- Name[hi]=फ़्लॉपी उपकरण...
- Name[hne]=फ्लापी उपकरन...
--Name[hr]=Disketni uređaj...
-+Name[hr]=Disketni uređaj …
- Name[hsb]=Disketnik ...
- Name[hu]=Floppy-meghajtó...
- Name[is]=Disklingadrif...
-Index: apps/lib/konq/Templates/linkMO.desktop
-===================================================================
---- apps/lib/konq/Templates/linkMO.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/lib/konq/Templates/linkMO.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -30,7 +30,7 @@
- Name[he]=התקן MO...
- Name[hi]=एमओ उपकरण...
- Name[hne]=एमओ औजार...
--Name[hr]=MO uređaj...
-+Name[hr]=MO uređaj …
- Name[hsb]=Magnetooptiski grat... 
- Name[hu]=Magnetooptikai eszköz...
- Name[is]=MO tæki...
-Index: apps/lib/konq/Templates/linkCDWRITER.desktop
-===================================================================
---- apps/lib/konq/Templates/linkCDWRITER.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/lib/konq/Templates/linkCDWRITER.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -30,7 +30,7 @@
- Name[he]=התקן CDWRITER (כותב CD)...
- Name[hi]=सीडी-राइटर उपकरण...
- Name[hne]=सीडीराइटर उपकरन...
--Name[hr]=CD/DVD pržilica...
-+Name[hr]=CD/DVD pržilica …
- Name[hsb]=CD-pisawa...
- Name[hu]=CD-író...
- Name[is]=Geisladiskaskrifari...
-Index: apps/lib/konq/Templates/HTMLFile.desktop
-===================================================================
---- apps/lib/konq/Templates/HTMLFile.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/lib/konq/Templates/HTMLFile.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -30,7 +30,7 @@
- Name[he]=קובץ HTML...
- Name[hi]=एचटीएमएल फ़ाइल...
- Name[hne]=एचटीएमएल फाइल...
--Name[hr]=HTML datoteka...
-+Name[hr]=HTML datoteka …
- Name[hsb]=HTML-dataja...
- Name[hu]=HTML-fájl...
- Name[is]=HTML skrá...
-Index: apps/lib/konq/Templates/Directory.desktop
-===================================================================
---- apps/lib/konq/Templates/Directory.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/lib/konq/Templates/Directory.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -30,7 +30,7 @@
- Name[he]=תיקייה...
- Name[hi]=फ़ोल्डर...
- Name[hne]=फोल्डर...
--Name[hr]=Mapa...
-+Name[hr]=Mapa …
- Name[hsb]=Zapisk...
- Name[hu]=Könyvtár...
- Name[is]=Mappa...
-Index: apps/lib/konq/Templates/linkNFS.desktop
-===================================================================
---- apps/lib/konq/Templates/linkNFS.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/lib/konq/Templates/linkNFS.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -6,6 +6,7 @@
- Name[de]=NFS ...
- Name[hi]=एनएफ़एस...
- Name[hne]=एनएफएस...
-+Name[hr]=NFS …
- Name[kn]=ಎನ್ ಎಫ್ ಎಸ್...
- Name[nb]=NFS …
- Name[nn]=NFS …
-Index: apps/lib/konq/Templates/linkCAMERA.desktop
-===================================================================
---- apps/lib/konq/Templates/linkCAMERA.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/lib/konq/Templates/linkCAMERA.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -30,7 +30,7 @@
- Name[he]=התקן מצלמה...
- Name[hi]=कैमरा उपकरण...
- Name[hne]=कैमरा उपकरन...
--Name[hr]=Kamera...
-+Name[hr]=Kamera …
- Name[hsb]=Kamerowy grat...
- Name[hu]=Fényképezőgép...
- Name[is]=Myndavél...
-Index: apps/lib/konq/konqdndpopupmenuplugin.desktop
-===================================================================
---- apps/lib/konq/konqdndpopupmenuplugin.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/lib/konq/konqdndpopupmenuplugin.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -18,6 +18,7 @@
- Comment[fy]=Sleep plugin foar de Konqueror popup menu.
- Comment[gl]=Extensión de arrastrar e soltar para o menú contextual de Konqueror.
- Comment[hi]=कॉन्करर पॉपअप मेन्यू के लिए खींचे व छोड़ें प्लगइन
-+Comment[hr]=Povuci-i-ispusti dodatak za Konqueror pop-up izbornik.
- Comment[hu]=Bővítőmodul a Konqueror felbukkanó menühöz.
- Comment[is]=Draga-Sleppa íforrit fyrir sprettvalmynd Konqueror Popup Menu.
- Comment[it]=Plugin a trascinamento per il menu a comparsa di Konqueror
-Index: apps/konsole/data/profiles/Shell.profile
-===================================================================
---- apps/konsole/data/profiles/Shell.profile	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konsole/data/profiles/Shell.profile	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -90,6 +90,7 @@
- Comment[he]=פרופיל ברירת־המחדל של קונסול
- Comment[hi]=कंसोल डिफ़ॉल्ट प्रोफ़ाइल
- Comment[hne]=कंसोल डिफाल्ट प्रोफाइल
-+Comment[hr]=Zadani profil Konzole
- Comment[hsb]=Standardny profil konsole
- Comment[hu]=Alapértelmezett Konsole-profil
- Comment[is]=Sjálfgefið sniðmát Konsole
-Index: apps/konsole/desktop/quick-access-konsole.desktop
-===================================================================
---- apps/konsole/desktop/quick-access-konsole.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/konsole/desktop/quick-access-konsole.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -35,6 +35,7 @@
- Name[he]=מסוף לגישה מהירה
- Name[hi]=त्वरित पहुँच टर्मिनल
- Name[hne]=जल्दी पहुंच टर्मिनल
-+Name[hr]=Brzi pristup konzoli
- Name[hsb]=Terminal za spěšny přistup
- Name[hu]=Gyors elérésű parancsértelmező
- Name[is]=Hraðleið í skjáhermi
-Index: apps/plasma/applets/folderview/popupview.cpp
-===================================================================
---- apps/plasma/applets/folderview/popupview.cpp	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/plasma/applets/folderview/popupview.cpp	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -474,6 +474,12 @@
-         createActions();
+ 
+ bool KBookmarkModel::setData(const QModelIndex &index, const QVariant &value, int role)
+@@ -187,7 +189,7 @@
+         return createIndex(row, column, d->mRootItem);
+ 
+     TreeItem * item = static_cast<TreeItem *>(parent.internalPointer());
+-    if(row == item->childCount()) {// Received drop below last row, simulate drop on last row
++        if(row == item->childCount()) {// Received drop below last row, simulate drop on last row
+         return createIndex(row-1, column, item->child(row-1));
      }
  
-+    KFileItem rootItem = m_model->itemForIndex(QModelIndex());
-+    //The root item is invalid (non-existant)
-+    if (rootItem.isNull()) {
-+        return;
-+    }
-+    
-     QMenu menu;
-     menu.addAction(m_actionCollection.action("new_menu"));
-     menu.addSeparator();
-@@ -485,7 +491,6 @@
-     if (!m_itemActions) {
-         // Create a new KFileItem to prevent the target URL in the root item
-         // from being used. In this case we want the configured URL instead.
--        KFileItem rootItem = m_model->itemForIndex(QModelIndex());
-         KFileItem item(rootItem.mode(), rootItem.permissions(), m_url);
+@@ -284,22 +286,42 @@
  
-         KFileItemListProperties itemList(KFileItemList() << item);
-Index: apps/plasma/applets/folderview/plasma-applet-folderview.desktop
+ bool KBookmarkModel::dropMimeData(const QMimeData * data, Qt::DropAction action, int row, int column, const QModelIndex & parent)
+ {
+-    Q_UNUSED(action)
+-
+     //FIXME this only works for internal drag and drops
+     //FIXME Moving is *very* buggy
+-
+-    QModelIndex idx;
++    QModelIndex dropDestIndex;
++    bool isInsertBetweenOp = false;
+     if(row == -1)
+-        idx = parent;
++    {
++        dropDestIndex = parent;
++    }
+     else
+-        idx = index(row, column, parent);
++    {
++        isInsertBetweenOp = true;
++        dropDestIndex= index(row, column, parent);
++    }
+ 
+-    KBookmark bk = bookmarkForIndex(idx);
+-    QString addr = bk.address();
+-    if(bk.isGroup())
+-        addr += "/0";
++    KBookmark dropDestBookmark = bookmarkForIndex(dropDestIndex);
++    if (dropDestBookmark.isNull())
++    {
++        // Presumably an invalid index: assume we want to place this in the root bookmark
++        // folder.
++        dropDestBookmark = d->mRoot;
++    }
+ 
++    QString addr = dropDestBookmark.address();
++    if(dropDestBookmark.isGroup() && !isInsertBetweenOp)
++    {
++      addr += "/0";
++    }
++    // bookmarkForIndex(...) does not distinguish between the last item in the folder
++    // and the point *after* the last item in the folder (and its hard to see how to
++    // modify it so it does), so do the check here.
++    if (isInsertBetweenOp && row == dropDestBookmark.positionInParent() + 1)
++    {
++        // Attempting to insert underneath the last item in a folder; adjust the address.
++        addr = KBookmark::nextAddress(addr);
++    }
++
+     if(action == Qt::CopyAction)
+     {
+         KEBMacroCommand * cmd = CmdGen::insertMimeSource("Copy", data, addr);
+@@ -338,6 +360,10 @@
+ 
+ KBookmark KBookmarkModel::bookmarkForIndex(const QModelIndex& index) const
+ {
++    if (!index.isValid())
++    {
++      return KBookmark();
++    }
+     return static_cast<TreeItem *>(index.internalPointer())->bookmark();
+ }
+ 
+Index: apps/keditbookmarks/bookmarklistview.cpp
 ===================================================================
---- apps/plasma/applets/folderview/plasma-applet-folderview.desktop	(.../tags/KDE/4.3.0/kdebase)	(wersja 1013412)
-+++ apps/plasma/applets/folderview/plasma-applet-folderview.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1013412)
-@@ -92,6 +92,7 @@
- Comment[ga]=Taispeáin inneachar d'fhillteáin (leathanach baile mar réamhshocrú)
- Comment[gl]=Mostra o contido dos cartafoles (Por omisión, o persoal do usuario)
- Comment[hi]=फ़ोल्डर की सामग्री दिखाएँ (बतौर डिफ़ॉल्ट उपयोक्ता का घर फ़ोल्डर)
-+Comment[hr]=Prikaz sadržaja mape (Korisnička osobna mapa je zadana)
- Comment[hu]=Mappatartalmat mutató asztal (alapértelmezésben a saját mappával)
- Comment[is]=Sýna innihald mappa (heimamappa notanda er sjálfgefin)
- Comment[it]=Mostra il contenuto delle cartelle (cartella home dell'utente come predefinita)
-Index: runtime/kuiserver/kuiserver.desktop
-===================================================================
-Index: runtime/knotify/kde.notifyrc
-===================================================================
-Index: runtime/kcontrol/locale/kcmlocale.h
-===================================================================
-Index: runtime/kcontrol/locale/kcmlocale.cpp
-===================================================================
-Index: runtime/kcontrol/componentchooser/windowmanagers/compiz-custom.desktop
-===================================================================
-Index: runtime/kcontrol/componentchooser/componentservices/kcm_kemail.desktop
-===================================================================
-Index: runtime/kcontrol/componentchooser/componentservices/kcm_browser.desktop
-===================================================================
-Index: runtime/kcontrol/componentchooser/componentservices/kcm_wm.desktop
+--- apps/keditbookmarks/bookmarklistview.cpp	(.../tags/KDE/4.3.2/kdebase)	(wersja 1032821)
++++ apps/keditbookmarks/bookmarklistview.cpp	(.../branches/KDE/4.3/kdebase)	(wersja 1032821)
+@@ -43,6 +43,7 @@
+ 
+ }
+ 
++
+ /* ----------- */
+ 
+ BookmarkFolderView::BookmarkFolderView( BookmarkListView * view, QWidget * parent )
+@@ -53,6 +54,7 @@
+     setModel(mmodel);
+     header()->setVisible(false);
+     setRootIsDecorated(false);
++    setDropIndicatorShown(true);
+     expandAll();
+     setCurrentIndex( mmodel->index(0,0, QModelIndex()));
+     
+@@ -88,7 +90,6 @@
+     return static_cast<KBookmarkModel *>(mmodel->sourceModel())->bookmarkForIndex(index);
+ }
+ 
+-
+ /********/
+ 
+ 
+@@ -173,15 +174,32 @@
+ 
+ bool BookmarkFolderViewFilterModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
+ {
+-    // FIXME Probably bug in QT, send bug report
+-    kDebug()<<"BookmarkFolderViewFilterModel::dropMimeData"<<endl;
+-    QModelIndex idx;
++    QModelIndex dropDestProxyIndex;
++    bool isInsertBetweenOp = false;
+     if(row == -1)
+-        idx = parent;
++    {
++        dropDestProxyIndex = parent;
++    }
+     else
+-        idx = index(row, column, parent);
+-    QModelIndex src = mapToSource(idx);
+-    return sourceModel()->dropMimeData( data, action, -1, -1, src);
++    {
++        dropDestProxyIndex = index(row, column, parent);
++        isInsertBetweenOp = true;
++    }
++    QModelIndex dropDestIndex = mapToSource(dropDestProxyIndex);
++    if (!isInsertBetweenOp)
++    {
++        // Just dropping it onto dropDestIndex - ignore row and column.
++        return sourceModel()->dropMimeData( data, action, -1, -1, dropDestIndex);
++    }
++    else
++    {
++        // Dropping before dropDestIndex.  We want to keep row and column
++        // relative to the parent.
++        // I'm reasonably certain the parent must be valid in this case.  If you get a crash here - nag me!
++        Q_ASSERT(parent.isValid());
++        QModelIndex dropDestParentIndex = mapToSource(parent);
++        return sourceModel()->dropMimeData( data, action, dropDestIndex.row(), dropDestIndex.column(), dropDestParentIndex);
++    }
+ }
+ 
+ BookmarkFolderViewFilterModel::~BookmarkFolderViewFilterModel()
+Index: runtime/kcontrol/emoticons/emoticonslist.cpp
 ===================================================================
 Index: runtime/kcontrol/componentchooser/componentservices/kcm_filemanager.desktop
 ===================================================================
-Index: runtime/kcontrol/componentchooser/componentservices/kcm_terminal.desktop
-===================================================================
-Index: runtime/kcontrol/kded/kcmkded.cpp
-===================================================================
-Index: runtime/desktoptheme/oxygen/metadata.desktop
-===================================================================
-Index: runtime/desktoptheme/air/metadata.desktop
-===================================================================
-Index: runtime/pics/hicolor/index.theme
-===================================================================
-Index: runtime/phonon/platform_kde/phononbackend.desktop
-===================================================================
 Index: runtime/phonon/platform_kde/phonon.notifyrc
 ===================================================================
-Index: runtime/phonon/kcm/xine/kcm_phononxine.desktop
+Index: runtime/kioslave/info/info.cc
 ===================================================================
-Index: runtime/phonon/kcm/kcm_phonon.desktop
-===================================================================
-Index: runtime/phonon/kded-module/phononserver.desktop
-===================================================================
-Index: runtime/kpasswdserver/kpasswdserver.desktop
-===================================================================
-Index: runtime/khelpcenter/plugins/plasma.desktop
-===================================================================
-Index: runtime/khelpcenter/plugins/Tutorials/.directory
-===================================================================
-Index: runtime/khelpcenter/plugins/Manpages/.directory
-===================================================================
-Index: runtime/menu/desktop/kde-games-logic.directory
-===================================================================
-Index: runtime/menu/desktop/kde-edu-mathematics.directory
-===================================================================
-Index: runtime/platforms/win/config/platform.desktop
-===================================================================
-Index: runtime/platforms/win/kwinstartmenu/winstartmenu.desktop
-===================================================================
-Index: runtime/kwalletd/kwalletd.desktop
-===================================================================
-Index: runtime/kwalletd/kwalletd.notifyrc
-===================================================================
-Index: runtime/ktimezoned/ktimezoned.h
-===================================================================
-Index: runtime/ktimezoned/ktimezoned.desktop
-===================================================================
-Index: runtime/ktimezoned/ktimezoned_win.cpp
-===================================================================
-Index: runtime/ktimezoned/ktimezoned.cpp
-===================================================================
-Index: runtime/ktimezoned/ktimezonedbase.h
-===================================================================
-Index: runtime/ktimezoned/ktimezoned_win.h
-===================================================================
-Index: runtime/ktimezoned/CMakeLists.txt
-===================================================================
-Index: runtime/CMakeLists.txt
-===================================================================
-Index: runtime/kioslave/trash/kcmtrash.desktop
-===================================================================
-Index: runtime/kioslave/trash/tests/testtrash.cpp
-===================================================================
-Index: runtime/kioslave/trash/tests/testtrash.h
-===================================================================
-Index: runtime/kioslave/thumbnail/directorythumbnail.desktop
-===================================================================
-Index: runtime/kioslave/thumbnail/jpegthumbnail.desktop
-===================================================================
-Index: runtime/kioslave/thumbnail/thumbnail.h
-===================================================================
-Index: runtime/kioslave/thumbnail/desktopthumbnail.desktop
-===================================================================
-Index: runtime/kioslave/thumbnail/thumbnail.cpp
-===================================================================
-Index: runtime/kioslave/network/ioslave/network.protocol
-===================================================================
-Index: runtime/kioslave/network/kded/networkwatcher.desktop
-===================================================================
-Index: runtime/kioslave/fish/fish.cpp
-===================================================================
-Index: runtime/kioslave/desktop/desktopnotifier.desktop
-===================================================================
-Index: runtime/kioslave/desktop/directory.trash
-===================================================================
-Index: runtime/solidautoeject/solidautoeject.desktop
-===================================================================
-Index: runtime/nepomuk/kioslaves/search/searchfolder.cpp
-===================================================================
-Index: runtime/nepomuk/kioslaves/search/kio_nepomuksearch.cpp
-===================================================================
-Index: runtime/nepomuk/kioslaves/search/searchfolder.h
-===================================================================
-Index: runtime/nepomuk/services/ontologyloader/nepomukontologyloader.desktop
-===================================================================
-Index: runtime/nepomuk/services/strigi/nepomukstrigiservice.desktop
-===================================================================
-Index: runtime/nepomuk/services/strigi/nepomukstrigiservice.notifyrc
-===================================================================
-Index: runtime/nepomuk/services/storage/nepomukstorage.notifyrc
-===================================================================
-Index: runtime/nepomuk/services/storage/repository.cpp
-===================================================================
-Index: runtime/nepomuk/services/storage/nepomukstorage.desktop
-===================================================================
-Index: runtime/nepomuk/services/filewatch/nepomukfilewatch.desktop
-===================================================================
-Index: runtime/nepomuk/services/queryservice/searchcore.cpp
-===================================================================
-Index: runtime/nepomuk/services/queryservice/searchcore.h
-===================================================================
-Index: runtime/nepomuk/services/queryservice/nepomukqueryservice.desktop
-===================================================================
-Index: runtime/nepomuk/services/migration1/nepomukmigration1.desktop
-===================================================================
-Index: runtime/nepomuk/server/nepomukserver.desktop
+Index: runtime/nepomuk/services/storage/nepomukcore.cpp
 ===================================================================
 Index: runtime/nepomuk/kcm/nepomukserverkcm.cpp
 ===================================================================
-Index: runtime/kstyles/themes/mega.themerc
+Index: runtime/l10n/jm/entry.desktop
 ===================================================================
-Index: runtime/kstyles/themes/light-v2.themerc
+Index: runtime/l10n/ru/entry.desktop
 ===================================================================
-Index: runtime/kstyles/themes/light-v3.themerc
+Index: runtime/l10n/tj/entry.desktop
 ===================================================================
-Index: runtime/kstyles/themes/highcolor.themerc
-===================================================================
-Index: runtime/kstyles/themes/qtplatinum.themerc
-===================================================================
-Index: runtime/kstyles/themes/qtwindows.themerc
-===================================================================
-Index: runtime/kstyles/themes/qtcde.themerc
-===================================================================
-Index: runtime/kstyles/themes/keramik.themerc
-===================================================================
-Index: runtime/kstyles/themes/qtmotif.themerc
-===================================================================
-Index: runtime/kstyles/themes/b3.themerc
-===================================================================
-Index: runtime/kstyles/themes/qtmotifplus.themerc
-===================================================================
-Index: runtime/kstyles/themes/qtsgi.themerc
-===================================================================
-Index: runtime/kstyles/oxygen/oxygen.themerc
-===================================================================
-Index: runtime/kstyles/oxygen/oxygen.cpp
-===================================================================
-Index: runtime/kstyles/web/web.themerc
-===================================================================
-Index: runtime/kurifilter-plugins/ikws/searchproviders/bugft.desktop
-===================================================================
-Index: runtime/kurifilter-plugins/ikws/searchproviders/bugno.desktop
-===================================================================
-Index: runtime/kurifilter-plugins/ikws/searchproviders/fr2de.desktop
-===================================================================
-Index: runtime/kurifilter-plugins/ikws/searchproviders/docbook.desktop
-===================================================================
-Index: runtime/kurifilter-plugins/ikws/searchproviders/multitran-esru.desktop
-===================================================================
-Index: runtime/kurifilter-plugins/ikws/searchproviders/wiktionary.desktop
-===================================================================
-Index: runtime/kurifilter-plugins/ikws/searchproviders/multitran-deru.desktop
-===================================================================
-Index: runtime/kurifilter-plugins/ikws/searchproviders/ethicle.desktop
-===================================================================
-Index: runtime/kurifilter-plugins/ikws/searchproviders/mamma.desktop
-===================================================================
-Index: runtime/kurifilter-plugins/ikws/searchproviders/multitran-frru.desktop
-===================================================================
-Index: runtime/kurifilter-plugins/ikws/searchproviders/multitran-nlru.desktop
-===================================================================
-Index: runtime/kurifilter-plugins/ikws/searchproviders/cpan.desktop
-===================================================================
-Index: runtime/kurifilter-plugins/ikws/searchproviders/ctan.desktop
-===================================================================
-Index: runtime/kurifilter-plugins/ikws/searchproviders/multitran-enru.desktop
-===================================================================
-Index: runtime/kurifilter-plugins/ikws/searchproviders/multitran-itru.desktop
-===================================================================
-Index: runtime/kurifilter-plugins/ikws/searchproviders/de2fr.desktop
-===================================================================
-Index: runtime/kurifilter-plugins/ikws/searchproviders/wikipedia.desktop
-===================================================================
-Index: runtime/soliduiserver/soliduiserver.desktop
-===================================================================
-Index: runtime/keditfiletype/tests/filetypestest.cpp
-===================================================================
-Index: runtime/kglobalaccel/kglobalaccel.desktop
-===================================================================
-Index: runtime/drkonqi/drkonqiassistantpages_bugzilla.cpp
-===================================================================
-Index: runtime/l10n/eastafrica.desktop
-===================================================================
-Index: runtime/l10n/sg/entry.desktop
-===================================================================
-Index: runtime/l10n/sk/entry.desktop
-===================================================================
-Index: runtime/l10n/ec/entry.desktop
-===================================================================
-Index: runtime/l10n/ee/entry.desktop
-===================================================================
-Index: runtime/plasma/scriptengines/javascript/plasma-scriptengine-runner-javascript.desktop
+Index: runtime/l10n/ge/entry.desktop
 ===================================================================
 Index: runtime/plasma/scriptengines/javascript/plasma-scriptengine-applet-simple-javascript.desktop
 ===================================================================
-Index: runtime/plasma/scriptengines/javascript/tests/javascript-config-test/metadata.desktop
+Index: workspace/ksmserver/fadeeffect.cpp
 ===================================================================
-Index: runtime/plasma/scriptengines/javascript/tests/script-digital-clock/metadata.desktop
-===================================================================
-Index: runtime/plasma/scriptengines/javascript/tests/script-nowplaying/metadata.desktop
-===================================================================
-Index: runtime/plasma/scriptengines/javascript/tests/tiger/metadata.desktop
-===================================================================
-Index: runtime/plasma/scriptengines/javascript/tests/script-mediaplayer/metadata.desktop
-===================================================================
-Index: workspace/kcontrol/dateandtime/helper.cpp
-===================================================================
-Index: workspace/kcontrol/kfontinst/apps/installfont.desktop
-===================================================================
-Index: workspace/kcontrol/standard_actions/standard_actions.desktop
-===================================================================
-Index: workspace/kcontrol/autostart/autostart.desktop
-===================================================================
-Index: workspace/kcontrol/hardware/joystick/joystick.desktop
-===================================================================
-Index: workspace/kcontrol/style/style.desktop
-===================================================================
-Index: workspace/kcontrol/randr/krandrtray.desktop
-===================================================================
-Index: workspace/kcontrol/launch/kcmlaunch.cpp
-===================================================================
-Index: workspace/kcontrol/keys/kglobalshortcutseditor.cpp
-===================================================================
-Index: workspace/kcontrol/keys/keys.desktop
-===================================================================
-Index: workspace/kcontrol/keys/kglobalshortcutseditor.h
-===================================================================
-Index: workspace/kcontrol/keys/export_scheme_dialog.cpp
-===================================================================
-Index: workspace/systemsettings/classic/settings-classic-view.desktop
-===================================================================
-Index: workspace/systemsettings/categories/settings-general.desktop
-===================================================================
-Index: workspace/systemsettings/categories/settings-look-and-feel.desktop
-===================================================================
-Index: workspace/systemsettings/categories/settings-network-and-connectivity.desktop
-===================================================================
-Index: workspace/systemsettings/categories/systemsettingscategory.desktop
-===================================================================
-Index: workspace/systemsettings/core/systemsettingsview.desktop
-===================================================================
-Index: workspace/systemsettings/core/ToolTips/SystemSettingsBalloonToolTipDelegate.cpp
-===================================================================
-Index: workspace/systemsettings/icons/settings-icon-view.desktop
-===================================================================
-Index: workspace/PolicyKit-kde/authorization/kcm_pkk_authorization.desktop
-===================================================================
-Index: workspace/kwrited/kwrited.notifyrc
-===================================================================
-Index: workspace/wallpapers/Fields_of_Peace/metadata.desktop
-===================================================================
-Index: workspace/wallpapers/Evening/metadata.desktop
-===================================================================
-Index: workspace/wallpapers/Code_Poets_Dream/metadata.desktop
-===================================================================
-Index: workspace/wallpapers/Finally_Summer_in_Germany/metadata.desktop
-===================================================================
-Index: workspace/wallpapers/Fresh_Morning/metadata.desktop
-===================================================================
-Index: workspace/wallpapers/Red_Leaf/metadata.desktop
-===================================================================
-Index: workspace/wallpapers/The_Rings_of_Saturn/metadata.desktop
-===================================================================
-Index: workspace/wallpapers/Spring_Sunray/metadata.desktop
-===================================================================
-Index: workspace/wallpapers/Curls_on_Green/metadata.desktop
-===================================================================
-Index: workspace/wallpapers/Plasmalicious/metadata.desktop
-===================================================================
-Index: workspace/wallpapers/Air/metadata.desktop
-===================================================================
-Index: workspace/wallpapers/There_is_Rain_on_the_Table/metadata.desktop
-===================================================================
-Index: workspace/solid/solid-actions-kcm/solid-actions.desktop
-===================================================================
-Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Video.desktop
-===================================================================
-Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Battery.desktop
-===================================================================
-Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-NetworkInterface.desktop
-===================================================================
-Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Button.desktop
-===================================================================
-Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Processor.desktop
-===================================================================
-Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-AudioInterface.desktop
-===================================================================
-Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-AcAdapter.desktop
-===================================================================
-Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-OpticalDrive.desktop
-===================================================================
-Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-PortableMediaPlayer.desktop
-===================================================================
-Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-StorageAccess.desktop
-===================================================================
-Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Camera.desktop
-===================================================================
-Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Block.desktop
-===================================================================
-Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-StorageVolume.desktop
+Index: workspace/wallpapers/Atra_Dot/metadata.desktop
 ===================================================================
 Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-DvbInterface.desktop
 ===================================================================
-Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-GenericInterface.desktop
-===================================================================
-Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-OpticalDisc.desktop
-===================================================================
-Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-StorageDrive.desktop
-===================================================================
-Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-SerialInterface.desktop
-===================================================================
-Index: workspace/solid/bluez/solid_bluez.desktop
-===================================================================
-Index: workspace/solid/hal/solid_hal_power.desktop
-===================================================================
-Index: workspace/solid/networkmanager-0.6/solid_networkmanager.desktop
-===================================================================
-Index: workspace/solid/networkmanager-0.7/wirednetworkinterface.cpp
-===================================================================
-Index: workspace/solid/networkmanager-0.7/accesspoint.cpp
-===================================================================
-Index: workspace/solid/networkmanager-0.7/solid_networkmanager07.desktop
-===================================================================
-Index: workspace/solid/networkmanager-0.7/wirelessnetworkinterface.cpp
-===================================================================
-Index: workspace/solid/networkmanager-0.7/wirelessnetworkinterface.h
-===================================================================
-Index: workspace/solid/wicd/solid_wicd.desktop
-===================================================================
 Index: workspace/solid/networking/kded/networkstatus.desktop
-===================================================================
-Index: workspace/solid/kcm/kcm_solid.desktop
-===================================================================
-Index: workspace/powerdevil/daemon/powerdevil.desktop
-===================================================================
-Index: workspace/powerdevil/kcmodule/powerdevilconfig.desktop
-===================================================================
-Index: workspace/powerdevil/powerdevil.notifyrc
-===================================================================
-Index: workspace/krunner/krunner.desktop
-===================================================================
-Index: workspace/libs/kephal/kded_kephal/kephal.desktop
-===================================================================
-Index: workspace/libs/solid/control/solidnetworkmanager.desktop
-===================================================================
-Index: workspace/libs/solid/control/solidpowermanager.desktop
-===================================================================
-Index: workspace/libs/solid/control/wirednetworkinterface.h
-===================================================================
-Index: workspace/libs/solid/control/solidbluetoothmanager.desktop
-===================================================================
-Index: workspace/libs/solid/control/wirelessnetworkinterface.h
-===================================================================
-Index: workspace/libs/taskmanager/strategies/manualsortingstrategy.cpp
-===================================================================
-Index: workspace/kscreensaver/kblank_screensaver/kblank.desktop
-===================================================================
-Index: workspace/kscreensaver/krandom_screensaver/krandom.desktop
-===================================================================
-Index: workspace/khotkeys/app/kded.cpp
-===================================================================
-Index: workspace/khotkeys/app/khotkeys.desktop
-===================================================================
-Index: workspace/khotkeys/kcm_hotkeys/khotkeys.desktop
-===================================================================
-Index: workspace/khotkeys/data/konqueror_gestures_kde321.khotkeys
-===================================================================
-Index: workspace/khotkeys/data/defaults.khotkeys
 ===================================================================
 Index: workspace/khotkeys/data/kde32b1.khotkeys
 ===================================================================
-Index: workspace/khotkeys/data/printscreen.khotkeys
+Index: workspace/kwin/effects/desktopgrid/desktopgrid.cpp
 ===================================================================
-Index: workspace/kwin/effects/desktopgrid/desktopgrid.desktop
+Index: workspace/kwin/effects/slideback/slideback.cpp
 ===================================================================
-Index: workspace/kwin/effects/slideback/slideback.desktop
-===================================================================
-Index: workspace/kwin/effects/snow/snow.desktop
-===================================================================
-Index: workspace/kwin/effects/magiclamp/magiclamp.desktop
-===================================================================
-Index: workspace/kwin/effects/magiclamp/magiclamp_config.desktop
-===================================================================
-Index: workspace/kwin/effects/presentwindows/presentwindows.desktop
-===================================================================
-Index: workspace/kwin/effects/presentwindows/presentwindows_config.desktop
-===================================================================
-Index: workspace/kwin/effects/taskbarthumbnail/taskbarthumbnail.desktop
-===================================================================
-Index: workspace/kwin/effects/lookingglass/lookingglass.desktop
-===================================================================
-Index: workspace/kwin/effects/lookingglass/lookingglass_config.desktop
-===================================================================
-Index: workspace/kwin/effects/highlightwindow/highlightwindow.desktop
-===================================================================
-Index: workspace/kwin/effects/fade/fade.desktop
-===================================================================
-Index: workspace/kwin/effects/coverswitch/coverswitch.desktop
-===================================================================
-Index: workspace/kwin/effects/coverswitch/coverswitch_config.desktop
-===================================================================
-Index: workspace/kwin/effects/sharpen/sharpen.desktop
-===================================================================
-Index: workspace/kwin/effects/sharpen/sharpen_config.desktop
-===================================================================
-Index: workspace/kwin/effects/slide/slide.desktop
-===================================================================
-Index: workspace/kwin/effects/snaphelper/snaphelper.desktop
-===================================================================
-Index: workspace/kwin/effects/blur/blur.desktop
-===================================================================
-Index: workspace/kwin/effects/fallapart/fallapart.desktop
-===================================================================
-Index: workspace/kwin/effects/login/login.desktop
-===================================================================
-Index: workspace/kwin/effects/wobblywindows/wobblywindows.desktop
-===================================================================
-Index: workspace/kwin/effects/wobblywindows/wobblywindows_config.desktop
-===================================================================
-Index: workspace/kwin/effects/wobblywindows/wobblywindows.cpp
-===================================================================
-Index: workspace/kwin/effects/dimscreen/dimscreen.desktop
-===================================================================
-Index: workspace/kwin/effects/logout/logout.desktop
+Index: workspace/kwin/effects/logout/logout.h
 ===================================================================
 Index: workspace/kwin/effects/logout/logout.cpp
 ===================================================================
-Index: workspace/kwin/effects/boxswitch/boxswitch.desktop
+Index: workspace/kwin/utils.h
 ===================================================================
-Index: workspace/kwin/effects/boxswitch/boxswitch_config.desktop
+Index: workspace/kwin/rules.cpp
 ===================================================================
-Index: workspace/kwin/effects/showpaint/showpaint.desktop
-===================================================================
-Index: workspace/kwin/effects/scalein/scalein.desktop
-===================================================================
-Index: workspace/kwin/effects/explosion/explosion.desktop
-===================================================================
-Index: workspace/kwin/effects/minimizeanimation/minimizeanimation.desktop
-===================================================================
-Index: workspace/kwin/effects/zoom/zoom_config.desktop
-===================================================================
-Index: workspace/kwin/effects/zoom/zoom.desktop
-===================================================================
-Index: workspace/kwin/effects/shadow/shadow_config.desktop
-===================================================================
-Index: workspace/kwin/effects/shadow/shadow.desktop
-===================================================================
-Index: workspace/kwin/effects/fadedesktop/fadedesktop.desktop
-===================================================================
-Index: workspace/kwin/effects/showfps/showfps.desktop
-===================================================================
-Index: workspace/kwin/effects/showfps/showfps_config.desktop
-===================================================================
-Index: workspace/kwin/effects/thumbnailaside/thumbnailaside.desktop
-===================================================================
-Index: workspace/kwin/effects/thumbnailaside/thumbnailaside_config.desktop
-===================================================================
-Index: workspace/kwin/effects/diminactive/diminactive.desktop
-===================================================================
-Index: workspace/kwin/effects/diminactive/diminactive_config.desktop
-===================================================================
-Index: workspace/kwin/effects/kwineffect.desktop
-===================================================================
-Index: workspace/kwin/effects/magnifier/magnifier.desktop
-===================================================================
-Index: workspace/kwin/effects/mousemark/mousemark_config.desktop
-===================================================================
-Index: workspace/kwin/effects/mousemark/mousemark.desktop
-===================================================================
-Index: workspace/kwin/effects/invert/invert.desktop
-===================================================================
-Index: workspace/kwin/effects/invert/invert_config.desktop
-===================================================================
-Index: workspace/kwin/effects/sheet/sheet.desktop
-===================================================================
-Index: workspace/kwin/effects/dialogparent/dialogparent.desktop
-===================================================================
-Index: workspace/kwin/effects/translucency/translucency.desktop
-===================================================================
-Index: workspace/kwin/effects/flipswitch/flipswitch.desktop
-===================================================================
-Index: workspace/kwin/effects/flipswitch/flipswitch_config.desktop
-===================================================================
-Index: workspace/kwin/effects/trackmouse/trackmouse.desktop
-===================================================================
-Index: workspace/kwin/effects/trackmouse/trackmouse_config.desktop
-===================================================================
-Index: workspace/kwin/effects/_test/demo_showpicture.desktop
-===================================================================
-Index: workspace/kwin/effects/_test/videorecord_config.desktop
-===================================================================
-Index: workspace/kwin/effects/_test/demo_liquid.desktop
-===================================================================
-Index: workspace/kwin/effects/_test/howto.desktop
-===================================================================
-Index: workspace/kwin/effects/_test/demo_wavywindows.desktop
-===================================================================
-Index: workspace/kwin/effects/_test/demo_shiftworkspaceup.desktop
-===================================================================
-Index: workspace/kwin/effects/_test/drunken.desktop
-===================================================================
-Index: workspace/kwin/effects/_test/demo_shakymove.desktop
-===================================================================
-Index: workspace/kwin/effects/_test/test_thumbnail.desktop
-===================================================================
-Index: workspace/kwin/effects/_test/flame.desktop
-===================================================================
-Index: workspace/kwin/effects/_test/test_input.desktop
-===================================================================
-Index: workspace/kwin/effects/_test/videorecord.desktop
-===================================================================
-Index: workspace/kwin/effects/cube/cube.desktop
-===================================================================
-Index: workspace/kwin/effects/cube/cubeslide_config.desktop
-===================================================================
-Index: workspace/kwin/effects/cube/cubeslide.desktop
-===================================================================
-Index: workspace/kwin/effects/cube/cube_config.desktop
-===================================================================
-Index: workspace/kwin/composite.cpp
-===================================================================
-Index: workspace/kwin/deleted.h
-===================================================================
-Index: workspace/kwin/clients/ozone/ozoneclient.desktop
-===================================================================
-Index: workspace/kwin/clients/oxygen/oxygen.h
-===================================================================
-Index: workspace/kwin/clients/oxygen/oxygenclient.cpp
-===================================================================
-Index: workspace/kwin/kcmkwin/kwindecoration/kwindecoration.cpp
-===================================================================
-Index: workspace/kwin/kcmkwin/kwindecoration/preview.cpp
-===================================================================
-Index: workspace/kwin/kcmkwin/kwinscreenedges/kwinscreenedges.desktop
-===================================================================
-Index: workspace/kwin/kcmkwin/kwincompositing/kwincompositing.desktop
-===================================================================
-Index: workspace/kwin/kcmkwin/kwinoptions/kwinoptions.desktop
-===================================================================
-Index: workspace/kwin/scene.cpp
-===================================================================
-Index: workspace/kwin/scene_opengl.cpp
+Index: workspace/kwin/client.cpp
 ===================================================================
 Index: workspace/kwin/kwin.notifyrc
 ===================================================================
-Index: workspace/kwin/scene_xrender.cpp
-===================================================================
-Index: workspace/kwin/toplevel.h
+Index: workspace/kwin/geometry.cpp
 ===================================================================
 Index: workspace/kwin/client.h
 ===================================================================
-Index: workspace/kwin/main.cpp
+Index: workspace/kwin/utils.cpp
 ===================================================================
-Index: workspace/kwin/data/fsp_workarounds_1.kwinrules
-===================================================================
-Index: workspace/kwin/deleted.cpp
-===================================================================
-Index: workspace/kdm/config.def
-===================================================================
-Index: workspace/kdm/kfrontend/sessions/xfce4.desktop
-===================================================================
-Index: workspace/kdm/kfrontend/sessions/xfce.desktop
-===================================================================
-Index: workspace/kdm/kfrontend/sessions/awesome.desktop
-===================================================================
-Index: workspace/kdm/kfrontend/sessions/olvwm.desktop
-===================================================================
-Index: workspace/kdm/kfrontend/sessions/blackbox.desktop
-===================================================================
-Index: workspace/kdm/kfrontend/sessions/lwm.desktop
-===================================================================
-Index: workspace/kdm/kfrontend/sessions/gnome.desktop
-===================================================================
-Index: workspace/plasma/dataengines/metadata/plasma-engine-metadata.desktop
-===================================================================
-Index: workspace/plasma/dataengines/applicationjobs/plasma-dataengine-applicationjobs.desktop
-===================================================================
-Index: workspace/plasma/dataengines/executable/plasma-dataengine-executable.desktop
-===================================================================
-Index: workspace/plasma/dataengines/hotplug/plasma-dataengine-hotplug.desktop
-===================================================================
-Index: workspace/plasma/dataengines/dict/plasma-dataengine-dict.desktop
-===================================================================
-Index: workspace/plasma/dataengines/filebrowser/plasma-dataengine-filebrowser.desktop
-===================================================================
-Index: workspace/plasma/dataengines/tasks/plasma-dataengine-tasks.desktop
-===================================================================
-Index: workspace/plasma/dataengines/nowplaying/plasma-dataengine-nowplaying.desktop
-===================================================================
-Index: workspace/plasma/dataengines/mouse/plasma-dataengine-mouse.desktop
-===================================================================
-Index: workspace/plasma/dataengines/powermanagement/plasma-dataengine-powermanagement.desktop
+Index: workspace/kwin/activation.cpp
 ===================================================================
 Index: workspace/plasma/dataengines/keystate/plasma-dataengine-keystate.desktop
 ===================================================================
-Index: workspace/plasma/dataengines/network/plasma-dataengine-network.desktop
-===================================================================
-Index: workspace/plasma/dataengines/soliddevice/plasma-dataengine-soliddevice.desktop
-===================================================================
-Index: workspace/plasma/dataengines/systemmonitor/plasma-dataengine-systemmonitor.desktop
-===================================================================
-Index: workspace/plasma/dataengines/time/plasma-dataengine-time.desktop
-===================================================================
-Index: workspace/plasma/dataengines/weather/plasma-dataengine-weather.desktop
-===================================================================
-Index: workspace/plasma/dataengines/weather/Messages.sh
-===================================================================
-Index: workspace/plasma/dataengines/weather/ions/ion_bbcukmet.cpp
-===================================================================
-Index: workspace/plasma/dataengines/weather/ions/ion-bbcukmet.desktop
-===================================================================
-Index: workspace/plasma/dataengines/weather/ions/ion_envcan.cpp
-===================================================================
-Index: workspace/plasma/dataengines/weather/ions/ion_noaa.cpp
-===================================================================
-Index: workspace/plasma/dataengines/weather/ions/ion-envcan.desktop
-===================================================================
-Index: workspace/plasma/dataengines/weather/ions/ion-noaa.desktop
-===================================================================
-Index: workspace/plasma/dataengines/geolocation/plasma-geolocationprovider.desktop
-===================================================================
-Index: workspace/plasma/dataengines/geolocation/plasma-dataengine-geolocation.desktop
-===================================================================
-Index: workspace/plasma/dataengines/geolocation/plasma-geolocation-ip.desktop
-===================================================================
-Index: workspace/plasma/dataengines/geolocation/plasma-geolocation-gps.desktop
-===================================================================
-Index: workspace/plasma/dataengines/akonadi/plasma-engine-akonadi.desktop
-===================================================================
-Index: workspace/plasma/dataengines/places/plasma-dataengine-places.desktop
-===================================================================
-Index: workspace/plasma/dataengines/rss/plasma-dataengine-rss.desktop
-===================================================================
-Index: workspace/plasma/dataengines/favicons/plasma-dataengine-favicons.desktop
-===================================================================
-Index: workspace/plasma/dataengines/notifications/plasma-dataengine-notifications.desktop
-===================================================================
-Index: workspace/plasma/dataengines/calendar/plasma-dataengine-calendar.desktop
-===================================================================
-Index: workspace/plasma/shells/desktop/CMakeLists.txt
-===================================================================
-Index: workspace/plasma/shells/desktop/plasma-desktop.desktop
-===================================================================
-Index: workspace/plasma/shells/desktop/dashboardview.cpp
-===================================================================
-Index: workspace/plasma/runners/powerdevil/plasma-runner-powerdevil.desktop
-===================================================================
-Index: workspace/plasma/runners/services/plasma-runner-services.desktop
-===================================================================
-Index: workspace/plasma/runners/nepomuksearch/nepomuksearchrunner.cpp
-===================================================================
-Index: workspace/plasma/runners/nepomuksearch/plasma-runner-nepomuksearch.desktop
-===================================================================
-Index: workspace/plasma/runners/sessions/plasma-runner-sessions.desktop
-===================================================================
-Index: workspace/plasma/runners/places/plasma-runner-places.desktop
-===================================================================
-Index: workspace/plasma/runners/shell/plasma-runner-shell.desktop
-===================================================================
-Index: workspace/plasma/runners/bookmarks/plasma-runner-bookmarks.desktop
-===================================================================
-Index: workspace/plasma/runners/calculator/plasma-runner-calculator.desktop
-===================================================================
 Index: workspace/plasma/runners/locations/plasma-runner-locations.desktop
 ===================================================================
-Index: workspace/plasma/runners/webshortcuts/plasma-runner-webshortcuts.desktop
-===================================================================
-Index: workspace/plasma/animators/default/plasma-animator-default.desktop
-===================================================================
-Index: workspace/plasma/tools/desktopthemedetails/desktopthemedetails.desktop
-===================================================================
-Index: workspace/plasma/containments/panel/plasma-containment-panel.desktop
-===================================================================
-Index: workspace/plasma/containments/panel/panel.cpp
-===================================================================
-Index: workspace/plasma/containments/screensaver/plasma-containment-saverdesktop.desktop
-===================================================================
-Index: workspace/plasma/containments/desktop/plasma-containment-desktop.desktop
-===================================================================
-Index: workspace/plasma/containments/desktop/desktop.cpp
-===================================================================
-Index: workspace/plasma/applets/webbrowser/plasma-applet-webbrowser.desktop
-===================================================================
-Index: workspace/plasma/applets/trash/plasma-applet-trash.desktop
-===================================================================
-Index: workspace/plasma/applets/activitybar/plasma-applet-activitybar.desktop
-===================================================================
-Index: workspace/plasma/applets/lock_logout/plasma-applet-lockout.desktop
-===================================================================
-Index: workspace/plasma/applets/systemtray/notificationitemwatcher/notificationitemwatcher.desktop
-===================================================================
-Index: workspace/plasma/applets/systemtray/plasma-applet-systemtray.desktop
-===================================================================
-Index: workspace/plasma/applets/tasks/taskgroupitem.cpp
-===================================================================
-Index: workspace/plasma/applets/tasks/abstracttaskitem.cpp
-===================================================================
-Index: workspace/plasma/applets/tasks/plasma-tasks-default.desktop
-===================================================================
-Index: workspace/plasma/applets/tasks/windowtaskitem.cpp
-===================================================================
-Index: workspace/plasma/applets/icon/plasma-applet-icon.desktop
-===================================================================
-Index: workspace/plasma/applets/analog-clock/plasma-applet-analogclock.desktop
-===================================================================
-Index: workspace/plasma/applets/panelspacer/plasma-applet-panelspacer-internal.desktop
-===================================================================
-Index: workspace/plasma/applets/pager/plasma-pager-default.desktop
-===================================================================
-Index: workspace/plasma/applets/devicenotifier/notifierdialog.cpp
-===================================================================
-Index: workspace/plasma/applets/devicenotifier/test-predicate-openinwindow.desktop
-===================================================================
-Index: workspace/plasma/applets/devicenotifier/plasma-applet-devicenotifier.desktop
-===================================================================
-Index: workspace/plasma/applets/devicenotifier/notifierview.cpp
-===================================================================
-Index: workspace/plasma/applets/digital-clock/plasma-applet-digitalclock.desktop
-===================================================================
-Index: workspace/plasma/applets/quicklaunch/plasma-applet-quicklaunch.desktop
-===================================================================
-Index: workspace/plasma/applets/calendar/plasma-applet-calendar.desktop
-===================================================================
-Index: workspace/plasma/applets/system-monitor/plasma-applet-system-monitor.desktop
-===================================================================
-Index: workspace/plasma/applets/system-monitor/plasma-applet-sm_cpu.desktop
-===================================================================
-Index: workspace/plasma/applets/system-monitor/plasma-applet-sm_hwinfo.desktop
-===================================================================
-Index: workspace/plasma/applets/system-monitor/plasma-applet-sm_temperature.desktop
-===================================================================
-Index: workspace/plasma/applets/system-monitor/net.cpp
-===================================================================
-Index: workspace/plasma/applets/system-monitor/plasma-applet-sm_ram.desktop
-===================================================================
-Index: workspace/plasma/applets/system-monitor/plasma-applet-sm_net.desktop
-===================================================================
-Index: workspace/plasma/applets/system-monitor/plasma-applet-sm_hdd.desktop
-===================================================================
-Index: workspace/plasma/applets/system-monitor/applet.cpp
-===================================================================
-Index: workspace/plasma/applets/battery/plasma-battery-default.desktop
-===================================================================
-Index: workspace/plasma/applets/kickoff/simpleapplet/plasma-applet-simplelauncher.desktop
-===================================================================
-Index: workspace/plasma/applets/kickoff/applet/plasma-applet-launcher.desktop
-===================================================================
-Index: workspace/plasma/applets/kickoff/ui/launcher.cpp
-===================================================================
-Index: workspace/plasma/wallpapers/image/plasma-wallpaper-image.desktop
-===================================================================
-Index: workspace/plasma/wallpapers/color/plasma-wallpaper-color.desktop
-===================================================================
-Index: workspace/plasma/scriptengines/python/plasma-scriptengine-applet-python.desktop
-===================================================================
-Index: workspace/plasma/scriptengines/python/plasma-scriptengine-dataengine-python.desktop
-===================================================================
-Index: workspace/plasma/scriptengines/python/examples/dataengines/pytime/metadata.desktop
-===================================================================
-Index: workspace/plasma/scriptengines/python/examples/applets/pyclock/metadata.desktop
-===================================================================
-Index: workspace/plasma/scriptengines/ruby/plasma-scriptengine-ruby-applet.desktop
-===================================================================
-Index: workspace/plasma/scriptengines/ruby/ChangeLog
-===================================================================
-Index: workspace/plasma/scriptengines/ruby/applet.rb
-===================================================================
-Index: workspace/plasma/scriptengines/ruby/plasma-scriptengine-ruby-dataengine.desktop
-===================================================================
-Index: workspace/plasma/scriptengines/ruby/examples/dataengines/dbpedia_albums/metadata.desktop
-===================================================================
 Index: workspace/plasma/scriptengines/ruby/examples/dataengines/time/metadata.desktop
-===================================================================
-Index: workspace/plasma/scriptengines/ruby/examples/applets/extendertutorial/metadata.desktop
-===================================================================
-Index: workspace/plasma/scriptengines/ruby/examples/applets/webapplet/metadata.desktop
-===================================================================
-Index: workspace/plasma/scriptengines/ruby/examples/applets/tiger/metadata.desktop
-===================================================================
-Index: workspace/plasma/scriptengines/ruby/examples/applets/clock/metadata.desktop
-===================================================================
-Index: workspace/plasma/scriptengines/webkit/plasma-packagestructure-dashboard.desktop
-===================================================================
-Index: workspace/plasma/scriptengines/webkit/plasma-scriptengine-applet-dashboard.desktop
-===================================================================
-Index: workspace/plasma/scriptengines/webkit/plasma-packagestructure-web.desktop
-===================================================================
-Index: workspace/plasma/scriptengines/webkit/plasma-scriptengine-applet-web.desktop
-===================================================================
-Index: workspace/plasma/scriptengines/google_gadgets/plasma-scriptengine-googlegadgets.desktop
-===================================================================
-Index: workspace/plasma/scriptengines/google_gadgets/plasma-packagestructure-googlegadgets.desktop
-===================================================================
-Index: workspace/plasma/scriptengines/qedjescript/plasma-appletscript-qedje.desktop
-===================================================================
-Index: workspace/plasma/scriptengines/qedjescript/plasma-packagestructure-qedje.desktop
 ===================================================================
