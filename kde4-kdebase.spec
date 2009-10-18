@@ -6,8 +6,8 @@
 #
 %define		_state		unstable
 %define		orgname		kdebase
-%define		qtver		4.5.2
-%define		snap		svn1027298
+%define		qtver		4.6.0
+%define		snap		svn1035674
 
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):	K Desktop Environment - archivos básicos
@@ -19,13 +19,13 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.3.69
+Version:	4.3.72
 Release:	1
 License:	GPL
 Group:		X11/Applications
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}%{snap}.tar.bz2
-# Source0-md5:	083899f3dea2a90c9185c96df9b197ff
+# Source0-md5:	3068c87901e91ad93facdf3072bcf785
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-wordchars.patch
 URL:		http://www.kde.org/
@@ -548,6 +548,7 @@ fi
 %attr(755,root,root) %{_libdir}/kde4/kcm_dolphinviewmodes.so
 %attr(755,root,root) %{_libdir}/kde4/dolphinpart.so
 %dir %{_datadir}/apps/dolphin
+%{_datadir}/apps/dolphin/dolphinsearchcommands.desktop
 %{_datadir}/apps/dolphin/dolphinui.rc
 %dir %{_datadir}/apps/dolphinpart
 %{_datadir}/apps/dolphinpart/dolphinpart.rc
