@@ -7,7 +7,7 @@
 %define		_state		unstable
 %define		orgname		kdebase
 %define		qtver		4.6.0
-%define		snap		svn1035674
+%define		snap		svn1040395
 
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):	K Desktop Environment - archivos básicos
@@ -19,13 +19,13 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.3.72
+Version:	4.3.73
 Release:	1
 License:	GPL
 Group:		X11/Applications
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}%{snap}.tar.bz2
-# Source0-md5:	3068c87901e91ad93facdf3072bcf785
+# Source0-md5:	7a6742bb02e8b0f6db8fef60e14a6a89
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-wordchars.patch
 URL:		http://www.kde.org/
@@ -650,7 +650,7 @@ fi
 %{_kdedocdir}/en/konqueror
 # testing
 %attr(755,root,root) %{_libdir}/kde4/konq_sidebar.so
-%attr(755,root,root) %{_libdir}/kde4/konq_sidebartree_bookmarks.so
+#%attr(755,root,root) %{_libdir}/kde4/konq_sidebartree_bookmarks.so
 %attr(755,root,root) %{_libdir}/kde4/konq_sidebartree_dirtree.so
 %attr(755,root,root) %{_libdir}/kde4/konq_sidebartree_history.so
 %attr(755,root,root) %{_libdir}/kde4/konq_sound.so
