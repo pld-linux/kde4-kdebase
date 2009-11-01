@@ -20,7 +20,7 @@ Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
 Version:	4.3.73
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
@@ -427,7 +427,7 @@ fi
 %{_desktopdir}/kde4/kfmclient_dir.desktop
 %{_desktopdir}/kde4/kfmclient_html.desktop
 %{_desktopdir}/kde4/kfmclient_war.desktop
-#%exclude %{_iconsdir}/*/scalable
+%exclude %{_iconsdir}/*/scalable
 %{_iconsdir}/*/*/apps/*.png
 %{_iconsdir}/*/*/apps/*.svgz
 %{_mandir}/man1/kbookmarkmerger.1.*
