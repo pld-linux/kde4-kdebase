@@ -7,7 +7,7 @@
 %define		_state		unstable
 %define		orgname		kdebase
 %define		qtver		4.6.0
-%define		snap		svn1040395
+%define		snap		svn1048496
 
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):	K Desktop Environment - archivos básicos
@@ -19,13 +19,13 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.3.73
-Release:	2
+Version:	4.3.75
+Release:	1
 License:	GPL
 Group:		X11/Applications
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}%{snap}.tar.bz2
-# Source0-md5:	7a6742bb02e8b0f6db8fef60e14a6a89
+# Source0-md5:	e2d6388a484bb431d0753e1022e7d0bf
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-wordchars.patch
 URL:		http://www.kde.org/
@@ -407,6 +407,8 @@ fi
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kbookmarkmerger
+%attr(755,root,root) %{_bindir}/servicemenudeinstallation
+%attr(755,root,root) %{_bindir}/servicemenuinstallation
 %attr(755,root,root) %{_libdir}/kde4/libkcminit_nsplugins.so
 %attr(755,root,root) %{_libdir}/kde4/khtmlkttsdplugin.so
 %attr(755,root,root) %{_libdir}/kde4/plasma_applet_folderview.so
@@ -435,6 +437,8 @@ fi
 # view svn plugin - where to put??
 %attr(755,root,root) %{_libdir}/kde4/fileviewsvnplugin.so
 %{_datadir}/kde4/services/fileviewsvnplugin.desktop
+%{_datadir}/config/servicemenu.knsrc
+%{_datadir}/kde4/servicetypes/fileviewversioncontrolplugin.desktop
 
 %files devel
 %defattr(644,root,root,755)
@@ -588,8 +592,6 @@ fi
 %attr(755,root,root) %{_libdir}/kde4/kded_konqy_preloader.so
 %attr(755,root,root) %{_libdir}/kde4/konq_aboutpage.so
 %attr(755,root,root) %{_libdir}/kde4/libnsplugin.so
-%{_datadir}/apps/kconf_update/konqsidebartng.upd
-%{_datadir}/apps/kconf_update/move_konqsidebartng_entries.sh
 %{_datadir}/apps/kbookmark
 %{_datadir}/apps/kcmcss
 %{_datadir}/apps/keditbookmarks
@@ -650,10 +652,10 @@ fi
 %{_kdedocdir}/en/konqueror
 # testing
 %attr(755,root,root) %{_libdir}/kde4/konq_sidebar.so
-#%attr(755,root,root) %{_libdir}/kde4/konq_sidebartree_bookmarks.so
+%attr(755,root,root) %{_libdir}/kde4/konq_sidebartree_bookmarks.so
 %attr(755,root,root) %{_libdir}/kde4/konq_sidebartree_dirtree.so
-%attr(755,root,root) %{_libdir}/kde4/konq_sidebartree_history.so
 %attr(755,root,root) %{_libdir}/kde4/konq_sound.so
+%attr(755,root,root) %{_libdir}/kde4/konqsidebar_history.so
 %attr(755,root,root) %{_libdir}/kde4/konqsidebar_tree.so
 %attr(755,root,root) %{_libdir}/kde4/konqsidebar_web.so
 %attr(755,root,root) %{_libdir}/kde4/konq_shellcmdplugin.so
