@@ -1,305 +1,1378 @@
-Index: apps/konqueror/konqueror.desktop
+Index: apps/kappfinder/apps/Graphics/blender.desktop
 ===================================================================
---- apps/konqueror/konqueror.desktop	(.../tags/KDE/4.3.2/kdebase)	(wersja 1032821)
-+++ apps/konqueror/konqueror.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1032821)
-@@ -120,7 +120,7 @@
- Comment[he]=מנהל הקבצים ודפדפן האינטרנט של KDE
- Comment[hi]=केडीई फ़ाइल प्रबंधक व वेब ब्राउज़र
- Comment[hne]=केडीई फाइल प्रबंधक अउ वेब ब्राउजर
--Comment[hr]=KDE upravitelj datotekama i web preglednik
-+Comment[hr]=KDE-ov upravitelj datoteka i web preglednik
- Comment[hsb]=KDE datajowy manager & web browser
- Comment[hu]=KDE fájlkezelő és webböngésző
- Comment[is]=KDE skráastjóri og vafri
+--- apps/kappfinder/apps/Graphics/blender.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Graphics/blender.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -149,7 +149,7 @@
+ GenericName[ru]=Трёхмерный редактор
+ GenericName[se]=3d-modelleren/-čájeheapmi
+ GenericName[si]=3D ආදර්ශක/නිවේදිත
+-GenericName[sk]=3D modelovanie/rendrovanie scén
++GenericName[sk]=3D modelovanie/renderovanie scén
+ GenericName[sl]=Modelirnik/upodabljalnik 3D scen
+ GenericName[sr]=3Д моделар и рендерар
+ GenericName[sr@latin]=3D modelar i renderar
+Index: apps/kappfinder/apps/Graphics/gv.desktop
+===================================================================
+--- apps/kappfinder/apps/Graphics/gv.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Graphics/gv.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -150,7 +150,7 @@
+ GenericName[ru]=Просмотр PostScript
+ GenericName[se]=Postscript čájeheaddji
+ GenericName[si]=Postscript දසුන
+-GenericName[sk]=Prehliadač postskriptových súborov
++GenericName[sk]=Prehliadač postscriptových súborov
+ GenericName[sl]=Pregledovalnik za PostScript
+ GenericName[sr]=Приказивач постскрипта
+ GenericName[sr@latin]=Prikazivač PostScripta
+Index: apps/kappfinder/apps/Graphics/GnomeIconEditor.desktop
+===================================================================
+--- apps/kappfinder/apps/Graphics/GnomeIconEditor.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Graphics/GnomeIconEditor.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -65,7 +65,7 @@
+ Name[ru]=GNOME Icon Editor
+ Name[se]=GNOME govašdoaimmaheaddji
+ Name[si]=GNOME අයිකන සැකසුම
+-Name[sk]=GNOME Editor ikon
++Name[sk]=GNOME editor ikon
+ Name[sl]=Urejevalnik ikon za Gnome
+ Name[sr]=Гномов уређивач икона
+ Name[sr@latin]=Gnomeov uređivač ikona
+Index: apps/kappfinder/apps/Graphics/gimp.desktop
+===================================================================
+--- apps/kappfinder/apps/Graphics/gimp.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Graphics/gimp.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -139,7 +139,7 @@
+ GenericName[ru]=Управление изображениями
+ GenericName[se]=Govvagieđahallanprográmma
+ GenericName[si]=පිංතූර හැසිරවීමේ වැඩසටහන
+-GenericName[sk]=Program pre úpravu obrázkov
++GenericName[sk]=Program na úpravu obrázkov
+ GenericName[sl]=Program za obdelavo slik
+ GenericName[sr]=Програм за обраду слика
+ GenericName[sr@latin]=Program za obradu slika
+Index: apps/kappfinder/apps/Graphics/GnomeColorSelector.desktop
+===================================================================
+--- apps/kappfinder/apps/Graphics/GnomeColorSelector.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Graphics/GnomeColorSelector.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -65,7 +65,7 @@
+ Name[ru]=GNOME Color Selector
+ Name[se]=GNOME ivdneválljejeaddji
+ Name[si]=GNOME වර්‍ණ තෝරනය
+-Name[sk]=GNOME Výber farby
++Name[sk]=GNOME výber farby
+ Name[sl]=Izbirnik barv za Gnome
+ Name[sr]=Гномов бирач боја
+ Name[sr@latin]=Gnomov birač boja
+Index: apps/kappfinder/apps/Development/eclipse.desktop
+===================================================================
+--- apps/kappfinder/apps/Development/eclipse.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Development/eclipse.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -149,7 +149,7 @@
+ GenericName[ru]=Eclipse IDE
+ GenericName[se]=Eclipse IDE
+ GenericName[si]=Eclipse IDE
+-GenericName[sk]=IDE Eclipse
++GenericName[sk]=Eclipse IDE
+ GenericName[sl]=Integrirano razvojno okolje
+ GenericName[sr]=Развојно окружење Еклипс
+ GenericName[sr@latin]=Razvojno okruženje Eclipse
+Index: apps/kappfinder/apps/Internet/mozilla.desktop
+===================================================================
+--- apps/kappfinder/apps/Internet/mozilla.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Internet/mozilla.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -165,7 +165,7 @@
+ GenericName[tg]=Намоишгари Интернет
+ GenericName[th]=เว็บเบราว์เซอร์
+ GenericName[tr]=Web Tarayıcı
+-GenericName[uk]=Навігатор Тенет
++GenericName[uk]=Переглядач інтернету
+ GenericName[uz]=Veb-brauzer
+ GenericName[uz@cyrillic]=Веб-браузер
+ GenericName[vi]=Trình duyệt mạng
+Index: apps/kappfinder/apps/Internet/gnomemeeting.desktop
+===================================================================
+--- apps/kappfinder/apps/Internet/gnomemeeting.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Internet/gnomemeeting.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -149,7 +149,7 @@
+ GenericName[ru]=Видео-конференции
+ GenericName[se]=Videočoahkkin
+ GenericName[si]=වීඩියෝ සංවාද
+-GenericName[sk]=Videokonferencia
++GenericName[sk]=Videokonferencie
+ GenericName[sl]=Video konferenčne zveze
+ GenericName[sr]=Видео конференције
+ GenericName[sr@latin]=Video konferencije
+Index: apps/kappfinder/apps/Internet/arena.desktop
+===================================================================
+--- apps/kappfinder/apps/Internet/arena.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Internet/arena.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -163,7 +163,7 @@
+ GenericName[tg]=Намоишгари Интернет
+ GenericName[th]=เว็บเบราว์เซอร์
+ GenericName[tr]=Web Tarayıcı
+-GenericName[uk]=Навігатор Тенет
++GenericName[uk]=Переглядач інтернету
+ GenericName[uz]=Veb-brauzer
+ GenericName[uz@cyrillic]=Веб-браузер
+ GenericName[vi]=Trình duyệt mạng
+Index: apps/kappfinder/apps/Internet/mldonkey_gui.desktop
+===================================================================
+--- apps/kappfinder/apps/Internet/mldonkey_gui.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Internet/mldonkey_gui.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -66,7 +66,7 @@
+ Name[ru]=MLDonkey GTK+ Core Controller
+ Name[se]=MLDonkey GTK+ guovddášstivrejeaddji
+ Name[si]=MLDonkey GTK+ Core Controller
+-Name[sk]=MLDonkey GTK+ ovládač jadra
++Name[sk]=MLDonkey GTK+
+ Name[sl]=Nadzornik jedra za eDonkey2000
+ Name[sr]=ГТК+ контролор језгра за МЛдонки
+ Name[sr@latin]=GTK+ kontrolor jezgra za MLDonkey
+Index: apps/kappfinder/apps/Internet/netscape6.desktop
+===================================================================
+--- apps/kappfinder/apps/Internet/netscape6.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Internet/netscape6.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -150,7 +150,7 @@
+ GenericName[tg]=Намоишгари Интернет
+ GenericName[th]=เว็บเบราว์เซอร์
+ GenericName[tr]=Web Tarayıcı
+-GenericName[uk]=Навігатор Тенет
++GenericName[uk]=Переглядач інтернету
+ GenericName[uz]=Veb-brauzer
+ GenericName[uz@cyrillic]=Веб-браузер
+ GenericName[vi]=Trình duyệt mạng
+Index: apps/kappfinder/apps/Internet/Galeon.desktop
+===================================================================
+--- apps/kappfinder/apps/Internet/Galeon.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Internet/Galeon.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -161,7 +161,7 @@
+ GenericName[tg]=Намоишгари Интернет
+ GenericName[th]=เว็บเบราว์เซอร์
+ GenericName[tr]=Web Tarayıcı
+-GenericName[uk]=Навігатор Тенет
++GenericName[uk]=Переглядач інтернету
+ GenericName[uz]=Veb-brauzer
+ GenericName[uz@cyrillic]=Веб-браузер
+ GenericName[vi]=Trình duyệt mạng
+Index: apps/kappfinder/apps/Internet/opera.desktop
+===================================================================
+--- apps/kappfinder/apps/Internet/opera.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Internet/opera.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -162,7 +162,7 @@
+ GenericName[tg]=Намоишгари Интернет
+ GenericName[th]=เว็บเบราว์เซอร์
+ GenericName[tr]=Web Tarayıcı
+-GenericName[uk]=Навігатор Тенет
++GenericName[uk]=Переглядач інтернету
+ GenericName[uz]=Veb-brauzer
+ GenericName[uz@cyrillic]=Веб-браузер
+ GenericName[vi]=Trình duyệt mạng
+Index: apps/kappfinder/apps/Internet/mozilla-firefox.desktop
+===================================================================
+--- apps/kappfinder/apps/Internet/mozilla-firefox.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Internet/mozilla-firefox.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -164,7 +164,7 @@
+ GenericName[tg]=Намоишгари Интернет
+ GenericName[th]=เว็บเบราว์เซอร์
+ GenericName[tr]=Web Tarayıcı
+-GenericName[uk]=Навігатор Тенет
++GenericName[uk]=Переглядач інтернету
+ GenericName[uz]=Veb-brauzer
+ GenericName[uz@cyrillic]=Веб-браузер
+ GenericName[vi]=Trình duyệt mạng
+Index: apps/kappfinder/apps/Internet/epiphany.desktop
+===================================================================
+--- apps/kappfinder/apps/Internet/epiphany.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Internet/epiphany.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -160,7 +160,7 @@
+ GenericName[tg]=Намоишгари Интернет
+ GenericName[th]=เว็บเบราว์เซอร์
+ GenericName[tr]=Web Tarayıcı
+-GenericName[uk]=Навігатор Тенет
++GenericName[uk]=Переглядач інтернету
+ GenericName[uz]=Veb-brauzer
+ GenericName[uz@cyrillic]=Веб-браузер
+ GenericName[vi]=Trình duyệt mạng
+Index: apps/kappfinder/apps/Internet/ed2k_gui.desktop
+===================================================================
+--- apps/kappfinder/apps/Internet/ed2k_gui.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Internet/ed2k_gui.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -66,7 +66,7 @@
+ Name[ru]=eDonkey2000 GTK+ Core Controller
+ Name[se]=eDonkey2000 GTK+ guovddášstivrejeaddji
+ Name[si]=eDonkey2000 GTK+ Core Controller
+-Name[sk]=eDonkey2000 GTK+ ovládač jadra
++Name[sk]=eDonkey2000 GTK+
+ Name[sl]=eDonkey2000 GTK+ Core Controller
+ Name[sr]=ГТК+ контролор језгра за Едонки 2000
+ Name[sr@latin]=GTK+ kontrolor jezgra za eDonkey 2000
+Index: apps/kappfinder/apps/Internet/netscape.desktop
+===================================================================
+--- apps/kappfinder/apps/Internet/netscape.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Internet/netscape.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -165,7 +165,7 @@
+ GenericName[tg]=Намоишгари Интернет
+ GenericName[th]=เว็บเบราว์เซอร์
+ GenericName[tr]=Web Tarayıcı
+-GenericName[uk]=Навігатор Тенет
++GenericName[uk]=Переглядач інтернету
+ GenericName[uz]=Veb-brauzer
+ GenericName[uz@cyrillic]=Веб-браузер
+ GenericName[vi]=Trình duyệt mạng
+Index: apps/kappfinder/apps/Internet/Terminal/Lynx.desktop
+===================================================================
+--- apps/kappfinder/apps/Internet/Terminal/Lynx.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Internet/Terminal/Lynx.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -161,7 +161,7 @@
+ GenericName[tg]=Намоишгари Интернет
+ GenericName[th]=เว็บเบราว์เซอร์
+ GenericName[tr]=Web Tarayıcı
+-GenericName[uk]=Навігатор Тенет
++GenericName[uk]=Переглядач інтернету
+ GenericName[uz]=Veb-brauzer
+ GenericName[uz@cyrillic]=Веб-браузер
+ GenericName[vi]=Trình duyệt mạng
+Index: apps/kappfinder/apps/Internet/Terminal/Links.desktop
+===================================================================
+--- apps/kappfinder/apps/Internet/Terminal/Links.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Internet/Terminal/Links.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -162,7 +162,7 @@
+ GenericName[tg]=Намоишгари Интернет
+ GenericName[th]=เว็บเบราว์เซอร์
+ GenericName[tr]=Web Tarayıcı
+-GenericName[uk]=Навігатор Тенет
++GenericName[uk]=Переглядач інтернету
+ GenericName[uz]=Veb-brauzer
+ GenericName[uz@cyrillic]=Веб-браузер
+ GenericName[vi]=Trình duyệt mạng
+Index: apps/kappfinder/apps/Internet/Terminal/w3m.desktop
+===================================================================
+--- apps/kappfinder/apps/Internet/Terminal/w3m.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Internet/Terminal/w3m.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -161,7 +161,7 @@
+ GenericName[tg]=Намоишгари Интернет
+ GenericName[th]=เว็บเบราว์เซอร์
+ GenericName[tr]=Web Tarayıcı
+-GenericName[uk]=Навігатор Тенет
++GenericName[uk]=Переглядач інтернету
+ GenericName[uz]=Veb-brauzer
+ GenericName[uz@cyrillic]=Веб-браузер
+ GenericName[vi]=Trình duyệt mạng
+Index: apps/kappfinder/apps/Multimedia/jazz.desktop
+===================================================================
+--- apps/kappfinder/apps/Multimedia/jazz.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Multimedia/jazz.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -150,7 +150,7 @@
+ GenericName[ru]=Звуковой процессор
+ GenericName[se]=Jietnagieđahalli
+ GenericName[si]=ශබ්ද සකසනය
+-GenericName[sk]=MIDI sekvencér
++GenericName[sk]=Zvukový procesor
+ GenericName[sl]=Obdelovalnik zvoka
+ GenericName[sr]=Обрађивач звука
+ GenericName[sr@latin]=Obrađivač zvuka
+Index: apps/kappfinder/apps/Multimedia/alsamixergui.desktop
+===================================================================
+--- apps/kappfinder/apps/Multimedia/alsamixergui.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Multimedia/alsamixergui.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -151,8 +151,8 @@
+ GenericName[si]=Alsa Mixer Frontend
+ GenericName[sk]=Rozhranie pre zvukový mixér Alsa
+ GenericName[sl]=Vmesnik mešalnika Alsa
+-GenericName[sr]=Сучеље за миксету Алсе
+-GenericName[sr@latin]=Sučelje za miksetu Alse
++GenericName[sr]=Прочеље за миксету Алсе
++GenericName[sr@latin]=Pročelje za miksetu Alse
+ GenericName[sv]=Gränssnitt till Alsa-mixer
+ GenericName[ta]=Alsa கலவை முன்தோற்றம்
+ GenericName[te]=ఆల్సా మిక్సర్ యొక్క ఫ్రంటెండ్
+Index: apps/kappfinder/apps/Multimedia/jamin.desktop
+===================================================================
+--- apps/kappfinder/apps/Multimedia/jamin.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Multimedia/jamin.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -140,7 +140,7 @@
+ GenericName[ru]=Jack Mastering Tool
+ GenericName[se]=Jack mastering-reaidu
+ GenericName[si]=Jack Mastering Tool
+-GenericName[sk]=Masteringový program
++GenericName[sk]=Jack Mastering nástroj
+ GenericName[sl]=Orodje za mastering za Jack
+ GenericName[sr]=Алатка за мастеровање за Џек
+ GenericName[sr@latin]=Alatka za masterovanje za Jack
+Index: apps/kappfinder/apps/Office/netscapeaddressbook.desktop
+===================================================================
+--- apps/kappfinder/apps/Office/netscapeaddressbook.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Office/netscapeaddressbook.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -12,6 +12,7 @@
+ Name[en_GB]=Netscape Address Book
+ Name[es]=Libreta de direcciones de Netscape
+ Name[et]=Netscape'i aadressiraamat
++Name[eu]=Netscape helbide-liburua
+ Name[fi]=Netscapen osoitekirja
+ Name[fr]=Carnet d'adresses Netscape
+ Name[fy]=Netscape Adresboek
+@@ -41,6 +42,7 @@
+ Name[pt_BR]=Livro de endereços do Netscape
+ Name[ro]=Carte de adrese Netscape
+ Name[ru]=Адресная книга Netscape
++Name[sk]=Kniha adries Netscape
+ Name[sl]=Netscape Address Book
+ Name[sr]=Нетскејпов адресар
+ Name[sr@latin]=Netscapeov adresar
+Index: apps/kappfinder/apps/Games/Arcade/alephone.desktop
+===================================================================
+--- apps/kappfinder/apps/Games/Arcade/alephone.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kappfinder/apps/Games/Arcade/alephone.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -64,7 +64,7 @@
+ Name[ru]=Alephone без OpenGL
+ Name[se]=Alephone – OpenGL:a haga
+ Name[si]=Alephone - OpenGL නැත
+-Name[sk]=Alephone - Žiadne OpenGL
++Name[sk]=Alephone - bez OpenGL
+ Name[sl]=Alephone - brez OpenGL
+ Name[sr]=Алефона - без опенГЛ‑а
+ Name[sr@latin]=Alephone - bez OpenGL‑a
+Index: apps/kdepasswd/kcm/kcm_useraccount.desktop
+===================================================================
+--- apps/kdepasswd/kcm/kcm_useraccount.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/kdepasswd/kcm/kcm_useraccount.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -197,7 +197,7 @@
+ Comment[ru]=Сведения о пользователе, такие как пароль, имя и e-mail
+ Comment[se]=Geavaheaddjedieđut nugo beassansátni, namma ja e-boasta
+ Comment[si]=User information such as password, name and email
+-Comment[sk]=Informácie o používateľovi, ako heslo, meno a e-mail
++Comment[sk]=Informácie o užívateľovi, ako heslo, meno a e-mail
+ Comment[sl]=Uporabniške informacije, kot so geslo, ime in e-pošta
+ Comment[sr]=Подаци о кориснику, попут лозинке, имена и е‑поште
+ Comment[sr@latin]=Podaci o korisniku, poput lozinke, imena i e‑pošte
+Index: apps/konqueror/konqbrowser.desktop
+===================================================================
+--- apps/konqueror/konqbrowser.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/konqueror/konqbrowser.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -166,7 +166,7 @@
+ GenericName[tg]=Намоишгари Интернет
+ GenericName[th]=เว็บเบราว์เซอร์
+ GenericName[tr]=Web Tarayıcı
+-GenericName[uk]=Навігатор Тенет
++GenericName[uk]=Переглядач інтернету
+ GenericName[uz]=Veb-brauzer
+ GenericName[uz@cyrillic]=Веб-браузер
+ GenericName[vi]=Trình duyệt mạng
+Index: apps/konqueror/src/konqviewmanager.cpp
+===================================================================
+--- apps/konqueror/src/konqviewmanager.cpp	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/konqueror/src/konqviewmanager.cpp	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -1180,9 +1180,11 @@
+ 
+         if (!childView->isFollowActive())
+             childView->setLinkedView( cfg.readEntry( QString::fromLatin1( "LinkedView" ).prepend( prefix ), false ) );
+-        childView->setToggleView( cfg.readEntry( QString::fromLatin1( "ToggleView" ).prepend( prefix ), false ) );
+-        if( !cfg.readEntry( QString::fromLatin1( "ShowStatusBar" ).prepend( prefix ), true ) )
+-          childView->frame()->statusbar()->hide();
++        const bool isToggleView = cfg.readEntry(QString::fromLatin1("ToggleView").prepend(prefix), false);
++        childView->setToggleView( isToggleView );
++        if (isToggleView /*100373*/ || !cfg.readEntry(QString::fromLatin1("ShowStatusBar").prepend(prefix), true)) {
++            childView->frame()->statusbar()->hide();
++        }
+ 
+ #if 0 // currently unused
+         KonqConfigEvent ev( cfg.config(), prefix+'_', false/*load*/);
+Index: apps/konqueror/settings/ebrowsing/ebrowsing.desktop
+===================================================================
+--- apps/konqueror/settings/ebrowsing/ebrowsing.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/konqueror/settings/ebrowsing/ebrowsing.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -74,7 +74,7 @@
+ Name[ru]=Сокращения
+ Name[se]=Fierpmádatlávkestagat
+ Name[si]=වෙබ් කෙටිමං
+-Name[sk]=Internetové skratky
++Name[sk]=Webové skratky
+ Name[sl]=Spletne bližnjice
+ Name[sr]=Веб пречице
+ Name[sr@latin]=Veb prečice
+Index: apps/konqueror/settings/kio/uasproviders/safari30oniphone.desktop
+===================================================================
+--- apps/konqueror/settings/kio/uasproviders/safari30oniphone.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/konqueror/settings/kio/uasproviders/safari30oniphone.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -45,6 +45,7 @@
+ Name[ru]=UADescription (Safari 3.0 на iPhone)
+ Name[se]=UA-čilgehus (Safari 3.0 iPhones)
+ Name[si]=UADescription (iPhone මත Safari 3.0)
++Name[sk]=Popis agenta (Safari 3.0 na iPhone)
+ Name[sl]=UAOpis (Safari 3.0 na iPhone)
+ Name[sr]=УА‑опис (Сафари 3.0 на и‑фону)
+ Name[sr@latin]=UA-opis (Safari 3.0 na iPhoneu)
+Index: apps/konqueror/settings/kio/uasproviders/safari32.desktop
+===================================================================
+--- apps/konqueror/settings/kio/uasproviders/safari32.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/konqueror/settings/kio/uasproviders/safari32.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -45,6 +45,7 @@
+ Name[ru]=UADescription (Safari 3.2 на Mac OS X)
+ Name[se]=UA-čilgehus (Safari 3.2 MacOS X:s)
+ Name[si]=UADescription (MacOS X මත Safari 3.2)
++Name[sk]=Popis agenta (Safari 3.2 na MacOS X)
+ Name[sl]=UAOpis (Safari 3.2 na MacOS X)
+ Name[sr]=УА‑опис (Сафари 3.2 на МекОС‑у X)
+ Name[sr@latin]=UA-opis (Safari 3.2 na MacOS‑u X)
+Index: apps/konqueror/settings/kio/uasproviders/op962oncurrent.desktop
+===================================================================
+--- apps/konqueror/settings/kio/uasproviders/op962oncurrent.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/konqueror/settings/kio/uasproviders/op962oncurrent.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -45,6 +45,7 @@
+ Name[ru]=UADescription (Opera 9.62 на текущей системе)
+ Name[se]=UA-čilgehus (Opera 9.62 dán mašiinnas)
+ Name[si]=UADescription (Opera 9.62 on current)
++Name[sk]=Popis agenta (Opera 9.62 na aktuálnom)
+ Name[sl]=UAOpis (Opera 9.62 na trenutnem)
+ Name[sr]=УА‑опис (Опера 9.62 на текућем)
+ Name[sr@latin]=UA-opis (Opera 9.62 na tekućem)
+Index: apps/konqueror/settings/kio/uasproviders/android10.desktop
+===================================================================
+--- apps/konqueror/settings/kio/uasproviders/android10.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/konqueror/settings/kio/uasproviders/android10.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -45,6 +45,7 @@
+ Name[ru]=UADescription (Android Phone 1.0)
+ Name[se]=UA-čilgehus (Android telefuvdna 1.0)
+ Name[si]=UADescription (Android Phone 1.0)
++Name[sk]=Popis agenta (Android Phone 1.0)
+ Name[sl]=UAOpis (Android Phone 1.0)
+ Name[sr]=УА‑опис (андроид телефон 1.0)
+ Name[sr@latin]=UA-opis (android telefon 1.0)
+Index: apps/konqueror/settings/kio/uasproviders/ie70onwinnt51.desktop
+===================================================================
+--- apps/konqueror/settings/kio/uasproviders/ie70onwinnt51.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/konqueror/settings/kio/uasproviders/ie70onwinnt51.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -45,6 +45,7 @@
+ Name[ru]=UADescription (IE 7.0 на Win XP)
+ Name[se]=UA-čilgehus (IE 7.0 Win XP:s)
+ Name[si]=UADescription (Win XP මත IE 7.0)
++Name[sk]=Popis agenta (IE 7.0 na Win XP)
+ Name[sl]=UAOpis (IE 7.0 na Windows XP)
+ Name[sr]=УА‑опис (ИЕ 7.0 на Виндоузу ИксП)
+ Name[sr@latin]=UA-opis (IE 7.0 na Windowsu XP)
+Index: apps/konqueror/settings/kio/uasproviders/chrome10onwinnt51.desktop
+===================================================================
+--- apps/konqueror/settings/kio/uasproviders/chrome10onwinnt51.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/konqueror/settings/kio/uasproviders/chrome10onwinnt51.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -45,6 +45,7 @@
+ Name[ru]=UADescription (Google Chrome 1.0 на Windows XP)
+ Name[se]=UA-čilgehus (Google Chrome 1.0 Windows XP:s)
+ Name[si]=UADescription (Windows XP මත Google Chrome 1.0)
++Name[sk]=Popis agenta (Google Chrome 1.0 na Windows XP)
+ Name[sl]=UAOpis (Google Chrome 1.0 na Windows XP)
+ Name[sr]=УА‑опис (Гугл кроум 1.0 на Виндоузу ИксП)
+ Name[sr@latin]=UA-opis (Google Chrome 1.0 na Windowsu XP)
+Index: apps/konqueror/settings/kio/uasproviders/firefox30oncurrent.desktop
+===================================================================
+--- apps/konqueror/settings/kio/uasproviders/firefox30oncurrent.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/konqueror/settings/kio/uasproviders/firefox30oncurrent.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -45,6 +45,7 @@
+ Name[ru]=UADescription (Firefox 3.0 на текущей системе)
+ Name[se]=UA-čilgehus (Firefox 3.0 dán mašiinnas)
+ Name[si]=UADescription (Firefox 3.0 on current)
++Name[sk]=Popis agenta (Firefox 3.0 na aktuálnom)
+ Name[sl]=UAOpis (Firefox 3.0 na trenutnem)
+ Name[sr]=УА‑опис (Фајерфокс 3.0 на текућем)
+ Name[sr@latin]=UA-opis (Firefox 3.0 na tekućem)
+Index: apps/konqueror/settings/kio/uasproviders/wgetoncurrent.desktop
+===================================================================
+--- apps/konqueror/settings/kio/uasproviders/wgetoncurrent.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/konqueror/settings/kio/uasproviders/wgetoncurrent.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -45,6 +45,7 @@
+ Name[ru]=UADescription (Wget 1.11.4)
+ Name[se]=UA-čilgehus (Wget 1.11.4)
+ Name[si]=UADescription (Wget 1.11.4)
++Name[sk]=Popis agenta (Wget 1.11.4)
+ Name[sl]=UAOpis (Wget 1.11.4)
+ Name[sr]=УА‑опис (Вгет 1.11.4)
+ Name[sr@latin]=UA-opis (wget 1.11.4)
+Index: apps/konqueror/settings/konqhtml/khtml_general.desktop
+===================================================================
+--- apps/konqueror/settings/konqhtml/khtml_general.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/konqueror/settings/konqhtml/khtml_general.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -23,6 +23,7 @@
+ Name[en_GB]=General
+ Name[es]=General
+ Name[et]=Üldine
++Name[eu]=Orokorra
+ Name[fi]=Yleiset
+ Name[fr]=Général
+ Name[fy]=Algemien
+@@ -52,6 +53,7 @@
+ Name[pt_BR]=Geral
+ Name[ro]=General
+ Name[ru]=Основное
++Name[sk]=Všeobecné
+ Name[sl]=Splošno
+ Name[sr]=Опште
+ Name[sr@latin]=Opšte
+Index: apps/konqueror/settings/konqhtml/khtml_appearance.desktop
+===================================================================
+--- apps/konqueror/settings/konqhtml/khtml_appearance.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/konqueror/settings/konqhtml/khtml_appearance.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -146,6 +146,7 @@
+ Comment[ru]=Настройка шрифтов веб-страниц
+ Comment[se]=Heivet man láhkai fierpmádatsiiddut čájehuvvot
+ Comment[si]=Configure how to display web pages
++Comment[sk]=Nastavenie zobrazenia webových stránok
+ Comment[sl]=Nastavitve načina prikazovanja spletnih strani
+ Comment[sr]=Подешавање приказа веб страница
+ Comment[sr@latin]=Podešavanje prikaza veb stranica
+Index: apps/konqueror/kfmclient_dir.desktop
+===================================================================
+--- apps/konqueror/kfmclient_dir.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/konqueror/kfmclient_dir.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -4,7 +4,8 @@
+ Icon=konqueror
+ Terminal=false
+ MimeType=inode/directory;
+-InitialPreference=5
++# Must be more than gwenview
++InitialPreference=10
+ NoDisplay=true
+ Name=Konqueror
+ Name[af]=Konqueror
 Index: apps/konqueror/konquerorsu.desktop
 ===================================================================
---- apps/konqueror/konquerorsu.desktop	(.../tags/KDE/4.3.2/kdebase)	(wersja 1032821)
-+++ apps/konqueror/konquerorsu.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1032821)
-@@ -38,7 +38,7 @@
- Name[he]=מנהל קבצים - מצב משתמש־על
- Name[hi]=फ़ाइल प्रबंधक- सुपर यूजर मोड
- Name[hne]=फाइल प्रबंधक- सुपर यूजर मोड
--Name[hr]=Upravitelj datotekama – za administratora
-+Name[hr]=Upravitelj datoteka – za administratora
- Name[hsb]=Datajowy manager - modus superwužiwarja
- Name[hu]=Fájlkezelő (rendszergazdai mód)
- Name[is]=Skráastjóri (sem kerfisstjóri)
-Index: apps/dolphin/src/panels/terminal/terminalpanel.cpp
+--- apps/konqueror/konquerorsu.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/konqueror/konquerorsu.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -71,7 +71,7 @@
+ Name[ru]=Диспетчер файлов (в режиме администратора)
+ Name[se]=Fiilagieđahalli – Supergeavaheaddjemodus
+ Name[si]=ගොනු කළමණාකරු - විශේෂ පරිශීලක ආකාරය
+-Name[sk]=Správca súborov - Superpoužívateľský mód
++Name[sk]=Správca súborov - superužívateľský režim
+ Name[sl]=Upravitelj datotek (skrbniški način)
+ Name[sr]=Менаџер фајлова (суперкориснички)
+ Name[sr@latin]=Menadžer fajlova (superkorisnički)
+Index: apps/konqueror/preloader/konqy_preloader.desktop
 ===================================================================
---- apps/dolphin/src/panels/terminal/terminalpanel.cpp	(.../tags/KDE/4.3.2/kdebase)	(wersja 1032821)
-+++ apps/dolphin/src/panels/terminal/terminalpanel.cpp	(.../branches/KDE/4.3/kdebase)	(wersja 1032821)
-@@ -23,7 +23,6 @@
- #include <kde_terminal_interface_v2.h>
- #include <kparts/part.h>
- #include <kshell.h>
--#include <kio/netaccess.h>
- 
- #include <QBoxLayout>
- #include <QShowEvent>
-@@ -58,13 +57,12 @@
-     }
- 
-     Panel::setUrl(url);
--    KUrl mostLocalUrl = KIO::NetAccess::mostLocalUrl(url, 0);
-     const bool sendInput = (m_terminal != 0)
-                            && (m_terminal->foregroundProcessId() == -1)
-                            && isVisible()
--                           && mostLocalUrl.isLocalFile();
-+                           && url.isLocalFile();
-     if (sendInput) {
--        m_terminal->sendInput("cd " + KShell::quoteArg(mostLocalUrl.toLocalFile()) + '\n');
-+        m_terminal->sendInput("cd " + KShell::quoteArg(url.toLocalFile()) + '\n');
-     }
- 
- }
-Index: apps/keditbookmarks/bookmarkmodel.cpp
+--- apps/konqueror/preloader/konqy_preloader.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/konqueror/preloader/konqy_preloader.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -65,7 +65,7 @@
+ Name[ru]=Предварительная загрузка Konqueror
+ Name[se]=KDED-lassemodula mii viežžá Konqueror ovdagihtii
+ Name[si]=KDED Konqueror Preloader Module
+-Name[sk]=Modul KDED prednahrania Konquerora
++Name[sk]=KDED modul pre prednahratie Konquerora
+ Name[sl]=Modul KDED za prednalaganje Konquerorja
+ Name[sr]=КДЕД модул за предучитавање К‑освајача
+ Name[sr@latin]=KDED modul za predučitavanje K‑osvajača
+Index: apps/dolphin/src/kcm/kcmdolphinnavigation.desktop
 ===================================================================
---- apps/keditbookmarks/bookmarkmodel.cpp	(.../tags/KDE/4.3.2/kdebase)	(wersja 1032821)
-+++ apps/keditbookmarks/bookmarkmodel.cpp	(.../branches/KDE/4.3/kdebase)	(wersja 1032821)
-@@ -78,7 +78,7 @@
-     //Text
-     if(index.isValid() && (role == Qt::DisplayRole || role == Qt::EditRole))
-     {
--        KBookmark bk = bookmarkForIndex(index);
-+        const KBookmark bk = bookmarkForIndex(index);
-         if(bk.address().isEmpty())
-         {
-             if(index.column() == 0)
-@@ -100,12 +100,12 @@
-                     : subnode.firstChild().toText().data();
-             }
-             case 3: { //Status column
--                QString text1 = ""; //FIXME favicon state
--                QString text2 = ""; //FIXME link state
--                if(text1.isNull() || text2.isNull())
--                    return QVariant( text1 + text2);
-+                QString text1; //FIXME favicon state
-+                QString text2; //FIXME link state
-+                if(text1.isEmpty() || text2.isEmpty())
-+                    return QVariant( text1 + text2 );
-                 else
--                    return QVariant( text1 + "  --  " + text2);
-+                    return QVariant( text1 + "  --  " + text2 );
-             }
-             default:
-                 return QVariant( QString() ); //can't happen
-@@ -141,12 +141,14 @@
-                 return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable | Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled;
-         }
-         else
-+        {
-             if(index.column() < 3)
--                return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable | Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled;
-+                return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable | Qt::ItemIsDragEnabled;
-+        }
-     }
- 
-     // root
--    return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
-+    return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsDropEnabled;
- }
- 
- bool KBookmarkModel::setData(const QModelIndex &index, const QVariant &value, int role)
-@@ -187,7 +189,7 @@
-         return createIndex(row, column, d->mRootItem);
- 
-     TreeItem * item = static_cast<TreeItem *>(parent.internalPointer());
--    if(row == item->childCount()) {// Received drop below last row, simulate drop on last row
-+        if(row == item->childCount()) {// Received drop below last row, simulate drop on last row
-         return createIndex(row-1, column, item->child(row-1));
-     }
- 
-@@ -284,22 +286,42 @@
- 
- bool KBookmarkModel::dropMimeData(const QMimeData * data, Qt::DropAction action, int row, int column, const QModelIndex & parent)
- {
--    Q_UNUSED(action)
--
-     //FIXME this only works for internal drag and drops
-     //FIXME Moving is *very* buggy
--
--    QModelIndex idx;
-+    QModelIndex dropDestIndex;
-+    bool isInsertBetweenOp = false;
-     if(row == -1)
--        idx = parent;
-+    {
-+        dropDestIndex = parent;
-+    }
-     else
--        idx = index(row, column, parent);
-+    {
-+        isInsertBetweenOp = true;
-+        dropDestIndex= index(row, column, parent);
-+    }
- 
--    KBookmark bk = bookmarkForIndex(idx);
--    QString addr = bk.address();
--    if(bk.isGroup())
--        addr += "/0";
-+    KBookmark dropDestBookmark = bookmarkForIndex(dropDestIndex);
-+    if (dropDestBookmark.isNull())
-+    {
-+        // Presumably an invalid index: assume we want to place this in the root bookmark
-+        // folder.
-+        dropDestBookmark = d->mRoot;
-+    }
- 
-+    QString addr = dropDestBookmark.address();
-+    if(dropDestBookmark.isGroup() && !isInsertBetweenOp)
-+    {
-+      addr += "/0";
-+    }
-+    // bookmarkForIndex(...) does not distinguish between the last item in the folder
-+    // and the point *after* the last item in the folder (and its hard to see how to
-+    // modify it so it does), so do the check here.
-+    if (isInsertBetweenOp && row == dropDestBookmark.positionInParent() + 1)
-+    {
-+        // Attempting to insert underneath the last item in a folder; adjust the address.
-+        addr = KBookmark::nextAddress(addr);
-+    }
-+
-     if(action == Qt::CopyAction)
-     {
-         KEBMacroCommand * cmd = CmdGen::insertMimeSource("Copy", data, addr);
-@@ -338,6 +360,10 @@
- 
- KBookmark KBookmarkModel::bookmarkForIndex(const QModelIndex& index) const
- {
-+    if (!index.isValid())
-+    {
-+      return KBookmark();
-+    }
-     return static_cast<TreeItem *>(index.internalPointer())->bookmark();
- }
- 
-Index: apps/keditbookmarks/bookmarklistview.cpp
-===================================================================
---- apps/keditbookmarks/bookmarklistview.cpp	(.../tags/KDE/4.3.2/kdebase)	(wersja 1032821)
-+++ apps/keditbookmarks/bookmarklistview.cpp	(.../branches/KDE/4.3/kdebase)	(wersja 1032821)
+--- apps/dolphin/src/kcm/kcmdolphinnavigation.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/dolphin/src/kcm/kcmdolphinnavigation.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
 @@ -43,6 +43,7 @@
- 
- }
- 
-+
- /* ----------- */
- 
- BookmarkFolderView::BookmarkFolderView( BookmarkListView * view, QWidget * parent )
-@@ -53,6 +54,7 @@
-     setModel(mmodel);
-     header()->setVisible(false);
-     setRootIsDecorated(false);
-+    setDropIndicatorShown(true);
-     expandAll();
-     setCurrentIndex( mmodel->index(0,0, QModelIndex()));
-     
-@@ -88,7 +90,6 @@
-     return static_cast<KBookmarkModel *>(mmodel->sourceModel())->bookmarkForIndex(index);
- }
- 
--
- /********/
- 
- 
-@@ -173,15 +174,32 @@
- 
- bool BookmarkFolderViewFilterModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
- {
--    // FIXME Probably bug in QT, send bug report
--    kDebug()<<"BookmarkFolderViewFilterModel::dropMimeData"<<endl;
--    QModelIndex idx;
-+    QModelIndex dropDestProxyIndex;
-+    bool isInsertBetweenOp = false;
-     if(row == -1)
--        idx = parent;
-+    {
-+        dropDestProxyIndex = parent;
-+    }
-     else
--        idx = index(row, column, parent);
--    QModelIndex src = mapToSource(idx);
--    return sourceModel()->dropMimeData( data, action, -1, -1, src);
-+    {
-+        dropDestProxyIndex = index(row, column, parent);
-+        isInsertBetweenOp = true;
-+    }
-+    QModelIndex dropDestIndex = mapToSource(dropDestProxyIndex);
-+    if (!isInsertBetweenOp)
-+    {
-+        // Just dropping it onto dropDestIndex - ignore row and column.
-+        return sourceModel()->dropMimeData( data, action, -1, -1, dropDestIndex);
-+    }
-+    else
-+    {
-+        // Dropping before dropDestIndex.  We want to keep row and column
-+        // relative to the parent.
-+        // I'm reasonably certain the parent must be valid in this case.  If you get a crash here - nag me!
-+        Q_ASSERT(parent.isValid());
-+        QModelIndex dropDestParentIndex = mapToSource(parent);
-+        return sourceModel()->dropMimeData( data, action, dropDestIndex.row(), dropDestIndex.column(), dropDestParentIndex);
-+    }
- }
- 
- BookmarkFolderViewFilterModel::~BookmarkFolderViewFilterModel()
-Index: runtime/kcontrol/emoticons/emoticonslist.cpp
+ Name[ru]=Навигация в Dolphin
+ Name[se]=Dolphinnavigašuvdna
+ Name[si]=Dolphin සැරිසැරුම
++Name[sk]=Navigácia Dolphinu
+ Name[sl]=Dolphin - krmarjenje
+ Name[sr]=Делфинова навигација
+ Name[sr@latin]=Dolphinova navigacija
+@@ -97,6 +98,7 @@
+ Comment[ro]=Acest serviciu permite configurarea navigării Dolphin.
+ Comment[ru]=Эта служба позволяет настраивать навигацию в Dolphin
+ Comment[si]=මෙම සේවාව Dolphin සැරිසැරුම සැකසීමට ඉඩ දේ. 
++Comment[sk]=Táto služba umožňuje nastavenie navigácie v Dolphine.
+ Comment[sl]=Ta storitev omogoča nastavitev krmarjenja v Dolphinu.
+ Comment[sr]=Овај сервис омогућава подешавање навигације у Делфину.
+ Comment[sr@latin]=Ovaj servis omogućava podešavanje navigacije u Dolphinu.
+@@ -166,6 +168,7 @@
+ Name[ru]=Навигация
+ Name[se]=Navigašuvdna
+ Name[si]=සැරිසැරුම
++Name[sk]=Navigácia
+ Name[sl]=Krmarjenje
+ Name[sr]=Навигација
+ Name[sr@latin]=Navigacija
+@@ -221,6 +224,7 @@
+ Comment[ru]=Настройка навигации в диспетчере файлов
+ Comment[se]=Heivet fiilagieđahallannavigašuvdna
+ Comment[si]=ගොනු කළමණාකරන සැරිසැරුම සැකසීම
++Comment[sk]=Nastavenie navigácie správcu súborov
+ Comment[sl]=Nastavitve krmarjenja v upravitelju datotek
+ Comment[sr]=Подешавање навигације у менаџеру фајлова
+ Comment[sr@latin]=Podešavanje navigacije u menadžeru fajlova
+Index: apps/dolphin/src/kcm/kcmdolphinviewmodes.desktop
+===================================================================
+--- apps/dolphin/src/kcm/kcmdolphinviewmodes.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/dolphin/src/kcm/kcmdolphinviewmodes.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -44,6 +44,7 @@
+ Name[ru]=Представление папок в Dolphin
+ Name[se]=Dolphin čájehanmodusat
+ Name[si]=Dolphin දසුන් ආකාර
++Name[sk]=Režimy zobrazenia Dolphinu
+ Name[sl]=Dolphin - načini prikaza
+ Name[sr]=Делфинови режими приказа
+ Name[sr@latin]=Dolphinovi režimi prikaza
+@@ -99,6 +100,7 @@
+ Comment[ro]=Acest serviciu permite configurarea regimurilor de vizualizare Dolphin.
+ Comment[ru]=Эта служба позволяет настраивать представление папок в Dolphin
+ Comment[si]=මෙම සේවාව Dolphin දසුන් ආකාර සැකසීමට ඉඩ දේ. 
++Comment[sk]=Táto služba umožňuje nastavenie režimov zobrazenia Dolphinu.
+ Comment[sl]=Ta storitev omogoča nastavitev Dolphinovih načinov prikazov.
+ Comment[sr]=Овај сервис омогућава подешавање Делфинових режима приказа.
+ Comment[sr@latin]=Ovaj servis omogućava podešavanje Dolphinovih režima prikaza.
+@@ -167,6 +169,7 @@
+ Name[ru]=Режимы просмотра
+ Name[se]=Čájehanmodusat
+ Name[si]=දසුන් ආකාර
++Name[sk]=Režimy zobrazenia
+ Name[sl]=Načini prikaza
+ Name[sr]=Режими приказа
+ Name[sr@latin]=Režimi prikaza
+@@ -224,6 +227,7 @@
+ Comment[ru]=Настройка представления папок в диспетчере файлов
+ Comment[se]=Heivet fiilagieđahalli čájehanmodusat
+ Comment[si]=ගොනු කළමණාකරුගේ සැසුම් සකසන්න
++Comment[sk]=Nastavenie režimov zobrazenia správcu súborov
+ Comment[sl]=Nastavitve načinov prikaza upravitelja datotek
+ Comment[sr]=Подешавање режима приказа у менаџеру фајлова
+ Comment[sr@latin]=Podešavanje režima prikaza u menadžeru fajlova
+Index: apps/dolphin/src/kcm/kcmdolphinservices.desktop
+===================================================================
+--- apps/dolphin/src/kcm/kcmdolphinservices.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/dolphin/src/kcm/kcmdolphinservices.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -11,6 +11,7 @@
+ Name[en_GB]=Dolphin Services
+ Name[es]=Servicios de Dolphin
+ Name[et]=Dolphini teenused
++Name[eu]=Dolphin zerbitzuak
+ Name[fi]=Dolphin-palvelut
+ Name[fr]=Services de Dolphin
+ Name[fy]=Dolfyn tsjinsten
+@@ -41,6 +42,7 @@
+ Name[pt_BR]=Serviços do Dolphin
+ Name[ro]=Servicii Dolphin
+ Name[si]=Dolphin සේවා
++Name[sk]=Služby Dolphinu
+ Name[sl]=Dolphinov - storitve
+ Name[sr]=Делфинови сервиси
+ Name[sr@latin]=Dolphinovi servisi
+@@ -161,6 +163,7 @@
+ Comment[en_GB]=Configure file manager services
+ Comment[es]=Configurar las preferencias gestor de archivos
+ Comment[et]=Failihalduri teenuste seadistamine
++Comment[eu]=Konfiguratu fitxategi kudeatzaile zerbitzuak
+ Comment[fi]=Muokkaa tiedostonhallinnan palveluita
+ Comment[fr]=Configuration des services du gestionnaire de fichiers
+ Comment[fy]=Triembeheartsjinsten ynstelle
+@@ -191,6 +194,7 @@
+ Comment[pt_BR]=Configurar serviços do gerenciador de arquivos
+ Comment[ro]=Configurează serviciile gestionarului de fișiere
+ Comment[si]=ගොනු කළමණාකරුගේ සේවා සකසන්න
++Comment[sk]=Nastavenie služieb správcu súborov
+ Comment[sl]=Nastavitve storitev upravitelja datotek
+ Comment[sr]=Подешавање сервиса менаџера фајлова
+ Comment[sr@latin]=Podešavanje servisa menadžera fajlova
+Index: apps/dolphin/src/kcm/kcmdolphingeneral.desktop
+===================================================================
+--- apps/dolphin/src/kcm/kcmdolphingeneral.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/dolphin/src/kcm/kcmdolphingeneral.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -12,7 +12,7 @@
+ Name[es]=Dolphin general
+ Name[et]=Dolphini üldine
+ Name[eu]=Dolphin orokorra
+-Name[fi]=Dolphin-yleiset
++Name[fi]=Dolphin: yleistä
+ Name[fr]=Dolphin général
+ Name[fy]=Dolfyn algemien
+ Name[ga]=Dolphin Ginearálta
+@@ -44,6 +44,7 @@
+ Name[ru]=Основные параметры Dolphin
+ Name[se]=Dolphinoppalaččat
+ Name[si]=Dolphin සාමාන්‍ය
++Name[sk]=Všeobecný Dolphin
+ Name[sl]=Dolphin - splošno
+ Name[sr]=Делфиново опште
+ Name[sr@latin]=Dolphinovo opšte
+@@ -98,6 +99,7 @@
+ Comment[ro]=Acest serviciu permite configurarea opțiunilor generale ale lui Dolphin.
+ Comment[ru]=Эта служба позволяет настраивать основные параметры Dolphin
+ Comment[si]=මෙම සේවාව Dolphin දසුන් සැකසීමට ඉඩ සලසයි.
++Comment[sk]=Táto služba umožňuje všeobecné nastavenie Dolphinu.
+ Comment[sl]=Ta storitev omogoča spreminjanje Dolphinovih splošnih nastavitev.
+ Comment[sr]=Овај сервис омогућава подешавање општих Делфинових поставки.
+ Comment[sr@latin]=Ovaj servis omogućava podešavanje opštih Dolphinovih postavki.
+@@ -134,6 +136,7 @@
+ Name[en_GB]=General
+ Name[es]=General
+ Name[et]=Üldine
++Name[eu]=Orokorra
+ Name[fi]=Yleiset
+ Name[fr]=Général
+ Name[fy]=Algemien
+@@ -165,6 +168,7 @@
+ Name[pt_BR]=Geral
+ Name[ro]=General
+ Name[ru]=Основное
++Name[sk]=Všeobecné
+ Name[sl]=Splošno
+ Name[sr]=Опште
+ Name[sr@latin]=Opšte
+@@ -222,6 +226,7 @@
+ Comment[ru]=Настройка диспетчера файлов
+ Comment[se]=Heivet oppalaš fiilagieđahallanheivehusat
+ Comment[si]=සාමාන්‍ය ගොනු කළමාණාකරන සැකසුම් සකසන්න
++Comment[sk]=Všeobecné nastavenie správcu súborov
+ Comment[sl]=Splošne nastavitve upravitelja datotek
+ Comment[sr]=Подешавање општих поставки менаџера фајлова
+ Comment[sr@latin]=Podešavanje opštih postavki menadžera fajlova
+Index: apps/doc/dolphin/configurationwindow.png
+===================================================================
+Nie można wyświetlić: plik binarny.
+svn:mime-type = application/octet-stream
+Index: apps/doc/dolphin/breadcrumb.png
+===================================================================
+Nie można wyświetlić: plik binarny.
+svn:mime-type = application/octet-stream
+Index: apps/doc/dolphin/configurationwindow2.png
+===================================================================
+Nie można wyświetlić: plik binarny.
+svn:mime-type = application/octet-stream
+Index: apps/doc/dolphin/directorypath.png
+===================================================================
+Nie można wyświetlić: plik binarny.
+svn:mime-type = application/octet-stream
+Index: apps/lib/konq/konqdndpopupmenuplugin.desktop
+===================================================================
+--- apps/lib/konq/konqdndpopupmenuplugin.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/lib/konq/konqdndpopupmenuplugin.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -40,6 +40,7 @@
+ Comment[pt_BR]=Plug-in arrastar e soltar para os menus de contexto do Konqueror.
+ Comment[ro]=Modul trage-și-lasă pentru meniul popup Konqueror.
+ Comment[ru]=Расширение контекстного меню Konqueror
++Comment[sk]=Modul pre kontextové menu Konquerora.
+ Comment[sl]=Vstavek povleci-in-spusti za Konquerorjev pojavni meni.
+ Comment[sr]=Прикључак за превлачење за К‑освајачев искачући мени.
+ Comment[sr@latin]=Priključak za prevlačenje za K‑osvajačev iskačući meni.
+Index: apps/lib/konq/favicons/favicons.desktop
+===================================================================
+--- apps/lib/konq/favicons/favicons.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/lib/konq/favicons/favicons.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -66,7 +66,7 @@
+ Name[ru]=Служба значков
+ Name[se]=KDED favicon-moduvla
+ Name[si]=KDED Favicon Module
+-Name[sk]=Modul KDED Favicon
++Name[sk]=KDED modul Favicon
+ Name[sl]=Modul KDED za favicon
+ Name[sr]=КДЕД модул фавикона
+ Name[sr@latin]=KDED modul favikona
+Index: apps/konsole/desktop/konsolepart.desktop
+===================================================================
+--- apps/konsole/desktop/konsolepart.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/konsole/desktop/konsolepart.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -85,7 +85,7 @@
+ Name[tg]=Тақлидгари терминал
+ Name[th]=โปรแกรมจำลองเทอร์มินัล
+ Name[tr]=Uçbirim Öykünücüsü
+-Name[uk]=Емуляція термінала
++Name[uk]=Емулятор термінала
+ Name[uz]=Terminal emulyatori
+ Name[uz@cyrillic]=Терминал эмулятори
+ Name[vi]=Mô phỏng thiết bị cuối
+Index: apps/konsole/desktop/terminalemulator.desktop
+===================================================================
+--- apps/konsole/desktop/terminalemulator.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/konsole/desktop/terminalemulator.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -77,7 +77,7 @@
+ Name[tg]=Тақлидгари терминал
+ Name[th]=โปรแกรมจำลองเทอร์มินัล
+ Name[tr]=Uçbirim Öykünücüsü
+-Name[uk]=Емуляція термінала
++Name[uk]=Емулятор термінала
+ Name[uz]=Terminal emulyatori
+ Name[uz@cyrillic]=Терминал эмулятори
+ Name[vi]=Mô phỏng thiết bị cuối
+Index: apps/plasma/applets/folderview/plasma-applet-folderview.desktop
+===================================================================
+--- apps/plasma/applets/folderview/plasma-applet-folderview.desktop	(.../tags/KDE/4.3.3/kdebase)	(wersja 1053994)
++++ apps/plasma/applets/folderview/plasma-applet-folderview.desktop	(.../branches/KDE/4.3/kdebase)	(wersja 1053994)
+@@ -117,6 +117,7 @@
+ Comment[ro]=Afișează conținutul dosarelor (implicit dosarul Acasă al utilizatorului)
+ Comment[ru]=Вывод содержимого папки (по умолчанию — рабочего стола)
+ Comment[si]=Display the contents of folders (User's home folder as default)
++Comment[sk]=Zobrazenie obsahu priečinkov (štandardne domovský priečinok)
+ Comment[sl]=Prikaže vsebino mape (privzeto uporabnikove domače mape)
+ Comment[sr]=Приказује садржај фасцикли (подразумевано корисникове домаће)
+ Comment[sr@latin]=Prikazuje sadržaj fascikli (podrazumevano korisnikove domaće)
+Index: runtime/knotify/knotify4.desktop
+===================================================================
+Index: runtime/knotify/kde.notifyrc
+===================================================================
+Index: runtime/kcontrol/locale/language.desktop
+===================================================================
+Index: runtime/kcontrol/knotify/kcmnotify.desktop
+===================================================================
+Index: runtime/kcontrol/componentchooser/componentservices/kcm_kemail.desktop
+===================================================================
+Index: runtime/kcontrol/componentchooser/componentservices/kcm_browser.desktop
+===================================================================
+Index: runtime/kcontrol/componentchooser/componentservices/kcm_wm.desktop
 ===================================================================
 Index: runtime/kcontrol/componentchooser/componentservices/kcm_filemanager.desktop
 ===================================================================
+Index: runtime/kcontrol/componentchooser/componentservices/kcm_terminal.desktop
+===================================================================
+Index: runtime/kcontrol/kded/kcmkded.desktop
+===================================================================
+Index: runtime/desktoptheme/air/metadata.desktop
+===================================================================
 Index: runtime/phonon/platform_kde/phonon.notifyrc
 ===================================================================
-Index: runtime/kioslave/info/info.cc
+Index: runtime/phonon/kcm/kcm_phonon.desktop
 ===================================================================
-Index: runtime/nepomuk/services/storage/nepomukcore.cpp
+Index: runtime/kpasswdserver/kpasswdserver.desktop
 ===================================================================
-Index: runtime/nepomuk/kcm/nepomukserverkcm.cpp
+Index: runtime/khelpcenter/khelpcenter.desktop
 ===================================================================
-Index: runtime/l10n/jm/entry.desktop
+Index: runtime/khelpcenter/plugins/Manpages/.directory
 ===================================================================
-Index: runtime/l10n/ru/entry.desktop
+Index: runtime/khelpcenter/plugins/Manpages/man1.desktop
 ===================================================================
-Index: runtime/l10n/tj/entry.desktop
+Index: runtime/khelpcenter/plugins/userguide.desktop
 ===================================================================
-Index: runtime/l10n/ge/entry.desktop
+Index: runtime/menu/desktop/kde-utilities-xutils.directory
 ===================================================================
-Index: runtime/plasma/scriptengines/javascript/plasma-scriptengine-applet-simple-javascript.desktop
+Index: runtime/menu/desktop/kde-science.directory
 ===================================================================
-Index: workspace/ksmserver/fadeeffect.cpp
+Index: runtime/platforms/win/config/platform.desktop
+===================================================================
+Index: runtime/platforms/win/kwinstartmenu/winstartmenu.desktop
+===================================================================
+Index: runtime/kwalletd/kwalletd.notifyrc
+===================================================================
+Index: runtime/ktimezoned/ktimezoned.desktop
+===================================================================
+Index: runtime/ktimezoned/ktimezoned.cpp
+===================================================================
+Index: runtime/kioslave/thumbnail/directorythumbnail.desktop
+===================================================================
+Index: runtime/kioslave/thumbnail/desktopthumbnail.desktop
+===================================================================
+Index: runtime/kioslave/thumbnail/thumbnail.cpp
+===================================================================
+Index: runtime/kioslave/network/ioslave/network.protocol
+===================================================================
+Index: runtime/kioslave/network/kded/networkwatcher.desktop
+===================================================================
+Index: runtime/kioslave/remote/kdedmodule/remotedirnotify.desktop
+===================================================================
+Index: runtime/kioslave/desktop/desktopnotifier.desktop
+===================================================================
+Index: runtime/solidautoeject/solidautoeject.desktop
+===================================================================
+Index: runtime/nepomuk/services/strigi/nepomukstrigiservice.notifyrc
+===================================================================
+Index: runtime/nepomuk/services/storage/nepomukstorage.notifyrc
+===================================================================
+Index: runtime/nepomuk/services/filewatch/nepomukfilewatch.desktop
+===================================================================
+Index: runtime/nepomuk/services/queryservice/nepomukqueryservice.desktop
+===================================================================
+Index: runtime/nepomuk/server/nepomukserver.desktop
+===================================================================
+Index: runtime/nepomuk/kcm/kcm_nepomuk.desktop
+===================================================================
+Index: runtime/kstyles/themes/light-v2.themerc
+===================================================================
+Index: runtime/kstyles/themes/light-v3.themerc
+===================================================================
+Index: runtime/kstyles/themes/highcolor.themerc
+===================================================================
+Index: runtime/kstyles/themes/qtplatinum.themerc
+===================================================================
+Index: runtime/kstyles/themes/qtwindows.themerc
+===================================================================
+Index: runtime/kstyles/themes/qtcde.themerc
+===================================================================
+Index: runtime/kstyles/themes/qtmotif.themerc
+===================================================================
+Index: runtime/kstyles/themes/default.themerc
+===================================================================
+Index: runtime/kstyles/themes/beos.themerc
+===================================================================
+Index: runtime/kstyles/oxygen/oxygen.themerc
+===================================================================
+Index: runtime/kstyles/oxygen/oxygen.cpp
+===================================================================
+Index: runtime/kstyles/highcontrast/highcontrast.themerc
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchprovider.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/bugft.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/bugno.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/es2en.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/fsd.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/ethicle.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/grec.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/google_lucky.desktop
+===================================================================
+Index: runtime/soliduiserver/soliduiserver.desktop
+===================================================================
+Index: runtime/kglobalaccel/kglobalaccel.desktop
+===================================================================
+Index: runtime/drkonqi/backtraceparser.cpp
+===================================================================
+Index: runtime/drkonqi/bugzillalib.cpp
+===================================================================
+Index: runtime/drkonqi/drkonqiassistantpages_base.cpp
+===================================================================
+Index: runtime/drkonqi/mappings
+===================================================================
+Index: runtime/l10n/northamerica.desktop
+===================================================================
+Index: runtime/l10n/za/entry.desktop
+===================================================================
+Index: runtime/l10n/km/entry.desktop
+===================================================================
+Index: runtime/l10n/kn/entry.desktop
+===================================================================
+Index: runtime/l10n/ky/entry.desktop
+===================================================================
+Index: runtime/l10n/southamerica.desktop
+===================================================================
+Index: runtime/l10n/lc/entry.desktop
+===================================================================
+Index: runtime/l10n/ly/entry.desktop
+===================================================================
+Index: runtime/l10n/nl/entry.desktop
+===================================================================
+Index: runtime/l10n/southeastasia.desktop
+===================================================================
+Index: runtime/l10n/pf/entry.desktop
+===================================================================
+Index: runtime/l10n/ae/entry.desktop
+===================================================================
+Index: runtime/l10n/an/entry.desktop
+===================================================================
+Index: runtime/l10n/az/entry.desktop
+===================================================================
+Index: runtime/l10n/bd/entry.desktop
+===================================================================
+Index: runtime/l10n/southeurope.desktop
+===================================================================
+Index: runtime/l10n/bj/entry.desktop
+===================================================================
+Index: runtime/l10n/cf/entry.desktop
+===================================================================
+Index: runtime/l10n/rw/entry.desktop
+===================================================================
+Index: runtime/l10n/ci/entry.desktop
+===================================================================
+Index: runtime/l10n/sa/entry.desktop
+===================================================================
+Index: runtime/l10n/sb/entry.desktop
+===================================================================
+Index: runtime/l10n/cx/entry.desktop
+===================================================================
+Index: runtime/l10n/sh/entry.desktop
+===================================================================
+Index: runtime/l10n/sr/entry.desktop
+===================================================================
+Index: runtime/l10n/st/entry.desktop
+===================================================================
+Index: runtime/l10n/tl/entry.desktop
+===================================================================
+Index: runtime/l10n/tm/entry.desktop
+===================================================================
+Index: runtime/l10n/tp/entry.desktop
+===================================================================
+Index: runtime/l10n/tt/entry.desktop
+===================================================================
+Index: runtime/l10n/fk/entry.desktop
+===================================================================
+Index: runtime/l10n/fm/entry.desktop
+===================================================================
+Index: runtime/l10n/vc/entry.desktop
+===================================================================
+Index: runtime/l10n/vg/entry.desktop
+===================================================================
+Index: runtime/l10n/vi/entry.desktop
+===================================================================
+Index: runtime/l10n/easteurope.desktop
+===================================================================
+Index: runtime/l10n/gq/entry.desktop
+===================================================================
+Index: runtime/l10n/northeurope.desktop
+===================================================================
+Index: runtime/l10n/centraleurope.desktop
+===================================================================
+Index: runtime/l10n/centralamerica.desktop
+===================================================================
+Index: runtime/l10n/westeurope.desktop
+===================================================================
+Index: runtime/plasma/scriptengines/javascript/tests/javascript-config-test/metadata.desktop
+===================================================================
+Index: runtime/plasma/scriptengines/javascript/tests/script-digital-clock/metadata.desktop
+===================================================================
+Index: runtime/plasma/scriptengines/javascript/tests/script-nowplaying/metadata.desktop
+===================================================================
+Index: runtime/plasma/scriptengines/javascript/tests/tiger/metadata.desktop
+===================================================================
+Index: runtime/plasma/scriptengines/javascript/tests/script-mediaplayer/metadata.desktop
+===================================================================
+Index: workspace/kcontrol/screensaver/screensaver.desktop
+===================================================================
+Index: workspace/kcontrol/autostart/autostart.desktop
+===================================================================
+Index: workspace/kcontrol/access/kcmaccess.desktop
+===================================================================
+Index: workspace/systemsettings/classic/settings-classic-view.desktop
+===================================================================
+Index: workspace/systemsettings/categories/settings-notifications.desktop
+===================================================================
+Index: workspace/systemsettings/categories/settings-general.desktop
+===================================================================
+Index: workspace/systemsettings/categories/settings-advanced-user-settings.desktop
+===================================================================
+Index: workspace/systemsettings/categories/settings-regional-and-language.desktop
+===================================================================
+Index: workspace/systemsettings/categories/settings-computer-administration.desktop
+===================================================================
+Index: workspace/systemsettings/categories/settings-network-settings.desktop
+===================================================================
+Index: workspace/systemsettings/categories/settings-network-and-connectivity.desktop
+===================================================================
+Index: workspace/systemsettings/core/systemsettingsview.desktop
+===================================================================
+Index: workspace/systemsettings/icons/settings-icon-view.desktop
+===================================================================
+Index: workspace/klipper/editactiondialog.ui
+===================================================================
+Index: workspace/klipper/editactiondialog.cpp
+===================================================================
+Index: workspace/klipper/klipper.cpp
+===================================================================
+Index: workspace/klipper/clipcommandprocess.cpp
+===================================================================
+Index: workspace/klipper/urlgrabber.cpp
+===================================================================
+Index: workspace/klipper/CMakeLists.txt
+===================================================================
+Index: workspace/klipper/history.cpp
+===================================================================
+Index: workspace/klipper/editactiondialog.h
+===================================================================
+Index: workspace/klipper/klipper.h
+===================================================================
+Index: workspace/klipper/clipcommandprocess.h
+===================================================================
+Index: workspace/klipper/urlgrabber.h
+===================================================================
+Index: workspace/PolicyKit-kde/authorization/kcm_pkk_authorization.desktop
+===================================================================
+Index: workspace/kwrited/kwrited.desktop
+===================================================================
+Index: workspace/kwrited/kwrited-autostart.desktop
+===================================================================
+Index: workspace/wallpapers/Evening/metadata.desktop
 ===================================================================
 Index: workspace/wallpapers/Atra_Dot/metadata.desktop
 ===================================================================
+Index: workspace/wallpapers/The_Rings_of_Saturn/metadata.desktop
+===================================================================
+Index: workspace/wallpapers/Spring_Sunray/metadata.desktop
+===================================================================
+Index: workspace/wallpapers/Aghi/metadata.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/solid-actions.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Video.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Battery.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-NetworkInterface.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Button.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Processor.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-AudioInterface.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-AcAdapter.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-OpticalDrive.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-PortableMediaPlayer.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-StorageAccess.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Camera.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Block.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-StorageVolume.desktop
+===================================================================
 Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-DvbInterface.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-GenericInterface.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-OpticalDisc.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-StorageDrive.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-SerialInterface.desktop
+===================================================================
+Index: workspace/solid/wicd/solid_wicd.desktop
 ===================================================================
 Index: workspace/solid/networking/kded/networkstatus.desktop
 ===================================================================
+Index: workspace/powerdevil/kcmodule/powerdevilconfig.desktop
+===================================================================
+Index: workspace/powerdevil/powerdevil.notifyrc
+===================================================================
+Index: workspace/krunner/krunner.desktop
+===================================================================
+Index: workspace/libs/kephal/kded_kephal/kephal.desktop
+===================================================================
+Index: workspace/libs/solid/control/backends/fakebluetooth/solid_fakebluetooth.desktop
+===================================================================
+Index: workspace/khotkeys/kcm_hotkeys/khotkeys.desktop
+===================================================================
+Index: workspace/khotkeys/data/defaults.khotkeys
+===================================================================
 Index: workspace/khotkeys/data/kde32b1.khotkeys
 ===================================================================
-Index: workspace/kwin/effects/desktopgrid/desktopgrid.cpp
+Index: workspace/kwin/effects/desktopgrid/desktopgrid.desktop
 ===================================================================
-Index: workspace/kwin/effects/slideback/slideback.cpp
+Index: workspace/kwin/effects/desktopgrid/desktopgrid_config.desktop
 ===================================================================
-Index: workspace/kwin/effects/logout/logout.h
+Index: workspace/kwin/effects/slideback/slideback.desktop
+===================================================================
+Index: workspace/kwin/effects/snow/snow.desktop
+===================================================================
+Index: workspace/kwin/effects/magiclamp/magiclamp.desktop
+===================================================================
+Index: workspace/kwin/effects/presentwindows/presentwindows.desktop
+===================================================================
+Index: workspace/kwin/effects/taskbarthumbnail/taskbarthumbnail.desktop
+===================================================================
+Index: workspace/kwin/effects/lookingglass/lookingglass.desktop
+===================================================================
+Index: workspace/kwin/effects/highlightwindow/highlightwindow.desktop
+===================================================================
+Index: workspace/kwin/effects/fade/fade.desktop
+===================================================================
+Index: workspace/kwin/effects/coverswitch/coverswitch.desktop
+===================================================================
+Index: workspace/kwin/effects/coverswitch/coverswitch_config.desktop
+===================================================================
+Index: workspace/kwin/effects/sharpen/sharpen.desktop
+===================================================================
+Index: workspace/kwin/effects/slide/slide.desktop
+===================================================================
+Index: workspace/kwin/effects/snaphelper/snaphelper.desktop
+===================================================================
+Index: workspace/kwin/effects/fallapart/fallapart.desktop
+===================================================================
+Index: workspace/kwin/effects/login/login.desktop
+===================================================================
+Index: workspace/kwin/effects/wobblywindows/wobblywindows.desktop
+===================================================================
+Index: workspace/kwin/effects/dimscreen/dimscreen.desktop
+===================================================================
+Index: workspace/kwin/effects/logout/logout.desktop
 ===================================================================
 Index: workspace/kwin/effects/logout/logout.cpp
 ===================================================================
-Index: workspace/kwin/utils.h
+Index: workspace/kwin/effects/boxswitch/boxswitch.desktop
 ===================================================================
-Index: workspace/kwin/rules.cpp
+Index: workspace/kwin/effects/boxswitch/boxswitch_config.desktop
 ===================================================================
-Index: workspace/kwin/client.cpp
+Index: workspace/kwin/effects/boxswitch/boxswitch.cpp
+===================================================================
+Index: workspace/kwin/effects/showpaint/showpaint.desktop
+===================================================================
+Index: workspace/kwin/effects/scalein/scalein.desktop
+===================================================================
+Index: workspace/kwin/effects/explosion/explosion.desktop
+===================================================================
+Index: workspace/kwin/effects/zoom/zoom_config.desktop
+===================================================================
+Index: workspace/kwin/effects/zoom/zoom.desktop
+===================================================================
+Index: workspace/kwin/effects/shadow/shadow_config.desktop
+===================================================================
+Index: workspace/kwin/effects/shadow/shadow.desktop
+===================================================================
+Index: workspace/kwin/effects/fadedesktop/fadedesktop.desktop
+===================================================================
+Index: workspace/kwin/effects/showfps/showfps.desktop
+===================================================================
+Index: workspace/kwin/effects/showfps/showfps_config.desktop
+===================================================================
+Index: workspace/kwin/effects/thumbnailaside/thumbnailaside.desktop
+===================================================================
+Index: workspace/kwin/effects/thumbnailaside/thumbnailaside_config.desktop
+===================================================================
+Index: workspace/kwin/effects/diminactive/diminactive.desktop
+===================================================================
+Index: workspace/kwin/effects/diminactive/diminactive_config.desktop
+===================================================================
+Index: workspace/kwin/effects/magnifier/magnifier.desktop
+===================================================================
+Index: workspace/kwin/effects/magnifier/magnifier_config.desktop
+===================================================================
+Index: workspace/kwin/effects/mousemark/mousemark_config.desktop
+===================================================================
+Index: workspace/kwin/effects/mousemark/mousemark.desktop
+===================================================================
+Index: workspace/kwin/effects/invert/invert.desktop
+===================================================================
+Index: workspace/kwin/effects/invert/invert_config.desktop
+===================================================================
+Index: workspace/kwin/effects/sheet/sheet.desktop
+===================================================================
+Index: workspace/kwin/effects/dialogparent/dialogparent.desktop
+===================================================================
+Index: workspace/kwin/effects/translucency/translucency.desktop
+===================================================================
+Index: workspace/kwin/effects/flipswitch/flipswitch.desktop
+===================================================================
+Index: workspace/kwin/effects/flipswitch/flipswitch_config.desktop
+===================================================================
+Index: workspace/kwin/effects/trackmouse/trackmouse.desktop
+===================================================================
+Index: workspace/kwin/effects/_test/demo_showpicture.desktop
+===================================================================
+Index: workspace/kwin/effects/_test/demo_liquid.desktop
+===================================================================
+Index: workspace/kwin/effects/_test/demo_wavywindows.desktop
+===================================================================
+Index: workspace/kwin/effects/_test/demo_shiftworkspaceup.desktop
+===================================================================
+Index: workspace/kwin/effects/_test/demo_shakymove.desktop
+===================================================================
+Index: workspace/kwin/effects/cube/cubeslide_config.desktop
+===================================================================
+Index: workspace/kwin/effects/cube/cubeslide.desktop
+===================================================================
+Index: workspace/kwin/kcmkwin/kwinscreenedges/kwinscreenedges.desktop
 ===================================================================
 Index: workspace/kwin/kwin.notifyrc
 ===================================================================
-Index: workspace/kwin/geometry.cpp
+Index: workspace/kwin/data/fsp_workarounds_1.kwinrules
 ===================================================================
-Index: workspace/kwin/client.h
+Index: workspace/kdm/kfrontend/themes/oxygen-air/KdmGreeterTheme.desktop
 ===================================================================
-Index: workspace/kwin/utils.cpp
+Index: workspace/kdm/kfrontend/sessions/xfce4.desktop
 ===================================================================
-Index: workspace/kwin/activation.cpp
+Index: workspace/kdm/kfrontend/sessions/awesome.desktop
+===================================================================
+Index: workspace/kdm/kfrontend/sessions/aewm++.desktop
+===================================================================
+Index: workspace/kdm/kfrontend/sessions/fvwm.desktop
+===================================================================
+Index: workspace/plasma/dataengines/metadata/plasma-engine-metadata.desktop
+===================================================================
+Index: workspace/plasma/dataengines/applicationjobs/plasma-dataengine-applicationjobs.desktop
+===================================================================
+Index: workspace/plasma/dataengines/applicationjobs/kuiserverengine.cpp
+===================================================================
+Index: workspace/plasma/dataengines/executable/plasma-dataengine-executable.desktop
+===================================================================
+Index: workspace/plasma/dataengines/hotplug/plasma-dataengine-hotplug.desktop
+===================================================================
+Index: workspace/plasma/dataengines/dict/plasma-dataengine-dict.desktop
+===================================================================
+Index: workspace/plasma/dataengines/filebrowser/plasma-dataengine-filebrowser.desktop
+===================================================================
+Index: workspace/plasma/dataengines/tasks/plasma-dataengine-tasks.desktop
+===================================================================
+Index: workspace/plasma/dataengines/mouse/plasma-dataengine-mouse.desktop
+===================================================================
+Index: workspace/plasma/dataengines/powermanagement/plasma-dataengine-powermanagement.desktop
 ===================================================================
 Index: workspace/plasma/dataengines/keystate/plasma-dataengine-keystate.desktop
 ===================================================================
-Index: workspace/plasma/runners/locations/plasma-runner-locations.desktop
+Index: workspace/plasma/dataengines/soliddevice/plasma-dataengine-soliddevice.desktop
 ===================================================================
-Index: workspace/plasma/scriptengines/ruby/examples/dataengines/time/metadata.desktop
+Index: workspace/plasma/dataengines/systemmonitor/plasma-dataengine-systemmonitor.desktop
+===================================================================
+Index: workspace/plasma/dataengines/time/plasma-dataengine-time.desktop
+===================================================================
+Index: workspace/plasma/dataengines/weather/plasma-dataengine-weather.desktop
+===================================================================
+Index: workspace/plasma/dataengines/geolocation/plasma-geolocationprovider.desktop
+===================================================================
+Index: workspace/plasma/dataengines/geolocation/plasma-dataengine-geolocation.desktop
+===================================================================
+Index: workspace/plasma/dataengines/geolocation/plasma-geolocation-ip.desktop
+===================================================================
+Index: workspace/plasma/dataengines/geolocation/plasma-geolocation-gps.desktop
+===================================================================
+Index: workspace/plasma/dataengines/akonadi/plasma-engine-akonadi.desktop
+===================================================================
+Index: workspace/plasma/dataengines/places/plasma-dataengine-places.desktop
+===================================================================
+Index: workspace/plasma/dataengines/rss/plasma-dataengine-rss.desktop
+===================================================================
+Index: workspace/plasma/dataengines/favicons/plasma-dataengine-favicons.desktop
+===================================================================
+Index: workspace/plasma/dataengines/notifications/plasma-dataengine-notifications.desktop
+===================================================================
+Index: workspace/plasma/dataengines/calendar/plasma-dataengine-calendar.desktop
+===================================================================
+Index: workspace/plasma/shells/desktop/plasma-desktop.desktop
+===================================================================
+Index: workspace/plasma/runners/nepomuksearch/plasma-runner-nepomuksearch.desktop
+===================================================================
+Index: workspace/plasma/runners/sessions/plasma-runner-sessions.desktop
+===================================================================
+Index: workspace/plasma/runners/bookmarks/plasma-runner-bookmarks.desktop
+===================================================================
+Index: workspace/plasma/runners/webshortcuts/plasma-runner-webshortcuts.desktop
+===================================================================
+Index: workspace/plasma/tools/desktopthemedetails/desktopthemedetails.desktop
+===================================================================
+Index: workspace/plasma/containments/desktop/plasma-containment-desktop.desktop
+===================================================================
+Index: workspace/plasma/applets/webbrowser/plasma-applet-webbrowser.desktop
+===================================================================
+Index: workspace/plasma/applets/activitybar/plasma-applet-activitybar.desktop
+===================================================================
+Index: workspace/plasma/applets/systemtray/notificationitemwatcher/notificationitemwatcher.desktop
+===================================================================
+Index: workspace/plasma/applets/systemtray/plasma-applet-systemtray.desktop
+===================================================================
+Index: workspace/plasma/applets/systemtray/ui/jobwidget.cpp
+===================================================================
+Index: workspace/plasma/applets/systemtray/ui/jobwidget.h
+===================================================================
+Index: workspace/plasma/applets/analog-clock/plasma-applet-analogclock.desktop
+===================================================================
+Index: workspace/plasma/applets/panelspacer/plasma-applet-panelspacer-internal.desktop
+===================================================================
+Index: workspace/plasma/applets/panelspacer/panelspacer.cpp
+===================================================================
+Index: workspace/plasma/applets/devicenotifier/test-predicate-openinwindow.desktop
+===================================================================
+Index: workspace/plasma/applets/devicenotifier/plasma-applet-devicenotifier.desktop
+===================================================================
+Index: workspace/plasma/applets/quicklaunch/plasma-applet-quicklaunch.desktop
+===================================================================
+Index: workspace/plasma/applets/system-monitor/plasma-applet-sm_hwinfo.desktop
+===================================================================
+Index: workspace/plasma/applets/system-monitor/plasma-applet-sm_ram.desktop
+===================================================================
+Index: workspace/plasma/applets/kickoff/applet/plasma-applet-launcher.desktop
+===================================================================
+Index: workspace/plasma/wallpapers/image/image.cpp
+===================================================================
+Index: workspace/plasma/scriptengines/python/plasma-scriptengine-dataengine-python.desktop
+===================================================================
+Index: workspace/plasma/scriptengines/ruby/examples/dataengines/dbpedia_albums/metadata.desktop
+===================================================================
+Index: workspace/plasma/scriptengines/ruby/examples/applets/extendertutorial/metadata.desktop
+===================================================================
+Index: workspace/plasma/scriptengines/ruby/examples/applets/clock/metadata.desktop
 ===================================================================
