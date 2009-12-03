@@ -30,8 +30,11 @@ Patch0:		%{name}-wordchars.patch
 URL:		http://www.kde.org/
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
+BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtNetwork-devel >= %{qtver}
+BuildRequires:	QtSvg-devel
+BuildRequires:	QtTest-devel
 BuildRequires:	audiofile-devel
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	bzip2-devel
@@ -67,9 +70,13 @@ BuildRequires:	pam-devel
 BuildRequires:	pciutils-devel
 BuildRequires:	pkgconfig
 BuildRequires:	qimageblitz-devel
+BuildRequires:	qt4-build
+BuildRequires:	qt4-qmake
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	samba-devel
+BuildRequires:	soprano-devel
+BuildRequires:	strigi-devel
 BuildRequires:	xorg-app-bdftopcf
 BuildRequires:	xorg-cf-files
 BuildRequires:	xorg-lib-libXScrnSaver-devel
@@ -141,7 +148,7 @@ kmenuedit, kappfinder).
 Summary:	Include files to develop KDE applications
 Summary(pl.UTF-8):	Pliki nagłówkowe potrzebne do tworzenia aplikacji KDE
 Summary(pt_BR.UTF-8):	Arquivos de inclusão para compilar aplicativos que usem bibliotecas do kdebase
-Group:		X11/Development/Librariesn
+Group:		X11/Development/Libraries
 Requires:	kde4-dolphin
 Requires:	kde4-kdelibs-devel >= %{version}
 Requires:	kde4-konqueror-libs
