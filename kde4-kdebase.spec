@@ -19,13 +19,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.3.75
+Version:	4.3.80
 Release:	1
 License:	GPL
 Group:		X11/Applications
-#Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}%{snap}.tar.bz2
-# Source0-md5:	e2d6388a484bb431d0753e1022e7d0bf
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
+# Source0-md5:	83af816034448c0b21667457efe1a455
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-wordchars.patch
 URL:		http://www.kde.org/
@@ -334,8 +333,7 @@ Konqueror shared libraries.
 Biblioteki współdzielone konquerora.
 
 %prep
-%setup -q -n %{orgname}-%{version}%{snap}
-#%setup -q -n %{orgname}-%{version}
+%setup -q -n %{orgname}-%{version}
 #%patch100 -p0
 %patch0 -p1
 
@@ -604,7 +602,7 @@ fi
 %dir %{_datadir}/apps/plugin
 %{_datadir}/apps/plugin/nspluginpart.rc
 %{_datadir}/autostart/konqy_preload.desktop
-%{_datadir}/config/konqsidebartng.rc
+%{_datadir}/config/konqsidebartngrc
 %{_datadir}/config.kcfg/konqueror.kcfg
 %{_datadir}/kde4/servicetypes/findpart.desktop
 %{_datadir}/kde4/servicetypes/konqaboutpage.desktop
@@ -633,7 +631,7 @@ fi
 %{_datadir}/kde4/services/konq_aboutpage.desktop
 %{_datadir}/kde4/services/konq_sidebartng.desktop
 %{_datadir}/kde4/services/konqueror.desktop
-%{_datadir}/kde4/services/lanbrowser.desktop
+#%{_datadir}/kde4/services/lanbrowser.desktop
 %{_datadir}/kde4/services/netpref.desktop
 %{_datadir}/kde4/services/proxy.desktop
 %{_datadir}/kde4/services/smb.desktop
