@@ -20,7 +20,7 @@ Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
 Version:	4.3.80
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
@@ -76,6 +76,7 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	samba-devel
 BuildRequires:	soprano-devel
+BuildRequires:	shared-desktop-ontologies-devel >= 0.2
 BuildRequires:	strigi-devel
 BuildRequires:	xorg-app-bdftopcf
 BuildRequires:	xorg-cf-files
