@@ -563,6 +563,7 @@ fi
 %dir %{_datadir}/apps/dolphinpart
 %{_datadir}/apps/dolphinpart/dolphinpart.rc
 %{_datadir}/config.kcfg/dolphin_columnmodesettings.kcfg
+%{_datadir}/config.kcfg/dolphin_versioncontrolsettings.kcfg
 %{_datadir}/config.kcfg/dolphin_detailsmodesettings.kcfg
 %{_datadir}/config.kcfg/dolphin_directoryviewpropertysettings.kcfg
 %{_datadir}/config.kcfg/dolphin_generalsettings.kcfg
