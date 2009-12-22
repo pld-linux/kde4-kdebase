@@ -3,6 +3,9 @@
 # - more file moves between packages; what's with dozen of messy -core/-common/-common* packages?
 # - Req, Obsolets and Conflicts for every package
 # - new descriptions
+# - k3b-1.69.0-0.alpha4.1.i686: required "/usr/share/apps/konqsidebartng/virtual_folders/services" is provided by following packages:
+#   a) kde4-kdebase-workspace-4.3.4-2.i686
+#   b) kde4-konqueror-4.3.4-1.i686
 #
 %define		_state		stable
 %define		orgname		kdebase
