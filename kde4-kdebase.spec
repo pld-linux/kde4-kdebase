@@ -75,8 +75,8 @@ BuildRequires:	qt4-qmake
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	samba-devel
-BuildRequires:	soprano-devel
 BuildRequires:	shared-desktop-ontologies-devel >= 0.2
+BuildRequires:	soprano-devel
 BuildRequires:	strigi-devel
 BuildRequires:	xorg-app-bdftopcf
 BuildRequires:	xorg-cf-files
@@ -268,6 +268,7 @@ Summary:	Dolphin - KDE 4 file manager
 Summary(pl.UTF-8):	Dolphin - zarządca plików KDE 4
 Group:		X11/Applications
 Requires:	kde4-konqueror-libs = %{version}-%{release}
+Suggests:	eject
 Obsoletes:	dolphin
 
 %description -n kde4-dolphin
