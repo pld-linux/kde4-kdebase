@@ -6,7 +6,7 @@
 #
 %define		_state		unstable
 %define		orgname		kdebase
-%define		qtver		4.6.0
+%define		qtver		4.6.1
 
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):	K Desktop Environment - archivos básicos
