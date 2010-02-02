@@ -30,16 +30,16 @@ Patch0:		%{name}-wordchars.patch
 URL:		http://www.kde.org/
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
-BuildRequires:	Qt3Support-devel
+BuildRequires:	Qt3Support-devel >= %{qtver}
 BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtNetwork-devel >= %{qtver}
-BuildRequires:	QtSvg-devel
-BuildRequires:	QtTest-devel
+BuildRequires:	QtSvg-devel >= %{qtver}
+BuildRequires:	QtTest-devel >= %{qtver}
 BuildRequires:	audiofile-devel
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	bzip2-devel
 BuildRequires:	cdparanoia-III-devel
-BuildRequires:	cmake >= 2.6.3
+BuildRequires:	cmake >= 2.8.0
 BuildRequires:	cups-devel
 BuildRequires:	cyrus-sasl-devel
 BuildRequires:	db-devel
@@ -70,8 +70,8 @@ BuildRequires:	pam-devel
 BuildRequires:	pciutils-devel
 BuildRequires:	pkgconfig
 BuildRequires:	qimageblitz-devel
-BuildRequires:	qt4-build
-BuildRequires:	qt4-qmake
+BuildRequires:	qt4-build >= %{qtver}
+BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	samba-devel
