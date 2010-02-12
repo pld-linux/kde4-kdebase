@@ -1,0 +1,1503 @@
+Index: apps/dolphin/src/dolphinapplication.cpp
+===================================================================
+--- apps/dolphin/src/dolphinapplication.cpp	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
++++ apps/dolphin/src/dolphinapplication.cpp	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+@@ -72,23 +72,27 @@
+ int DolphinApplication::newInstance()
+ {
+     KCmdLineArgs* args = KCmdLineArgs::parsedArgs();
++    static bool first = true;
+ 
+-    QList<KUrl> urls;
+     const int argsCount = args->count();
+-    for (int i = 0; i < argsCount; ++i) {
+-        urls.append(args->url(i));
+-    }
++    if ((argsCount > 0) || !first || !isSessionRestored()) {
++        QList<KUrl> urls;
++        for (int i = 0; i < argsCount; ++i) {
++            urls.append(args->url(i));
++        }
+ 
+-    DolphinMainWindow* win = createMainWindow();
+-    if (urls.count() > 0) {
+-        if (args->isSet("select")) {
+-            win->openFiles(urls);
+-        } else {
+-            win->openDirectories(urls);
++        DolphinMainWindow* win = createMainWindow();
++        if (urls.count() > 0) {
++            if (args->isSet("select")) {
++                win->openFiles(urls);
++            } else {
++                win->openDirectories(urls);
++            }
+         }
++        win->show();
+     }
+-    win->show();
+ 
++    first = false;
+     args->clear();
+     return 0;
+ }
+Index: apps/dolphin/src/kcm/kcmdolphinservices.desktop
+===================================================================
+--- apps/dolphin/src/kcm/kcmdolphinservices.desktop	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
++++ apps/dolphin/src/kcm/kcmdolphinservices.desktop	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+@@ -219,7 +219,7 @@
+ Comment[sv]=Anpassa filhanterarens tjänster
+ Comment[tg]=Танзимоти файли мудири хизматҳо
+ Comment[tr]=Dosya yöneticisi servislerini yapılandır
+-Comment[uk]=Налаштувати служби менеджера файлів
++Comment[uk]=Налаштувати служб керування файлами
+ Comment[wa]=Apontyî les siervices do manaedjeu di fitchîs
+ Comment[x-test]=xxConfigure file manager servicesxx
+ Comment[zh_CN]=配置文件管理器服务
+Index: apps/dolphin/src/kcm/kcmdolphingeneral.desktop
+===================================================================
+--- apps/dolphin/src/kcm/kcmdolphingeneral.desktop	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
++++ apps/dolphin/src/kcm/kcmdolphingeneral.desktop	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+@@ -260,7 +260,7 @@
+ Comment[sv]=Anpassa filhanterarens allmänna inställningar
+ Comment[tg]=Танзимоти умумии мудири файлҳо насб кунед
+ Comment[tr]=Genel dosya yöneticisi ayarlarını yapılandır
+-Comment[uk]=Налаштувати загальні параметри менеджера файлів
++Comment[uk]=Налаштування загальних параметрів керування файлами
+ Comment[wa]=Apontyî les tchuzes djeneråles do manaedjeu di fitchîs
+ Comment[x-test]=xxConfigure general file manager settingsxx
+ Comment[zh_CN]=配置常规文件管理器设置
+Index: apps/doc/kdepasswd/password.png
+===================================================================
+Nie można wyświetlić: plik binarny.
+svn:mime-type = image/png
+Index: apps/doc/kdepasswd/index.docbook
+===================================================================
+--- apps/doc/kdepasswd/index.docbook	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
++++ apps/doc/kdepasswd/index.docbook	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+@@ -5,6 +5,7 @@
+   <!ENTITY % English "INCLUDE">
+ ]>
+ <article lang="&language;">
++<title>User Information</title>
+ <articleinfo>
+ <authorgroup>
+ <author>
+@@ -22,8 +23,8 @@
+ <!-- TRANS:ROLES_OF_TRANSLATORS -->
+ </authorgroup>
+ 
+-<date>2008-05-29</date>
+-<releaseinfo>1.0</releaseinfo>
++<date>2010-01-06</date>
++<releaseinfo>&kde; 4.4</releaseinfo>
+ 
+ <keywordset>
+ <keyword>KDE</keyword>
+@@ -58,20 +59,36 @@
+ applications (mail programs and word processors for example) if they are filled. You can:</para>
+ 
+ <itemizedlist>
++<listitem><para>change your user icon</para></listitem>
++<listitem><para>change your user login password</para></listitem>
+ <listitem><para>fill in personal information</para></listitem>
+-<listitem><para>change your user login password</para></listitem>
+ <listitem><para>set up the password prompt</para></listitem>
+ </itemizedlist>
+ 
+ </sect2>
+ 
+ <sect2 id="themes">
+-<title>User Icon</title>
++<title>User Icon and Password</title>
+ 
++<variablelist>
++<varlistentry><term>User Icon</term>
++<listitem>
+ <para>
+ This icon is used when the user logs in using a login manager. Clicking on it will allow you to change the image, either by using a provided icon or by setting one of yours. Click <guibutton>Apply</guibutton> to validate your change.
+ </para>
++</listitem>
++</varlistentry>
++
++<varlistentry><term><guibutton>Change password...</guibutton></term>
++<listitem>
++<para>
++Clicking this button will display a dialog to change your user password. Your user password is the one you log in your system with. You will be asked for your current password then twice for your new password.
++</para>
++</listitem>
++</varlistentry>
++</variablelist>
+ </sect2>
++
+ <sect2 id="user-info">
+ <title>User Information</title>
+ <variablelist>
+@@ -111,13 +128,6 @@
+ </para>
+ </listitem>
+ </varlistentry>
+-<varlistentry><term><guibutton>Change password...</guibutton></term>
+-<listitem>
+-<para>
+-Clicking this button will display a dialog to change your user password. Your user password is the one you log in your system with. You will be asked for your current password then twice for your new password.
+-</para>
+-</listitem>
+-</varlistentry>
+ </variablelist>
+ 
+ </sect2>
+@@ -126,7 +136,7 @@
+ <title>At Password Prompt</title>
+ 
+ <para>
+-This section allows you to choose how you want to input your password when you are asked for it. Default is to have one star for each letter you type. You can change that to have three stars for each letter you type (making it more difficult to guess the number of letters if someone is looking). You can also choose to have nothing displayed while you type your password, making this operation even more secure.
++This section allows you to choose how you want to input your password when you are asked for it. Default is to have one bullet for each letter you type. You can change that to have three bullets for each letter you type (making it more difficult to guess the number of letters if someone is looking). You can also choose to have nothing displayed while you type your password, making this operation even more secure.
+ </para>
+ 
+ </sect2>
+Index: apps/doc/konqueror/shortcut1.png
+===================================================================
+Nie można wyświetlić: plik binarny.
+svn:mime-type = image/png
+Index: apps/doc/konqueror/shortcut2.png
+===================================================================
+Nie można wyświetlić: plik binarny.
+svn:mime-type = image/png
+Index: apps/doc/konqueror/basics.docbook
+===================================================================
+--- apps/doc/konqueror/basics.docbook	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
++++ apps/doc/konqueror/basics.docbook	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+@@ -6,8 +6,8 @@
+ <!-- TRANS:ROLES_OF_TRANSLATORS -->
+ </authorgroup>
+ 
+-<date>2003-10-20</date>
+-<releaseinfo>3.2</releaseinfo>
++<date>2010-02-08</date>
++<releaseinfo>4.4.0</releaseinfo>
+ </chapterinfo>
+ 
+ <title>&konqueror; Basics</title>
+@@ -34,6 +34,7 @@
+ to be able to choose which mode is to be used when you start it up.</para>
+ 
+ <itemizedlist>
++<!--
+ <listitem><para>If you have a <guiicon>house</guiicon> shaped icon on the panel 
+ or desktop, then <mousebutton>left</mousebutton> click on it to open 
+ &konqueror; as a file manager.</para></listitem>
+@@ -41,25 +42,25 @@
+ <listitem><para>Or <mousebutton>left</mousebutton> click on <guiicon>world
+ </guiicon> shaped icon on the panel or desktop to open &konqueror; in browser 
+ mode.</para></listitem>
+-
+-<listitem><para>From the <guimenu>K</guimenu> menu, select
+-<menuchoice><guisubmenu>Internet</guisubmenu><guimenuitem>Konqueror Web
+-Browser</guimenuitem></menuchoice> to start it as a browser, or
+-<guimenuitem>Home</guimenuitem> to launch &konqueror; in file manager mode.
++-->
++<listitem><para>From the application launcher menu, select
++<menuchoice><guisubmenu>Internet</guisubmenu><guimenuitem>Konqueror (Web
++Browser)</guimenuitem></menuchoice> to start it as a browser.
+ </para></listitem>
+ 
+ <listitem><para><keycombo action="simul">&Alt;<keycap>F2</keycap></keycombo>
+-will open a <guilabel>Run Command</guilabel> dialog box, type
+-<userinput><command>konqueror</command></userinput> (lower case) and press
+-<keycap>Enter</keycap> or the <guibutton>Run</guibutton> button to start in
+-file
+-manager mode, or just enter a &URL; such as
++will open &krunner;, enter a path to a folder and press
++&Enter; to start in file manager mode, or just enter a &URL; such as
+  <userinput>http://www.konqueror.org</userinput> to start &konqueror; as a
+ browser.</para></listitem>
+ 
+ </itemizedlist>
+ 
+-<para>&konqueror; is also started automatically when you 
++<note><para>Click on the black arrow right to the <guiicon>Home Page</guiicon> icon
++to switch to your <guiicon>Home Folder</guiicon> in the file manager mode and vice versa.
++</para></note>
++
++<para>If &konqueror; is the default file manager it also starts automatically when you 
+ <mousebutton>left</mousebutton> click on a desktop icon that represents a 
+ folder, such as a hard disk drive or the <guiicon>Trash</guiicon> icon.
+ </para>
+@@ -95,14 +96,13 @@
+ 
+ <para>The <interface>Toolbar</interface> contains icons for commonly used
+ operations. <mousebutton>Left</mousebutton> clicking on an icon will activate
+-it. If you have enabled tooltips in the Control Center <menuchoice><guimenu>
+-Appearance &amp;
+-Themes</guimenu><guisubmenu>Style</guisubmenu></menuchoice>
+-dialog a brief description of what that icon does will appear when you hover
++it. If you have enabled tooltips in the &systemsettings; <menuchoice><guimenu>Appearance</guimenu>
++<guisubmenu>Windows</guisubmenu></menuchoice>, <guilabel>Buttons</guilabel> tab
++a brief description of what that icon does will appear when you hover
+ the pointer over it.</para>
+ 
+ <para>Some icons, for example the Up and Back icons in the previous screenshot,
+-have a small black triangle at their bottom right corner. If you hold the &LMB;
++have a small black arrow at the right. If you hold the &LMB;
+ pressed while the cursor is over this type of icon a small dropdown menu will
+ appear.</para> <para><mousebutton>Right</mousebutton> clicking on the
+ <interface>Toolbar </interface> will bring up the <link
+@@ -113,7 +113,7 @@
+ directory, &URL; or file being viewed. You can type a path or &URL; here and
+ press &Enter; or <mousebutton>left</mousebutton> click on the
+ <guiicon>Go</guiicon> icon at the right hand end of the <interface>Location
+-Toolbar</interface> to go to it. The black icon at the left hand end of the
++Toolbar</interface> to go to it. The black icon at the right hand end of the
+ <interface>Location Toolbar</interface> clears the text entry box.</para>
+ 
+ <para>The <interface>Bookmark Toolbar</interface> is the area under the 
+@@ -149,9 +149,9 @@
+ linkend="menu-settings"><guimenu>Settings</guimenu></link> menu  to choose 
+ whether to show or hide the Menubar, Main Toolbar, Location Toolbar and
+ Bookmark Toolbar, or even to add an Extra Toolbar.</para></listitem>
+-<listitem><para>You can also <quote>flatten</quote> the toolbars by 
+-<mousebutton>left</mousebutton> clicking on the vertical lines at the left hand end
+-of the bars, or move them around by holding the &LMB; down while you
++<listitem><para>You can also drag the toolbars by 
++<mousebutton>left</mousebutton> clicking on the handle at the left hand end
++of the bars and move them around by holding the &LMB; down while you
+ drag these bars around. </para></listitem>
+ <listitem><para>This screenshot does not show the optional <link linkend="sidebar">
+ Navigation Panel</link>.</para></listitem>
+@@ -171,11 +171,10 @@
+  the 
+ <guimenuitem>What's This?</guimenuitem> feature.</para>
+ 
+-<para>If <guilabel>Tooltips</guilabel> have been enabled in &kde; (K menu
+- <menuchoice><guimenu>Control Center</guimenu><guisubmenu>Appearance &amp;
+- Themes</guisubmenu><guisubmenu>Style</guisubmenu></menuchoice>,
+- <guilabel>Style</guilabel> dialog) then when you hover the mouse pointer
+- over a Toolbar or Navigation Panel 
++<para>If <guilabel>Tooltips</guilabel> have been enabled in &kde; (
++in &systemsettings; <menuchoice><guimenu>Appearance</guimenu>
++<guisubmenu>Windows</guisubmenu></menuchoice>, <guilabel>Buttons</guilabel> tab) 
++then when you hover the mouse pointer over a Toolbar or Navigation Panel 
+ button it should bring up a terse description of what that button does.</para>
+ 
+ <para><guimenuitem>What's This?</guimenuitem> is invoked by the Menubar
+@@ -241,9 +240,8 @@
+ same as <mousebutton>left</mousebutton> clicking except that it usually does it
+ in a new &konqueror; window, unless the <guilabel>Open links in new tab instead
+ of in new window</guilabel> box has been checked in the
+-<guimenuitem>Behavior</guimenuitem> page of the
++<guimenuitem>General</guimenuitem> page of the
+ <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure
+-
+ Konqueror...</guimenuitem></menuchoice> dialog. &konqueror; can open
+ links on pages and <menuchoice><guimenu>Bookmarks</guimenu></menuchoice>,
+ as well as the
+@@ -253,10 +251,12 @@
+ 
+ <para>Holding the &Shift; key down while pressing the &MMB; will open the link 
+ in the background.</para>
++<!-- not in 4.4.0
+ <important><para>If you click the &MMB; when the mouse cursor is over a blank 
+ part of the main view (not over a link or file name or icon) &konqueror; will 
+ copy the contents of the clipboard into the Location Toolbar and try to use 
+ that as a &URL;.</para></important>
++-->
+ </sect1>
+ 
+ <sect1 id="rmb-menus">
+@@ -303,14 +303,6 @@
+ </varlistentry>
+ 
+ <varlistentry>
+-<term>On the Bookmark Toolbar</term>
+-<listitem><para> If you have the Bookmark Toolbar showing, then
+-<mousebutton>right</mousebutton> click on any free part of it to bring up the
+-Bookmark Toolbar Menu which lets you change its position and whether items are
+-shown as text, icons, or both. </para></listitem> 
+-</varlistentry>
+-
+-<varlistentry>
+ <term>Within a View</term>
+ <listitem><para>If you <mousebutton>right</mousebutton> click on any free area
+ of a view then you will get a menu that contains, among other options, the
+@@ -326,8 +318,7 @@
+ clicking on the name or icon of any file or folder not only
+ <quote>selects</quote> that item but also brings up a menu allowing you to
+ <guiicon>Cut</guiicon>, Move, <guiicon>Copy</guiicon> or Remove the item in
+-various
+-ways, add it to your <guimenu>Bookmarks</guimenu>, open it with the program of
++various ways, open it with the program of
+ your choice or preview it, rename it, or edit the file type or 
+ properties.</para></listitem> </varlistentry>
+ 
+Index: apps/doc/konqueror/config.docbook
+===================================================================
+--- apps/doc/konqueror/config.docbook	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
++++ apps/doc/konqueror/config.docbook	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+@@ -6,8 +6,8 @@
+ <!-- TRANS:ROLES_OF_TRANSLATORS -->
+ </authorgroup>
+ 
+-<date>2003-11-06</date>
+-<releaseinfo>3.2</releaseinfo>
++<date>2010-02-07</date>
++<releaseinfo>4.4.0</releaseinfo>
+ </chapterinfo>
+ 
+ 
+@@ -23,8 +23,8 @@
+ <para>When &kde; is newly installed, &konqueror;'s window contains a Menubar, 
+ Main and Location Toolbars and possibly a Bookmark Toolbar.</para>
+ 
+-<para>Maybe you don't need all these toolbars. To hide one of them, go into 
+-the <menuchoice><guimenu>Settings</guimenu><guisubmenu>Toolbars</guisubmenu>
++<para>Maybe you don not need all these toolbars. To hide one of them, go into 
++the <menuchoice><guimenu>Settings</guimenu><guisubmenu>Toolbars Shown</guisubmenu>
+ </menuchoice> menu and uncheck its box. To show a hidden toolbar, just check 
+ the box.</para> 
+ 
+@@ -32,24 +32,19 @@
+ combination <keycombo action="simul">&Ctrl;<keycap>M</keycap></keycombo>.
+ </para>
+ 
+-<!-- FIXME -->
+-<para>On the left hand end of each bar you can see some vertical 
+-lines. By &LMB; clicking on them, you <quote>flatten</quote> the bar, meaning 
+-that it is hidden but can be quickly restored by clicking on the now 
+-horizontal lines. You can also drag a bar into a new position with these 
+-lines.</para>
+-
+ <para>If you <mousebutton>right</mousebutton> click on a Toolbar, you 
+-will get a menu to configure this bar. You can choose the orientation, text 
+-position and icon size</para>
++will get a menu to configure this bar. You can lock or unlock the toolbar position
++and choose the text position, icon size and the orientation of unlocked bars.</para>
+ 
++<para>If the toolbars are unlocked, on the left hand end of each bar you can see  
++some handles. By &LMB; clicking on them, you can drag a bar into a new position
++and even detach it from the window and place it anywhere on your screen.</para>
++
+ <para>The icons shown in the various bars can be changed by using the 
+ <menuchoice><guimenu>Settings</guimenu> <guimenuitem>Configure 
+ Toolbars...</guimenuitem></menuchoice> option, which brings up the 
+-<guilabel>Configure Toolbars</guilabel> dialog box. The Main and Extra Toolbars
+-are divided into sections, such as Main Toolbar &lt;&konqueror;&gt;, Main
+-Toolbar &lt;khtmlpart&gt; and Extra Toolbar &lt;khtmlsettingsplugin&gt;. The
+-number and type of these sections will depend on whether &konqueror; is in Web
++<guilabel>Configure Toolbars</guilabel> dialog box. The
++number and type of these toolbars will depend on whether &konqueror; is in Web
+ Browser or File Manager mode and whether you have &konqueror; plugins
+ installed.</para>
+ 
+@@ -69,16 +64,16 @@
+ <phrase>Shortcut config screenshot 1</phrase>
+ </textobject>
+ </mediaobject>
+-<para>Search through the combo box to find the action you want to add or 
++<para>Use the search box to find the action you want to add or 
+ change the shortcut keys for and select it by <mousebutton>left</mousebutton> 
+-clicking on the name. You will then be able to change the shortcut by 
+-selecting the <guilabel>None</guilabel>, <guilabel>Default</guilabel> or 
+-<guilabel>Custom</guilabel> radio button or by clicking on the large button in 
+-the <guilabel>Shortcut for Selected Action</guilabel> area.</para>
++clicking on the name. </para>
+ 
+-<para>If you select <guilabel>Define Shortcut</guilabel>, and then
+-select <guilabel>Advanced</guilabel>, the dialog box below will be shown:
+-</para>
++<para>After you have selected an action in the list you will notice that
++this item is highlighted and you see two additional check boxes below
++this item in the list view. There you can configure a
++combination of keys or maybe no key binding at all for the selected
++action. </para>
++
+ <mediaobject>
+ <imageobject>
+ <imagedata fileref="shortcut2.png" format="PNG"/>
+@@ -87,37 +82,95 @@
+ <phrase>Shortcut config screenshot 2</phrase>
+ </textobject>
+ </mediaobject>
+-<para>Choose whether you want to change the <guilabel>Primary</guilabel> or 
+-<guilabel>Alternate</guilabel> shortcut then press the key combination you 
+-want to act as the shortcut, for example <keycombo action="simul">
+-&Ctrl;&Shift;<keycap>S</keycap></keycombo>. 
+-If the <guilabel>Auto-Close</guilabel> box is checked the dialog will vanish 
+-as soon as you enter the key combination, otherwise it will remain until you 
+-press <guibutton>OK</guibutton> or <guibutton>Cancel</guibutton>. Clicking on 
+-the little black icon with a white cross in it clears the shortcut.</para>
+ 
++<itemizedlist>
++<listitem><para><guilabel>Default</guilabel>: the selected action
++will be associated with &kde;'s default value. This is a good choice
++for most actions, as &kde; comes with reasonable key bindings we have
++thought about. </para></listitem>
++<listitem><para><guilabel>Custom</guilabel>: if this option is
++enabled, you can create a key combination for the selected
++action. Click on the button labeled either <guibutton>None</guibutton>
++or labeled with the previously selected custom shortcut. Now the button label
++changes to <guibutton>Input</guibutton>. Then press any modifier key
++(&ie; &Shift;, &Ctrl;, or &Alt;) and then normal key or a function key (&eg; <keycap>F11</keycap>)
++you want to assign to this key combination.</para></listitem>
++<listitem><para>You can reset the shortcut to <guilabel>None</guilabel> by using 
++this button: <inlinemediaobject><imageobject> <imagedata
++fileref="reset.png" format="PNG"/></imageobject></inlinemediaobject>.
++</para>
++<para>Clicking on the <guilabel>Alternate</guilabel> column of a row in the list
++allows to edit the second shortcut for the action.</para></listitem>
++</itemizedlist>
++
++<!--not in 4.4 ?-->
+ <sect2 id="userdefmenus">
+ <title>User Defined Menus</title>
+ <para>You can add your own pop up menu to &konqueror; so that pressing one key 
+ combination will make the menu appear then pressing a second key, or using the 
+ <keysym>Up arrow</keysym> and <keysym>Down arrow</keysym> keys and pressing 
+-<keycap>Enter</keycap>, will select an item from it.</para>
++&Enter;, will select an item from it.</para>
+ <para>To do this add a <guilabel>Custom</guilabel> shortcut for each of the 
+ actions you want to appear in the menu and in the <guilabel>Define Shortcut
+ </guilabel> dialog check the <guilabel>Multi-Key</guilabel> box, press the 
+ key combination that you want to bring up your new menu then, separately, 
+ press the key that will choose that item from the menu.</para>
+ </sect2>
++<!--not in 4.4 ?-->
+ </sect1>
+ 
+ <sect1 id="othersettings">
+ <title>Other Settings</title>
+ <para>Selecting <menuchoice><guimenu>Settings</guimenu><guimenuitem>
+ Configure Konqueror...</guimenuitem></menuchoice> brings up a dialog box 
+-which you can use to control most aspects of &konqueror;'s behavior. 
+-It contains several sections which are selected by <mousebutton>left
++which you can use to control most aspects of &konqueror;'s behavior.</para> 
++<para>It contains these sections which are selected by <mousebutton>left
+ </mousebutton> clicking on one of the icons at the left of the dialog 
+-box.</para>
++box:</para>
++<itemizedlist>
++<listitem><para><ulink url="help:/kcontrol/khtml-general/index.html">General</ulink>: 
++Configure general &konqueror; behavior</para></listitem>
++<listitem><para><ulink url="help:/kcontrol/performance/index.html">Performance</ulink>: 
++Configure settings that can improve &konqueror; performance</para></listitem>
++<listitem><para><ulink url="help:/kcontrol/bookmarks/index.html">Bookmarks</ulink>: 
++Configure the bookmarks home page</para></listitem>
++<listitem><para><ulink url="help:/kcontrol/filemanager/index.html">File Management</ulink>: 
++You can configure how Konqueror behaves as a file manager here</para></listitem>
++<listitem><para><ulink url="help:/dolphin/index.html#preferences-dialog-viewmodes">View Modes</ulink>: 
++Configure file manager view modes</para></listitem>
++<listitem><para><ulink url="help:/dolphin/index.html#preferences-dialog-navigation">Navigation</ulink>: 
++Configure file manager navigation</para></listitem>
++<listitem><para><ulink url="help:/dolphin/index.html#preferences-dialog-services">Services</ulink>: 
++Configure file manager services</para></listitem>
++<listitem><para><ulink url="help:/dolphin/index.html#preferences-dialog-general">General</ulink>: 
++Configure general file manager settings</para></listitem>
++<listitem><para><ulink url="help:/kcontrol/filetypes/index.html">File Associations</ulink>: 
++Configure file associations</para></listitem>
++<listitem><para><ulink url="help:/kcontrol/trash/index.html">Trash</ulink>: 
++Configure trash settings</para></listitem>
++<listitem><para><ulink url="help:/kcontrol/khtml-behavior/index.html">Web Browsing</ulink>: 
++Configure the browser behavior</para></listitem>
++<listitem><para><ulink url="help:/kcontrol/proxy/index.html">Proxy</ulink>: 
++Configure the proxy servers used</para></listitem>
++<listitem><para><ulink url="help:/kcontrol/kcmcss/index.html">Appearance</ulink>: 
++Configure how to display web pages</para></listitem>
++<listitem><para><ulink url="help:/kcontrol/khtml-adblock/index.html">AdBlocK Filters</ulink>: 
++Configure &konqueror; AdBlocK filters</para></listitem>
++<listitem><para><ulink url="help:/kcontrol/ebrowsing/index.html">Web Shortcuts</ulink>: 
++Configure enhanced browsing</para></listitem>
++<listitem><para><ulink url="help:/kcontrol/cache/index.html">Cache</ulink>: 
++Configure web cache settings</para></listitem>
++<listitem><para><ulink url="help:/kcontrol/history/index.html">History</ulink>: 
++Configure the history sidebar</para></listitem>
++<listitem><para><ulink url="help:/kcontrol/cookies/index.html">Cookies</ulink>: 
++Configure the way cookies work</para></listitem>
++<listitem><para><ulink url="help:/kcontrol/useragent/index.html">Browser Identification</ulink>: 
++Configure the way Konqueror reports itself</para></listitem>
++<listitem><para><ulink url="help:/kcontrol/khtml-java-js/index.html">Java &amp; JavaScript</ulink>: 
++Configure the behavior of Java and JavaScript</para></listitem>
++<listitem><para><ulink url="help:/kcontrol/khtml-plugins/index.html">Plugins</ulink>: 
++Configure the browser plugins</para></listitem>
++</itemizedlist>
+ <para>Pressing the <guibutton>Help</guibutton> button will give you 
+ detailed instructions about how to use each of these sections, or you can 
+ use the <link linkend="bubble">What's This?</link> feature.</para>
+Index: apps/doc/konqueror/introduction.docbook
+===================================================================
+--- apps/doc/konqueror/introduction.docbook	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
++++ apps/doc/konqueror/introduction.docbook	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+@@ -5,15 +5,15 @@
+ <!-- TRANS:ROLES_OF_TRANSLATORS -->
+ </authorgroup>
+ 
+-<date>2003-10-20</date>
+-<releaseinfo>3.2</releaseinfo>
++<date>2010-02-08</date>
++<releaseinfo>4.4</releaseinfo>
+ </chapterinfo>
+ 
+ <title>Overview</title>
+ 
+ <para><emphasis>&konqueror;</emphasis> is an advanced  
+ <link linkend="filemanager">file manager</link> for the 
+-K Desktop Environment, providing file management functions ranging from simple 
++&kde; Software compilation, providing file management functions ranging from simple 
+ cut/copy and paste operations to advanced local and remote network file 
+ browsing. Folder contents can be displayed in a variety of text and icon 
+ <link linkend="viewmode">view modes</link>, which can include thumbnail 
+@@ -21,11 +21,16 @@
+ examined and changed and applications launched with a simple click of the 
+ &LMB;.</para>
+ 
++<para>In &kde; SC 4 &dolphin; is the default file manger. To change the
++default component for browsing folders, open <guimenu>Default Applications</guimenu>
++in the &systemsettings; and select &konqueror; as file manager.</para>
++
+ <para><emphasis>&konqueror;</emphasis> is an <acronym>HTML</acronym> 4.01
+ compliant <link linkend="browser">web browser</link> with built in support for
+ JavaScript (ECMA-262), <acronym>CSS</acronym> (Cascading Style Sheets) and
+ bidirectional scripts (such as Arabic and Hebrew). It provides support for the secure
+-running of &Java; applets, &Netscape; plugins for viewing &Flash;, &RealAudio; and &RealVideo; and <acronym>SSL</acronym> for secure
++running of &Java; applets, &Netscape; plugins for viewing &Flash;, &RealAudio; 
++and &RealVideo; and <acronym>SSL</acronym> for secure
+ communications. Advanced features include automatic &URL; and form completion,
+ the ability to import bookmarks from other browsers and tabbed browsing.
+ </para>
+@@ -36,8 +41,8 @@
+ <para><emphasis>&konqueror;</emphasis> is a universal viewing application, 
+ capable of displaying images and documents without having to launch another 
+ application. It does this by embedding components (&kde; Parts) provided by 
+-other applications; from &kview; for image viewing, &kdvi; for 
+-<acronym>DVI</acronym> viewing, &kghostview; for &PostScript; documents and 
++other applications; from <application>Gwenview</application>; for image viewing, 
++&okular; for <acronym>PDF</acronym> and &PostScript; documents and 
+ from the various &koffice; applications for their document types.
+ </para>
+ 
+Index: apps/doc/konqueror/reset.png
+===================================================================
+Nie można wyświetlić: plik binarny.
+svn:mime-type = application/octet-stream
+
+Zmiany atrybutów dla: apps/doc/konqueror/reset.png
+___________________________________________________________________
+Dodane: svn:mime-type
+   + application/octet-stream
+
+Index: apps/doc/konqueror/parts.png
+===================================================================
+Nie można wyświetlić: plik binarny.
+svn:mime-type = image/png
+Index: apps/doc/kinfocenter/index.docbook
+===================================================================
+--- apps/doc/kinfocenter/index.docbook	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
++++ apps/doc/kinfocenter/index.docbook	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+@@ -20,8 +20,8 @@
+ </authorgroup>
+ 
+ 
+-<date>2002-07-03</date>
+-<releaseinfo>3.10.00</releaseinfo>
++<date>2010-01-08</date>
++<releaseinfo>&kde; 4.4</releaseinfo>
+ 
+ <abstract>
+ <para>This documentation describes &kde;'s information center.</para>
+@@ -43,7 +43,7 @@
+ <para>
+ The &infocenter; (from now on referred to simply as <quote>the
+ information center</quote>) provides you with a centralized and convenient
+-overview of your &kde; and system settings.
++overview of your system and desktop environment.
+ </para>
+ 
+ <para>
+@@ -52,11 +52,6 @@
+ programs into a convenient location.
+ </para>
+ 
+-</chapter>
+-
+-<chapter id="info-center">
+-<title>Using The &infocenter;</title>
+-
+ <para>
+ This next section details the use of the information center itself.  For
+ information on individual modules, please see <link linkend="module">Info
+@@ -73,9 +68,9 @@
+ <orderedlist> 
+ <listitem>
+ <para>
+-By selecting <menuchoice><guimenu>K
+-Button</guimenu><guisubmenu>System</guisubmenu><guimenuitem>Info
+-Center</guimenuitem></menuchoice> from the &kde; Panel.
++By selecting <menuchoice><guimenu>Applications
++</guimenu><guisubmenu>System</guisubmenu><guimenuitem>Info
++Center</guimenuitem></menuchoice> from the application launcher in the panel.
+ 
+ </para>
+ </listitem>
+@@ -83,13 +78,9 @@
+ <para>
+ By pressing <keycombo
+ action="simul">&Alt;<keycap>F2</keycap></keycombo>.
++This will bring up &krunner;.  Type
++<userinput><command>kinfocenter</command></userinput>, and press &Enter;.
+ </para>
+-
+-<para>
+-This will bring up a dialog box.  Type
+-<userinput><command>kinfocenter</command></userinput>, and click
+-<guibutton>Run</guibutton> or press &Enter;.
+-</para>
+ </listitem>
+ 
+ <listitem>
+@@ -112,23 +103,31 @@
+ When you start the information center, you are presented with a window,
+ which can be divided into 3 functional parts.
+ </para>
++<screenshot>
++<screeninfo>The &infocenter; Screen.</screeninfo>
++<mediaobject>
++<imageobject>
++<imagedata fileref="kinfocenter.png" format="PNG"/></imageobject>
++<textobject><phrase>The &infocenter; Screen</phrase></textobject>
++</mediaobject>
++</screenshot>
+ 
+ <para>
+ Across the top is a menubar.  The menubar will provide you with quick
+-access to most of &infocenter;'s features.  The menus are detailed in
+-<link linkend="info-center-menus">The &kde; Info Center
+-Menus</link>.
++access to most of &infocenter;'s features like quitting, configuring shortcuts
++and getting help.
+ </para>
+ 
+ <para>
+-Along the left hand side, is a column.  This is a where you choose which
++Along the left hand side, is a column with a filter field at the top.  
++This is a where you choose which
+ module to investigate.  You can learn how to navigate through the modules
+ in the section called <link linkend="module-intro">Navigating
+ Modules</link>.
+ </para>
+ 
+ <para>
+-The main panel shows you some system information.
++The main panel shows you the system information about the selected module.
+ </para>
+ 
+ <!-- 
+@@ -141,81 +140,6 @@
+ 
+ </sect1>
+ 
+-<sect1 id="info-center-menus">
+-<title>The &infocenter; Menus</title>
+-
+-<para>
+-This next section gives you a brief description of what each menu item
+-does.
+-</para>
+-
+-<sect2 id="info-center-menu-file">
+-<title><guimenu>File</guimenu> Menu</title>
+-
+-<para>
+-The <guimenu>File</guimenu> menu has a single entry.
+-</para>
+-
+-<variablelist>
+-
+-<varlistentry>
+-<term><menuchoice>
+-<shortcut>
+-<keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo>
+-</shortcut>
+-<guimenu>File</guimenu>
+-<guimenuitem>Quit</guimenuitem>
+-</menuchoice></term>
+-<listitem>
+-<para>
+-<action>Closes the info center.</action>
+-</para>
+-</listitem>
+-</varlistentry>
+-</variablelist>
+-
+-</sect2>
+-
+-<sect2 id="info-center-menu-help">
+-<title><guimenu>Help</guimenu> Menu</title>
+-
+-&help.menu.documentation;
+-
+-</sect2>
+-
+-</sect1>
+-
+-<sect1 id="info-center-exiting">
+-<title>Exiting The &kde; Information Center</title>
+-
+-<para>
+-You can exit the info center one of three ways:
+-</para>
+-
+-<itemizedlist>
+-<listitem>
+-<para>
+-Select <menuchoice><guimenu>File</guimenu>
+-<guimenuitem>Quit</guimenuitem></menuchoice> from the menu bar.
+-</para>
+-</listitem>
+-
+-<listitem>
+-<para>Type <keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo>
+-on the keyboard.
+-</para>
+-</listitem>
+-
+-<listitem>
+-<para>
+-Click on the <guiicon>Close</guiicon> button on the frame surrounding
+-the info center.
+-</para>
+-</listitem>
+-</itemizedlist>
+-
+-</sect1>
+-
+ </chapter>
+ 
+ <!--*****************************************************************-->
+@@ -242,6 +166,9 @@
+ <para><ulink url="help:/kinfocenter/dma/index.html">DMA-Channels</ulink></para>
+ </listitem>
+ <listitem>
++<para><ulink url="help:/kinfocenter/view1394/index.html">IEEE 1394 Devices</ulink></para>
++</listitem>
++<listitem>
+ <para><ulink url="help:/kinfocenter/interrupts/index.html">Interrupts</ulink></para>
+ </listitem>
+ <listitem>
+@@ -263,9 +190,6 @@
+ <para><ulink url="help:/kinfocenter/pci/index.html">PCI</ulink></para>
+ </listitem>
+ <listitem>
+-<para><ulink url="help:/kinfocenter/pcmcia/index.html">PCMCIA</ulink></para>
+-</listitem>
+-<listitem>
+ <para><ulink url="help:/kinfocenter/processor/index.html">Processor</ulink></para>
+ </listitem>
+ <listitem>
+Index: apps/doc/kinfocenter/kinfocenter.png
+===================================================================
+Nie można wyświetlić: plik binarny.
+svn:mime-type = application/octet-stream
+
+Zmiany atrybutów dla: apps/doc/kinfocenter/kinfocenter.png
+___________________________________________________________________
+Dodane: svn:mime-type
+   + application/octet-stream
+
+Index: apps/doc/kinfocenter/CMakeLists.txt
+===================================================================
+--- apps/doc/kinfocenter/CMakeLists.txt	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
++++ apps/doc/kinfocenter/CMakeLists.txt	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+@@ -7,7 +7,6 @@
+ add_subdirectory(opengl)
+ add_subdirectory(partitions)
+ add_subdirectory(pci)
+-add_subdirectory(pcmcia)
+ add_subdirectory(processor)
+ add_subdirectory(protocols)
+ add_subdirectory(samba)
+Index: apps/doc/kfind/index.docbook
+===================================================================
+--- apps/doc/kfind/index.docbook	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
++++ apps/doc/kfind/index.docbook	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+@@ -26,8 +26,8 @@
+ 
+ <legalnotice>&FDLNotice;</legalnotice>
+ 
+-<date>2004-04-11</date>
+-<releaseinfo>1.20.01</releaseinfo>
++<date>2009-12-18</date>
++<releaseinfo>&kde; 4.4</releaseinfo>
+ 
+ <abstract>
+ <para>
+@@ -60,8 +60,11 @@
+ this could include searching for files of a particular type or with certain
+ letters in the filename.
+ 
+-You can load this utility by clicking on <guimenuitem>Find Files</guimenuitem>. This will
+-launch &kfind;.
++You can load this utility in &dolphin; and &konqueror; (in file manager mode) 
++by selecting <menuchoice><shortcut><keycombo action="simul">&Ctrl;
++<keycap>F</keycap></keycombo></shortcut><guimenu>Tools</guimenu>
++<guimenuitem>Find File</guimenuitem></menuchoice> from the menu. 
++If you want to use &kfind; as a standalone search tool, launch it by &krunner;.
+ </para>
+ 
+ </sect1>
+@@ -76,17 +79,27 @@
+ <para>
+ When starting &kfind;, you will see a quite simple window. Type in the
+ name of the file you are searching in the text box labeled
+-<guilabel>Named:</guilabel>. Choose a folder where you want to search
++<guilabel>Named:</guilabel>. You can use wildcard matching and 
++a semicolon (<quote>;</quote>) for separating multiple names.</para>
++<para>Choose a folder where you want to search
+ by typing it in the field <guilabel>Look in:</guilabel>
+ or by clicking <guibutton>Browse...</guibutton> and press
+-<keycap>Enter</keycap> or click <guibutton>Find</guibutton>. If
+-<guilabel>Include subfolders</guilabel> is checked all
++&Enter; or click the <guibutton>Find</guibutton>. 
++Use the <guibutton>Stop</guibutton> button to cancel a search.
++A search result can be saved in &HTML; format or as plain text with the
++<guibutton>Save As...</guibutton> button.</para>
++<para>
++If <guilabel>Include subfolders</guilabel> is checked all
+ subfolders starting from your chosen folder will be searched
+-too. The results will be displayed in the box below.
+-</para>
+-
++too. If you enable <guilabel>Case sensitive</guilabel>, &kfind; will
++only find files with the exact case matching names.
++Enable the option <guilabel>Show hidden files</guilabel> to include
++them in your search.
++Selecting <guilabel>Use files index</guilabel> lets you use the 
++files' index created by the <quote>locate</quote> package 
++to speed-up the search.</para>
+ <para>
+-You can use the following wildcards:
++You can use the following wildcards for file or folder names:
+ </para>
+ 
+ <variablelist>
+@@ -119,12 +132,27 @@
+ </listitem>
+ </varlistentry>
+ 
++<varlistentry>
++<term>The Character Set <quote>[...]</quote></term>
++<listitem>
++<para>
++This matches any of the characters between the braces.
++</para>
++</listitem>
++</varlistentry>
++
+ </variablelist>
+ 
+ <para>
+ Of course you can combine those two wildcard symbols in a search term.
+ </para>
+ 
++<para>
++The results of your search will be displayed in the box below. A click with the
++&RMB; on a selection in this box opens a context menu with a lot of
++action for the selected files or folders.
++</para>
++
+ </sect1>
+ 
+ <sect1 id="kfind-date-range">
+@@ -154,7 +182,7 @@
+ <para>This option will <emphasis>not</emphasis> work for all files listed 
+ under <guilabel>File type</guilabel>. Only the following file types
+ are supported:
+-
++<!--has to be checked !!!-->
+ <itemizedlist>
+ <listitem><para>Text files, &eg; source code and <filename>README</filename> files</para></listitem>
+ <listitem><para>&kword; &gt;= 1.2</para></listitem>
+@@ -176,7 +204,7 @@
+ <listitem>
+ <para>
+ If you enable this option, &kfind; will
+-only find files with the exact case matching, &eg;
++only find text in files with the exact case matching, &eg;
+ <userinput>MARC</userinput> will only match
+ <quote>MARC</quote>, not <quote>Marc</quote>.
+ </para>
+@@ -186,12 +214,12 @@
+ <varlistentry>
+ <term><guilabel>Regular expression</guilabel></term>
+ <listitem><para>If you have installed the &kregexpeditor; tool from
+-the kdeutils package, you will have this additional option.  Enabling
++playground/utils on the &kde; svn server, you will have this additional option.  Enabling
+ it will allow you to search for a <firstterm>regexp</firstterm> or
+ regular expression.  A regexp is a way to specify conditions for your
+ search, and they can be very complex, and equally they can be very
+ powerful.  If you are unfamiliar with regular expressions, you can
+-choose <guilabel>Edit Regular Expression</guilabel> to open
++choose <guibutton>Edit</guibutton> button to open
+ &kregexpeditor;.  This tool allows you to construct your set of
+ conditions graphically, and then generates the expression for
+ you.</para>
+@@ -201,9 +229,23 @@
+ information from within its own help file.</para>
+ </listitem>
+ </varlistentry>
++<varlistentry>
++<term><guilabel>Include binary files</guilabel></term>
++<listitem><para>This lets you search in any type of file, even those that 
++usually do not contain text (for example program files and images).</para>
++</listitem>
++</varlistentry>
+ 
+-<!-- TODO: "Search metainfo sections" -->
++<!-- TODO: "Search metainfo sections" 
++Search within files' specific comments/metainfo<br />These are some "
++"examples:<br /><ul><li><b>Audio files (mp3...)</b> Search in id3 tag for a "
++"title, an album</li><li><b>Images (png...)</b> Search images with a special "
++"resolution, comment...</li></ul></qt>"
+ 
++"<qt>If specified, search only in this field<br /><ul><li><b>Audio files "
++"(mp3...)</b> This can be Title, Album...</li><li><b>Images (png...)</b> "
++"Search only in Resolution, Bitdepth...</li></ul></qt>"
++-->
+ </variablelist>
+ 
+ </sect1>
+@@ -238,7 +280,7 @@
+ </varlistentry>
+ 
+ <varlistentry>
+-<term><guilabel>Files owned by user, Files owned by group</guilabel></term>
++<term><guilabel>Files owned by user</guilabel>, <guilabel>Files owned by group</guilabel></term>
+ <listitem>
+ <para>Here you can specify user and group names.
+ </para>
+Index: apps/doc/dolphin/index.docbook
+===================================================================
+--- apps/doc/dolphin/index.docbook	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
++++ apps/doc/dolphin/index.docbook	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+@@ -123,7 +123,7 @@
+ <title>&dolphin; User Interface</title>
+ 
+ <para>
+-The screenshow below shows &dolphin;'s default user interface:
++The screenshot below shows &dolphin;'s default user interface:
+ </para>
+ 
+ <screenshot>
+@@ -1420,7 +1420,7 @@
+ <keycombo action="simul">&Ctrl;<keycap>V</keycap></keycombo>
+ </shortcut>
+ <guimenu>Edit</guimenu>
+-<guimenuitem>Paste</guimenuitem>
++<guimenuitem>Paste Clipboard Contents...</guimenuitem>
+ </menuchoice></term>
+ <listitem><para><action>Pastes the currently copied/cut items to the current
+ folder. If the clipboard does not contain files or folders, the clipboard
+@@ -1534,7 +1534,8 @@
+ <guimenuitem>Show in Groups</guimenuitem>
+ </menuchoice></term>
+ <listitem><para><action>Displays</action> the content of the
+-current folder grouped by file type (only available in the Icons view mode).</para></listitem>
++current folder grouped by the option selected in <guimenuitem>Sort By</guimenuitem> 
++(only available in the Icons view mode).</para></listitem>
+ </varlistentry>
+ 
+ <varlistentry>
+@@ -1773,7 +1774,7 @@
+ <varlistentry>
+ <term><menuchoice>
+ <guimenu>Settings</guimenu>
+-<guisubmenu>Show Toolbar</guisubmenu>
++<guisubmenu>Toolbars Shown</guisubmenu>
+ </menuchoice></term>
+ <listitem><para><action>Hides and shows the <guimenuitem>Main Toolbar</guimenuitem> 
+ and the <guimenuitem>Search Toolbar</guimenuitem>.</action></para></listitem>
+Index: apps/kinfocenter/memory/memory_fbsd.cpp
+===================================================================
+--- apps/kinfocenter/memory/memory_fbsd.cpp	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
++++ apps/kinfocenter/memory/memory_fbsd.cpp	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+@@ -1,90 +1,67 @@
+-
+ #include <sys/types.h>
+ #include <sys/sysctl.h>
+ #include <sys/vmmeter.h>
+ 
+ #include <vm/vm_param.h>
++#include <kvm.h>
+ 
+-#include <stdlib.h>
+-#include <stdio.h>
++#include <fcntl.h>
++#include <paths.h>
+ #include <unistd.h>
+ 
+ void KCMMemory::fetchValues()
+ {
+-    char blah[10], buf[80], *used_str, *total_str;
+     /* Stuff for sysctl */
+-    int memory;
+     size_t len;
+-    /* Stuff for swap display */
+-    int used, total, _free;
+-    FILE *pipe;
+ 
+-    len=sizeof(memory);
++    unsigned long memory;
++    len = sizeof(memory);
+     sysctlbyname("hw.physmem", &memory, &len, NULL, 0);
+   
+-    snprintf(blah, 10, "%d", memory);
+     // Numerical values
+ 
+     // total physical memory (without swap space)
+     memoryInfos[TOTAL_MEM] = MEMORY(memory);
++ 
++    unsigned int cached;
++    len = sizeof(cached);
++    if (sysctlbyname("vm.stats.vm.v_cache_count", &cached, &len, NULL, 0) == -1 || !len)
++        memoryInfos[CACHED_MEM] = NO_MEMORY_INFO;
++    else
++        memoryInfos[CACHED_MEM] = MEMORY(cached) * PAGE_SIZE;
+ 
++    unsigned int free;
++    len = sizeof(free);
++    if (sysctlbyname("vm.stats.vm.v_free_count", &free, &len, NULL, 0) == -1 || !len)
++        memoryInfos[FREE_MEM] = NO_MEMORY_INFO;
++    else
++        memoryInfos[FREE_MEM] = MEMORY(free) * PAGE_SIZE;
++
+     // added by Brad Hughes bhughes@trolltech.com
+     struct vmtotal vmem;
+-#ifdef __GNUC__ 
+-    #warning "FIXME: memoryInfos[CACHED_MEM]"
+-#endif    
+-    memoryInfos[CACHED_MEM] = NO_MEMORY_INFO;
+ 
+-    // The sysctls don't work in a nice manner under FreeBSD v2.2.x
+-    // so we assume that if sysctlbyname doesn't return what we
+-    // prefer, assume it's the old data types.   FreeBSD prior
+-    // to 4.0-R isn't supported by the rest of KDE, so what is
+-    // this code doing here.
+-
+     len = sizeof(vmem);
+-    if (sysctlbyname("vm.vmmeter", &vmem, &len, NULL, 0) == 0) 
+-	memoryInfos[SHARED_MEM]   = MEMORY(vmem.t_armshr) * PAGE_SIZE;
+-    else 
+-        memoryInfos[SHARED_MEM]   = NO_MEMORY_INFO;
++    if (sysctlbyname("vm.vmtotal", &vmem, &len, NULL, 0) == -1 || !len)
++        memoryInfos[SHARED_MEM] = NO_MEMORY_INFO;
++    else
++         memoryInfos[SHARED_MEM] = MEMORY(vmem.t_armshr) * PAGE_SIZE;
+ 
+-    int buffers;
+-    len = sizeof (buffers);
++    long buffers;
++    len = sizeof(buffers);
+     if ((sysctlbyname("vfs.bufspace", &buffers, &len, NULL, 0) == -1) || !len)
+-	memoryInfos[BUFFER_MEM]   = NO_MEMORY_INFO;
++        memoryInfos[BUFFER_MEM] = NO_MEMORY_INFO;
+     else
+-	memoryInfos[BUFFER_MEM]   = MEMORY(buffers);
++        memoryInfos[BUFFER_MEM] = MEMORY(buffers);
+ 
+-    // total free physical memory (without swap space)
+-    int free;
+-    len = sizeof (buffers);
+-    if ((sysctlbyname("vm.stats.vm.v_free_count", &free, &len, NULL, 0) == -1) || !len)
+-	memoryInfos[FREE_MEM]     = NO_MEMORY_INFO;
+-    else
+-	memoryInfos[FREE_MEM]     = MEMORY(free) * getpagesize();
++    struct kvm_swap swap[1];
++    kvm_t *kvm_handle;
++    kvm_handle = kvm_open(NULL, _PATH_DEVNULL, NULL, O_RDONLY, "kvm_open");
+ 
+-    // Q&D hack for swap display. Borrowed from xsysinfo-1.4
+-    if ((pipe = popen("/usr/sbin/pstat -ks", "r")) == NULL) {
+-	used = total = 1;
+-	return;
++    if (kvm_handle != NULL && kvm_getswapinfo(kvm_handle, swap, 1, 0) != -1) {
++        memoryInfos[SWAP_MEM]     = MEMORY(swap[0].ksw_total) * PAGE_SIZE;
++        memoryInfos[FREESWAP_MEM] = MEMORY(swap[0].ksw_total - swap[0].ksw_used) * PAGE_SIZE;
+     }
+ 
+-    fgets(buf, sizeof(buf), pipe);
+-    fgets(buf, sizeof(buf), pipe);
+-    fgets(buf, sizeof(buf), pipe);
+-    fgets(buf, sizeof(buf), pipe);
+-    pclose(pipe);
+-
+-    strtok(buf, " ");
+-    total_str = strtok(NULL, " ");
+-    used_str = strtok(NULL, " ");
+-    used = atoi(used_str);
+-    total = atoi(total_str);
+-
+-    _free=total-used;
+-
+-    // total size of all swap-partitions
+-    memoryInfos[SWAP_MEM] = MEMORY(total) * 1024;
+-
+-    // free memory in swap-partitions
+-    memoryInfos[FREESWAP_MEM] = MEMORY(_free) * 1024;
++    if (kvm_handle != NULL)
++        kvm_close(kvm_handle);
+ }
+Index: apps/kinfocenter/CMakeLists.txt
+===================================================================
+--- apps/kinfocenter/CMakeLists.txt	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
++++ apps/kinfocenter/CMakeLists.txt	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+@@ -56,6 +56,11 @@
+ 
+ kde4_add_kdeinit_executable( kinfocenter ${kinfocenter_SRCS})
+ 
++if(${CMAKE_SYSTEM_NAME} STREQUAL "FreeBSD")
++    find_library(KVM_LIBRARY kvm)
++    target_link_libraries(kinfocenter ${KVM_LIBRARY})
++endif(${CMAKE_SYSTEM_NAME} STREQUAL "FreeBSD")
++
+ target_link_libraries(kdeinit_kinfocenter ${KDE4_KIO_LIBS} ${KDE4_KHTML_LIBS} ${KDE4_KUTILS_LIBS} )
+ 
+ install(TARGETS kdeinit_kinfocenter          ${INSTALL_TARGETS_DEFAULT_ARGS})
+Index: apps/plasma/applets/folderview/folderview.cpp
+===================================================================
+--- apps/plasma/applets/folderview/folderview.cpp	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
++++ apps/plasma/applets/folderview/folderview.cpp	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+@@ -1148,8 +1148,11 @@
+ 
+ void FolderView::updateScreenRegion()
+ {
++    if (!m_iconView) {
++        return;
++    }
++
+     Plasma::Corona *c = corona();
+-
+     if (!c) {
+         return;
+     }
+Index: runtime/solid-device-automounter/kcm/device_automounter_kcm.desktop
+===================================================================
+Index: runtime/localization/currency/tnd.desktop
+===================================================================
+Index: runtime/localization/currency/shp.desktop
+===================================================================
+Index: runtime/localization/currency/sar.desktop
+===================================================================
+Index: runtime/localization/currency/rsd.desktop
+===================================================================
+Index: runtime/localization/currency/xof.desktop
+===================================================================
+Index: runtime/localization/currency/sit.desktop
+===================================================================
+Index: runtime/localization/currency/yer.desktop
+===================================================================
+Index: runtime/localization/currency/top.desktop
+===================================================================
+Index: runtime/localization/currency/sbd.desktop
+===================================================================
+Index: runtime/localization/currency/yum.desktop
+===================================================================
+Index: runtime/localization/currency/syp.desktop
+===================================================================
+Index: runtime/localization/currency/thb.desktop
+===================================================================
+Index: runtime/localization/currency/srd.desktop
+===================================================================
+Index: runtime/localization/currency/xpd.desktop
+===================================================================
+Index: runtime/localization/currency/srg.desktop
+===================================================================
+Index: runtime/localization/currency/xpf.desktop
+===================================================================
+Index: runtime/localization/currency/szl.desktop
+===================================================================
+Index: runtime/localization/currency/veb.desktop
+===================================================================
+Index: runtime/localization/currency/xaf.desktop
+===================================================================
+Index: runtime/localization/currency/xag.desktop
+===================================================================
+Index: runtime/localization/currency/scr.desktop
+===================================================================
+Index: runtime/localization/currency/skk.desktop
+===================================================================
+Index: runtime/localization/currency/rub.desktop
+===================================================================
+Index: runtime/localization/currency/cdf.desktop
+===================================================================
+Index: runtime/localization/currency/xau.desktop
+===================================================================
+Index: runtime/localization/currency/zmk.desktop
+===================================================================
+Index: runtime/localization/currency/rur.desktop
+===================================================================
+Index: runtime/localization/currency/sdd.desktop
+===================================================================
+Index: runtime/localization/currency/wst.desktop
+===================================================================
+Index: runtime/localization/currency/sdg.desktop
+===================================================================
+Index: runtime/localization/currency/vuv.desktop
+===================================================================
+Index: runtime/localization/currency/vnd.desktop
+===================================================================
+Index: runtime/localization/currency/std.desktop
+===================================================================
+Index: runtime/localization/currency/sll.desktop
+===================================================================
+Index: runtime/localization/currency/tjs.desktop
+===================================================================
+Index: runtime/localization/currency/xcd.desktop
+===================================================================
+Index: runtime/localization/currency/sek.desktop
+===================================================================
+Index: runtime/localization/currency/rwf.desktop
+===================================================================
+Index: runtime/localization/currency/cve.desktop
+===================================================================
+Index: runtime/localization/currency/svc.desktop
+===================================================================
+Index: runtime/localization/currency/sgd.desktop
+===================================================================
+Index: runtime/localization/currency/pen.desktop
+===================================================================
+Index: runtime/localization/currency/zar.desktop
+===================================================================
+Index: runtime/localization/currency/tmm.desktop
+===================================================================
+Index: runtime/localization/currency/sos.desktop
+===================================================================
+Index: runtime/localization/currency/tmt.desktop
+===================================================================
+Index: runtime/doc/knetattach/index.docbook
+===================================================================
+Index: runtime/doc/faq/contrib.docbook
+===================================================================
+Index: runtime/doc/kcontrol/paths/index.docbook
+===================================================================
+Index: runtime/doc/kcontrol/language/index.docbook
+===================================================================
+Index: runtime/doc/kcontrol/solid-device-automounter/index.docbook
+===================================================================
+Index: runtime/doc/kcontrol/khtml-general/index.docbook
+===================================================================
+Index: runtime/doc/kcontrol/ebrowsing/index.docbook
+===================================================================
+Index: runtime/doc/kcontrol/filetypes/index.docbook
+===================================================================
+Index: runtime/doc/kcontrol/kded/index.docbook
+===================================================================
+Index: runtime/doc/kcontrol/khtml-behavior/index.docbook
+===================================================================
+Index: runtime/doc/kcontrol/CMakeLists.txt
+===================================================================
+Index: runtime/doc/kcontrol/khtml-java-js/index.docbook
+===================================================================
+Index: runtime/doc/kcontrol/spellchecking/index.docbook
+===================================================================
+Index: runtime/doc/kioslave/man/index.docbook
+===================================================================
+Index: runtime/kioslave/thumbnail/windowsimagecreator.cpp
+===================================================================
+Index: runtime/kioslave/thumbnail/icoutils.cpp
+===================================================================
+Index: runtime/kioslave/network/ioslave/networkslave.cpp
+===================================================================
+Index: runtime/nepomuk/services/removablestorage/removablestorageservice.cpp
+===================================================================
+Index: runtime/nepomuk/services/strigi/filesystemwatcher.cpp
+===================================================================
+Index: runtime/nepomuk/services/strigi/indexscheduler.cpp
+===================================================================
+Index: runtime/nepomuk/services/strigi/statuswidget.cpp
+===================================================================
+Index: runtime/nepomuk/services/storage/repository.cpp
+===================================================================
+Index: runtime/nepomuk/kcm/nepomukserverkcm.cpp
+===================================================================
+Index: runtime/kstyles/oxygen/oxygen.cpp
+===================================================================
+Index: runtime/attica/kcm/kcm_attica.desktop
+===================================================================
+Index: runtime/drkonqi/data/mappings
+===================================================================
+Index: runtime/l10n/cf/entry.desktop
+===================================================================
+Index: runtime/l10n/sg/entry.desktop
+===================================================================
+Index: runtime/l10n/sv/entry.desktop
+===================================================================
+Index: runtime/l10n/sz/entry.desktop
+===================================================================
+Index: runtime/l10n/tz/entry.desktop
+===================================================================
+Index: runtime/plasma/scriptengines/javascript/simplejavascriptapplet.cpp
+===================================================================
+Index: workspace/doc/klipper/index.docbook
+===================================================================
+Index: workspace/doc/kcontrol/kwinscreenedges/index.docbook
+===================================================================
+Index: workspace/doc/kcontrol/mouse/index.docbook
+===================================================================
+Index: workspace/doc/kcontrol/clock/index.docbook
+===================================================================
+Index: workspace/doc/kcontrol/kcmaccess/index.docbook
+===================================================================
+Index: workspace/doc/kcontrol/desktopthemedetails/message.png
+===================================================================
+Nie można wyświetlić: plik binarny.
+svn:mime-type = image/png
+Index: workspace/doc/kcontrol/desktopthemedetails/desktop-settings.png
+===================================================================
+Nie można wyświetlić: plik binarny.
+svn:mime-type = image/png
+Index: workspace/doc/kcontrol/desktopthemedetails/index.docbook
+===================================================================
+Index: workspace/doc/kcontrol/desktopthemedetails/clicking-apply.png
+===================================================================
+Nie można wyświetlić: plik binarny.
+svn:mime-type = application/octet-stream
+
+Zmiany atrybutów dla: workspace/doc/kcontrol/desktopthemedetails/clicking-apply.png
+___________________________________________________________________
+Dodane: svn:mime-type
+   + application/octet-stream
+
+Index: workspace/doc/kcontrol/desktopthemedetails/customizing.png
+===================================================================
+Nie można wyświetlić: plik binarny.
+svn:mime-type = application/octet-stream
+
+Zmiany atrybutów dla: workspace/doc/kcontrol/desktopthemedetails/customizing.png
+___________________________________________________________________
+Dodane: svn:mime-type
+   + application/octet-stream
+
+Index: workspace/doc/kcontrol/fontinst/index.docbook
+===================================================================
+Index: workspace/doc/kcontrol/kwintabbox/index.docbook
+===================================================================
+Index: workspace/doc/kcontrol/keys/index.docbook
+===================================================================
+Index: workspace/doc/kdm/index.docbook
+===================================================================
+Index: workspace/klipper/klipper.cpp
+===================================================================
+Index: workspace/klipper/klipper.h
+===================================================================
+Index: workspace/wallpapers/Quadros/metadata.desktop
+===================================================================
+Index: workspace/wallpapers/Media_Life/metadata.desktop
+===================================================================
+Index: workspace/krunner/interfaces/quicksand/qs_matchview.cpp
+===================================================================
+Index: workspace/krunner/interfaces/default/interface.cpp
+===================================================================
+Index: workspace/libs/plasmagenericshell/widgetsexplorer/applettooltip.cpp
+===================================================================
+Index: workspace/libs/ksysguard/processui/scripting.cpp
+===================================================================
+Index: workspace/khotkeys/kcm_hotkeys/settings-input-actions.desktop
+===================================================================
+Index: workspace/khotkeys/kcm_hotkeys/khotkeys.desktop
+===================================================================
+Index: workspace/ksplash/ksplashx/README
+===================================================================
+Index: workspace/ksplash/ksplashx/splash.cpp
+===================================================================
+Index: workspace/kwin/clients/aurorae/src/aurorae.desktop
+===================================================================
+Index: workspace/kwin/clients/oxygen/oxygenclientgroupitemdata.cpp
+===================================================================
+Index: workspace/kwin/clients/oxygen/oxygenconfiguration.cpp
+===================================================================
+Index: workspace/kwin/clients/oxygen/oxygenclientgroupitemdata.h
+===================================================================
+Index: workspace/kwin/clients/oxygen/oxygentitleanimationdata.cpp
+===================================================================
+Index: workspace/kwin/clients/oxygen/oxygenclient.cpp
+===================================================================
+Index: workspace/kwin/clients/oxygen/oxygentitleanimationdata.h
+===================================================================
+Index: workspace/kwin/clients/oxygen/oxygenclient.h
+===================================================================
+Index: workspace/kwin/kcmkwin/kwindecoration/kwindecoration.desktop
+===================================================================
+Index: workspace/plasma/netbook/containments/sal/itemcontainer.cpp
+===================================================================
+Index: workspace/plasma/netbook/containments/sal/sal.cpp
+===================================================================
+Index: workspace/plasma/netbook/containments/sal/sal.h
+===================================================================
+Index: workspace/plasma/netbook/containments/sal/itemview.cpp
+===================================================================
+Index: workspace/plasma/desktop/applets/kickoff/core/systemmodel.cpp
+===================================================================
+Index: workspace/plasma/desktop/applets/kickoff/core/systemmodel.h
+===================================================================
+Index: workspace/plasma/desktop/applets/kickoff/ui/launcher.cpp
+===================================================================
+Index: workspace/plasma/generic/dataengines/weather/ions/wetter.com/ion_wettercom.cpp
+===================================================================
+Index: workspace/plasma/generic/dataengines/weather/ions/envcan/ion_envcan.cpp
+===================================================================
+Index: workspace/plasma/generic/dataengines/weather/ions/envcan/ion_envcan.h
+===================================================================
+Index: workspace/plasma/generic/dataengines/weather/ions/bbcukmet/ion_bbcukmet.cpp
+===================================================================
+Index: workspace/plasma/generic/dataengines/weather/ions/bbcukmet/ion_bbcukmet.h
+===================================================================
+Index: workspace/plasma/generic/applets/devicenotifier/devicenotifier.cpp
+===================================================================
+Index: workspace/plasma/generic/applets/devicenotifier/devicenotifier.h
+===================================================================
+Index: workspace/plasma/generic/applets/lock_logout/lockout.cpp
+===================================================================
+Index: workspace/plasma/generic/applets/lock_logout/lockout.h
+===================================================================
+Index: workspace/plasma/generic/applets/webbrowser/webbrowser.cpp
+===================================================================
+Index: workspace/plasma/generic/applets/webbrowser/webbrowser.h
+===================================================================
+Index: workspace/plasma/generic/applets/systemtray/ui/taskarea.cpp
+===================================================================
+Index: workspace/plasma/generic/applets/system-monitor/hdd.h
+===================================================================
+Index: workspace/plasma/generic/applets/system-monitor/ram.cpp
+===================================================================
+Index: workspace/plasma/generic/applets/system-monitor/net.cpp
+===================================================================
+Index: workspace/plasma/generic/applets/system-monitor/hdd.cpp
+===================================================================
+Index: workspace/plasma/generic/applets/system-monitor/temperature.h
+===================================================================
+Index: workspace/plasma/generic/applets/system-monitor/ram.h
+===================================================================
+Index: workspace/plasma/generic/applets/system-monitor/net.h
+===================================================================
+Index: workspace/plasma/generic/applets/system-monitor/temperature.cpp
+===================================================================
+Index: workspace/plasma/generic/applets/analog-clock/clock.h
+===================================================================
+Index: workspace/plasma/generic/applets/analog-clock/clock.cpp
+===================================================================
+Index: workspace/plasma/generic/applets/panelspacer/panelspacer.h
+===================================================================
+Index: workspace/plasma/generic/applets/panelspacer/panelspacer.cpp
+===================================================================
+Index: workspace/plasma/generic/runners/bookmarks/bookmarksrunner.cpp
+===================================================================
+Index: workspace/plasma/generic/runners/bookmarks/bookmarksrunner.h
+===================================================================
+Index: workspace/plasma/generic/runners/windows/windowsrunner.cpp
+===================================================================
+Index: workspace/plasma/generic/runners/windows/windowsrunner.h
+===================================================================
+Index: workspace/plasma/generic/runners/kill/killrunner.cpp
+===================================================================
+Index: workspace/plasma/generic/runners/kill/killrunner.h
+===================================================================
+Index: workspace/plasma/generic/scriptengines/python/pyappletscript.py
+===================================================================
