@@ -3,13 +3,10 @@
 # - more file moves between packages; what's with dozen of messy -core/-common/-common* packages?
 # - Req, Obsolets and Conflicts for every package
 # - new descriptions
-# - k3b-1.69.0-0.alpha4.1.i686: required "/usr/share/apps/konqsidebartng/virtual_folders/services" is provided by following packages:
-#   a) kde4-kdebase-workspace-4.3.4-2.i686
-#   b) kde4-konqueror-4.3.4-1.i686
 #
 %define		_state		stable
 %define		orgname		kdebase
-%define		qtver		4.5.3
+%define		qtver		4.6.1
 
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):	K Desktop Environment - archivos básicos
@@ -21,27 +18,27 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.3.5
-Release:	1
+Version:	4.4.0
+Release:	4
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	8780164dc328992cfbd9a6d5c9e8a8f5
+# Source0-md5:	ddfc358aebe5dc8f5de6f5d1ff7cb018
 Patch100:	%{name}-branch.diff
 Patch0:		%{name}-wordchars.patch
 URL:		http://www.kde.org/
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
-BuildRequires:	Qt3Support-devel
+BuildRequires:	Qt3Support-devel >= %{qtver}
 BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtNetwork-devel >= %{qtver}
-BuildRequires:	QtSvg-devel
-BuildRequires:	QtTest-devel
+BuildRequires:	QtSvg-devel >= %{qtver}
+BuildRequires:	QtTest-devel >= %{qtver}
 BuildRequires:	audiofile-devel
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	bzip2-devel
 BuildRequires:	cdparanoia-III-devel
-BuildRequires:	cmake >= 2.6.3
+BuildRequires:	cmake >= 2.8.0
 BuildRequires:	cups-devel
 BuildRequires:	cyrus-sasl-devel
 BuildRequires:	db-devel
@@ -72,11 +69,12 @@ BuildRequires:	pam-devel
 BuildRequires:	pciutils-devel
 BuildRequires:	pkgconfig
 BuildRequires:	qimageblitz-devel
-BuildRequires:	qt4-build
-BuildRequires:	qt4-qmake
+BuildRequires:	qt4-build >= %{qtver}
+BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	samba-devel
+BuildRequires:	shared-desktop-ontologies-devel >= 0.2
 BuildRequires:	soprano-devel
 BuildRequires:	strigi-devel
 BuildRequires:	xorg-app-bdftopcf
@@ -116,8 +114,7 @@ This package contains KDE base system which includes:
 - many more.
 
 %description -l ja.UTF-8
-KDEデスクトップ環境用の基本アプリケーション。 以下のようなパッケージが入っています。
-
+KDEデスクトップ環境用の基本アプリケーション〄1�7以下のようなパッケージが入っています〄1�7
 %description -l pl.UTF-8
 Ten pakiet zawiera podstawowe aplikacje KDE:
 - Centrum sterowania z modułami
@@ -345,7 +342,7 @@ Biblioteki współdzielone konquerora.
 
 %prep
 %setup -q -n %{orgname}-%{version}
-#%patch100 -p0
+%patch100 -p0
 %patch0 -p1
 
 %{__sed} -i -e 's/Categories=.*/Categories=Audio;Mixer;/' \
@@ -416,6 +413,8 @@ fi
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kbookmarkmerger
+%attr(755,root,root) %{_bindir}/servicemenudeinstallation
+%attr(755,root,root) %{_bindir}/servicemenuinstallation
 %attr(755,root,root) %{_libdir}/kde4/libkcminit_nsplugins.so
 %attr(755,root,root) %{_libdir}/kde4/khtmlkttsdplugin.so
 %attr(755,root,root) %{_libdir}/kde4/plasma_applet_folderview.so
@@ -440,6 +439,12 @@ fi
 %{_iconsdir}/*/*/apps/*.png
 %{_iconsdir}/*/*/apps/*.svgz
 %{_mandir}/man1/kbookmarkmerger.1.*
+
+# view svn plugin - where to put??
+%attr(755,root,root) %{_libdir}/kde4/fileviewsvnplugin.so
+%{_datadir}/kde4/services/fileviewsvnplugin.desktop
+%{_datadir}/config/servicemenu.knsrc
+%{_datadir}/kde4/servicetypes/fileviewversioncontrolplugin.desktop
 
 %files devel
 %defattr(644,root,root,755)
@@ -553,10 +558,12 @@ fi
 %attr(755,root,root) %{_libdir}/kde4/kcm_dolphinviewmodes.so
 %attr(755,root,root) %{_libdir}/kde4/dolphinpart.so
 %dir %{_datadir}/apps/dolphin
+%{_datadir}/apps/dolphin/dolphinsearchcommands.desktop
 %{_datadir}/apps/dolphin/dolphinui.rc
 %dir %{_datadir}/apps/dolphinpart
 %{_datadir}/apps/dolphinpart/dolphinpart.rc
 %{_datadir}/config.kcfg/dolphin_columnmodesettings.kcfg
+%{_datadir}/config.kcfg/dolphin_versioncontrolsettings.kcfg
 %{_datadir}/config.kcfg/dolphin_detailsmodesettings.kcfg
 %{_datadir}/config.kcfg/dolphin_directoryviewpropertysettings.kcfg
 %{_datadir}/config.kcfg/dolphin_generalsettings.kcfg
@@ -592,8 +599,6 @@ fi
 %attr(755,root,root) %{_libdir}/kde4/kded_konqy_preloader.so
 %attr(755,root,root) %{_libdir}/kde4/konq_aboutpage.so
 %attr(755,root,root) %{_libdir}/kde4/libnsplugin.so
-%{_datadir}/apps/kconf_update/konqsidebartng.upd
-%{_datadir}/apps/kconf_update/move_konqsidebartng_entries.sh
 %{_datadir}/apps/kbookmark
 %{_datadir}/apps/kcmcss
 %{_datadir}/apps/keditbookmarks
@@ -606,7 +611,7 @@ fi
 %dir %{_datadir}/apps/plugin
 %{_datadir}/apps/plugin/nspluginpart.rc
 %{_datadir}/autostart/konqy_preload.desktop
-%{_datadir}/config/konqsidebartng.rc
+%{_datadir}/config/konqsidebartngrc
 %{_datadir}/config.kcfg/konqueror.kcfg
 %{_datadir}/kde4/servicetypes/findpart.desktop
 %{_datadir}/kde4/servicetypes/konqaboutpage.desktop
@@ -635,7 +640,7 @@ fi
 %{_datadir}/kde4/services/konq_aboutpage.desktop
 %{_datadir}/kde4/services/konq_sidebartng.desktop
 %{_datadir}/kde4/services/konqueror.desktop
-%{_datadir}/kde4/services/lanbrowser.desktop
+#%{_datadir}/kde4/services/lanbrowser.desktop
 %{_datadir}/kde4/services/netpref.desktop
 %{_datadir}/kde4/services/proxy.desktop
 %{_datadir}/kde4/services/smb.desktop
@@ -656,8 +661,8 @@ fi
 %attr(755,root,root) %{_libdir}/kde4/konq_sidebar.so
 %attr(755,root,root) %{_libdir}/kde4/konq_sidebartree_bookmarks.so
 %attr(755,root,root) %{_libdir}/kde4/konq_sidebartree_dirtree.so
-%attr(755,root,root) %{_libdir}/kde4/konq_sidebartree_history.so
 %attr(755,root,root) %{_libdir}/kde4/konq_sound.so
+%attr(755,root,root) %{_libdir}/kde4/konqsidebar_history.so
 %attr(755,root,root) %{_libdir}/kde4/konqsidebar_tree.so
 %attr(755,root,root) %{_libdir}/kde4/konqsidebar_web.so
 %attr(755,root,root) %{_libdir}/kde4/konq_shellcmdplugin.so
