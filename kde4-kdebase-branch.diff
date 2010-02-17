@@ -1,7 +1,20 @@
+Index: apps/kappfinder/apps/Multimedia/sweep.desktop
+===================================================================
+--- apps/kappfinder/apps/Multimedia/sweep.desktop	(.../tags/KDE/4.4.0/kdebase)	(wersja 1091888)
++++ apps/kappfinder/apps/Multimedia/sweep.desktop	(.../branches/KDE/4.4/kdebase)	(wersja 1091888)
+@@ -11,7 +11,7 @@
+ Name[bn]=সুইপ
+ Name[bn_IN]=Sweep
+ Name[br]=Sweep
+-Name[ca]=Sweep
++Name[ca]=Escombrat
+ Name[ca@valencia]=Sweep
+ Name[cs]=Sweep
+ Name[csb]=Sweep
 Index: apps/dolphin/src/dolphinapplication.cpp
 ===================================================================
---- apps/dolphin/src/dolphinapplication.cpp	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
-+++ apps/dolphin/src/dolphinapplication.cpp	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+--- apps/dolphin/src/dolphinapplication.cpp	(.../tags/KDE/4.4.0/kdebase)	(wersja 1091888)
++++ apps/dolphin/src/dolphinapplication.cpp	(.../branches/KDE/4.4/kdebase)	(wersja 1091888)
 @@ -72,23 +72,27 @@
  int DolphinApplication::newInstance()
  {
@@ -43,8 +56,8 @@ Index: apps/dolphin/src/dolphinapplication.cpp
  }
 Index: apps/dolphin/src/kcm/kcmdolphinservices.desktop
 ===================================================================
---- apps/dolphin/src/kcm/kcmdolphinservices.desktop	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
-+++ apps/dolphin/src/kcm/kcmdolphinservices.desktop	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+--- apps/dolphin/src/kcm/kcmdolphinservices.desktop	(.../tags/KDE/4.4.0/kdebase)	(wersja 1091888)
++++ apps/dolphin/src/kcm/kcmdolphinservices.desktop	(.../branches/KDE/4.4/kdebase)	(wersja 1091888)
 @@ -219,7 +219,7 @@
  Comment[sv]=Anpassa filhanterarens tjänster
  Comment[tg]=Танзимоти файли мудири хизматҳо
@@ -56,8 +69,8 @@ Index: apps/dolphin/src/kcm/kcmdolphinservices.desktop
  Comment[zh_CN]=配置文件管理器服务
 Index: apps/dolphin/src/kcm/kcmdolphingeneral.desktop
 ===================================================================
---- apps/dolphin/src/kcm/kcmdolphingeneral.desktop	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
-+++ apps/dolphin/src/kcm/kcmdolphingeneral.desktop	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+--- apps/dolphin/src/kcm/kcmdolphingeneral.desktop	(.../tags/KDE/4.4.0/kdebase)	(wersja 1091888)
++++ apps/dolphin/src/kcm/kcmdolphingeneral.desktop	(.../branches/KDE/4.4/kdebase)	(wersja 1091888)
 @@ -260,7 +260,7 @@
  Comment[sv]=Anpassa filhanterarens allmänna inställningar
  Comment[tg]=Танзимоти умумии мудири файлҳо насб кунед
@@ -73,8 +86,8 @@ Nie można wyświetlić: plik binarny.
 svn:mime-type = image/png
 Index: apps/doc/kdepasswd/index.docbook
 ===================================================================
---- apps/doc/kdepasswd/index.docbook	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
-+++ apps/doc/kdepasswd/index.docbook	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+--- apps/doc/kdepasswd/index.docbook	(.../tags/KDE/4.4.0/kdebase)	(wersja 1091888)
++++ apps/doc/kdepasswd/index.docbook	(.../branches/KDE/4.4/kdebase)	(wersja 1091888)
 @@ -5,6 +5,7 @@
    <!ENTITY % English "INCLUDE">
  ]>
@@ -166,8 +179,8 @@ Nie można wyświetlić: plik binarny.
 svn:mime-type = image/png
 Index: apps/doc/konqueror/basics.docbook
 ===================================================================
---- apps/doc/konqueror/basics.docbook	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
-+++ apps/doc/konqueror/basics.docbook	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+--- apps/doc/konqueror/basics.docbook	(.../tags/KDE/4.4.0/kdebase)	(wersja 1091888)
++++ apps/doc/konqueror/basics.docbook	(.../branches/KDE/4.4/kdebase)	(wersja 1091888)
 @@ -6,8 +6,8 @@
  <!-- TRANS:ROLES_OF_TRANSLATORS -->
  </authorgroup>
@@ -332,8 +345,8 @@ Index: apps/doc/konqueror/basics.docbook
  
 Index: apps/doc/konqueror/config.docbook
 ===================================================================
---- apps/doc/konqueror/config.docbook	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
-+++ apps/doc/konqueror/config.docbook	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+--- apps/doc/konqueror/config.docbook	(.../tags/KDE/4.4.0/kdebase)	(wersja 1091888)
++++ apps/doc/konqueror/config.docbook	(.../branches/KDE/4.4/kdebase)	(wersja 1091888)
 @@ -6,8 +6,8 @@
  <!-- TRANS:ROLES_OF_TRANSLATORS -->
  </authorgroup>
@@ -414,7 +427,7 @@ Index: apps/doc/konqueror/config.docbook
  <mediaobject>
  <imageobject>
  <imagedata fileref="shortcut2.png" format="PNG"/>
-@@ -87,37 +82,95 @@
+@@ -87,37 +82,81 @@
  <phrase>Shortcut config screenshot 2</phrase>
  </textobject>
  </mediaobject>
@@ -427,6 +440,18 @@ Index: apps/doc/konqueror/config.docbook
 -press <guibutton>OK</guibutton> or <guibutton>Cancel</guibutton>. Clicking on 
 -the little black icon with a white cross in it clears the shortcut.</para>
  
+-<sect2 id="userdefmenus">
+-<title>User Defined Menus</title>
+-<para>You can add your own pop up menu to &konqueror; so that pressing one key 
+-combination will make the menu appear then pressing a second key, or using the 
+-<keysym>Up arrow</keysym> and <keysym>Down arrow</keysym> keys and pressing 
+-<keycap>Enter</keycap>, will select an item from it.</para>
+-<para>To do this add a <guilabel>Custom</guilabel> shortcut for each of the 
+-actions you want to appear in the menu and in the <guilabel>Define Shortcut
+-</guilabel> dialog check the <guilabel>Multi-Key</guilabel> box, press the 
+-key combination that you want to bring up your new menu then, separately, 
+-press the key that will choose that item from the menu.</para>
+-</sect2>
 +<itemizedlist>
 +<listitem><para><guilabel>Default</guilabel>: the selected action
 +will be associated with &kde;'s default value. This is a good choice
@@ -447,21 +472,6 @@ Index: apps/doc/konqueror/config.docbook
 +allows to edit the second shortcut for the action.</para></listitem>
 +</itemizedlist>
 +
-+<!--not in 4.4 ?-->
- <sect2 id="userdefmenus">
- <title>User Defined Menus</title>
- <para>You can add your own pop up menu to &konqueror; so that pressing one key 
- combination will make the menu appear then pressing a second key, or using the 
- <keysym>Up arrow</keysym> and <keysym>Down arrow</keysym> keys and pressing 
--<keycap>Enter</keycap>, will select an item from it.</para>
-+&Enter;, will select an item from it.</para>
- <para>To do this add a <guilabel>Custom</guilabel> shortcut for each of the 
- actions you want to appear in the menu and in the <guilabel>Define Shortcut
- </guilabel> dialog check the <guilabel>Multi-Key</guilabel> box, press the 
- key combination that you want to bring up your new menu then, separately, 
- press the key that will choose that item from the menu.</para>
- </sect2>
-+<!--not in 4.4 ?-->
  </sect1>
  
  <sect1 id="othersettings">
@@ -524,8 +534,8 @@ Index: apps/doc/konqueror/config.docbook
  use the <link linkend="bubble">What's This?</link> feature.</para>
 Index: apps/doc/konqueror/introduction.docbook
 ===================================================================
---- apps/doc/konqueror/introduction.docbook	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
-+++ apps/doc/konqueror/introduction.docbook	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+--- apps/doc/konqueror/introduction.docbook	(.../tags/KDE/4.4.0/kdebase)	(wersja 1091888)
++++ apps/doc/konqueror/introduction.docbook	(.../branches/KDE/4.4/kdebase)	(wersja 1091888)
 @@ -5,15 +5,15 @@
  <!-- TRANS:ROLES_OF_TRANSLATORS -->
  </authorgroup>
@@ -590,8 +600,8 @@ Nie można wyświetlić: plik binarny.
 svn:mime-type = image/png
 Index: apps/doc/kinfocenter/index.docbook
 ===================================================================
---- apps/doc/kinfocenter/index.docbook	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
-+++ apps/doc/kinfocenter/index.docbook	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+--- apps/doc/kinfocenter/index.docbook	(.../tags/KDE/4.4.0/kdebase)	(wersja 1091888)
++++ apps/doc/kinfocenter/index.docbook	(.../branches/KDE/4.4/kdebase)	(wersja 1091888)
 @@ -20,8 +20,8 @@
  </authorgroup>
  
@@ -804,8 +814,8 @@ Dodane: svn:mime-type
 
 Index: apps/doc/kinfocenter/CMakeLists.txt
 ===================================================================
---- apps/doc/kinfocenter/CMakeLists.txt	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
-+++ apps/doc/kinfocenter/CMakeLists.txt	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+--- apps/doc/kinfocenter/CMakeLists.txt	(.../tags/KDE/4.4.0/kdebase)	(wersja 1091888)
++++ apps/doc/kinfocenter/CMakeLists.txt	(.../branches/KDE/4.4/kdebase)	(wersja 1091888)
 @@ -7,7 +7,6 @@
  add_subdirectory(opengl)
  add_subdirectory(partitions)
@@ -816,8 +826,8 @@ Index: apps/doc/kinfocenter/CMakeLists.txt
  add_subdirectory(samba)
 Index: apps/doc/kfind/index.docbook
 ===================================================================
---- apps/doc/kfind/index.docbook	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
-+++ apps/doc/kfind/index.docbook	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+--- apps/doc/kfind/index.docbook	(.../tags/KDE/4.4.0/kdebase)	(wersja 1091888)
++++ apps/doc/kfind/index.docbook	(.../branches/KDE/4.4/kdebase)	(wersja 1091888)
 @@ -26,8 +26,8 @@
  
  <legalnotice>&FDLNotice;</legalnotice>
@@ -975,8 +985,8 @@ Index: apps/doc/kfind/index.docbook
  </para>
 Index: apps/doc/dolphin/index.docbook
 ===================================================================
---- apps/doc/dolphin/index.docbook	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
-+++ apps/doc/dolphin/index.docbook	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+--- apps/doc/dolphin/index.docbook	(.../tags/KDE/4.4.0/kdebase)	(wersja 1091888)
++++ apps/doc/dolphin/index.docbook	(.../branches/KDE/4.4/kdebase)	(wersja 1091888)
 @@ -123,7 +123,7 @@
  <title>&dolphin; User Interface</title>
  
@@ -1016,8 +1026,8 @@ Index: apps/doc/dolphin/index.docbook
  and the <guimenuitem>Search Toolbar</guimenuitem>.</action></para></listitem>
 Index: apps/kinfocenter/memory/memory_fbsd.cpp
 ===================================================================
---- apps/kinfocenter/memory/memory_fbsd.cpp	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
-+++ apps/kinfocenter/memory/memory_fbsd.cpp	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+--- apps/kinfocenter/memory/memory_fbsd.cpp	(.../tags/KDE/4.4.0/kdebase)	(wersja 1091888)
++++ apps/kinfocenter/memory/memory_fbsd.cpp	(.../branches/KDE/4.4/kdebase)	(wersja 1091888)
 @@ -1,90 +1,67 @@
 -
  #include <sys/types.h>
@@ -1146,8 +1156,8 @@ Index: apps/kinfocenter/memory/memory_fbsd.cpp
  }
 Index: apps/kinfocenter/CMakeLists.txt
 ===================================================================
---- apps/kinfocenter/CMakeLists.txt	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
-+++ apps/kinfocenter/CMakeLists.txt	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+--- apps/kinfocenter/CMakeLists.txt	(.../tags/KDE/4.4.0/kdebase)	(wersja 1091888)
++++ apps/kinfocenter/CMakeLists.txt	(.../branches/KDE/4.4/kdebase)	(wersja 1091888)
 @@ -56,6 +56,11 @@
  
  kde4_add_kdeinit_executable( kinfocenter ${kinfocenter_SRCS})
@@ -1162,8 +1172,8 @@ Index: apps/kinfocenter/CMakeLists.txt
  install(TARGETS kdeinit_kinfocenter          ${INSTALL_TARGETS_DEFAULT_ARGS})
 Index: apps/plasma/applets/folderview/folderview.cpp
 ===================================================================
---- apps/plasma/applets/folderview/folderview.cpp	(.../tags/KDE/4.4.0/kdebase)	(wersja 1089014)
-+++ apps/plasma/applets/folderview/folderview.cpp	(.../branches/KDE/4.4/kdebase)	(wersja 1089014)
+--- apps/plasma/applets/folderview/folderview.cpp	(.../tags/KDE/4.4.0/kdebase)	(wersja 1091888)
++++ apps/plasma/applets/folderview/folderview.cpp	(.../branches/KDE/4.4/kdebase)	(wersja 1091888)
 @@ -1148,8 +1148,11 @@
  
  void FolderView::updateScreenRegion()
@@ -1179,9 +1189,13 @@ Index: apps/plasma/applets/folderview/folderview.cpp
      }
 Index: runtime/solid-device-automounter/kcm/device_automounter_kcm.desktop
 ===================================================================
+Index: runtime/localization/currency/brl.desktop
+===================================================================
 Index: runtime/localization/currency/tnd.desktop
 ===================================================================
 Index: runtime/localization/currency/shp.desktop
+===================================================================
+Index: runtime/localization/currency/bsd.desktop
 ===================================================================
 Index: runtime/localization/currency/sar.desktop
 ===================================================================
@@ -1196,6 +1210,8 @@ Index: runtime/localization/currency/yer.desktop
 Index: runtime/localization/currency/top.desktop
 ===================================================================
 Index: runtime/localization/currency/sbd.desktop
+===================================================================
+Index: runtime/localization/currency/bdt.desktop
 ===================================================================
 Index: runtime/localization/currency/yum.desktop
 ===================================================================
@@ -1249,9 +1265,15 @@ Index: runtime/localization/currency/sll.desktop
 ===================================================================
 Index: runtime/localization/currency/tjs.desktop
 ===================================================================
+Index: runtime/localization/currency/bgl.desktop
+===================================================================
+Index: runtime/localization/currency/bgn.desktop
+===================================================================
 Index: runtime/localization/currency/xcd.desktop
 ===================================================================
 Index: runtime/localization/currency/sek.desktop
+===================================================================
+Index: runtime/localization/currency/bov.desktop
 ===================================================================
 Index: runtime/localization/currency/rwf.desktop
 ===================================================================
@@ -1263,6 +1285,8 @@ Index: runtime/localization/currency/sgd.desktop
 ===================================================================
 Index: runtime/localization/currency/pen.desktop
 ===================================================================
+Index: runtime/localization/currency/bbd.desktop
+===================================================================
 Index: runtime/localization/currency/zar.desktop
 ===================================================================
 Index: runtime/localization/currency/tmm.desktop
@@ -1270,6 +1294,8 @@ Index: runtime/localization/currency/tmm.desktop
 Index: runtime/localization/currency/sos.desktop
 ===================================================================
 Index: runtime/localization/currency/tmt.desktop
+===================================================================
+Index: runtime/khelpcenter/plugins/faq.desktop
 ===================================================================
 Index: runtime/doc/knetattach/index.docbook
 ===================================================================
@@ -1305,6 +1331,12 @@ Index: runtime/kioslave/thumbnail/icoutils.cpp
 ===================================================================
 Index: runtime/kioslave/network/ioslave/networkslave.cpp
 ===================================================================
+Index: runtime/kioslave/network/network/builder/dnssd/dnssdnetworkbuilder.cpp
+===================================================================
+Index: runtime/nepomuk/kioslaves/search/kdedmodule/nepomuksearchmodule.desktop
+===================================================================
+Index: runtime/nepomuk/kioslaves/nepomuk/kio_nepomuk.cpp
+===================================================================
 Index: runtime/nepomuk/services/removablestorage/removablestorageservice.cpp
 ===================================================================
 Index: runtime/nepomuk/services/strigi/filesystemwatcher.cpp
@@ -1317,11 +1349,21 @@ Index: runtime/nepomuk/services/storage/repository.cpp
 ===================================================================
 Index: runtime/nepomuk/kcm/nepomukserverkcm.cpp
 ===================================================================
+Index: runtime/kstyles/oxygen/oxygen.h
+===================================================================
 Index: runtime/kstyles/oxygen/oxygen.cpp
+===================================================================
+Index: runtime/kstyles/oxygen/transitions/oxygencomboboxdata.cpp
+===================================================================
+Index: runtime/kurifilter-plugins/fixhost/fixhosturifilter.cpp
 ===================================================================
 Index: runtime/attica/kcm/kcm_attica.desktop
 ===================================================================
 Index: runtime/drkonqi/data/mappings
+===================================================================
+Index: runtime/l10n/yt/entry.desktop
+===================================================================
+Index: runtime/l10n/re/entry.desktop
 ===================================================================
 Index: runtime/l10n/cf/entry.desktop
 ===================================================================
@@ -1333,7 +1375,21 @@ Index: runtime/l10n/sz/entry.desktop
 ===================================================================
 Index: runtime/l10n/tz/entry.desktop
 ===================================================================
+Index: runtime/l10n/gf/entry.desktop
+===================================================================
+Index: runtime/plasma/scriptengines/javascript/simplebindings/qscriptbookkeeping.cpp
+===================================================================
+Index: runtime/plasma/scriptengines/javascript/simplebindings/appletinterface.h
+===================================================================
+Index: runtime/plasma/scriptengines/javascript/simplebindings/pixmap.cpp
+===================================================================
+Index: runtime/plasma/scriptengines/javascript/simplebindings/rect.cpp
+===================================================================
 Index: runtime/plasma/scriptengines/javascript/simplejavascriptapplet.cpp
+===================================================================
+Index: workspace/kcontrol/autostart/autostart.desktop
+===================================================================
+Index: workspace/kcontrol/randr/outputconfig.cpp
 ===================================================================
 Index: workspace/doc/klipper/index.docbook
 ===================================================================
@@ -1387,13 +1443,61 @@ Index: workspace/klipper/klipper.cpp
 ===================================================================
 Index: workspace/klipper/klipper.h
 ===================================================================
+Index: workspace/wallpapers/Spring_Sunray/metadata.desktop
+===================================================================
+Index: workspace/wallpapers/Ethais/metadata.desktop
+===================================================================
 Index: workspace/wallpapers/Quadros/metadata.desktop
 ===================================================================
 Index: workspace/wallpapers/Media_Life/metadata.desktop
 ===================================================================
+Index: workspace/solid/solid-actions-kcm/solid-actions.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-SmartCardReader.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Video.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Battery.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-NetworkInterface.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Button.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Processor.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-AudioInterface.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-AcAdapter.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-OpticalDrive.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-PortableMediaPlayer.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-StorageAccess.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Camera.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Block.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-StorageVolume.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-DvbInterface.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-GenericInterface.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-OpticalDisc.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-StorageDrive.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-SerialInterface.desktop
+===================================================================
+Index: workspace/solid/lirc/solid_lirc.desktop
+===================================================================
 Index: workspace/krunner/interfaces/quicksand/qs_matchview.cpp
 ===================================================================
 Index: workspace/krunner/interfaces/default/interface.cpp
+===================================================================
+Index: workspace/krunner/lock/lockdlg.cc
 ===================================================================
 Index: workspace/libs/plasmagenericshell/widgetsexplorer/applettooltip.cpp
 ===================================================================
@@ -1403,9 +1507,17 @@ Index: workspace/khotkeys/kcm_hotkeys/settings-input-actions.desktop
 ===================================================================
 Index: workspace/khotkeys/kcm_hotkeys/khotkeys.desktop
 ===================================================================
+Index: workspace/ksplash/kcm/ksplashthememgr.desktop
+===================================================================
 Index: workspace/ksplash/ksplashx/README
 ===================================================================
 Index: workspace/ksplash/ksplashx/splash.cpp
+===================================================================
+Index: workspace/kwin/effects/slidingpopups/slidingpopups.desktop
+===================================================================
+Index: workspace/kwin/effects/blur/blur.desktop
+===================================================================
+Index: workspace/kwin/effects/resize/resize.desktop
 ===================================================================
 Index: workspace/kwin/clients/aurorae/src/aurorae.desktop
 ===================================================================
@@ -1417,6 +1529,8 @@ Index: workspace/kwin/clients/oxygen/oxygenclientgroupitemdata.h
 ===================================================================
 Index: workspace/kwin/clients/oxygen/oxygentitleanimationdata.cpp
 ===================================================================
+Index: workspace/kwin/clients/oxygen/oxygenbutton.cpp
+===================================================================
 Index: workspace/kwin/clients/oxygen/oxygenclient.cpp
 ===================================================================
 Index: workspace/kwin/clients/oxygen/oxygentitleanimationdata.h
@@ -1425,6 +1539,14 @@ Index: workspace/kwin/clients/oxygen/oxygenclient.h
 ===================================================================
 Index: workspace/kwin/kcmkwin/kwindecoration/kwindecoration.desktop
 ===================================================================
+Index: workspace/kwin/kcmkwin/kwinscreenedges/kwinscreenedges.desktop
+===================================================================
+Index: workspace/kwin/kcmkwin/kwinrules/kwinrules.desktop
+===================================================================
+Index: workspace/kwin/kcmkwin/kwintabbox/kwintabbox.desktop
+===================================================================
+Index: workspace/kwin/data/fsp_workarounds_1.kwinrules
+===================================================================
 Index: workspace/plasma/netbook/containments/sal/itemcontainer.cpp
 ===================================================================
 Index: workspace/plasma/netbook/containments/sal/sal.cpp
@@ -1432,6 +1554,10 @@ Index: workspace/plasma/netbook/containments/sal/sal.cpp
 Index: workspace/plasma/netbook/containments/sal/sal.h
 ===================================================================
 Index: workspace/plasma/netbook/containments/sal/itemview.cpp
+===================================================================
+Index: workspace/plasma/netbook/containments/newspaper/plasma-containment-newspaper.desktop
+===================================================================
+Index: workspace/plasma/netbook/shell/plasma-netbook.desktop
 ===================================================================
 Index: workspace/plasma/desktop/applets/kickoff/core/systemmodel.cpp
 ===================================================================
@@ -1449,6 +1575,8 @@ Index: workspace/plasma/generic/dataengines/weather/ions/bbcukmet/ion_bbcukmet.c
 ===================================================================
 Index: workspace/plasma/generic/dataengines/weather/ions/bbcukmet/ion_bbcukmet.h
 ===================================================================
+Index: workspace/plasma/generic/dataengines/apps/plasma-dataengine-apps.desktop
+===================================================================
 Index: workspace/plasma/generic/applets/devicenotifier/devicenotifier.cpp
 ===================================================================
 Index: workspace/plasma/generic/applets/devicenotifier/devicenotifier.h
@@ -1462,6 +1590,10 @@ Index: workspace/plasma/generic/applets/webbrowser/webbrowser.cpp
 Index: workspace/plasma/generic/applets/webbrowser/webbrowser.h
 ===================================================================
 Index: workspace/plasma/generic/applets/systemtray/ui/taskarea.cpp
+===================================================================
+Index: workspace/plasma/generic/applets/quicklaunch/quicklaunchApplet.h
+===================================================================
+Index: workspace/plasma/generic/applets/quicklaunch/quicklaunchApplet.cpp
 ===================================================================
 Index: workspace/plasma/generic/applets/system-monitor/hdd.h
 ===================================================================
@@ -1480,6 +1612,8 @@ Index: workspace/plasma/generic/applets/system-monitor/net.h
 Index: workspace/plasma/generic/applets/system-monitor/temperature.cpp
 ===================================================================
 Index: workspace/plasma/generic/applets/analog-clock/clock.h
+===================================================================
+Index: workspace/plasma/generic/applets/analog-clock/plasma-applet-analogclock.desktop
 ===================================================================
 Index: workspace/plasma/generic/applets/analog-clock/clock.cpp
 ===================================================================
@@ -1500,4 +1634,8 @@ Index: workspace/plasma/generic/runners/kill/killrunner.cpp
 Index: workspace/plasma/generic/runners/kill/killrunner.h
 ===================================================================
 Index: workspace/plasma/generic/scriptengines/python/pyappletscript.py
+===================================================================
+Index: workspace/plasma/generic/scriptengines/ruby/ChangeLog
+===================================================================
+Index: workspace/plasma/generic/scriptengines/ruby/applet.rb
 ===================================================================
