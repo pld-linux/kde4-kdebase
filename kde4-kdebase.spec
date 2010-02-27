@@ -6,7 +6,7 @@
 #
 %define		_state		stable
 %define		orgname		kdebase
-%define		qtver		4.6.1
+%define		qtver		4.6.2
 
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):	K Desktop Environment - archivos básicos
@@ -18,12 +18,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.4.0
-Release:	4
+Version:	4.4.1
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	ddfc358aebe5dc8f5de6f5d1ff7cb018
+# Source0-md5:	489602de000f1dd4bee682765510fa44
 Patch100:	%{name}-branch.diff
 Patch0:		%{name}-wordchars.patch
 URL:		http://www.kde.org/
@@ -342,7 +342,7 @@ Biblioteki współdzielone konquerora.
 
 %prep
 %setup -q -n %{orgname}-%{version}
-%patch100 -p0
+#%patch100 -p0
 %patch0 -p1
 
 %{__sed} -i -e 's/Categories=.*/Categories=Audio;Mixer;/' \
