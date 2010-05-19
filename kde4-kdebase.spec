@@ -19,7 +19,7 @@ Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
 Version:	4.4.3
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
@@ -281,6 +281,7 @@ Summary:	Konqueror - web browser and file manager
 Summary(pl.UTF-8):	Konqueror - przeglądarka WWW i zarządca plików
 Group:		X11/Applications
 Requires:	browser-plugins
+Requires:	kde-common-dirs >= 0.5
 Requires:	kde4-konqueror-libs = %{version}-%{release}
 Provides:	wwwbrowser
 Obsoletes:	konqueror < 9:3.0.0
@@ -605,7 +606,6 @@ fi
 %{_datadir}/apps/konqueror/about
 %{_datadir}/apps/konqueror/pics
 %{_datadir}/apps/konqueror/profiles
-%dir %{_datadir}/apps/konqueror
 %{_datadir}/apps/konqueror/konqueror.rc
 %{_datadir}/apps/konqsidebartng
 %dir %{_datadir}/apps/plugin
