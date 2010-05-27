@@ -96,6 +96,7 @@ Provides:	kde4-kdebase-common
 Provides:	kde4-kdebase-core
 Obsoletes:	kde4-kdebase-common
 Obsoletes:	kde4-kdebase-core
+Obsoletes:	kde4-kdebase-kappfinder
 Obsoletes:	kdebase4
 Conflicts:	kdebase4
 Conflicts:	kdelibs < 9:3.1.94.040110-1
@@ -132,7 +133,7 @@ Ten pakiet zawiera podstawowe aplikacje KDE:
 просмотра справочных файлов kde, файлов info и man), kthememgr
 (система для управления альтернативными пакетами тем) и другие
 компоненты KDE (kcheckpass, kikbd, kscreensaver, kcontrol, kfind,
-kfontmanager, kmenuedit, kappfinder).
+kfontmanager, kmenuedit).
 
 %description -l uk.UTF-8
 Базові програми для K Desktop Environment. Включені: kwin (віконный
@@ -142,7 +143,7 @@ kfontmanager, kmenuedit, kappfinder).
 файлів довідки kde, файлів info та man), kthememgr (система для
 керування альтернативними пакетами тем) та інші компоненти KDE
 (kcheckpass, kikbd, kscreensaver, kcontrol, kfind, kfontmanager,
-kmenuedit, kappfinder).
+kmenuedit).
 
 %package devel
 Summary:	Include files to develop KDE applications
@@ -163,20 +164,6 @@ KDE.
 %description devel -l pt_BR.UTF-8
 Este pacote contém os arquivos de inclusão que são necessários para
 compilar aplicativos que usem bibliotecas do kdebase.
-
-%package kappfinder
-Summary:	Menu Updating Tool
-Summary(pl.UTF-8):	Narzędzie do aktualizacji menu
-Group:		X11/Applications
-Requires:	kde4-kdelibs >= %{version}
-
-%description kappfinder
-The tool for finding installed application and adding them to your
-menu.
-
-%description kappfinder -l pl.UTF-8
-Narzędzie do wyszukiwania zainstalowanych aplikacji i dodawania ich do
-menu.
 
 %package kdialog
 Summary:	A KDE version of dialog
