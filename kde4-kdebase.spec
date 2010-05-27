@@ -382,8 +382,6 @@ fi
 %attr(755,root,root) %{_libdir}/kde4/libkcminit_nsplugins.so
 %attr(755,root,root) %{_libdir}/kde4/khtmlkttsdplugin.so
 %attr(755,root,root) %{_libdir}/kde4/plasma_applet_folderview.so
-%attr(755,root,root) %ghost %{_libdir}/libkbookmarkmodel_private.so.?
-%attr(755,root,root) %{_libdir}/libkbookmarkmodel_private.so.*.*.*
 %{_datadir}/kde4/services/plasma-applet-folderview.desktop
 %dir %{_datadir}/apps/kcontrol
 %dir %{_datadir}/apps/kcontrol/pics
@@ -587,5 +585,6 @@ fi
 %attr(755,root,root) %{_libdir}/libkonq.so.*
 %attr(755,root,root) %{_libdir}/libkonqsidebarplugin.so.*
 %attr(755,root,root) %{_libdir}/libkonquerorprivate.so.*
+%attr(755,root,root) %{_libdir}/libkbookmarkmodel_private.so.*
 %attr(755,root,root) %{_libdir}/libkdeinit4_keditbookmarks.so
 %attr(755,root,root) %{_libdir}/libkdeinit4_kfmclient.so
