@@ -6,7 +6,7 @@
 #
 %define		_state		stable
 %define		orgname		kdebase
-%define		qtver		4.6.2
+%define		qtver		4.6.3
 
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):	K Desktop Environment - archivos básicos
@@ -18,12 +18,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.4.4
+Version:	4.4.5
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	3e759b5ba2dbc350560c3a4316bfec71
+# Source0-md5:	93fa095ba7bee61a995f1ef6c60a1e32
 Patch100:	%{name}-branch.diff
 Patch0:		%{name}-wordchars.patch
 URL:		http://www.kde.org/
@@ -607,6 +607,7 @@ fi
 %{_datadir}/apps/konqueror/pics
 %{_datadir}/apps/konqueror/profiles
 %{_datadir}/apps/konqueror/konqueror.rc
+%{_datadir}/apps/kwebkitpart/kpartplugins
 %{_datadir}/apps/konqsidebartng
 %dir %{_datadir}/apps/plugin
 %{_datadir}/apps/plugin/nspluginpart.rc
