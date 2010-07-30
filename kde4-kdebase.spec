@@ -1,12 +1,9 @@
 # TODO:
-# - check BR list
-# - more file moves between packages; what's with dozen of messy -core/-common/-common* packages?
-# - Req, Obsolets and Conflicts for every package
 # - new descriptions
 #
 %define		_state		stable
 %define		orgname		kdebase
-%define		qtver		4.6.3
+%define		qtver		4.6.2
 
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):	K Desktop Environment - archivos básicos
@@ -18,13 +15,13 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.4.5
+Version:	4.5.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	93fa095ba7bee61a995f1ef6c60a1e32
-Patch100:	%{name}-branch.diff
+# Source0-md5:	3d56b10c16f48ee18864564c20ab90c7
+#Patch100:	%{name}-branch.diff
 Patch0:		%{name}-wordchars.patch
 URL:		http://www.kde.org/
 BuildRequires:	OpenEXR-devel >= 1.2.2
@@ -49,7 +46,7 @@ BuildRequires:	jasper-devel
 BuildRequires:	kde4-kdebase-workspace-devel >= %{version}
 BuildRequires:	kde4-kdelibs-devel >= %{version}
 BuildRequires:	kde4-kdepimlibs-devel >= %{version}
-BuildRequires:	kde4-kwebkitpart-devel >= %{version}
+BuildRequires:	kde4-kwebkitpart-devel
 BuildRequires:	lame-libs-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel >= 1.0.8
@@ -75,9 +72,9 @@ BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	samba-devel
-BuildRequires:	shared-desktop-ontologies-devel >= 0.2
-BuildRequires:	soprano-devel
-BuildRequires:	strigi-devel
+BuildRequires:	shared-desktop-ontologies-devel >= 0.5
+BuildRequires:	soprano-devel >= 2.4.64
+BuildRequires:	strigi-devel >= 0.7.2
 BuildRequires:	xorg-app-bdftopcf
 BuildRequires:	xorg-cf-files
 BuildRequires:	xorg-lib-libXScrnSaver-devel
@@ -97,6 +94,7 @@ Provides:	kde4-kdebase-common
 Provides:	kde4-kdebase-core
 Obsoletes:	kde4-kdebase-common
 Obsoletes:	kde4-kdebase-core
+Obsoletes:	kde4-kdebase-kappfinder
 Obsoletes:	kdebase4
 Conflicts:	kdebase4
 Conflicts:	kdelibs < 9:3.1.94.040110-1
@@ -133,7 +131,7 @@ Ten pakiet zawiera podstawowe aplikacje KDE:
 просмотра справочных файлов kde, файлов info и man), kthememgr
 (система для управления альтернативными пакетами тем) и другие
 компоненты KDE (kcheckpass, kikbd, kscreensaver, kcontrol, kfind,
-kfontmanager, kmenuedit, kappfinder).
+kfontmanager, kmenuedit).
 
 %description -l uk.UTF-8
 Базові програми для K Desktop Environment. Включені: kwin (віконный
@@ -143,13 +141,14 @@ kfontmanager, kmenuedit, kappfinder).
 файлів довідки kde, файлів info та man), kthememgr (система для
 керування альтернативними пакетами тем) та інші компоненти KDE
 (kcheckpass, kikbd, kscreensaver, kcontrol, kfind, kfontmanager,
-kmenuedit, kappfinder).
+kmenuedit).
 
 %package devel
 Summary:	Include files to develop KDE applications
 Summary(pl.UTF-8):	Pliki nagłówkowe potrzebne do tworzenia aplikacji KDE
 Summary(pt_BR.UTF-8):	Arquivos de inclusão para compilar aplicativos que usem bibliotecas do kdebase
 Group:		X11/Development/Libraries
+Requires:	%{name} = %{version}-%{release}
 Requires:	kde4-dolphin
 Requires:	kde4-kdelibs-devel >= %{version}
 Requires:	kde4-konqueror-libs
@@ -164,34 +163,6 @@ KDE.
 %description devel -l pt_BR.UTF-8
 Este pacote contém os arquivos de inclusão que são necessários para
 compilar aplicativos que usem bibliotecas do kdebase.
-
-%package infocenter
-Summary:	KDE Info Center
-Summary(pl.UTF-8):	Centrum informacji o systemie dla KDE
-Group:		X11/Applications
-Requires:	%{name} = %{version}-%{release}
-#Requires:	pciutils
-Obsoletes:	kde4-kdebase-workspace-infocenter
-
-%description infocenter
-Application for displaying information about your system.
-
-%description infocenter -l pl.UTF-8
-Centrum informacji o systemie dla KDE.
-
-%package kappfinder
-Summary:	Menu Updating Tool
-Summary(pl.UTF-8):	Narzędzie do aktualizacji menu
-Group:		X11/Applications
-Requires:	kde4-kdelibs >= %{version}
-
-%description kappfinder
-The tool for finding installed application and adding them to your
-menu.
-
-%description kappfinder -l pl.UTF-8
-Narzędzie do wyszukiwania zainstalowanych aplikacji i dodawania ich do
-menu.
 
 %package kdialog
 Summary:	A KDE version of dialog
@@ -347,14 +318,6 @@ Biblioteki współdzielone konquerora.
 #%patch100 -p0
 %patch0 -p1
 
-%{__sed} -i -e 's/Categories=.*/Categories=Audio;Mixer;/' \
-	apps/kappfinder/apps/Multimedia/alsamixergui.desktop
-%{__sed} -i -e 's/Categories=.*/Categories=Audio;Recorder;/' \
-	apps/kappfinder/apps/Multimedia/rezound.desktop \
-	apps/kappfinder/apps/Multimedia/sweep.desktop \
-	apps/kappfinder/apps/Multimedia/audacity.desktop
-%{__sed} -i -e 's/Categories=.*/Categories=Office;PDA;/' \
-	apps/kappfinder/apps/Utilities/xgnokii.desktop
 for f in `find . -name \*.desktop`; do
 	if grep -q '\[ven\]' $f; then
 		sed -i -e 's/\[ven\]/[ve]/' $f
@@ -384,10 +347,7 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d \
 	$RPM_BUILD_ROOT%{_datadir}/apps/kcontrol \
-	$RPM_BUILD_ROOT%{_libdir}/kde4/plugins/konqueror \
-	$RPM_BUILD_ROOT%{_kdedocdir}/en/kinfocenter
-
-%find_lang kinfocenter --with-kde
+	$RPM_BUILD_ROOT%{_libdir}/kde4/plugins/konqueror
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -442,65 +402,17 @@ fi
 %{_iconsdir}/*/*/apps/*.svgz
 %{_mandir}/man1/kbookmarkmerger.1.*
 
-# view svn plugin - where to put??
-%attr(755,root,root) %{_libdir}/kde4/fileviewsvnplugin.so
-%{_datadir}/kde4/services/fileviewsvnplugin.desktop
 %{_datadir}/config/servicemenu.knsrc
 %{_datadir}/kde4/servicetypes/fileviewversioncontrolplugin.desktop
 
 %files devel
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libkbookmarkmodel_private.so
 %attr(755,root,root) %{_libdir}/libdolphinprivate.so
 %attr(755,root,root) %{_libdir}/libkonq.so
 %attr(755,root,root) %{_libdir}/libkonqsidebarplugin.so
 %attr(755,root,root) %{_libdir}/libkonquerorprivate.so
 %{_includedir}/*.h
-
-%files infocenter -f kinfocenter.lang
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/kinfocenter
-%attr(755,root,root) %{_libdir}/libkdeinit4_kinfocenter.so
-%attr(755,root,root) %{_libdir}/kde4/kcm_usb.so
-%attr(755,root,root) %{_libdir}/kde4/kcm_nic.so
-%attr(755,root,root) %{_libdir}/kde4/kcm_info.so
-%attr(755,root,root) %{_libdir}/kde4/kcm_opengl.so
-%attr(755,root,root) %{_libdir}/kde4/kcm_solidproc.so
-%attr(755,root,root) %{_libdir}/kde4/kcm_ioslaveinfo.so
-%attr(755,root,root) %{_libdir}/kde4/kcm_memory.so
-%attr(755,root,root) %{_libdir}/kde4/kcm_pci.so
-%attr(755,root,root) %{_libdir}/kde4/kcm_samba.so
-%attr(755,root,root) %{_libdir}/kde4/kcm_partition.so
-%{_datadir}/apps/kinfocenter
-%{_datadir}/kde4/services/kcmview1394.desktop
-%{_datadir}/kde4/services/kcmusb.desktop
-%{_datadir}/kde4/services/nic.desktop
-%{_datadir}/kde4/services/opengl.desktop
-%{_datadir}/kde4/services/kcm_partition.desktop
-%{_datadir}/kde4/services/scsi.desktop
-%{_datadir}/kde4/services/sound.desktop
-%{_datadir}/kde4/services/xserver.desktop
-%{_datadir}/kde4/services/devices.desktop
-%{_datadir}/kde4/services/dma.desktop
-%{_datadir}/kde4/services/interrupts.desktop
-%{_datadir}/kde4/services/ioports.desktop
-%{_datadir}/kde4/services/kcmsolidproc.desktop
-%{_datadir}/kde4/services/ioslaveinfo.desktop
-%{_datadir}/kde4/services/kcm_memory.desktop
-%{_datadir}/kde4/services/kcm_pci.desktop
-%{_datadir}/kde4/services/smbstatus.desktop
-%{_desktopdir}/kde4/kinfocenter.desktop
-%dir %{_datadir}/apps/kcmview1394
-%dir %{_datadir}/apps/kcmusb
-%{_datadir}/apps/kcmview1394/oui.db
-%{_datadir}/apps/kcmusb/usb.ids
-
-%files kappfinder
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/kappfinder
-%{_datadir}/apps/kappfinder
-%{_desktopdir}/kde4/kappfinder.desktop
-%{_iconsdir}/*/*/apps/kappfinder.png
-%{_mandir}/man1/kappfinder.1.*
 
 %files kdialog
 %defattr(644,root,root,755)
@@ -510,9 +422,7 @@ fi
 %files kfind
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kfind
-%attr(755,root,root) %{_libdir}/kde4/libkfindpart.so
 %{_desktopdir}/kde4/kfind.desktop
-%{_datadir}/kde4/services/kfindpart.desktop
 %{_kdedocdir}/en/kfind
 %{_mandir}/man1/kfind.1.*
 
@@ -554,6 +464,7 @@ fi
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/dolphin
 %attr(755,root,root) %{_libdir}/libdolphinprivate.so.*
+%attr(755,root,root) %{_libdir}/libkdeinit4_dolphin.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_dolphingeneral.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_dolphinnavigation.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_dolphinservices.so
@@ -570,7 +481,6 @@ fi
 %{_datadir}/config.kcfg/dolphin_directoryviewpropertysettings.kcfg
 %{_datadir}/config.kcfg/dolphin_generalsettings.kcfg
 %{_datadir}/config.kcfg/dolphin_iconsmodesettings.kcfg
-%{_datadir}/config.kcfg/keditbookmarks.kcfg
 %{_datadir}/kde4/services/dolphinpart.desktop
 %{_datadir}/kde4/services/kcmdolphingeneral.desktop
 %{_datadir}/kde4/services/kcmdolphinnavigation.desktop
@@ -596,10 +506,10 @@ fi
 %attr(755,root,root) %{_libdir}/kde4/kcm_konqhtml.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_kurifilt.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_performance.so
-%attr(755,root,root) %{_libdir}/kde4/kcm_view1394.so
 %attr(755,root,root) %{_libdir}/kde4/kded_favicons.so
 %attr(755,root,root) %{_libdir}/kde4/kded_konqy_preloader.so
 %attr(755,root,root) %{_libdir}/kde4/konq_aboutpage.so
+%attr(755,root,root) %{_libdir}/kde4/konqsidebar_places.so
 %attr(755,root,root) %{_libdir}/kde4/libnsplugin.so
 %{_datadir}/apps/kbookmark
 %{_datadir}/apps/kcmcss
@@ -608,14 +518,14 @@ fi
 %{_datadir}/apps/konqueror/pics
 %{_datadir}/apps/konqueror/profiles
 %{_datadir}/apps/konqueror/konqueror.rc
-%{_datadir}/apps/kwebkitpart/kpartplugins
 %{_datadir}/apps/konqsidebartng
+%{_datadir}/apps/kwebkitpart/kpartplugins
 %dir %{_datadir}/apps/plugin
 %{_datadir}/apps/plugin/nspluginpart.rc
 %{_datadir}/autostart/konqy_preload.desktop
 %{_datadir}/config/konqsidebartngrc
+%{_datadir}/config.kcfg/keditbookmarks.kcfg
 %{_datadir}/config.kcfg/konqueror.kcfg
-%{_datadir}/kde4/servicetypes/findpart.desktop
 %{_datadir}/kde4/servicetypes/konqaboutpage.desktop
 %{_datadir}/kde4/servicetypes/konqpopupmenuplugin.desktop
 %{_datadir}/kde4/servicetypes/konqdndpopupmenuplugin.desktop
@@ -625,7 +535,6 @@ fi
 %{_datadir}/kde4/services/bookmarks.desktop
 %{_datadir}/kde4/services/cache.desktop
 %{_datadir}/kde4/services/cookies.desktop
-%{_datadir}/kde4/services/desktoppath.desktop
 %{_datadir}/kde4/services/ebrowsing.desktop
 %{_datadir}/kde4/services/filebehavior.desktop
 %{_datadir}/kde4/services/kcmhistory.desktop
@@ -642,7 +551,6 @@ fi
 %{_datadir}/kde4/services/konq_aboutpage.desktop
 %{_datadir}/kde4/services/konq_sidebartng.desktop
 %{_datadir}/kde4/services/konqueror.desktop
-#%{_datadir}/kde4/services/lanbrowser.desktop
 %{_datadir}/kde4/services/netpref.desktop
 %{_datadir}/kde4/services/proxy.desktop
 %{_datadir}/kde4/services/smb.desktop
@@ -655,6 +563,7 @@ fi
 %{_datadir}/dbus-1/interfaces/org.kde.nsplugins.class.xml
 %{_datadir}/dbus-1/interfaces/org.kde.nsplugins.instance.xml
 %{_datadir}/dbus-1/interfaces/org.kde.nsplugins.viewer.xml
+%{_desktopdir}/kde4/keditbookmarks.desktop
 %{_desktopdir}/kde4/konqbrowser.desktop
 %{_desktopdir}/kde4/konquerorsu.desktop
 %{_iconsdir}/*/*/apps/konqueror.*
@@ -674,5 +583,6 @@ fi
 %attr(755,root,root) %{_libdir}/libkonq.so.*
 %attr(755,root,root) %{_libdir}/libkonqsidebarplugin.so.*
 %attr(755,root,root) %{_libdir}/libkonquerorprivate.so.*
+%attr(755,root,root) %{_libdir}/libkbookmarkmodel_private.so.*
 %attr(755,root,root) %{_libdir}/libkdeinit4_keditbookmarks.so
 %attr(755,root,root) %{_libdir}/libkdeinit4_kfmclient.so
