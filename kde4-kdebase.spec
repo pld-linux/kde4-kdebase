@@ -1,10 +1,7 @@
 # TODO:
-# - check BR list
-# - more file moves between packages; what's with dozen of messy -core/-common/-common* packages?
-# - Req, Obsolets and Conflicts for every package
 # - new descriptions
 #
-%define		_state		unstable
+%define		_state		stable
 %define		orgname		kdebase
 %define		qtver		4.6.2
 
@@ -18,12 +15,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.4.80
+Version:	4.5.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	43f821a85c19590526e2504896121f92
+# Source0-md5:	3d56b10c16f48ee18864564c20ab90c7
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-wordchars.patch
 URL:		http://www.kde.org/
@@ -76,7 +73,7 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	samba-devel
 BuildRequires:	shared-desktop-ontologies-devel >= 0.5
-BuildRequires:	soprano-devel >= 2.4.63
+BuildRequires:	soprano-devel >= 2.4.64
 BuildRequires:	strigi-devel >= 0.7.2
 BuildRequires:	xorg-app-bdftopcf
 BuildRequires:	xorg-cf-files
