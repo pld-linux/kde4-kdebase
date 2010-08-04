@@ -16,11 +16,11 @@ Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
 Version:	4.5.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	3d56b10c16f48ee18864564c20ab90c7
+# Source0-md5:	3201574c2d0e32c43917f18e9740107c
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-wordchars.patch
 URL:		http://www.kde.org/
