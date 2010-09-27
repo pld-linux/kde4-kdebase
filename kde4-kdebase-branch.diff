@@ -1,7 +1,7 @@
 Index: apps/konqueror/src/konqmainwindow.cpp
 ===================================================================
---- apps/konqueror/src/konqmainwindow.cpp	(.../tags/KDE/4.5.1/kdebase)	(wersja 1170567)
-+++ apps/konqueror/src/konqmainwindow.cpp	(.../branches/KDE/4.5/kdebase)	(wersja 1170567)
+--- apps/konqueror/src/konqmainwindow.cpp	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/konqueror/src/konqmainwindow.cpp	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
 @@ -1674,7 +1674,10 @@
        // Reuse current servicetype for local files, but not for remote files (it could have changed, e.g. over HTTP)
        QString serviceType = reloadView->url().isLocalFile() ? reloadView->serviceType() : QString();
@@ -14,10 +14,23 @@ Index: apps/konqueror/src/konqmainwindow.cpp
    }
  }
  
+Index: apps/konqueror/settings/ebrowsing/ebrowsing.desktop
+===================================================================
+--- apps/konqueror/settings/ebrowsing/ebrowsing.desktop	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/konqueror/settings/ebrowsing/ebrowsing.desktop	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -8,6 +8,8 @@
+ X-KDE-Library=kcm_kurifilt
+ X-KDE-ParentApp=kcontrol
+ 
++X-KDE-System-Settings-Parent-Category=account-details
++
+ Name=Web Shortcuts
+ Name[af]=Web Kortpaaie
+ Name[ar]=اختصارات الشبكة
 Index: apps/konqueror/settings/kio/kcookiespolicies.cpp
 ===================================================================
---- apps/konqueror/settings/kio/kcookiespolicies.cpp	(.../tags/KDE/4.5.1/kdebase)	(wersja 1170567)
-+++ apps/konqueror/settings/kio/kcookiespolicies.cpp	(.../branches/KDE/4.5/kdebase)	(wersja 1170567)
+--- apps/konqueror/settings/kio/kcookiespolicies.cpp	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/konqueror/settings/kio/kcookiespolicies.cpp	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
 @@ -270,6 +270,7 @@
      if (!nextItem)
        nextItem = dlg->lvDomainPolicy->itemAbove(item);
@@ -26,10 +39,71 @@ Index: apps/konqueror/settings/kio/kcookiespolicies.cpp
      delete item;
    }
  
+Index: apps/konqueror/settings/kio/uasproviders/safari40.desktop
+===================================================================
+--- apps/konqueror/settings/kio/uasproviders/safari40.desktop	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/konqueror/settings/kio/uasproviders/safari40.desktop	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -52,6 +52,7 @@
+ Name[sv]=UAD-beskrivning (Safari 4.0 på MacOS X)
+ Name[tg]=UADescription (Safari 4.0 дар MacOS X)
+ Name[th]=UADescription (ซาฟารี 4.0 บน MacOS X)
++Name[tr]=Kullanıcı Uygulaması Tanımı (Safari 4.0 on MacOS X)
+ Name[uk]=UADescription (Safari 4.0 на MacOS X)
+ Name[x-test]=xxUADescription (Safari 4.0 on MacOS X)xx
+ Name[zh_CN]=客户端描述(运行于 MacOS X 的 Safari 4.0)
+Index: apps/konqueror/settings/kio/uasproviders/firefox36oncurrent.desktop
+===================================================================
+--- apps/konqueror/settings/kio/uasproviders/firefox36oncurrent.desktop	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/konqueror/settings/kio/uasproviders/firefox36oncurrent.desktop	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -52,6 +52,7 @@
+ Name[sv]=AA-beskrivning (Firefox 3.6 på aktuell)
+ Name[tg]=UADescription (Firefox 3.6 версияи ҷорӣ)
+ Name[th]=UADescription (ไฟร์ฟอกซ์ 3.6 บนระบบปัจจุบัน)
++Name[tr]=Kullanıcı Uygulaması Tanımı (geçerli işletim sistemi üzerinde Firefox 3.6)
+ Name[uk]=UADescription (Firefox 3.6 на поточній)
+ Name[x-test]=xxUADescription (Firefox 3.6 on current)xx
+ Name[zh_CN]=客户端描述(运行于本机的 Firefox 3.6)
+Index: apps/konqueror/settings/kio/uasproviders/chrome50oncurrent.desktop
+===================================================================
+--- apps/konqueror/settings/kio/uasproviders/chrome50oncurrent.desktop	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/konqueror/settings/kio/uasproviders/chrome50oncurrent.desktop	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -52,6 +52,7 @@
+ Name[sv]=AA-beskrivning (Google Chrome 5.0)
+ Name[tg]=UADescription (Google Chrome 5.0)
+ Name[th]=UADescription (กูเกิลโครม 5.0)
++Name[tr]=Kullanıcı Uygulaması Tanımı (Google Chrome 5.0)
+ Name[uk]=UADescription (Google Chrome 5.0)
+ Name[x-test]=xxUADescription (Google Chrome 5.0)xx
+ Name[zh_CN]=客户端描述(Google Chrome 5.0)
+Index: apps/konqueror/settings/konqhtml/khtml_java_js.desktop
+===================================================================
+--- apps/konqueror/settings/konqhtml/khtml_java_js.desktop	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/konqueror/settings/konqhtml/khtml_java_js.desktop	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -139,7 +139,6 @@
+ Comment[id]=Atur perilaku Java dan JavaScript
+ Comment[is]=Stilla hegðun Java og JavaScript
+ Comment[it]=Configura il comportamento di Java e JavaScript
+-Comment[ja]=Java と JavaScript の挙動を設定
+ Comment[ka]=Java და JavaScript -ის ქცევის კონფიგურაცია
+ Comment[kk]=Java және JavaScript қасиеттерін баптау
+ Comment[km]=កំណត់​រចនាសម្ព័ន្ធ​ឥរិយាបថ​របស់ Java និង JavaScript
+Index: apps/konqueror/settings/konqhtml/khtml_appearance.desktop
+===================================================================
+--- apps/konqueror/settings/konqhtml/khtml_appearance.desktop	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/konqueror/settings/konqhtml/khtml_appearance.desktop	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -126,7 +126,7 @@
+ Comment[gu]=કઇ રીતે વેબ પાનાંઓ જોવા તે રૂપરેખાંકિત કરો
+ Comment[he]=הגדר אופן הצגת דפי אינטרנט
+ Comment[hi]=वेब पृष्ठ कैसे दिखाने है कॉन्फ़िगर करें
+-Comment[hr]=Konfiguriranje prikaza  web-stranica
++Comment[hr]=Konfiguriranje prikaza web-stranica
+ Comment[hu]=A weboldalak megjelenítési jellemzőinek beállítása
+ Comment[ia]=Tu configura como monstrar paginas web
+ Comment[id]=Atur bagaimana menampilkan halaman web
 Index: apps/konqueror/settings/konqhtml/filteropts.cpp
 ===================================================================
---- apps/konqueror/settings/konqhtml/filteropts.cpp	(.../tags/KDE/4.5.1/kdebase)	(wersja 1170567)
-+++ apps/konqueror/settings/konqhtml/filteropts.cpp	(.../branches/KDE/4.5/kdebase)	(wersja 1170567)
+--- apps/konqueror/settings/konqhtml/filteropts.cpp	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/konqueror/settings/konqhtml/filteropts.cpp	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
 @@ -486,6 +486,7 @@
  
          mFilters << filterConfig;
@@ -38,21 +112,939 @@ Index: apps/konqueror/settings/konqhtml/filteropts.cpp
  }
  
  void AutomaticFilterModel::save(KConfigGroup &cg)
+Index: apps/konqueror/kttsplugin/khtmlkttsd.cpp
+===================================================================
+--- apps/konqueror/kttsplugin/khtmlkttsd.cpp	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/konqueror/kttsplugin/khtmlkttsd.cpp	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -66,7 +66,7 @@
+     {
+         QString error;
+         if (KToolInvocation::startServiceByDesktopName("kttsd", QStringList(), &error)) {
+-            KMessageBox::error(part->widget(), error, i18n("Starting KTTSD Failed") );
++            KMessageBox::error(part->widget(), error, i18n("Starting Jovie Text-to-Speech Service Failed") );
+ 	    return;
+         }
+     }
+Index: apps/konqueror/sidebar/places_module/konqsidebar_places.desktop
+===================================================================
+--- apps/konqueror/sidebar/places_module/konqsidebar_places.desktop	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/konqueror/sidebar/places_module/konqsidebar_places.desktop	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -53,6 +53,7 @@
+ Name[sv]=Sidoradsmodul med platser
+ Name[tg]=Модули панели маконҳо
+ Name[th]=มอดูลแถบข้างที่หลัก ๆ
++Name[tr]=Konumlar Yan Çubuk Modülü
+ Name[uk]=Модуль місць бічної панелі
+ Name[x-test]=xxPlaces SideBar Modulexx
+ Name[zh_CN]=位置侧边栏模块
+Index: apps/dolphin/src/dolphinmainwindow.cpp
+===================================================================
+--- apps/dolphin/src/dolphinmainwindow.cpp	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/dolphin/src/dolphinmainwindow.cpp	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -1355,7 +1355,7 @@
+ 
+     const KUrl& url = m_activeViewContainer->url();
+     setUrlAsCaption(url);
+-    if (m_viewTab.count() > 1 && m_viewTab[m_tabIndex].secondaryView != 0) {
++    if (m_viewTab.count() > 1) {
+         m_tabBar->setTabText(m_tabIndex, tabName(url));
+         m_tabBar->setTabIcon(m_tabIndex, KIcon(KMimeType::iconNameForUrl(url)));
+     }
+Index: apps/dolphin/src/kcm/kcmdolphinviewmodes.desktop
+===================================================================
+--- apps/dolphin/src/kcm/kcmdolphinviewmodes.desktop	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/dolphin/src/kcm/kcmdolphinviewmodes.desktop	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -48,7 +48,7 @@
+ Name[pt]=Modos de Visualização do Dolphin
+ Name[pt_BR]=Modos de Visualização do Dolphin
+ Name[ro]=Regimuri de vizualizare Dolphin
+-Name[ru]=Представление папок в Dolphin
++Name[ru]=Режимы просмотра папок в Dolphin
+ Name[se]=Dolphin čájehanmodusat
+ Name[si]=Dolphin දසුන් ආකාර
+ Name[sk]=Režimy zobrazenia Dolphinu
+@@ -113,7 +113,7 @@
+ Comment[pt]=Este serviço permite-lhe configurar os modos de visualização do Dolphin.
+ Comment[pt_BR]=Este serviço permite configurar os modos de visualização do Dolphin.
+ Comment[ro]=Acest serviciu permite configurarea regimurilor de vizualizare Dolphin.
+-Comment[ru]=Эта служба позволяет настраивать представление папок в Dolphin
++Comment[ru]=Эта служба позволяет настраивать режимы просмотра папок в Dolphin
+ Comment[si]=මෙම සේවාව Dolphin දසුන් ආකාර සැකසීමට ඉඩ දේ. 
+ Comment[sk]=Táto služba umožňuje nastavenie režimov zobrazenia Dolphinu.
+ Comment[sl]=Ta storitev omogoča nastavitev Dolphinovih načinov prikazov.
+@@ -259,7 +259,7 @@
+ Comment[pt]=Configurar os modos de visualização do gestor de ficheiros
+ Comment[pt_BR]=Configurar modos de visualização do gerenciador de arquivos
+ Comment[ro]=Configurează regimurile de vizualizare ale gestionarului de fișiere
+-Comment[ru]=Настройка представления папок в диспетчере файлов
++Comment[ru]=Настройка режимов просмотра папок в диспетчере файлов
+ Comment[se]=Heivet fiilagieđahalli čájehanmodusat
+ Comment[si]=ගොනු කළමණාකරුගේ සැසුම් සකසන්න
+ Comment[sk]=Nastavenie režimov zobrazenia správcu súborov
+Index: apps/dolphin/src/tooltips/tooltipmanager.cpp
+===================================================================
+--- apps/dolphin/src/tooltips/tooltipmanager.cpp	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/dolphin/src/tooltips/tooltipmanager.cpp	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -155,9 +155,15 @@
+ 
+     m_fileMetaDataToolTip->setName(m_item.text());
+ 
++    // Request the retrieval of meta-data. The slot
++    // slotMetaDataRequestFinished() is invoked after the
++    // meta-data have been received.
+     m_metaDataRequested = true;
+     m_fileMetaDataToolTip->setItems(KFileItemList() << m_item);
+ 
++    // Request a preview of the item
++    m_fileMetaDataToolTip->setPreview(QPixmap());
++
+     KIO::PreviewJob* job = KIO::filePreview(KFileItemList() << m_item, 256, 256);
+ 
+     connect(job, SIGNAL(gotPreview(const KFileItem&, const QPixmap&)),
+Index: apps/doc/kdepasswd/index.docbook
+===================================================================
+--- apps/doc/kdepasswd/index.docbook	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/doc/kdepasswd/index.docbook	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -5,7 +5,7 @@
+   <!ENTITY % English "INCLUDE">
+ ]>
+ <article lang="&language;">
+-<title>User Information</title>
++<title>Password &amp; User Account</title>
+ <articleinfo>
+ <authorgroup>
+ <author>
+@@ -23,8 +23,8 @@
+ <!-- TRANS:ROLES_OF_TRANSLATORS -->
+ </authorgroup>
+ 
+-<date>2010-01-06</date>
+-<releaseinfo>&kde; 4.4</releaseinfo>
++<date>2010-08-19</date>
++<releaseinfo>&kde; 4.5</releaseinfo>
+ 
+ <keywordset>
+ <keyword>KDE</keyword>
+@@ -36,7 +36,7 @@
+ </articleinfo>
+ 
+ <sect1 id="kcm_useraccount">
+-<title><guilabel>User Information</guilabel></title>
++<title>User Information</title>
+ <sect2 id="intro">
+ <title>Introduction</title>
+ 
+Index: apps/doc/konqueror/dragdrop.png
+===================================================================
+Nie można wyświetlić: plik binarny.
+svn:mime-type = image/png
+Index: apps/doc/konqueror/konqorg.png
+===================================================================
+Nie można wyświetlić: plik binarny.
+svn:mime-type = image/png
+Index: apps/doc/konqueror/cmndline.png
+===================================================================
+Nie można wyświetlić: plik binarny.
+svn:mime-type = image/png
+Index: apps/doc/kwrite/index.docbook
+===================================================================
+--- apps/doc/kwrite/index.docbook	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/doc/kwrite/index.docbook	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -2448,9 +2448,9 @@
+ <varlistentry>
+ <term><guilabel>Auto Completion enabled</guilabel></term>
+ <listitem>
+-<para>If this is enabled, the editor will calculate the number
+-of spaces up to the next tab position as defined by the tab width,
+-and insert that number of spaces instead of a &Tab; character.</para>
++<para>If enabled, a word completion box automatically pops up during typing
++showing a list of text entries to complete the current text under the
++cursor.</para>
+ </listitem>
+ </varlistentry>
+ </variablelist>
+@@ -2498,7 +2498,7 @@
+ <para>By default, an extra status bar will be used when the Vi input mode is
+ enabled. This status bar shows commands while they are being typed and
+ messages/errors produced by Vi commands.</para>
+-<para>Checking this options will hide this extra status line.</para>
++<para>Checking this option will hide this extra status line.</para>
+ </listitem>
+ </varlistentry>
+ </variablelist>
+Index: apps/doc/kfind/index.docbook
+===================================================================
+--- apps/doc/kfind/index.docbook	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/doc/kfind/index.docbook	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -356,7 +356,7 @@
+ <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+ 
+ &underFDL;               <!-- FDL: do not remove -->
+-&underBSDLicense;        <!-- BSD License -->
++&underGPL;               <!-- GPL License -->
+ 
+ </chapter>
+ 
+Index: apps/lib/konq/favicons/favicons.desktop
+===================================================================
+--- apps/lib/konq/favicons/favicons.desktop	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/lib/konq/favicons/favicons.desktop	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -104,7 +104,7 @@
+ Comment[lv]=Saglabā tīmekļa vietņu ikonas
+ Comment[nb]=Lagrer nettstedsikoner
+ Comment[nds]=Wohrt Nettsiedenlüttbiller
+-Comment[nl]=Slaat website pictogrammen op
++Comment[nl]=Slaat website-pictogrammen op
+ Comment[nn]=Lagrar nettstadikon
+ Comment[pa]=ਵੈੱਬਸਾਈਟ ਆਈਕਾਨ ਸਟੋਰ ਕਰਦਾ ਹੈ
+ Comment[pl]=Przechowuje ikony stron WWW
+Index: apps/konsole/src/ViewContainer.cpp
+===================================================================
+--- apps/konsole/src/ViewContainer.cpp	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/konsole/src/ViewContainer.cpp	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -260,6 +260,7 @@
+     , _dropIndicatorIndex(-1)
+     , _drawIndicatorDisabled(false)
+ {
++    setStyleSheet("QTabBar::tab { min-width: 2em; max-width: 25em }");
+     setElideMode(Qt::ElideLeft);
+ }
+ void ViewContainerTabBar::setDropIndicator(int index, bool drawDisabled)
+@@ -396,29 +397,10 @@
+         event->ignore();
+ }
+ 
+-/* Try to provide a reasonable tab width:
+- * If there are less than 5 tabs, let the tabs fill out the tabbar.
+- * Otherwise, check the tab text size and the minimumTabWidth value.
+- * The minimumTabWidth is to prevent the tabs from getting too
+- * small such that no scroll indicators will appear.
+-*/
++/* A stylesheet is used now to handle width of tab. */
+ QSize ViewContainerTabBar::tabSizeHint(int index) const
+ {
+-    const int fillTabCount = 5;
+-    const int minimumTabWidth = 150; // Arbitrary value
+-    int tabBarWidth = rect().width();
+-    int tabCount = count();
+-    int tabMaxWidth;
+-    if (tabCount <= fillTabCount)
+-        tabMaxWidth = tabBarWidth / (tabCount + 0.5);
+-    else
+-        tabMaxWidth = tabBarWidth / (fillTabCount + 0.5);
+-
+-    int tabTextWidth = fontMetrics().width(tabText(index));
+-    // qBound ( minimum, value, max )
+-    QSize size (qBound(minimumTabWidth, tabTextWidth, tabMaxWidth),
+-                QTabBar::tabSizeHint(index).height());
+-    return size;
++    return QTabBar::tabSizeHint(index);
+ }
+ QPixmap ViewContainerTabBar::dragDropPixmap(int tab) 
+ {
+Index: apps/konsole/src/main.cpp
+===================================================================
+--- apps/konsole/src/main.cpp	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/konsole/src/main.cpp	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -30,7 +30,7 @@
+ #include <KCmdLineArgs>
+ #include <KLocale>
+ 
+-#define KONSOLE_VERSION "2.5"
++#define KONSOLE_VERSION "2.5.2"
+ 
+ using namespace Konsole;
+ 
+Index: apps/konsole/src/ProcessInfo.cpp
+===================================================================
+--- apps/konsole/src/ProcessInfo.cpp	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/konsole/src/ProcessInfo.cpp	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -647,11 +647,19 @@
+             return false;
+         }
+ 
++#if defined(__DragonFly__)
++        setName(kInfoProc->kp_comm);
++        setPid(kInfoProc->kp_pid);
++        setParentPid(kInfoProc->kp_ppid);
++        setForegroundPid(kInfoProc->kp_pgid);
++        setUserId(kInfoProc->kp_uid);
++#else
+         setName(kInfoProc->ki_comm);
+         setPid(kInfoProc->ki_pid);
+         setParentPid(kInfoProc->ki_ppid);
+         setForegroundPid(kInfoProc->ki_pgid);
+         setUserId(kInfoProc->ki_uid);
++#endif
+ 
+         readUserName();
+ 
+@@ -692,6 +700,10 @@
+ 
+     virtual bool readCurrentDir(int pid)
+     {
++#if defined(__DragonFly__)
++        // Not supported in DragonFly
++        return false;
++#else
+         int numrecords;
+         struct kinfo_file* info = 0;
+ 
+@@ -713,6 +725,7 @@
+ 
+         free(info);
+         return false;
++#endif
+     }
+ } ;
+ #endif
+Index: apps/konsole/desktop/konsole.notifyrc
+===================================================================
+--- apps/konsole/desktop/konsole.notifyrc	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/konsole/desktop/konsole.notifyrc	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -99,7 +99,7 @@
+ Name[bn_IN]=দৃশ্যমান সেশানের ঘন্টাধ্বনি
+ Name[ca]=Timbre en una sessió visible
+ Name[ca@valencia]=Timbre en una sessió visible
+-Name[cs]=Zvonek ve viditelné relaci
++Name[cs]=Zvonek ve viditelném sezení
+ Name[csb]=Zwónk w widzawny sesëji
+ Name[da]=Bip i synlig session
+ Name[de]=Signalton in sichtbarer Sitzung
+@@ -176,7 +176,7 @@
+ Comment[bn_IN]=দৃশ্যমান সেশানের মধ্যে যে ঘন্টাধ্বনি বাজানো হয়
+ Comment[ca]=Timbre emès en una sessió visible
+ Comment[ca@valencia]=Timbre emés en una sessió visible
+-Comment[cs]=Zvonek ve viditelné relaci
++Comment[cs]=Zvonek ve viditelném sezení
+ Comment[csb]=Zwónk jaczi zwãczi w widzawny sesëji
+ Comment[cy]=Gollyngwyd cloch mewn sesiwn gweledig
+ Comment[da]=Klokke brugt indenfor en synlig session
+@@ -260,7 +260,7 @@
+ Name[bn_IN]=অদৃশ্য সেশানের মধ্যে যে ঘন্টাধ্বনি বাজানো হয়
+ Name[ca]=Timbre en una sessió no visible
+ Name[ca@valencia]=Timbre en una sessió no visible
+-Name[cs]=Zvonek ve skryté relaci
++Name[cs]=Zvonek ve skrytém sezení
+ Name[csb]=Zwónk w niewidzawny sesëji
+ Name[da]=Bip i ikke-synlig session
+ Name[de]=Signalton in nicht sichtbarer Sitzung
+@@ -337,7 +337,7 @@
+ Comment[bn_IN]=অদৃশ্য সেশানের ঘন্টাধ্বনি
+ Comment[ca]=Timbre emès en una sessió no visible
+ Comment[ca@valencia]=Timbre emés en una sessió no visible
+-Comment[cs]=Zvonek ve skryté relaci
++Comment[cs]=Zvonek ve skrytém sezení
+ Comment[csb]=Zwónk jaczi zwãczi w niewidzawny sesëji
+ Comment[cy]=Gollyngwyd cloch mewn sesiwn anweledig
+ Comment[da]=Klokke brugt indenfor en ikke-synlig session
+@@ -422,7 +422,7 @@
+ Name[bn_IN]=নিরীক্ষণ হওয়া সেশানের মধ্যে কর্ম
+ Name[ca]=Activitat en una sessió controlada
+ Name[ca@valencia]=Activitat en una sessió controlada
+-Name[cs]=Aktivita v monitorované relaci
++Name[cs]=Aktivita v monitorovaném sezení
+ Name[csb]=Aktiwnota w mònitorowóny sesëji
+ Name[da]=Aktivitet i overvåget session
+ Name[de]=Aktivität in überwachter Sitzung
+@@ -498,7 +498,7 @@
+ Comment[bn_IN]=নিরীক্ষণ হওয়া সেশানের মধ্যে সনাক্ত করা কর্ম
+ Comment[ca]=Activitat detectada en una sessió controlada
+ Comment[ca@valencia]=Activitat detectada en una sessió controlada
+-Comment[cs]=Detekována aktivita v monitorované relaci
++Comment[cs]=Detekována aktivita v monitorovaném sezení
+ Comment[csb]=Aktiwnota ùstalonô w mònitorowóny sesëji
+ Comment[cy]=Datgelwyd gweithgaredd mewn seswin wedi'i fonitro
+ Comment[da]=Aktivitet detekteret i en overvåget session
+@@ -582,7 +582,7 @@
+ Name[bn_IN]=নিরীক্ষণ হওয়া সেশানের মধ্যে নৈঃশব্দ্য
+ Name[ca]=Silenci en una sessió controlada
+ Name[ca@valencia]=Silenci en una sessió controlada
+-Name[cs]=Ticho v monitorované relaci
++Name[cs]=Ticho v monitorovaném sezení
+ Name[csb]=Niżódnô aktiwnota w mònitorowóny sesëji
+ Name[da]=Inaktivitetet i overvåget session
+ Name[de]=Keine Aktivität in überwachter Sitzung
+@@ -658,7 +658,7 @@
+ Comment[bn_IN]=নিরীক্ষণ হওয়া সেশানের মধ্যে সনাক্ত হওয়া নৈঃশব্দ্য
+ Comment[ca]=Silenci detectat en una sessió controlada
+ Comment[ca@valencia]=Silenci detectat en una sessió controlada
+-Comment[cs]=Detekováno ticho v monitorované relaci
++Comment[cs]=Detekováno ticho v monitorovaném sezení
+ Comment[csb]=Aktiwnota nie ósta ùstalonô w mònitorowóny sesëji
+ Comment[cy]=Datgelwyd distawrwydd mewn sesiwn wedi'i fonitro
+ Comment[da]=Stilhed detekteret i en overvåget session
+@@ -741,7 +741,7 @@
+ Name[bn_IN]=শূণ্য ভিন্ন অন্য মানসহ সেশান সমাপ্তি
+ Name[ca]=Sessió finalitzada amb un estat diferent de zero
+ Name[ca@valencia]=Sessió finalitzada amb un estat diferent de zero
+-Name[cs]=Relace ukončena nenulovým stavem
++Name[cs]=Sezení ukončeno nenulovým stavem
+ Name[csb]=Zakùńczonô sesëjô z niezerowim sztatusã
+ Name[da]=Session afsluttet med ikke-nul status
+ Name[de]=Sitzung mit Nicht-Null-Status beendet
+@@ -820,7 +820,7 @@
+ Comment[bn_IN]=শূণ্য ভিন্ন অন্য মান উৎপন্ন করে সেশান সমাপ্ত হয়েছে
+ Comment[ca]=Una sessió ha finalitzat amb un estat diferent de zero
+ Comment[ca@valencia]=Una sessió ha finalitzat amb un estat diferent de zero
+-Comment[cs]=Relace byla ukončena nenulovým stavem
++Comment[cs]=Sezení bylo ukončeno nenulovým stavem
+ Comment[csb]=Sesëjô z niezerowim sztatusã òsta zakùńczonô
+ Comment[cy]=Terfynnodd sesiwn efo cyflwr di-sero
+ Comment[da]=En session er afsluttet med ikke-nul status
+Index: apps/plasma/applets/folderview/popupview.cpp
+===================================================================
+--- apps/plasma/applets/folderview/popupview.cpp	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/plasma/applets/folderview/popupview.cpp	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -209,6 +209,7 @@
+     m_iconView->setGridSize(m_parentView->gridSize());
+     m_iconView->setWordWrap(m_parentView->wordWrap());
+     m_iconView->setIconsMoveable(false);
++    m_iconView->setClickToViewFolders(false);
+ 
+     connect(m_iconView, SIGNAL(activated(QModelIndex)), SLOT(activated(QModelIndex)));
+     connect(m_iconView, SIGNAL(contextMenuRequest(QWidget*,QPoint)), SLOT(contextMenuRequest(QWidget*,QPoint)));
+@@ -306,8 +307,10 @@
+ 
+     foreach (const QModelIndex &index, m_selectionModel->selectedIndexes()) {
+         KFileItem item = m_model->itemForIndex(index);
+-        hasRemoteFiles |= item.localPath().isEmpty();
+-        items.append(item);
++        if (!item.isNull()) {
++            hasRemoteFiles |= item.localPath().isEmpty();
++            items.append(item);
++        }
+     }
+ 
+     // Check if we're showing the menu for the trash link
+Index: apps/plasma/applets/folderview/actionoverlay.cpp
+===================================================================
+--- apps/plasma/applets/folderview/actionoverlay.cpp	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/plasma/applets/folderview/actionoverlay.cpp	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -191,7 +191,7 @@
+         view->openPopup(m_hoverIndex);
+     }
+ }
+-    
++
+ QPersistentModelIndex ActionOverlay::hoverIndex()
+ {
+     return m_hoverIndex;
+@@ -213,7 +213,12 @@
+             fadeIn->start();
+         }
+         m_hoverIndex = index;
+-        AsyncFileTester::checkIfFolder(index, this, "checkIfFolderResult");
++        IconView *iview = qobject_cast<IconView*>(view);
++        if (iview && iview->clickToViewFolders()) {
++            AsyncFileTester::checkIfFolder(index, this, "checkIfFolderResult");
++        } else {
++            m_openButton->hide();
++        }
+     }
+ }
+ 
+Index: apps/plasma/applets/folderview/iconview.h
+===================================================================
+--- apps/plasma/applets/folderview/iconview.h	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/plasma/applets/folderview/iconview.h	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -127,6 +127,8 @@
+ 
+     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = 0);
+ 
++    void setClickToViewFolders(bool click);
++    bool clickToViewFolders() const;
+     void openPopup(const QModelIndex &index);
+ 
+ signals:
+@@ -237,6 +239,7 @@
+     bool m_wordWrap;
+     bool m_popupShowPreview;
+     bool m_folderIsEmpty;
++    bool m_clickToViewFolders;
+     QPersistentModelIndex m_hoveredIndex;
+     QPersistentModelIndex m_pressedIndex;
+     QPersistentModelIndex m_editorIndex;
+Index: apps/plasma/applets/folderview/folderview.cpp
+===================================================================
+--- apps/plasma/applets/folderview/folderview.cpp	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/plasma/applets/folderview/folderview.cpp	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -1708,8 +1708,10 @@
+ 
+     foreach (const QModelIndex &index, indexes) {
+         KFileItem item = m_model->itemForIndex(index);
+-        hasRemoteFiles |= item.localPath().isEmpty();
+-        items.append(item);
++        if (!item.isNull()) {
++            hasRemoteFiles |= item.localPath().isEmpty();
++            items.append(item);
++        }
+     }
+ 
+     // Check if we're showing the menu for the trash link
+Index: apps/plasma/applets/folderview/iconview.cpp
+===================================================================
+--- apps/plasma/applets/folderview/iconview.cpp	(.../tags/KDE/4.5.1/kdebase)	(wersja 1179156)
++++ apps/plasma/applets/folderview/iconview.cpp	(.../branches/KDE/4.5/kdebase)	(wersja 1179156)
+@@ -84,6 +84,7 @@
+       m_wordWrap(false),
+       m_popupShowPreview(true),
+       m_folderIsEmpty(false),
++      m_clickToViewFolders(true),
+       m_flow(layoutDirection() == Qt::LeftToRight ? LeftToRight : RightToLeft),
+       m_popupCausedWidget(0),
+       m_dropOperation(0),
+@@ -1593,6 +1594,9 @@
+         emit entered(index);
+         m_hoveredIndex = index;
+         markAreaDirty(visualRect(index));
++        if (!m_clickToViewFolders) {
++            AsyncFileTester::checkIfFolder(m_hoveredIndex, this, "checkIfFolderResult");
++        }
+     }
+     updateToolTip();
+ }
+@@ -1625,6 +1629,10 @@
+         markAreaDirty(visualRect(m_hoveredIndex));
+         m_hoveredIndex = index;
+         updateToolTip();
++
++        if (!m_clickToViewFolders) {
++            AsyncFileTester::checkIfFolder(m_hoveredIndex, this, "checkIfFolderResult");
++        }
+     }
+ }
+ 
+@@ -2568,6 +2576,16 @@
+     }
+ }
+ 
++void IconView::setClickToViewFolders(bool click)
++{
++    m_clickToViewFolders = click;
++}
++
++bool IconView::clickToViewFolders() const
++{
++    return m_clickToViewFolders;
++}
++
+ void IconView::openPopup(const QModelIndex &index)
+ {
+     if (m_popupView && m_popupIndex == index) {
+Index: runtime/knotify/notifybyktts.cpp
+===================================================================
+Index: runtime/knotify/kde.notifyrc
+===================================================================
+Index: runtime/knotify/notifybypopup.cpp
+===================================================================
+Index: runtime/knotify/hardwarenotifications.notifyrc
+===================================================================
+Index: runtime/knotify/notifybypopup.h
+===================================================================
+Index: runtime/solid-device-automounter/kded/device_automounter.desktop
+===================================================================
+Index: runtime/solid-device-automounter/kcm/device_automounter_kcm.desktop
+===================================================================
+Index: runtime/localization/currency/aed.desktop
+===================================================================
+Index: runtime/localization/currency/pgk.desktop
+===================================================================
+Index: runtime/localization/currency/xof.desktop
+===================================================================
+Index: runtime/localization/currency/top.desktop
+===================================================================
+Index: runtime/localization/currency/ang.desktop
+===================================================================
+Index: runtime/localization/currency/srd.desktop
+===================================================================
+Index: runtime/localization/currency/tpe.desktop
+===================================================================
+Index: runtime/localization/currency/srg.desktop
+===================================================================
+Index: runtime/localization/currency/pab.desktop
+===================================================================
+Index: runtime/localization/currency/mvr.desktop
+===================================================================
+Index: runtime/localization/currency/szl.desktop
+===================================================================
+Index: runtime/localization/currency/xaf.desktop
+===================================================================
+Index: runtime/localization/currency/mop.desktop
+===================================================================
+Index: runtime/localization/currency/std.desktop
+===================================================================
+Index: runtime/localization/currency/sll.desktop
+===================================================================
+Index: runtime/localization/currency/tjs.desktop
+===================================================================
+Index: runtime/localization/currency/tzs.desktop
+===================================================================
+Index: runtime/localization/currency/bov.desktop
+===================================================================
+Index: runtime/localization/currency/svc.desktop
+===================================================================
+Index: runtime/localization/currency/bif.desktop
+===================================================================
+Index: runtime/localization/currency/mzm.desktop
+===================================================================
+Index: runtime/localization/currency/mzn.desktop
+===================================================================
+Index: runtime/localization/currency/nio.desktop
+===================================================================
+Index: runtime/localization/currency/tmm.desktop
+===================================================================
+Index: runtime/localization/currency/tmt.desktop
+===================================================================
+Index: runtime/kcontrol/componentchooser/componentservices/kcm_wm.desktop
+===================================================================
+Index: runtime/desktoptheme/air/metadata.desktop
+===================================================================
+Index: runtime/phonon/platform_kde/phonon.notifyrc
+===================================================================
+Index: runtime/phonon/kcm/kcm_phonon.desktop
+===================================================================
+Index: runtime/phonon/kded-module/phononserver.desktop
+===================================================================
+Index: runtime/doc/kcontrol/language/index.docbook
+===================================================================
+Index: runtime/platforms/win/kwinstartmenu/kwinstartmenurc
+===================================================================
+Index: runtime/platforms/win/kwinstartmenu/misc.h
+===================================================================
+Index: runtime/platforms/win/kwinstartmenu/winstartmenu.cpp
+===================================================================
+Index: runtime/platforms/win/kwinstartmenu/main.cpp
+===================================================================
+Index: runtime/platforms/win/kwinstartmenu/misc.cpp
+===================================================================
+Index: runtime/platforms/win/kwinstartmenu/CMakeLists.txt
+===================================================================
+Index: runtime/kwalletd/kwalletd.notifyrc
+===================================================================
+Index: runtime/kioslave/trash/kcmtrash.desktop
+===================================================================
+Index: runtime/kioslave/thumbnail/imagethumbnail.desktop
+===================================================================
+Index: runtime/kioslave/thumbnail/textthumbnail.desktop
+===================================================================
+Index: runtime/kioslave/remote/kdedmodule/remotedirnotify.desktop
+===================================================================
+Index: runtime/kioslave/desktop/directory.trash
+===================================================================
+Index: runtime/nepomuk/kioslaves/search/kdedmodule/nepomuksearchmodule.desktop
+===================================================================
+Index: runtime/nepomuk/kioslaves/search/kdedmodule/nepomuksearchmodule.cpp
+===================================================================
+Index: runtime/nepomuk/services/strigi/priority.cpp
+===================================================================
+Index: runtime/nepomuk/services/strigi/priority.h
+===================================================================
+Index: runtime/nepomuk/services/strigi/strigiservice.cpp
+===================================================================
+Index: runtime/nepomuk/services/strigi/nepomukstrigiservice.notifyrc
+===================================================================
+Index: runtime/nepomuk/services/strigi/CMakeLists.txt
+===================================================================
+Index: runtime/nepomuk/services/activities/nepomukactivitiesservice.desktop
+===================================================================
+Index: runtime/nepomuk/services/storage/nepomukstorage.notifyrc
+===================================================================
+Index: runtime/nepomuk/services/storage/repository.cpp
+===================================================================
+Index: runtime/nepomuk/services/filewatch/nepomukfilewatch.cpp
+===================================================================
+Index: runtime/nepomuk/services/filewatch/CMakeLists.txt
+===================================================================
+Index: runtime/nepomuk/services/filewatch/kinotify.cpp
+===================================================================
+Index: runtime/nepomuk/services/queryservice/queryservice.cpp
+===================================================================
+Index: runtime/nepomuk/services/queryservice/nepomukqueryservice.desktop
+===================================================================
+Index: runtime/nepomuk/servicestub/priority.cpp
+===================================================================
+Index: runtime/nepomuk/servicestub/main.cpp
+===================================================================
+Index: runtime/nepomuk/servicestub/priority.h
+===================================================================
+Index: runtime/nepomuk/servicestub/CMakeLists.txt
+===================================================================
+Index: runtime/solidautoeject/solidautoeject.desktop
+===================================================================
+Index: runtime/activitymanager/activitymanager.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/identica_people.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/beolingus.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/duckduckgo_shopping.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/kde_techbase.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/flickrcc.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/yahoo_image.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/yahoo_local.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/urbandictionary.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/yahoo_video.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/duckduckgo.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/opendesktop.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/kde_userbase.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/wikia.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/uspto.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/vimeo.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/duckduckgo_info.desktop
+===================================================================
+Index: runtime/kurifilter-plugins/ikws/searchproviders/identica_notices.desktop
+===================================================================
+Index: runtime/soliduiserver/soliduiserver.desktop
+===================================================================
 Index: runtime/attica/kdeplugin/kdeplatformdependent.cpp
+===================================================================
+Index: runtime/drkonqi/data/mappings
+===================================================================
+Index: runtime/plasma/remotewidgetshelper/kcm_remotewidgets.actions
+===================================================================
+Index: runtime/plasma/scriptengines/javascript/simplebindings/dataengine.h
+===================================================================
+Index: runtime/plasma/scriptengines/javascript/plasma-scriptengine-dataengine-javascript.desktop
+===================================================================
+Index: workspace/ksmserver/kcm/kcmsmserver.desktop
 ===================================================================
 Index: workspace/kcontrol/dateandtime/helper.cpp
 ===================================================================
+Index: workspace/kcontrol/kfontinst/kcmfontinst/fontinst.desktop
+===================================================================
+Index: workspace/kcontrol/autostart/autostart.desktop
+===================================================================
+Index: workspace/kcontrol/desktoptheme/desktoptheme.desktop
+===================================================================
 Index: workspace/kcontrol/keyboard/keyboard_hardware.cpp
 ===================================================================
+Index: workspace/kcontrol/keyboard/x11_helper.h
+===================================================================
 Index: workspace/kcontrol/keyboard/xkb_helper.h
+===================================================================
+Index: workspace/kcontrol/keyboard/plasma_applet_keyboard.desktop
+===================================================================
+Index: workspace/kcontrol/keyboard/flags.cpp
+===================================================================
+Index: workspace/kcontrol/keyboard/CMakeLists.txt
+===================================================================
+Index: workspace/kcontrol/keyboard/numlockx.c
+===================================================================
+Index: workspace/kcontrol/keyboard/x11_helper.cpp
 ===================================================================
 Index: workspace/kcontrol/keyboard/xkb_helper.cpp
 ===================================================================
 Index: workspace/kcontrol/keyboard/xinput_helper.cpp
 ===================================================================
+Index: workspace/kcontrol/keyboard/keyboard.desktop
+===================================================================
 Index: workspace/kcontrol/keyboard/kcm_keyboard_widget.cpp
 ===================================================================
+Index: workspace/kcontrol/colors/colorscm.cpp
+===================================================================
+Index: workspace/kcontrol/colors/colorscm.h
+===================================================================
+Index: workspace/kcontrol/workspaceoptions/workspaceoptions.desktop
+===================================================================
+Index: workspace/kcontrol/kdm/kdm.desktop
+===================================================================
+Index: workspace/kcontrol/kdm/kcmkdm_actions.actions
+===================================================================
+Index: workspace/statusnotifierwatcher/statusnotifierwatcher.desktop
+===================================================================
+Index: workspace/doc/kcontrol/workspaceoptions/index.docbook
+===================================================================
+Index: workspace/systemsettings/categories/settings-startup-and-shutdown.desktop
+===================================================================
+Index: workspace/systemsettings/categories/settings-permissions.desktop
+===================================================================
+Index: workspace/systemsettings/categories/settings-account-details.desktop
+===================================================================
+Index: workspace/systemsettings/categories/settings-input-devices.desktop
+===================================================================
+Index: workspace/systemsettings/categories/settings-workspace-appearance-and-behavior.desktop
+===================================================================
+Index: workspace/systemsettings/categories/settings-lost-and-found.desktop
+===================================================================
+Index: workspace/systemsettings/categories/settings-removable-devices.desktop
+===================================================================
+Index: workspace/systemsettings/categories/settings-application-and-system-notifications.desktop
+===================================================================
+Index: workspace/systemsettings/categories/settings-shortcuts-and-gestures.desktop
+===================================================================
+Index: workspace/systemsettings/categories/settings-application-appearance-and-behavior.desktop
+===================================================================
+Index: workspace/systemsettings/categories/settings-locale.desktop
+===================================================================
+Index: workspace/systemsettings/categories/settings-application-appearance.desktop
+===================================================================
+Index: workspace/systemsettings/categories/settings-network-and-connectivity.desktop
+===================================================================
+Index: workspace/systemsettings/categories/settings-display.desktop
+===================================================================
+Index: workspace/systemsettings/categories/settings-desktop-appearance.desktop
+===================================================================
+Index: workspace/kwrited/kwrited.desktop
+===================================================================
+Index: workspace/kwrited/kwrited-autostart.desktop
+===================================================================
+Index: workspace/kwrited/kwrited.notifyrc
+===================================================================
+Index: workspace/wallpapers/Blue_Wood/metadata.desktop
+===================================================================
+Index: workspace/wallpapers/Grass/metadata.desktop
+===================================================================
+Index: workspace/wallpapers/Hanami/metadata.desktop
+===================================================================
+Index: workspace/wallpapers/Autumn/metadata.desktop
+===================================================================
+Index: workspace/wallpapers/Air/metadata.desktop
+===================================================================
+Index: workspace/wallpapers/Quadros/metadata.desktop
+===================================================================
+Index: workspace/wallpapers/Media_Life/metadata.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-SmartCardReader.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Video.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Battery.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-NetworkInterface.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Button.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Processor.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-AudioInterface.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-AcAdapter.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-OpticalDrive.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-PortableMediaPlayer.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-StorageAccess.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Camera.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-Block.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-StorageVolume.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-DvbInterface.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-OpticalDisc.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-StorageDrive.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/device-actions/solid-device-SerialInterface.desktop
+===================================================================
+Index: workspace/solid/solid-actions-kcm/ActionEditor.cpp
+===================================================================
+Index: workspace/solid/networking/kded/networkstatus.desktop
+===================================================================
+Index: workspace/solid/kcm/kcm_solid.desktop
+===================================================================
+Index: workspace/powerdevil/powerdevil.notifyrc
+===================================================================
+Index: workspace/krunner/interfaces/default/interface.cpp
+===================================================================
+Index: workspace/krunner/krunnerdialog.cpp
+===================================================================
+Index: workspace/krunner/lock/kscreenlocker.notifyrc
+===================================================================
+Index: workspace/libs/plasmagenericshell/scripting/containment.h
+===================================================================
+Index: workspace/libs/plasmagenericshell/scripting/widget.h
+===================================================================
+Index: workspace/libs/plasmagenericshell/scripting/scriptengine.cpp
+===================================================================
+Index: workspace/libs/kephal/service/kephal.desktop
+===================================================================
+Index: workspace/libs/kworkspace/CMakeLists.txt
+===================================================================
+Index: workspace/libs/oxygen/oxygentileset.cpp
+===================================================================
+Index: workspace/libs/plasmaclock/clockapplet.cpp
+===================================================================
+Index: workspace/libs/ksysguard/processcore/actions.actions
+===================================================================
+Index: workspace/libs/ksysguard/scripts/smaps/smaps.desktop
+===================================================================
+Index: workspace/kscreensaver/kblank_screensaver/kblank.desktop
+===================================================================
+Index: workspace/kscreensaver/krandom_screensaver/krandom.desktop
+===================================================================
+Index: workspace/freespacenotifier/freespacenotifier.desktop
+===================================================================
+Index: workspace/freespacenotifier/freespacenotifier.notifyrc
+===================================================================
+Index: workspace/kstyles/oxygen/oxygenframeshadow.h
+===================================================================
+Index: workspace/kstyles/oxygen/oxygen.kcfg
+===================================================================
+Index: workspace/kstyles/oxygen/animations/oxygenanimationdata.cpp
+===================================================================
+Index: workspace/kstyles/oxygen/animations/oxygendatamap.h
+===================================================================
+Index: workspace/kstyles/oxygen/animations/oxygenspinboxdata.h
+===================================================================
+Index: workspace/kstyles/oxygen/animations/oxygenscrollbardata.h
+===================================================================
+Index: workspace/kstyles/oxygen/animations/oxygendockseparatordata.h
+===================================================================
+Index: workspace/kstyles/oxygen/animations/oxygentoolbardata.h
+===================================================================
+Index: workspace/kstyles/oxygen/animations/oxygenanimations.cpp
+===================================================================
+Index: workspace/kstyles/oxygen/animations/oxygengenericdata.h
+===================================================================
+Index: workspace/kstyles/oxygen/animations/oxygenanimationdata.h
+===================================================================
+Index: workspace/kstyles/oxygen/animations/oxygenmenubardata.h
+===================================================================
+Index: workspace/kstyles/oxygen/animations/oxygentabbardata.h
+===================================================================
+Index: workspace/kstyles/oxygen/animations/oxygenmdiwindowdata.h
+===================================================================
+Index: workspace/kstyles/oxygen/oxygenframeshadow.cpp
+===================================================================
+Index: workspace/kstyles/oxygen/oxygenstyle.cpp
+===================================================================
+Index: workspace/kstyles/oxygen/transitions/oxygentransitions.cpp
+===================================================================
+Index: workspace/kstyles/oxygen/transitions/oxygentransitiondata.cpp
+===================================================================
+Index: workspace/kstyles/oxygen/transitions/oxygentransitionwidget.cpp
+===================================================================
+Index: workspace/kstyles/oxygen/transitions/oxygentransitionwidget.h
+===================================================================
+Index: workspace/khotkeys/kcm_hotkeys/khotkeys.desktop
+===================================================================
+Index: workspace/khotkeys/data/konqueror_gestures_kde321.khotkeys
+===================================================================
+Index: workspace/khotkeys/data/kde32b1.khotkeys
+===================================================================
+Index: workspace/kinfocenter/sidepanel.cpp
+===================================================================
 Index: workspace/kinfocenter/Categories/deviceinfocategory.desktop
+===================================================================
+Index: workspace/kinfocenter/Categories/lostfoundcategory.desktop
 ===================================================================
 Index: workspace/kinfocenter/Categories/networkinfocategory.desktop
 ===================================================================
@@ -60,31 +1052,177 @@ Index: workspace/kinfocenter/Categories/graphicalinfocategory.desktop
 ===================================================================
 Index: workspace/kinfocenter/Categories/kinfocentercategory.desktop
 ===================================================================
+Index: workspace/kinfocenter/infokcmmodel.cpp
+===================================================================
+Index: workspace/kinfocenter/sidepanel.h
+===================================================================
+Index: workspace/kinfocenter/kcmtreeitem.cpp
+===================================================================
+Index: workspace/kinfocenter/infokcmmodel.h
+===================================================================
+Index: workspace/kinfocenter/Modules/infosummary/kcm_infosummary.desktop
+===================================================================
+Index: workspace/kinfocenter/Modules/devinfo/devinfo.desktop
+===================================================================
+Index: workspace/kinfocenter/ToolTips/tooltipmanager.cpp
+===================================================================
+Index: workspace/kinfocenter/ToolTips/tooltipmanager.h
+===================================================================
 Index: workspace/kwin/effects/desktopgrid/desktopgrid.cpp
+===================================================================
+Index: workspace/kwin/effects/glide/glide_config.desktop
+===================================================================
+Index: workspace/kwin/effects/glide/glide.desktop
+===================================================================
+Index: workspace/kwin/effects/presentwindows/presentwindows.cpp
 ===================================================================
 Index: workspace/kwin/effects/blur/blur.cpp
 ===================================================================
+Index: workspace/kwin/effects/blur/blurshader.cpp
+===================================================================
+Index: workspace/kwin/effects/resize/resize.desktop
+===================================================================
 Index: workspace/kwin/effects/dialogparent/dialogparent.desktop
+===================================================================
+Index: workspace/kwin/clients/tabstrip/tabstrip.desktop
+===================================================================
+Index: workspace/kwin/clients/aurorae/themes/example-deco/metadata.desktop
 ===================================================================
 Index: workspace/kwin/clients/aurorae/src/lib/auroraetab.cpp
 ===================================================================
 Index: workspace/kwin/clients/aurorae/src/lib/auroraescene.cpp
 ===================================================================
+Index: workspace/kwin/clients/oxygen/oxygenshadowcache.cpp
+===================================================================
+Index: workspace/kwin/kcmkwin/kwindecoration/kwindecoration.desktop
+===================================================================
+Index: workspace/kwin/kcmkwin/kwindesktop/desktop.desktop
+===================================================================
+Index: workspace/kwin/kcmkwin/kwinrules/kwinrules.desktop
+===================================================================
+Index: workspace/kwin/kcmkwin/kwintabbox/kwintabbox.desktop
+===================================================================
+Index: workspace/kwin/kwin.notifyrc
+===================================================================
+Index: workspace/kwin/lanczosfilter.h
+===================================================================
+Index: workspace/kwin/lanczos-fragment.glsl
+===================================================================
+Index: workspace/kwin/lanczosfilter.cpp
+===================================================================
 Index: workspace/kwin/tiling.cpp
+===================================================================
+Index: workspace/kdm/kfrontend/pics/stripes.png.desktop
+===================================================================
+Index: workspace/kdm/kfrontend/sessions/lxde.desktop
+===================================================================
+Index: workspace/kdm/kfrontend/kgverify.cpp
+===================================================================
+Index: workspace/ksysguard/example/ksysguard.notifyrc
+===================================================================
+Index: workspace/plasma/screensaver/containments/screensaver/desktop.cpp
+===================================================================
+Index: workspace/plasma/screensaver/shell/plasmaapp.cpp
+===================================================================
+Index: workspace/plasma/screensaver/shell/plasmaapp.h
+===================================================================
+Index: workspace/plasma/netbook/containments/sal/services/plasma-sal-education.desktop
+===================================================================
+Index: workspace/plasma/netbook/containments/sal/services/plasma-sal-games.desktop
+===================================================================
+Index: workspace/plasma/netbook/containments/sal/services/plasma-sal-contacts.desktop
+===================================================================
+Index: workspace/plasma/netbook/containments/newspaper/plasma-containment-newspaper.desktop
+===================================================================
+Index: workspace/plasma/netbook/containments/netpanel/plasma-containment-netpanel.desktop
+===================================================================
+Index: workspace/plasma/netbook/shell/data/layouts/plasma-layout-org.kde.plasma-netbook.defaultPage.desktop
+===================================================================
+Index: workspace/plasma/netbook/shell/data/layouts/org.kde.plasma-netbook.defaultPage/metadata.desktop
+===================================================================
+Index: workspace/plasma/netbook/shell/data/layouts/plasma-layout-org.kde.plasma-netbook.defaultPanel.desktop
+===================================================================
+Index: workspace/plasma/netbook/shell/data/layouts/plasma-layout-org.kde.plasma-netbook.defaultSal.desktop
+===================================================================
+Index: workspace/plasma/netbook/shell/data/layouts/org.kde.plasma-netbook.defaultPanel/metadata.desktop
+===================================================================
+Index: workspace/plasma/netbook/shell/data/layouts/org.kde.plasma-netbook.defaultSal/metadata.desktop
+===================================================================
+Index: workspace/plasma/netbook/desktoptheme/air-netbook/metadata.desktop
+===================================================================
+Index: workspace/plasma/desktop/containments/panel/plasma-containment-panel.desktop
+===================================================================
+Index: workspace/plasma/desktop/containments/desktop/plasma-containment-desktopdashboard.desktop
 ===================================================================
 Index: workspace/plasma/desktop/shell/panelview.h
 ===================================================================
+Index: workspace/plasma/desktop/shell/controllerwindow.cpp
+===================================================================
 Index: workspace/plasma/desktop/shell/plasmaapp.h
+===================================================================
+Index: workspace/plasma/desktop/shell/panelapplethandle.h
+===================================================================
+Index: workspace/plasma/desktop/shell/data/layouts/org.kde.plasma-desktop.defaultPanel/metadata.desktop
+===================================================================
+Index: workspace/plasma/desktop/shell/data/layouts/plasma-layout-org.kde.plasma-desktop.defaultPanel.desktop
+===================================================================
+Index: workspace/plasma/desktop/shell/data/plasma-desktop.notifyrc
 ===================================================================
 Index: workspace/plasma/desktop/shell/panelview.cpp
 ===================================================================
+Index: workspace/plasma/desktop/shell/activitymanager/activityicon.cpp
+===================================================================
+Index: workspace/plasma/desktop/shell/activitymanager/activitylist.cpp
+===================================================================
+Index: workspace/plasma/desktop/shell/activitymanager/activityicon.h
+===================================================================
 Index: workspace/plasma/desktop/shell/plasmaapp.cpp
+===================================================================
+Index: workspace/plasma/desktop/shell/panelapplethandle.cpp
+===================================================================
+Index: workspace/plasma/desktop/shell/activity.cpp
+===================================================================
+Index: workspace/plasma/desktop/applets/trash/plasma-applet-trash.desktop
+===================================================================
+Index: workspace/plasma/desktop/applets/windowlist/WindowList.cpp
+===================================================================
+Index: workspace/plasma/desktop/applets/windowlist/plasma-applet-windowlist.desktop
+===================================================================
+Index: workspace/plasma/desktop/applets/kickoff/simpleapplet/plasma-applet-simplelauncher.desktop
+===================================================================
+Index: workspace/plasma/desktop/applets/kickoff/applet/plasma-applet-launcher.desktop
+===================================================================
+Index: workspace/plasma/desktop/applets/kickoff/core/recentapplications.cpp
+===================================================================
+Index: workspace/plasma/desktop/applets/pager/pager.cpp
+===================================================================
+Index: workspace/plasma/desktop/applets/pager/pager.h
+===================================================================
+Index: workspace/plasma/generic/containmentactions/test/plasma-containmentactions-test.desktop
+===================================================================
+Index: workspace/plasma/generic/containmentactions/applauncher/plasma-containmentactions-applauncher.desktop
+===================================================================
+Index: workspace/plasma/generic/containmentactions/switchwindow/plasma-containmentactions-switchwindow.desktop
+===================================================================
+Index: workspace/plasma/generic/containmentactions/switchdesktop/plasma-containmentactions-switchdesktop.desktop
+===================================================================
+Index: workspace/plasma/generic/containmentactions/paste/plasma-containmentactions-paste.desktop
+===================================================================
+Index: workspace/plasma/generic/containmentactions/switchactivity/plasma-containmentactions-switchactivity.desktop
+===================================================================
+Index: workspace/plasma/generic/dataengines/devicenotifications/plasma-dataengine-devicenotifications.desktop
+===================================================================
+Index: workspace/plasma/generic/dataengines/soliddevice/plasma-dataengine-soliddevice.desktop
+===================================================================
+Index: workspace/plasma/generic/dataengines/systemmonitor/systemmonitor.cpp
 ===================================================================
 Index: workspace/plasma/generic/dataengines/weather/weatherengine.cpp
 ===================================================================
 Index: workspace/plasma/generic/dataengines/weather/ions/ion.cpp
 ===================================================================
 Index: workspace/plasma/generic/dataengines/weather/ions/wetter.com/ion_wettercom.cpp
+===================================================================
+Index: workspace/plasma/generic/dataengines/weather/ions/wetter.com/ion-wettercom.desktop
 ===================================================================
 Index: workspace/plasma/generic/dataengines/weather/ions/wetter.com/ion_wettercom.h
 ===================================================================
@@ -104,9 +1242,53 @@ Index: workspace/plasma/generic/dataengines/weather/ions/noaa/ion_noaa.h
 ===================================================================
 Index: workspace/plasma/generic/dataengines/weather/weatherengine.h
 ===================================================================
+Index: workspace/plasma/generic/dataengines/statusnotifieritem/plasma_engine_statusnotifieritem.desktop
+===================================================================
+Index: workspace/plasma/generic/dataengines/apps/plasma-dataengine-apps.desktop
+===================================================================
+Index: workspace/plasma/generic/applets/lock_logout/lockout.cpp
+===================================================================
+Index: workspace/plasma/generic/applets/lock_logout/plasma-applet-lockout.desktop
+===================================================================
+Index: workspace/plasma/generic/applets/devicenotifier/notifierdialog.cpp
+===================================================================
+Index: workspace/plasma/generic/applets/notifications/plasma-applet-notifications.desktop
+===================================================================
+Index: workspace/plasma/generic/applets/notifications/protocols/jobs/dbusjobprotocol.cpp
+===================================================================
+Index: workspace/plasma/generic/applets/system-monitor/plasma-applet-sm_cpu.desktop
+===================================================================
+Index: workspace/plasma/generic/applets/system-monitor/plasma-applet-sm_hwinfo.desktop
+===================================================================
+Index: workspace/plasma/generic/applets/system-monitor/plasma-applet-sm_temperature.desktop
+===================================================================
+Index: workspace/plasma/generic/applets/system-monitor/plasma-applet-sm_ram.desktop
+===================================================================
+Index: workspace/plasma/generic/applets/system-monitor/plasma-applet-sm_net.desktop
+===================================================================
+Index: workspace/plasma/generic/applets/system-monitor/plasma-applet-sm_hdd.desktop
+===================================================================
 Index: workspace/plasma/generic/applets/battery/battery.h
 ===================================================================
 Index: workspace/plasma/generic/applets/battery/battery.cpp
 ===================================================================
+Index: workspace/plasma/generic/wallpapers/image/image.cpp
+===================================================================
+Index: workspace/plasma/generic/wallpapers/image/image.h
+===================================================================
+Index: workspace/plasma/generic/runners/windows/plasma-runner-windows.desktop
+===================================================================
+Index: workspace/plasma/generic/runners/kill/plasma-runner-kill.desktop
+===================================================================
 Index: workspace/plasma/generic/runners/kill/killrunner.cpp
+===================================================================
+Index: workspace/plasma/generic/runners/kill/plasma-runner-kill_config.desktop
+===================================================================
+Index: workspace/plasma/generic/runners/sessions/plasma-runner-sessions.desktop
+===================================================================
+Index: workspace/plasma/generic/runners/windowedwidgets/plasma-runner-windowedwidgets.desktop
+===================================================================
+Index: workspace/plasma/generic/runners/solid/plasma-runner-solid.desktop
+===================================================================
+Index: workspace/plasma/generic/scriptengines/python/plasma-scriptengine-wallpaper-python.desktop
 ===================================================================

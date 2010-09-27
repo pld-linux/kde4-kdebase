@@ -16,13 +16,14 @@ Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
 Version:	4.5.1
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
 # Source0-md5:	9249b29618eed5dd5c7bfccacb3e0c43
 Patch100:	%{name}-branch.diff
 Patch0:		%{name}-wordchars.patch
+Patch1:		%{name}-bug-188528.patch
 URL:		http://www.kde.org/
 BuildRequires:	OpenEXR-devel >= 1.2.2
 BuildRequires:	OpenGL-devel
@@ -317,6 +318,7 @@ Biblioteki współdzielone konquerora.
 %setup -q -n %{orgname}-%{version}
 %patch100 -p0
 %patch0 -p1
+%patch1 -p1
 
 for f in `find . -name \*.desktop`; do
 	if grep -q '\[ven\]' $f; then
