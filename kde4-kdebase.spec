@@ -16,7 +16,7 @@ Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
 Version:	4.5.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
@@ -71,7 +71,7 @@ BuildRequires:	qimageblitz-devel >= 0.0.6
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.268
+BuildRequires:	rpmbuild(macros) >= 1.453
 BuildRequires:	samba-devel
 BuildRequires:	shared-desktop-ontologies-devel >= 0.5
 BuildRequires:	soprano-devel >= 2.4.64
@@ -351,6 +351,8 @@ install -d \
 	$RPM_BUILD_ROOT%{_datadir}/apps/kcontrol \
 	$RPM_BUILD_ROOT%{_libdir}/kde4/plugins/konqueror
 
+%browser_plugins_add_browser konqueror -p %{_libdir}/kde4/plugins/konqueror
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -496,6 +498,8 @@ fi
 
 %files -n kde4-konqueror
 %defattr(644,root,root,755)
+%{_browserpluginsconfdir}/browsers.d/konqueror.*
+%config(noreplace) %verify(not md5 mtime size) %{_browserpluginsconfdir}/blacklist.d/konqueror.*.blacklist
 %attr(755,root,root) %{_bindir}/keditbookmarks
 %attr(755,root,root) %{_bindir}/kfmclient
 %attr(755,root,root) %{_bindir}/konqueror
@@ -513,6 +517,7 @@ fi
 %attr(755,root,root) %{_libdir}/kde4/konq_aboutpage.so
 %attr(755,root,root) %{_libdir}/kde4/konqsidebar_places.so
 %attr(755,root,root) %{_libdir}/kde4/libnsplugin.so
+%dir %{_libdir}/kde4/plugins/konqueror
 %{_datadir}/apps/kbookmark
 %{_datadir}/apps/kcmcss
 %{_datadir}/apps/keditbookmarks
