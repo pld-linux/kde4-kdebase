@@ -253,7 +253,7 @@ Dolphin - zarządca plików KDE 4.
 Summary:	Konqueror - web browser and file manager
 Summary(pl.UTF-8):	Konqueror - przeglądarka WWW i zarządca plików
 Group:		X11/Applications
-Requires:	browser-plugins
+Requires:	browser-plugins >= 2.0
 Requires:	kde-common-dirs >= 0.5
 Requires:	kde4-konqueror-libs = %{version}-%{release}
 Provides:	wwwbrowser
