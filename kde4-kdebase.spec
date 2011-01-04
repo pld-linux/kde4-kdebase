@@ -3,7 +3,7 @@
 #
 %define		_state		stable
 %define		orgname		kdebase
-%define		qtver		4.7.0
+%define		qtver		4.7.1
 
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):	K Desktop Environment - archivos básicos
@@ -71,7 +71,7 @@ BuildRequires:	qimageblitz-devel >= 0.0.6
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.453
+BuildRequires:	rpmbuild(macros) >= 1.600
 BuildRequires:	samba-devel
 BuildRequires:	shared-desktop-ontologies-devel >= 0.5
 BuildRequires:	soprano-devel >= 2.4.64
@@ -330,12 +330,6 @@ done
 install -d build
 cd build
 %cmake \
-	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-	-DLIB_INSTALL_DIR=%{_libdir} \
-	-DCMAKE_BUILD_TYPE=%{!?debug:Release}%{?debug:Debug} \
-%if "%{_lib}" == "lib64"
-	-DLIB_SUFFIX=64 \
-%endif
 	../
 
 %{__make}
