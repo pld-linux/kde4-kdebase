@@ -15,12 +15,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.5.4
-Release:	2
+Version:	4.5.5
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	1be56fc574190fdf02cfde0816666652
+# Source0-md5:	f0eb111e0ce6570a6c3ccf2365543c37
 Patch100:	%{name}-branch.diff
 Patch0:		%{name}-wordchars.patch
 Patch1:		%{name}-bug-188528.patch
