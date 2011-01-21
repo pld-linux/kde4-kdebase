@@ -15,12 +15,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.5.5
+Version:	4.6.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	f0eb111e0ce6570a6c3ccf2365543c37
+# Source0-md5:	7d2d176c57f2e914acc89c39351ce5aa
 Patch100:	%{name}-branch.diff
 Patch0:		%{name}-wordchars.patch
 Patch1:		%{name}-bug-188528.patch
@@ -409,7 +409,6 @@ fi
 %attr(755,root,root) %{_libdir}/libdolphinprivate.so
 %attr(755,root,root) %{_libdir}/libkonq.so
 %attr(755,root,root) %{_libdir}/libkonqsidebarplugin.so
-%attr(755,root,root) %{_libdir}/libkonquerorprivate.so
 %{_includedir}/*.h
 
 %files kdialog
@@ -467,9 +466,9 @@ fi
 %attr(755,root,root) %{_libdir}/kde4/kcm_dolphinnavigation.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_dolphinservices.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_dolphinviewmodes.so
+%attr(755,root,root) %{_libdir}/kde4/kio_filenamesearch.so
 %attr(755,root,root) %{_libdir}/kde4/dolphinpart.so
 %dir %{_datadir}/apps/dolphin
-%{_datadir}/apps/dolphin/dolphinsearchcommands.desktop
 %{_datadir}/apps/dolphin/dolphinui.rc
 %dir %{_datadir}/apps/dolphinpart
 %{_datadir}/apps/dolphinpart/dolphinpart.rc
@@ -484,6 +483,7 @@ fi
 %{_datadir}/kde4/services/kcmdolphinnavigation.desktop
 %{_datadir}/kde4/services/kcmdolphinservices.desktop
 %{_datadir}/kde4/services/kcmdolphinviewmodes.desktop
+%{_datadir}/kde4/services/filenamesearch.protocol
 %{_desktopdir}/kde4/dolphin.desktop
 %{_kdedocdir}/en/dolphin
 %dir %{_datadir}/apps/dolphinpart/kpartplugins
