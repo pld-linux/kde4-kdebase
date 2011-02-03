@@ -25,67 +25,32 @@ Patch100:	%{name}-branch.diff
 Patch0:		%{name}-wordchars.patch
 Patch1:		%{name}-bug-188528.patch
 URL:		http://www.kde.org/
-BuildRequires:	OpenEXR-devel >= 1.2.2
-BuildRequires:	OpenGL-devel
 BuildRequires:	QtNetwork-devel >= %{qtver}
-BuildRequires:	audiofile-devel
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	bzip2-devel
-BuildRequires:	cdparanoia-III-devel
 BuildRequires:	cmake >= 2.8.0
-BuildRequires:	cups-devel
 BuildRequires:	cyrus-sasl-devel
 BuildRequires:	db-devel
-#BuildRequires:	dbus-qt-devel >= 0.70
-BuildRequires:	gettext-devel
-BuildRequires:	hal-devel
-BuildRequires:	jasper-devel
+BuildRequires:	docbook-dtd42-xml
+BuildRequires:	docbook-style-xsl
 BuildRequires:	kde4-kdebase-workspace-devel >= %{version}
 BuildRequires:	kde4-kdelibs-devel >= %{version}
-BuildRequires:	kde4-kdepimlibs-devel >= %{version}
-BuildRequires:	kde4-kwebkitpart-devel >= %{version}
-BuildRequires:	lame-libs-devel
-BuildRequires:	libjpeg-devel
-BuildRequires:	libpng-devel >= 1.0.8
-BuildRequires:	libraw1394-devel >= 1.2.0
-BuildRequires:	libsmbclient-devel >= 3.0.0
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtiff-devel
-BuildRequires:	libtool
-BuildRequires:	libusb-devel
-BuildRequires:	libvorbis-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	libxml2-progs
-BuildRequires:	lm_sensors-devel
-BuildRequires:	motif-devel
 BuildRequires:	openldap-devel
 BuildRequires:	openssl-devel >= 0.9.7c
 BuildRequires:	pam-devel
-BuildRequires:	pciutils-devel
 BuildRequires:	pkgconfig
-BuildRequires:	qimageblitz-devel >= 0.0.6
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
-BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.600
-BuildRequires:	samba-devel
 BuildRequires:	shared-desktop-ontologies-devel >= 0.5
 BuildRequires:	soprano-devel >= 2.4.64
 BuildRequires:	strigi-devel >= 0.7.2
-BuildRequires:	xorg-app-bdftopcf
-BuildRequires:	xorg-cf-files
-BuildRequires:	xorg-lib-libXScrnSaver-devel
-BuildRequires:	xorg-lib-libXcomposite-devel
 BuildRequires:	xorg-lib-libXcursor-devel
-BuildRequires:	xorg-lib-libXdamage-devel
 BuildRequires:	xorg-lib-libXft-devel
-BuildRequires:	xorg-lib-libXinerama-devel
-BuildRequires:	xorg-lib-libXmu-devel
 BuildRequires:	xorg-lib-libXtst-devel
-BuildRequires:	xorg-lib-libfontenc-devel
-BuildRequires:	xorg-lib-libxkbfile-devel
-BuildRequires:	xorg-proto-scrnsaverproto-devel
-BuildRequires:	xorg-util-imake
 BuildConflicts:	kdebase-konqueror-libs
 Provides:	kde4-kdebase-common
 Provides:	kde4-kdebase-core
