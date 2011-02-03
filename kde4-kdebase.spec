@@ -16,7 +16,7 @@ Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
 Version:	4.6.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
@@ -110,7 +110,8 @@ This package contains KDE base system which includes:
 - many more.
 
 %description -l ja.UTF-8
-KDEデスクトップ環境用の基本アプリケーション〄1�7以下のようなパッケージが入っています〄1�7
+KDEデスクトップ環境用の基本アプリケーション。 以下のようなパッケージが入っています。
+
 %description -l pl.UTF-8
 Ten pakiet zawiera podstawowe aplikacje KDE:
 - Centrum sterowania z modułami
@@ -316,7 +317,7 @@ Biblioteki współdzielone konquerora.
 %patch0 -p1
 %patch1 -p1
 
-for f in `find . -name \*.desktop`; do
+for f in $(find . -name '*.desktop'); do
 	if grep -q '\[ven\]' $f; then
 		sed -i -e 's/\[ven\]/[ve]/' $f
 	fi
@@ -326,8 +327,7 @@ done
 install -d build
 cd build
 %cmake \
-	../
-
+	..
 %{__make}
 
 %install
