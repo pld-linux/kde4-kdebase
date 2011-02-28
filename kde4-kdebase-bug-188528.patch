@@ -1,5 +1,5 @@
---- kdebase-4.5.1/apps/konsole/src/Screen.cpp~	2010-04-28 10:01:02.000000000 +0200
-+++ kdebase-4.5.1/apps/konsole/src/Screen.cpp	2010-09-27 09:23:48.658050544 +0200
+--- kdebase-4.5.1/konsole/src/Screen.cpp~	2010-04-28 10:01:02.000000000 +0200
++++ kdebase-4.5.1/konsole/src/Screen.cpp	2010-09-27 09:23:48.658050544 +0200
 @@ -1223,6 +1223,19 @@
          Character* data = screenLines[screenLine].data();
          int length = screenLines[screenLine].count();
