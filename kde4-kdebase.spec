@@ -3,7 +3,7 @@
 #
 %define		_state		stable
 %define		orgname		kdebase
-%define		qtver		4.7.2
+%define		qtver		4.7.3
 
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):	K Desktop Environment - archivos básicos
@@ -15,12 +15,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.6.4
+Version:	4.6.5
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	875991779d0b3f47f6c3f9d1e90add47
+# Source0-md5:	153bd43c3b1159c2e6b06fc4f3f0ad87
 Patch100:	%{name}-branch.diff
 Patch0:		%{name}-wordchars.patch
 Patch1:		%{name}-bug-188528.patch
