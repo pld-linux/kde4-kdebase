@@ -2,7 +2,7 @@
 # - new descriptions
 #
 %define		_state		stable
-%define		orgname		kdebase
+%define		orgname		kde-baseapps
 %define		qtver		4.7.3
 
 Summary:	K Desktop Environment - core files
@@ -15,15 +15,13 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.6.5
+Version:	4.7.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	153bd43c3b1159c2e6b06fc4f3f0ad87
+# Source0-md5:	0dfcfd5acf5ceea87ff2f21e859447b6
 Patch100:	%{name}-branch.diff
-Patch0:		%{name}-wordchars.patch
-Patch1:		%{name}-bug-188528.patch
 URL:		http://www.kde.org/
 BuildRequires:	QtNetwork-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.88
@@ -153,37 +151,6 @@ A tool for find files for KDE.
 %description kfind -l pl.UTF-8
 Narzędzie do wyszukiwania plików dla KDE.
 
-%package konsole
-Summary:	KDE Terminal Emulator
-Summary(pl.UTF-8):	Emulator terminala dla KDE
-Group:		X11/Applications
-Requires:	%{name} = %{version}-%{release}
-Requires:	fontpostinst
-Provides:	%{name}-common-konsole
-Obsoletes:	kde4-kdebase-common-konsole
-
-%description konsole
-KDE Terminal Emulator.
-
-%description konsole -l pl.UTF-8
-Emulator terminala dla KDE.
-
-%package kwrite
-Summary:	KDE Text Editor
-Summary(pl.UTF-8):	Edytor tekstu dla KDE
-Group:		X11/Applications/Editors
-Requires:	%{name} = %{version}-%{release}
-
-%description kwrite
-KWrite is a simple texteditor, with syntaxhighlighting, codefolding,
-dynamic word wrap and more, it's the lightweight version of Kate,
-providing more speed for minor tasks.
-
-%description kwrite -l pl.UTF-8
-KWrite to prosty edytor tekstu z podświetlaniem składni, zwijaniem
-kodu, dynamicznym zawijaniem wierszy itp. Jest lżejszą wersją Kate,
-szybszą dla mniejszych zadań.
-
 %package useraccount
 Summary:	User Account management
 Summary(pl.UTF-8):	Zarządzanie kontem użytkownika
@@ -279,8 +246,6 @@ Biblioteki współdzielone konquerora.
 %prep
 %setup -q -n %{orgname}-%{version}
 #%patch100 -p0
-%patch0 -p1
-%patch1 -p1
 
 for f in $(find . -name '*.desktop'); do
 	if grep -q '\[ven\]' $f; then
@@ -310,12 +275,6 @@ install -d \
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%post konsole
-%{_bindir}/fontpostinst misc
-
-%postun konsole
-%{_bindir}/fontpostinst misc
 
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
@@ -364,6 +323,9 @@ fi
 %{_datadir}/config/servicemenu.knsrc
 %{_datadir}/kde4/servicetypes/fileviewversioncontrolplugin.desktop
 
+#?
+%{_datadir}/kde4/services/ServiceMenus
+
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libkbookmarkmodel_private.so
@@ -383,27 +345,6 @@ fi
 %{_desktopdir}/kde4/kfind.desktop
 %{_kdedocdir}/en/kfind
 %{_mandir}/man1/kfind.1.*
-
-%files konsole
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/konsole
-%attr(755,root,root) %{_bindir}/konsoleprofile
-%attr(755,root,root) %{_libdir}/libkdeinit4_konsole.so
-%attr(755,root,root) %{_libdir}/kde4/libkonsolepart.so
-%attr(755,root,root) %{_libdir}/libkonsoleprivate.so
-%{_datadir}/kde4/services/ServiceMenus/konsolehere.desktop
-%{_datadir}/kde4/services/konsolepart.desktop
-%{_datadir}/apps/konsole
-%{_desktopdir}/kde4/konsole.desktop
-%{_kdedocdir}/en/konsole
-
-%files kwrite
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/kwrite
-%attr(755,root,root) %{_libdir}/libkdeinit4_kwrite.so
-%{_datadir}/apps/kwrite
-%{_desktopdir}/kde4/kwrite.desktop
-%{_kdedocdir}/en/kwrite
 
 %files useraccount
 %defattr(644,root,root,755)
@@ -448,6 +389,10 @@ fi
 %{_desktopdir}/kde4/dolphin.desktop
 %{_kdedocdir}/en/dolphin
 %dir %{_datadir}/apps/dolphinpart/kpartplugins
+%{_datadir}/apps/dolphinpart/kpartplugins/dirfilterplugin.desktop
+%{_datadir}/apps/dolphinpart/kpartplugins/dirfilterplugin.rc
+%{_datadir}/apps/dolphinpart/kpartplugins/kimgalleryplugin.desktop
+%{_datadir}/apps/dolphinpart/kpartplugins/kimgalleryplugin.rc
 %{_datadir}/apps/dolphinpart/kpartplugins/kshellcmdplugin.desktop
 %{_datadir}/apps/dolphinpart/kpartplugins/kshellcmdplugin.rc
 
@@ -455,12 +400,20 @@ fi
 %defattr(644,root,root,755)
 %{_browserpluginsconfdir}/browsers.d/konqueror.*
 %config(noreplace) %verify(not md5 mtime size) %{_browserpluginsconfdir}/blacklist.d/konqueror.*.blacklist
+%attr(755,root,root) %{_bindir}/fsview
 %attr(755,root,root) %{_bindir}/keditbookmarks
 %attr(755,root,root) %{_bindir}/kfmclient
 %attr(755,root,root) %{_bindir}/konqueror
 %attr(755,root,root) %{_bindir}/nspluginscan
 %attr(755,root,root) %{_bindir}/nspluginviewer
 %attr(755,root,root) %{_libdir}/libkdeinit4_konqueror.so
+%attr(755,root,root) %{_libdir}/kde4/adblock.so
+%attr(755,root,root) %{_libdir}/kde4/akregatorkonqfeedicon.so
+%attr(755,root,root) %{_libdir}/kde4/autorefresh.so
+%attr(755,root,root) %{_libdir}/kde4/babelfishplugin.so
+%attr(755,root,root) %{_libdir}/kde4/dirfilterplugin.so
+%attr(755,root,root) %{_libdir}/kde4/domtreeviewerplugin.so
+%attr(755,root,root) %{_libdir}/kde4/fsviewpart.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_history.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_kio.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_konq.so
@@ -469,29 +422,66 @@ fi
 %attr(755,root,root) %{_libdir}/kde4/kcm_performance.so
 %attr(755,root,root) %{_libdir}/kde4/kded_favicons.so
 %attr(755,root,root) %{_libdir}/kde4/kded_konqy_preloader.so
+%attr(755,root,root) %{_libdir}/kde4/khtmlsettingsplugin.so
+%attr(755,root,root) %{_libdir}/kde4/kimgallery.so
 %attr(755,root,root) %{_libdir}/kde4/konq_aboutpage.so
 %attr(755,root,root) %{_libdir}/kde4/konqsidebar_places.so
 %attr(755,root,root) %{_libdir}/kde4/libnsplugin.so
+%attr(755,root,root) %{_libdir}/kde4/minitoolsplugin.so
+%attr(755,root,root) %{_libdir}/kde4/rellinksplugin.so
+%attr(755,root,root) %{_libdir}/kde4/searchbarplugin.so
+%attr(755,root,root) %{_libdir}/kde4/uachangerplugin.so
+%attr(755,root,root) %{_libdir}/kde4/validatorsplugin.so
+%attr(755,root,root) %{_libdir}/kde4/webarchiverplugin.so
+%attr(755,root,root) %{_libdir}/kde4/webarchivethumbnail.so
 %dir %{_libdir}/kde4/plugins/konqueror
+%{_datadir}/apps//akregator/pics/feed.png
+%{_datadir}/apps/domtreeviewer
+%{_datadir}/apps/fsview
+%{_datadir}/apps/nsplugin
+%{_datadir}/apps/khtml/kpartplugins/akregator_konqfeedicon.desktop
+%{_datadir}/apps/khtml/kpartplugins/akregator_konqfeedicon.rc
+%{_datadir}/apps/khtml/kpartplugins/autorefresh.desktop
+%{_datadir}/apps/khtml/kpartplugins/autorefresh.rc
+%{_datadir}/apps/khtml/kpartplugins/khtmlsettingsplugin.desktop
+%{_datadir}/apps/khtml/kpartplugins/khtmlsettingsplugin.rc
+%{_datadir}/apps/khtml/kpartplugins/minitoolsplugin.desktop
+%{_datadir}/apps/khtml/kpartplugins/minitoolsplugin.rc
+%{_datadir}/apps/khtml/kpartplugins/plugin_adblock.desktop
+%{_datadir}/apps/khtml/kpartplugins/plugin_adblock.rc
+%{_datadir}/apps/khtml/kpartplugins/plugin_babelfish.desktop
+%{_datadir}/apps/khtml/kpartplugins/plugin_babelfish.rc
+%{_datadir}/apps/khtml/kpartplugins/plugin_domtreeviewer.desktop
+%{_datadir}/apps/khtml/kpartplugins/plugin_domtreeviewer.rc
+%{_datadir}/apps/khtml/kpartplugins/plugin_rellinks.desktop
+%{_datadir}/apps/khtml/kpartplugins/plugin_rellinks.rc
+%{_datadir}/apps/khtml/kpartplugins/plugin_validators.desktop
+%{_datadir}/apps/khtml/kpartplugins/plugin_validators.rc
+%{_datadir}/apps/khtml/kpartplugins/plugin_webarchiver.desktop
+%{_datadir}/apps/khtml/kpartplugins/plugin_webarchiver.rc
+%{_datadir}/apps/khtml/kpartplugins/uachangerplugin.desktop
+%{_datadir}/apps/khtml/kpartplugins/uachangerplugin.rc
 %{_datadir}/apps/kbookmark
 %{_datadir}/apps/kcmcss
 %{_datadir}/apps/keditbookmarks
 %{_datadir}/apps/konqueror/about
+%{_datadir}/apps/konqueror/icons
+%{_datadir}/apps/konqueror/kpartplugins
+%{_datadir}/apps/konqueror/opensearch
 %{_datadir}/apps/konqueror/pics
 %{_datadir}/apps/konqueror/profiles
 %{_datadir}/apps/konqueror/konqueror.rc
 %{_datadir}/apps/konqsidebartng
 %{_datadir}/apps/kwebkitpart/kpartplugins
-%dir %{_datadir}/apps/plugin
-%{_datadir}/apps/plugin/nspluginpart.rc
 %{_datadir}/autostart/konqy_preload.desktop
 %{_datadir}/config/konqsidebartngrc
+%{_datadir}/config/translaterc
 %{_datadir}/config.kcfg/keditbookmarks.kcfg
 %{_datadir}/config.kcfg/konqueror.kcfg
+%{_datadir}/config.kcfg/validators.kcfg
 %{_datadir}/kde4/servicetypes/konqaboutpage.desktop
 %{_datadir}/kde4/servicetypes/konqpopupmenuplugin.desktop
 %{_datadir}/kde4/servicetypes/konqdndpopupmenuplugin.desktop
-%{_datadir}/kde4/servicetypes/terminalemulator.desktop
 %{_datadir}/kde4/servicetypes/uasprovider.desktop
 %{_datadir}/kde4/services/useragentstrings
 %{_datadir}/kde4/services/bookmarks.desktop
@@ -499,6 +489,7 @@ fi
 %{_datadir}/kde4/services/cookies.desktop
 %{_datadir}/kde4/services/ebrowsing.desktop
 %{_datadir}/kde4/services/filebehavior.desktop
+%{_datadir}/kde4/services/fsview_part.desktop
 %{_datadir}/kde4/services/kcmhistory.desktop
 %{_datadir}/kde4/services/kcmkonqyperformance.desktop
 %{_datadir}/kde4/services/kcmperformance.desktop
@@ -517,6 +508,7 @@ fi
 %{_datadir}/kde4/services/proxy.desktop
 %{_datadir}/kde4/services/smb.desktop
 %{_datadir}/kde4/services/useragent.desktop
+%{_datadir}/kde4/services/webarchivethumbnail.desktop
 %{_datadir}/dbus-1/interfaces/org.kde.FavIcon.xml
 %{_datadir}/dbus-1/interfaces/org.kde.Konqueror.Main.xml
 %{_datadir}/dbus-1/interfaces/org.kde.Konqueror.MainWindow.xml
@@ -529,6 +521,12 @@ fi
 %{_desktopdir}/kde4/konqbrowser.desktop
 %{_desktopdir}/kde4/konquerorsu.desktop
 %{_iconsdir}/*/*/apps/konqueror.*
+%{_iconsdir}/*/*/actions/babelfish.*
+%{_iconsdir}/*/*/actions/cssvalidator.*
+%{_iconsdir}/*/*/actions/htmlvalidator.*
+%{_iconsdir}/*/*/actions/imagegallery.*
+%{_iconsdir}/*/*/actions/validators.*
+%{_iconsdir}/*/*/actions/webarchiver.*
 %{_kdedocdir}/en/konqueror
 # testing
 %attr(755,root,root) %{_libdir}/kde4/konq_sidebar.so
