@@ -23,6 +23,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version
 # Source0-md5:	0dfcfd5acf5ceea87ff2f21e859447b6
 Patch100:	%{name}-branch.diff
 URL:		http://www.kde.org/
+BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtNetwork-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	bzip2-devel
