@@ -473,6 +473,7 @@ fi
 %{_datadir}/apps/konqueror/profiles
 %{_datadir}/apps/konqueror/konqueror.rc
 %{_datadir}/apps/konqsidebartng
+%{_datadir}/apps/kwebkitpart
 %{_datadir}/apps/kwebkitpart/kpartplugins
 %{_datadir}/autostart/konqy_preload.desktop
 %{_datadir}/config/konqsidebartngrc
