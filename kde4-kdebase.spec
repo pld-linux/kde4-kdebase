@@ -3,7 +3,7 @@
 #
 %define		_state		stable
 %define		orgname		kde-baseapps
-%define		qtver		4.7.4
+%define		qtver		4.8.0
 
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):	K Desktop Environment - archivos básicos
@@ -15,12 +15,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.7.4
+Version:	4.8.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	d44310cad99a9afb757ff13f24eeae32
+# Source0-md5:	6d3f3d4e030aa2aa690b6fc3124b5832
 Patch100:	%{name}-branch.diff
 URL:		http://www.kde.org/
 BuildRequires:	QtCore-devel >= %{qtver}
@@ -375,7 +375,14 @@ fi
 %{_datadir}/apps/dolphin/dolphinui.rc
 %dir %{_datadir}/apps/dolphinpart
 %{_datadir}/apps/dolphinpart/dolphinpart.rc
-%{_datadir}/config.kcfg/dolphin_columnmodesettings.kcfg
+%dir %{_datadir}/apps/dolphinpart/kpartplugins
+%{_datadir}/apps/dolphinpart/kpartplugins/dirfilterplugin.desktop
+%{_datadir}/apps/dolphinpart/kpartplugins/dirfilterplugin.rc
+%{_datadir}/apps/dolphinpart/kpartplugins/kimgalleryplugin.desktop
+%{_datadir}/apps/dolphinpart/kpartplugins/kimgalleryplugin.rc
+%{_datadir}/apps/dolphinpart/kpartplugins/kshellcmdplugin.desktop
+%{_datadir}/apps/dolphinpart/kpartplugins/kshellcmdplugin.rc
+%{_datadir}/config.kcfg/dolphin_compactmodesettings.kcfg
 %{_datadir}/config.kcfg/dolphin_versioncontrolsettings.kcfg
 %{_datadir}/config.kcfg/dolphin_detailsmodesettings.kcfg
 %{_datadir}/config.kcfg/dolphin_directoryviewpropertysettings.kcfg
@@ -389,13 +396,6 @@ fi
 %{_datadir}/kde4/services/filenamesearch.protocol
 %{_desktopdir}/kde4/dolphin.desktop
 %{_kdedocdir}/en/dolphin
-%dir %{_datadir}/apps/dolphinpart/kpartplugins
-%{_datadir}/apps/dolphinpart/kpartplugins/dirfilterplugin.desktop
-%{_datadir}/apps/dolphinpart/kpartplugins/dirfilterplugin.rc
-%{_datadir}/apps/dolphinpart/kpartplugins/kimgalleryplugin.desktop
-%{_datadir}/apps/dolphinpart/kpartplugins/kimgalleryplugin.rc
-%{_datadir}/apps/dolphinpart/kpartplugins/kshellcmdplugin.desktop
-%{_datadir}/apps/dolphinpart/kpartplugins/kshellcmdplugin.rc
 
 %files -n kde4-konqueror
 %defattr(644,root,root,755)
@@ -474,7 +474,6 @@ fi
 %{_datadir}/apps/konqueror/konqueror.rc
 %{_datadir}/apps/konqsidebartng
 %{_datadir}/apps/kwebkitpart
-%{_datadir}/apps/kwebkitpart/kpartplugins
 %{_datadir}/autostart/konqy_preload.desktop
 %{_datadir}/config/konqsidebartngrc
 %{_datadir}/config/translaterc
