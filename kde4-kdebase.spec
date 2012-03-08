@@ -19,7 +19,7 @@ Version:	4.8.1
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/xz/%{orgname}-%{version}.tar.xz
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
 # Source0-md5:	f9421df243f935ab7076fe7be7572cec
 Patch100:	%{name}-branch.diff
 URL:		http://www.kde.org/
