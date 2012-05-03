@@ -3,7 +3,7 @@
 #
 %define		_state		stable
 %define		orgname		kde-baseapps
-%define		qtver		4.8.0
+%define		qtver		4.8.1
 
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):	K Desktop Environment - archivos básicos
@@ -15,12 +15,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.8.2
+Version:	4.8.3
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
-# Source0-md5:	561cf69f77973262dcda3ca7e79af5ce
+# Source0-md5:	c0a92dd1c23af86e07e2541f4a8bc07e
 Patch100:	%{name}-branch.diff
 URL:		http://www.kde.org/
 BuildRequires:	QtCore-devel >= %{qtver}
