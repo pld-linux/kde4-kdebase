@@ -15,12 +15,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.8.3
+Version:	4.8.4
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
-# Source0-md5:	c0a92dd1c23af86e07e2541f4a8bc07e
+# Source0-md5:	52295cc1545520c42ea9642b03de4f3b
 Patch100:	%{name}-branch.diff
 URL:		http://www.kde.org/
 BuildRequires:	QtCore-devel >= %{qtver}
