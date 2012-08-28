@@ -16,7 +16,7 @@ Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
 Version:	4.9.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
@@ -189,6 +189,7 @@ Requires:	kde4-konqueror-libs = %{version}-%{release}
 Provides:	wwwbrowser
 Obsoletes:	konqueror < 9:3.0.0
 Obsoletes:	konqueror >= 4.0.0
+Obsoletes:	kde4-kdegraphics-kfile < 4.6.100-1
 
 %description -n kde4-konqueror
 Konqueror is the file manager for the K Desktop Environment. It
