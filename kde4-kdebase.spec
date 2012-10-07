@@ -15,12 +15,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.9.1
+Version:	4.9.2
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
-# Source0-md5:	5a6c2ac9d06b2b2603c6de3af315f10e
+# Source0-md5:	1f000276161ff368b27386d3b2ebf0dd
 Patch100:	%{name}-branch.diff
 URL:		http://www.kde.org/
 BuildRequires:	QtCore-devel >= %{qtver}
@@ -319,6 +319,7 @@ fi
 %{_desktopdir}/kde4/kfmclient_war.desktop
 %exclude %{_iconsdir}/*/scalable
 %{_iconsdir}/*/*/apps/*.png
+%exclude %{_iconsdir}/*/*/apps/konqueror.png
 %{_iconsdir}/*/*/apps/*.svgz
 %{_mandir}/man1/kbookmarkmerger.1.*
 
