@@ -15,14 +15,13 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.9.4
-Release:	2
+Version:	4.9.5
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
-# Source0-md5:	a8fb5329986598d155e9861ea638da65
+# Source0-md5:	510440a4efc787e3fbb7d13e24ce821c
 Patch100:	%{name}-branch.diff
-Patch0:		kde-baseapps-4.9.4-fix-bugs-311206-311246.diff
 URL:		http://www.kde.org/
 BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtNetwork-devel >= %{qtver}
@@ -249,7 +248,6 @@ Biblioteki współdzielone konquerora.
 %prep
 %setup -q -n %{orgname}-%{version}
 #%patch100 -p0
-%patch0 -p1
 
 for f in $(find . -name '*.desktop'); do
 	if grep -q '\[ven\]' $f; then
