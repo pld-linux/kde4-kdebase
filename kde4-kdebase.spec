@@ -15,12 +15,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.9.5
+Version:	4.10.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
-# Source0-md5:	510440a4efc787e3fbb7d13e24ce821c
+# Source0-md5:	b7ce9289f36322b8728278529496c4ec
 Patch100:	%{name}-branch.diff
 URL:		http://www.kde.org/
 BuildRequires:	QtCore-devel >= %{qtver}
@@ -34,6 +34,7 @@ BuildRequires:	docbook-dtd42-xml
 BuildRequires:	docbook-style-xsl
 BuildRequires:	kde4-kdebase-workspace-devel >= %{version}
 BuildRequires:	kde4-kdelibs-devel >= %{version}
+BuildRequires:	kde4-nepomuk-widgets-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	libxml2-progs
@@ -307,10 +308,6 @@ fi
 %{_datadir}/apps/kcontrol/pics/overlapping.png
 %{_datadir}/apps/khtml/kpartplugins/khtmlkttsd.desktop
 %{_datadir}/apps/khtml/kpartplugins/khtmlkttsd.rc
-%{_datadir}/apps/kconf_update/favicons.upd
-%{_datadir}/apps/kconf_update/kfmclient_3_2.upd
-%{_datadir}/apps/kconf_update/kfmclient_3_2_update.sh
-%{_datadir}/apps/kconf_update/move_favicons.sh
 %{_datadir}/templates
 %{_desktopdir}/kde4/Home.desktop
 %{_desktopdir}/kde4/kfmclient.desktop
