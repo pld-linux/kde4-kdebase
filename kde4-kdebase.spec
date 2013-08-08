@@ -15,12 +15,12 @@ Summary(ru.UTF-8):	K Desktop Environment - базовые файлы
 Summary(uk.UTF-8):	K Desktop Environment - базові файли
 Summary(zh_CN.UTF-8):	KDE核心
 Name:		kde4-kdebase
-Version:	4.10.5
+Version:	4.11.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
-# Source0-md5:	e6af8ebc2f994d3e2fd4be6474125b71
+# Source0-md5:	819f2ea72416e000b5171a6a867b7e81
 Patch100:	%{name}-branch.diff
 URL:		http://www.kde.org/
 BuildRequires:	QtCore-devel >= %{qtver}
@@ -449,12 +449,12 @@ fi
 %{_datadir}/apps/khtml/kpartplugins/minitoolsplugin.rc
 %{_datadir}/apps/khtml/kpartplugins/plugin_adblock.desktop
 %{_datadir}/apps/khtml/kpartplugins/plugin_adblock.rc
-%{_datadir}/apps/khtml/kpartplugins/plugin_babelfish.desktop
 %{_datadir}/apps/khtml/kpartplugins/plugin_babelfish.rc
 %{_datadir}/apps/khtml/kpartplugins/plugin_domtreeviewer.desktop
 %{_datadir}/apps/khtml/kpartplugins/plugin_domtreeviewer.rc
 %{_datadir}/apps/khtml/kpartplugins/plugin_rellinks.desktop
 %{_datadir}/apps/khtml/kpartplugins/plugin_rellinks.rc
+%{_datadir}/apps/khtml/kpartplugins/plugin_translator.desktop
 %{_datadir}/apps/khtml/kpartplugins/plugin_validators.desktop
 %{_datadir}/apps/khtml/kpartplugins/plugin_validators.rc
 %{_datadir}/apps/khtml/kpartplugins/plugin_webarchiver.desktop
