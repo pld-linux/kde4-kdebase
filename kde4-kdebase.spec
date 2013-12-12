@@ -4,6 +4,7 @@
 %define		_state		stable
 %define		orgname		kde-baseapps
 %define		qtver		4.8.3
+%define		kdeworkspacever	4.11.0
 
 Summary:	K Desktop Environment - core files
 Summary(es.UTF-8):	K Desktop Environment - archivos básicos
@@ -32,7 +33,7 @@ BuildRequires:	cyrus-sasl-devel
 BuildRequires:	db-devel
 BuildRequires:	docbook-dtd42-xml
 BuildRequires:	docbook-style-xsl
-BuildRequires:	kde4-kdebase-workspace-devel >= %{version}
+BuildRequires:	kde4-kdebase-workspace-devel >= %{kdeworkspacever}
 BuildRequires:	kde4-kdelibs-devel >= %{version}
 BuildRequires:	kde4-nepomuk-widgets-devel >= %{version}
 BuildRequires:	libstdc++-devel
